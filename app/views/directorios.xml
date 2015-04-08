@@ -1,0 +1,8 @@
+<Alloy>
+	<Window>
+		<View class="container">
+			<Button id="menu" onClick="cerrarVentana">Menu</Button>
+			<Label id="titulo">Medicos Afiliados</Label>
+		</View>
+	</Window>
+</Alloy>

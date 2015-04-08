@@ -1,0 +1,24 @@
+".container" : {
+  backgroundColor: 'gray',
+},
+"#menu": {
+	
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize: 15,
+		fontWeight: 'Bold'
+	},
+	color: 'white',
+	left: 10,
+	top : 20
+	
+},
+"#titulo":{
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize: 15,
+		fontWeight: 'Light'
+	},
+	color: 'white',
+	top:30
+}

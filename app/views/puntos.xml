@@ -1,0 +1,8 @@
+<Alloy>
+	<Window>
+		<View class="container">
+			<Button id="menu" onClick="cerrarVentana">Menu</Button>
+			<Label id="titulo">Puntos de Venta</Label>
+		</View>
+	</Window>
+</Alloy>

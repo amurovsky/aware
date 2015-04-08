@@ -1,0 +1,22 @@
+<Alloy>
+	
+	<Window class="container" title="Aware">
+		<ImageView id="profileImg"></ImageView>
+		<Label id="profileName">Ana María López</Label>
+		<Label id="profileMail">anamaria_loop@hotmail.com</Label>
+		<Button id="videos" onClick="menu">Videos Tutoriales</Button>
+		<View id="vidSeparator"></View>
+		<Button id="articulos" onClick="menu">Articulos de Interés</Button>
+		<View id="artSeparator"></View>
+		<Button id="puntos" onClick="menu">Puntos de Venta</Button>
+		<View id="punSeparator"></View>
+		<Button id="regala" onClick="menu">Regala Salud</Button>
+		<View id="regSeparator"></View>
+		<Button id="directorios" onClick="menu">Directorio de Doctores</Button>
+		<ImageView id="calendar"></ImageView>
+		<Label id="comprasteLabel">Compraste tu Aware® Pad el</Label>
+		<Label id="fechaLabel">05 / Nov / 14</Label>
+		<Button id="cambiarFechaButton" onClick="showPicker">cambiar fecha</Button>
+		<View id="fechaUnderline"></View>
+	</Window>
+</Alloy>

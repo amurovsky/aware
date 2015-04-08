@@ -1,0 +1,50 @@
+"window[platform=ios]":{
+	statusBarStyle: 'Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT' 
+	
+},
+".container":{
+	backgroundColor: 'pink',
+	top: 0,
+	height: 60
+},
+"#menuButton": {
+backgroundColor: 'pink',
+borderColor: 'white',
+borderWidth: '1%',
+borderRadius: '5%',	
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize: 15,
+		fontWeight: 'Bold'
+	},
+	color: 'white',
+	left: 5,
+	height : '80%'
+	
+},
+"#titulo":{
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize: 15,
+		fontWeight: 'Light'
+	},
+	color: 'white',
+},
+"#tablaConteiner":{
+	top: 260
+},
+"#tablaVideos": {
+	backgroundColor: 'pink',
+	separatorColor: 'white'
+	
+},
+"#lastVideo": {
+	backgroundColor: 'white',
+	height: 200,
+	top:60
+},
+"#lastVideoLabel": {
+	font:{
+		fontSize: 20
+	}
+}

@@ -1,0 +1,8 @@
+<Alloy>
+	<Window>
+		<View class="container">
+			<Button id="menu" onClick="cerrarVentana">Menu</Button>
+			<Label id="titulo">Regala Salud</Label>
+		</View>
+	</Window>
+</Alloy>

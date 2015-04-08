@@ -1,0 +1,15 @@
+<Alloy>
+	<Window backgroundColor="#000" orientation="Titanium.UI.PORTRAIT">
+		<View class="container">
+			<Button id="menuButton" onClick="cerrarVentana">Menu</Button>
+			<Label id="titulo">Videos Tutoriales</Label>
+		</View>
+		<View id="lastVideo">
+			<Label id="lastVideoLabel">Ultimo Video</Label>
+		</View>
+		<View id="tablaConteiner">
+			<TableView id="tablaVideos">
+			</TableView>
+		</View>
+	</Window>
+</Alloy>
