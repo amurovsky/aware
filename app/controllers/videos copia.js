@@ -1,7 +1,6 @@
 var args = arguments[0] || {};
 var osname = Ti.Platform.osname;
 var icomoonlib = require('icomoonlib');
-var Animator = require("Animator");
 var activeMovie;
 
 // Obtenemos las dimensiones del dispositivo
@@ -12,20 +11,7 @@ var screenHeight = Alloy.Globals.deviceHeight;
 
 function cerrarVentana(){
 	if (osname !== 'android') {activeMovie.stop();};
-	 //new Animator().moveTo({view:$.videosView, value:{x:-(Ti.Platform.displayCaps.platformWidth),y:0},duration:500,onComplete:$.videosView.hide()});
-	 
-	var t = Ti.UI.create2DMatrix();
-		t = t.translate(-(Ti.Platform.displayCaps.platformWidth), 0); 
-
-    var animation = Ti.UI.createAnimation({transform: t, duration: 500});
-    $.videosView.animate(animation);
-    animation.addEventListener('complete',function(){
-    	//$.videosView.hide();
-    	Alloy.Globals.navigator.goBack();
-    });
-    
-
-	//$.videosView.hide();
+	$.videosView.hide();
 }
 
 if (osname !== 'android') {
@@ -39,13 +25,7 @@ var datosTabla = [{title:'',subtitle:'',duration:''},
 				  
 var tabla = $.tablaVideos;
 var tableArray = [];
-var tableImg;
-if (osname === 'android') {
-	tableImg =['secondPreview@3x.png','thirdPreview@3x.png'];
-}else{
-	tableImg =['secondPreview.png','thirdPreview.png'];
-};
-
+var tableImg =['secondPreview.png','thirdPreview.png'];
 for (var i=0; i < datosTabla.length; i++) {
 
   if (i == 0) {
@@ -175,13 +155,13 @@ for (var i=0; i < datosTabla.length; i++) {
  	 rows.add(conteinerSeparator);
   };
   if (i>1) {
-	  var rows = Ti.UI.createTableViewRow({
+  	  var rows = Ti.UI.createTableViewRow({
 		  	selectionStyle: 'none',
 		  	backgroundColor:'#fecce7', 
 		  	height:100
 		  	//height:(i == datosTabla.length -1) ? 110 : 100,
-	 });
-	 var rowBackground = Ti.UI.createView({
+ 	 });
+	  var rowBackground = Ti.UI.createView({
 	  		backgroundColor: 'white',
 	  		bottom: '10%',
 	  		//bottom:(i == datosTabla.length -1) ? '10%' : '',
@@ -190,16 +170,13 @@ for (var i=0; i < datosTabla.length; i++) {
 	  });
 	  var conteinerThumbnail = Ti.UI.createView({
 	  		width:'42%',
-	  		//left:0,
 	  });
 	  var conteinerTitles = Ti.UI.createView({
 	  		width:'45%',
 	  		layout:'vertical',
-	  		//left:'42%',
 	  });
 	  var conteinerShareIcon = Ti.UI.createView({
-	  		width:'13%',
-	  		//left:'87%'
+	  		width:'13%%',
 	  });
 	  var titulo = Titanium.UI.createLabel({
 	        text :datosTabla[i].title,
@@ -225,40 +202,48 @@ for (var i=0; i < datosTabla.length; i++) {
 	        	fontFamily:'Helvetica-Bold', fontSize:screenHeight * 0.016
 	        }
 	    });
-	  var thumbnail = Ti.UI.createView({
-	  		//image:'/all/' + tableImg[i-2],
-	  		backgroundImage:'/all/' + tableImg[i-2],
-	  		//backgroundColor:'gray',
-	  		height:'76%',
-	  		width:'85%'
-	  });
-	  var durationView = Ti.UI.createView({
-		 	opacity:0.8,
-		 	backgroundColor: 'black',
-		 	height:'30%',
-		 	width:'35%',
-		 	bottom:0,
-		 	right:0
-	 });
-	 var durationLabel = Ti.UI.createLabel({
-		 	color:'white',
-		 	text: datosTabla[i].duration,
-		 	font:{fontFamily:'HelveticaNeue', fontSize:screenHeight * 0.020}
+	 var thumbnail = Ti.UI.createImageView({
+	 		image:'/all/'+ tableImg[i-2],
+	 		//backgroundImage:'/all/'+ tableImg[i-2],
+	 		height:'76%',
+	 		width:'85%',
+			//left:'10%',
+			//top:'10%',
+			// bottom:'10%',
+			// right:'10%',
+			//height: '75.53%',
 	 }); 
-	  var shareIcon = icomoonlib.getIconAsLabel("Aware-Icons",
+	 
+	 var durationView = Ti.UI.createView({
+	 	opacity:0.8,
+	 	backgroundColor: 'black',
+	 	height:'30%',
+	 	width:'35%',
+	 	bottom:0,
+	 	right:0
+	 });
+	 
+	 var durationLabel = Ti.UI.createLabel({
+	 	color:'white',
+	 	text: datosTabla[i].duration,
+	 	font:{fontFamily:'HelveticaNeue', fontSize:screenHeight * 0.020}
+	 });
+		 
+	var shareIcon = icomoonlib.getIconAsLabel("Aware-Icons",
                                  "shareIcon",
                                  screenHeight * 0.045,
                                  {color:"#fcaed8",top:"5%",});
-                                 
+                                 	 
+	                            
+    thumbnail.add(durationView); 
+    durationView.add(durationLabel); 
+    rowBackground.add(conteinerThumbnail);  
+    rowBackground.add(conteinerTitles); 
+    rowBackground.add(conteinerShareIcon); 
+    conteinerThumbnail.add(thumbnail);
     conteinerTitles.add(titulo);
     conteinerTitles.add(subtitulo);
-    durationView.add(durationLabel);                                   
-	thumbnail.add(durationView);
-	conteinerThumbnail.add(thumbnail); 
-	conteinerShareIcon.add(shareIcon);
-    rowBackground.add(conteinerThumbnail);  
-    rowBackground.add(conteinerTitles);  
-    rowBackground.add(conteinerShareIcon);                          
+    conteinerShareIcon.add(shareIcon);                             
     rows.add(rowBackground);
     rows.height = '100';
   };
@@ -295,6 +280,4 @@ expandIcon.addEventListener('click',function(e){
 });         
 
 
-this.close = function(){
-	$.destroy();
-};                     
+                     

@@ -1,0 +1,41 @@
+<Alloy>
+	
+	<View class="container">
+		<ImageView id="logoutButton"></ImageView>
+		<ImageView id="profileImg"></ImageView>
+		<Label id="profileName">Ana María López</Label>
+		<Label id="profileMail">anamaria_loop@hotmail.com</Label>
+		<Button id="videos" onClick="menu">Videos Tutoriales</Button>
+		<View id="vidSeparator"></View>
+		<Button id="articulos" onClick="menu">Articulos de Interés</Button>
+		<View id="artSeparator"></View>
+		<Button id="puntos" onClick="menu">Puntos de Venta</Button>
+		<View id="punSeparator"></View>
+		<Button id="regala" onClick="menu">Regala Salud</Button>
+		<View id="regSeparator"></View>
+		<Button id="directorios" onClick="menu">Directorio de Doctores</Button>
+		<View id="footer">
+			<View id="fechaCiclo">
+				<Label id="diaFechaCiclo" onClick="showPicker">05</Label>
+				<Label id="restoFechaCiclo">Nov / 2015</Label>
+			</View>
+			<View id="ciclo">
+				<ImageView id="cicloButton"></ImageView>
+				<Label id="tituloCiclo">Inicio de \nmi ciclo</Label>
+			</View>
+			<View id="compra">
+				<ImageView id="compraButton"></ImageView>
+				<Label id="tituloCompra">Compra de \nAware® Pad</Label>
+			</View>
+			<View id="fechaCompra">
+				<Label id="diaFechaCompra" onClick="showPicker">05</Label>
+				<Label id="restoFechaCompra">Nov / 2015</Label>
+			</View>
+		</View>
+		<!-- <ImageView id="calendar"></ImageView>
+		<Label id="comprasteLabel">Compraste tu Aware® Pad el</Label>
+		<Label id="fechaLabel">05 / Nov / 14</Label>
+		<Button id="cambiarFechaButton" onClick="showPicker">cambiar fecha</Button>
+		<View id="fechaUnderline"></View> -->
+	</View>
+</Alloy>
