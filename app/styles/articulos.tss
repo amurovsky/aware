@@ -1,5 +1,5 @@
 ".container" : {
-  backgroundColor: 'gray',
+  backgroundColor: '#fb8bc7',
 },
 "#menu": {
 	
@@ -21,4 +21,9 @@
 	},
 	color: 'white',
 	top:30
-}
+},
+"#articulosGrid":{
+	top:'10%'
+},"#tdg":{}
+
+

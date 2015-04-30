@@ -1,8 +1,10 @@
 <Alloy>
 	
 	<View class="container">
-		<ImageView id="logoutButton"></ImageView>
-		<ImageView id="profileImg"></ImageView>
+		<ImageView id="logoutButton" onClick="logout"></ImageView>
+		<View id="imageMask">
+			<ImageView id="profileImg"></ImageView>
+		</View>>
 		<Label id="profileName">Ana María López</Label>
 		<Label id="profileMail">anamaria_loop@hotmail.com</Label>
 		<Button id="videos" onClick="menu">Videos Tutoriales</Button>

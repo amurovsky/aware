@@ -1,0 +1,5 @@
+<Alloy>
+	<View class="container">
+		<Button id="loginButton" onClick="login">Ingresa con Facebook</Button>
+	</View>
+</Alloy>

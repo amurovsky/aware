@@ -2,5 +2,9 @@
 		<View class="container">
 			<Button id="menu" onClick="cerrarVentana">Menu</Button>
 			<Label id="titulo">Articulos de Interes</Label>
+			<View id="articulosGrid">
+				<Require type="widget" src="com.prodz.tidynamicgrid" id="tdg"/>
+			</View>
+			
 		</View>
 </Alloy>

@@ -4,42 +4,39 @@ var args = arguments[0] || {};
 var Animator = require("Animator");
 var moment = require('alloy/moment');
 var icomoonlib = require('icomoonlib');
+var facebook = Alloy.Globals.Facebook;
 var osname = Ti.Platform.osname;
 var footer = $.footer;
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 
+//-------- ProfileImage && Username && Email ----------------//
+$.profileImg.image = Ti.App.Properties.getString('profileImg');
+$.profileName.text = Ti.App.Properties.getString('userName');
+$.profileMail.text = Ti.App.Properties.getString('email');
+//-------- Logout -------------------//
+function logout (e) {	
+	Ti.API.info('ADIOS');	
 
-//new Animator().moveTo({view:footer,value:{x:(Ti.Platform.displayCaps.platformWidth * 0.5), y:0}, duration:1000,delay:2000});
-// new Animator().sequence([
-	// {
-		// type:'moveTo',
-		// view:footer,
-		// value:{x:(Ti.Platform.displayCaps.platformWidth * 0.5),y:0},
-		// duration:1000,
-		// delay:2000},
-	// {
-		// type:'moveTo',
-		// view:footer,
-		// value:{x:0,y:0},
-		// duration:1000,
-		// delay:2000},
-	// {
-		// type:'moveTo',
-		// view:footer,
-		// value:{x:-(Ti.Platform.displayCaps.platformWidth * 0.5),y:0},
-		// duration:1000,
-		// delay:2000},
-	// {
-		// type:'moveTo',
-		// view:footer,
-		// value:{x:0,y:0},
-		// duration:1000,
-		// delay:2000},
-// ]);
+facebook.addEventListener('logout', facebookLogoutHandler);
+    // The facebook logout handler
+function facebookLogoutHandler(e) {
+    if (e.success) {
+        // Success, clear the facebook browser cookies so someone else
+        // can login later, if the browser fallback is used
+        var client = Titanium.Network.createHTTPClient();
+        client.clearCookies('https://login.facebook.com');
+    } else if (e.error) {
+        // Error!
+        alert(e.error);
+    } 
+}
 
-
-
+	Ti.App.Properties.setString('name',null);
+	facebook.logout();
+	alert('Vuelve Pronto');
+	Alloy.Globals.navigator.openLogin();
+}
 // ------------------  Funcion para abrir las diferentes vistas del menu ------------------------------------- //
 function menu(e){
 	var boton = e.source;
@@ -56,10 +53,11 @@ function menu(e){
 				//new Animator().moveTo({view:videos, value:{x:Ti.Platform.displayCaps.platformWidth,y:0},duration:500});
 				
 		break;
-		// case 'articulos':
+		 case 'articulos':
 			// var articulos = Alloy.createController('articulos').getView();
 				// articulos.open({modal:true});
-		// break;
+				Alloy.Globals.navigator.openWindow('articulos');
+		 break;
 		// case 'puntos':
 			// var puntos = Alloy.createController('puntos').getView();
 				// puntos.open({modal:true});
@@ -346,7 +344,7 @@ function showPicker(e){
 				toolbar.add(b);
 				w.add(picker);
 				w.add(toolbar);
-				$.index.add(w);
+				$.menu.add(w);
 		
 	};
 }

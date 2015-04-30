@@ -8,7 +8,7 @@ var NavigatorComponent = function(){
 	
 	this.openHome = function(){
 		
-		oRef.openWindow('home', true);
+		oRef.openWindow('menu', true);
 	};
 	
 	this.openWindow = function(controllerName, removeStack, args){
@@ -34,7 +34,6 @@ var NavigatorComponent = function(){
 			}
 		};
 		controller.getView().addEventListener('postlayout', onViewOpen);
-		
 		controllerStack.push([controllerName, args]);
 		
 		Alloy.Globals.currentWindow.add(controller.getView());
@@ -89,7 +88,7 @@ var NavigatorComponent = function(){
 	
 	this.openLogin = function(){
 		if(Alloy.Globals.currentController == null || Alloy.Globals.currentController.name != 'login'){
-			Alloy.Globals.session.logout();
+			//Alloy.Globals.session.logout();
 			oRef.openWindow('login', true);
 		}
 	};

@@ -9,13 +9,13 @@ Alloy.Globals.currentController = null;
 
 var init = function(){
 	
-	// if(Ti.App.Properties.getObject('user') == null){
-		// Alloy.Globals.navigator.openLogin();
-	// }else{
-		// Alloy.Globals.navigator.openWindow('survey');
-	// }
+	if(Ti.App.Properties.getObject('userName') == null){
+		Alloy.Globals.navigator.openLogin();
+	}else{
+		Alloy.Globals.navigator.openWindow('menu');
+	}
 	
-	Alloy.Globals.navigator.openWindow('menu');
+	//Alloy.Globals.navigator.openWindow('menu');
 	
 	$.index.open();
 	

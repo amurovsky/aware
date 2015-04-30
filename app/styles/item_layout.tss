@@ -1,0 +1,38 @@
+"#mainView":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.SIZE,
+	layout:'vertical',
+	backgroundColor:'transparent',
+	zIndex:0
+},
+"#thumb":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.SIZE
+},
+"#title":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.SIZE,
+	font:{fontSize:13},
+	left:5,
+	right:5,
+	top:3,
+	color:'black'
+},
+"#subtitle":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.SIZE,
+	font:{fontSize:11},
+	left:5,
+	right:5,
+	top:0,
+	bottom:5,
+	color:'#fb8ac7'
+},
+"#likes":{
+	top:10,
+	left:5,
+	font:{fontSize:12},
+	color:'white',
+},
+
+

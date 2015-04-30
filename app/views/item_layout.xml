@@ -1,0 +1,9 @@
+<Alloy>
+	<View id="mainView">
+			<ImageView id="thumb">
+				<Label id="likes">♡ 666</Label>
+			</ImageView>
+			<Label id="title"></Label>
+			<Label id="subtitle"></Label>
+	</View>	
+</Alloy>

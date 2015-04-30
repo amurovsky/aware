@@ -8,6 +8,7 @@
   "os:ios": {},
   "os:mobileweb": {},
   "dependencies": {
-    "ytPlayer": "1.0"
+    "ytPlayer": "1.0",
+    "com.prodz.tidynamicgrid": "1.0"
   }
 }

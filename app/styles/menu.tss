@@ -59,26 +59,29 @@
 	textAlign:'center',
 	color:'#ff82c8',
 	top:'1%'
+},"#profileImg[platform=ios]":{
+	//borderRadius: 40,
+	image: '/all/profilePic.png',
+	//top: '8%',
+	//height: 86,
+	//width: 80
+	width:'200%'
+	
 },
 //--------------- Estilos IOS -----------------------//
 ".container[platform=ios]":{
 	backgroundImage:'/all/fondoMenu.png',
 	
-
-},"#profileImg[platform=ios]":{
-	borderRadius: 40,
-	image: '/all/profilePic.png',
-	top: '8%',
-	height: 80,
-	width: 80
-	
-},"#profileImg[if=Alloy.Globals.iphoneSmall]":{
-	borderRadius: 30,
-	image: '/all/profilePic.png',
-	top: '8%',
-	height: 60,
-	width: 60
-	
+},"#imageMask[platform=ios]":{
+	height:86,
+	width:86,
+	top:'8%',
+	borderRadius:43,
+},"#imageMask[if=Alloy.Globals.iphoneSmall]":{
+	height:66,
+	width:66,
+	top:'8%',
+	borderRadius:33,
 },"#profileName[platform=ios]":{
 	top:'22%',
 	color: 'white',
@@ -253,13 +256,11 @@
 	backgroundImage: 'NONE',
 	color: 'white',
 
-},"#profileImg[platform=android]":{
-	borderRadius: 30,
-	image: '/all/profilePic.png',
-	top: '5%',
-	height: 60,
-	width: 60
-	
+},"#imageMask[platform=android]":{
+	height:66,
+	width:66,
+	top:'5%',
+	borderRadius:33,
 },"#profileName[platform=android]":{
 	top:'18%',
 	color: 'white',

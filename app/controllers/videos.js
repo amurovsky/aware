@@ -14,17 +14,19 @@ function cerrarVentana(){
 	if (osname !== 'android') {activeMovie.stop();};
 	 //new Animator().moveTo({view:$.videosView, value:{x:-(Ti.Platform.displayCaps.platformWidth),y:0},duration:500,onComplete:$.videosView.hide()});
 	 
-	var t = Ti.UI.create2DMatrix();
-		t = t.translate(-(Ti.Platform.displayCaps.platformWidth), 0); 
-
-    var animation = Ti.UI.createAnimation({transform: t, duration: 500});
-    $.videosView.animate(animation);
-    animation.addEventListener('complete',function(){
-    	//$.videosView.hide();
-    	Alloy.Globals.navigator.goBack();
-    });
+	// var t = Ti.UI.create2DMatrix();
+		// t = t.translate(-(Ti.Platform.displayCaps.platformWidth), 0); 
+// 	
+// 	
+    // var animation = Ti.UI.createAnimation({transform: t, duration: 500});
+    // $.videosView.animate(animation);
     
-
+    // animation.addEventListener('complete',function(){
+    	// //$.videosView.hide();
+    	// Alloy.Globals.navigator.goBack();
+    // });
+    
+	Alloy.Globals.navigator.goBack();
 	//$.videosView.hide();
 }
 
@@ -91,7 +93,7 @@ for (var i=0; i < datosTabla.length; i++) {
 		rows.add(imagen);
 		rows.add(gradientView);
 	};
-	var expandIcon = icomoonlib.getIconAsLabel("Aware-Icons","expandIcon",screenHeight * 0.060,{color:"#fb8ac7",bottom:"5%",right:"5%"});
+	var expandIcon = icomoonlib.getIconAsLabel("Aware-Icons","expandIcon",screenHeight * 0.037,{color:"#fb8ac7",bottom:"6%",right:"5%"});
 	
  	 var nombreVideo1 = Ti.UI.createLabel({
  	 	color: 'white',
@@ -247,8 +249,8 @@ for (var i=0; i < datosTabla.length; i++) {
 	 }); 
 	  var shareIcon = icomoonlib.getIconAsLabel("Aware-Icons",
                                  "shareIcon",
-                                 screenHeight * 0.045,
-                                 {color:"#fcaed8",top:"5%",});
+                                 screenHeight * 0.025,
+                                 {color:"#fcaed8",top:"10%",});
                                  
     conteinerTitles.add(titulo);
     conteinerTitles.add(subtitulo);
@@ -271,19 +273,29 @@ tabla.data = tableArray;
 $.tablaConteiner.add(tabla);
 var player = (osname === 'android') ? require('titutorial.youtubeplayer') : require('it.scsoft.tiyoutube');
 
+var get_yt_clip = require('/get_yt_clip');
+
 tabla.addEventListener('click',function(e){
 	Ti.API.info('Index: '+ e.index);
 	if (e.index == 2) {
 		if (osname === 'android') {
 			player.playVideo('n1JxsgqTQ9g');
 		}else{
-			player.openVideo({url:'https://www.youtube.com/watch?v=n1JxsgqTQ9g'});
+			//player.openVideo({url:'https://www.youtube.com/watch?v=n1JxsgqTQ9g'});
+			get_yt_clip('n1JxsgqTQ9g', function(err, clip_url) {
+        if (!err && clip_url) {
+            videoPlayer.url = clip_url;
+            videoPlayer.play();
+        }
+        else {
+            console.error(err);
+        }
+    });
 		}
 		
 	};
 	
 });
-
      
 expandIcon.addEventListener('click',function(e){
 	if (osname === 'android') {
@@ -293,6 +305,10 @@ expandIcon.addEventListener('click',function(e){
 	}
 	
 });         
+Ti.API.info(player);
+player.addEventListener('finish',function(e){
+	alert('Termino el Video');
+});
 
 
 this.close = function(){
