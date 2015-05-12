@@ -11,9 +11,9 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>1c3e0c8b-99e0-47d5-9655-2b85fc6318d6</guid>
+    <guid>ab92383b-11b9-4c8d-9bbb-4175e240167d</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
-    <property name="ti.facebook.appid">1578769952395626</property>
+    <property name="ti.facebook.appid">100119266991535</property>
     <ios>
         <plist>
             <dict>
@@ -36,13 +36,36 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <!-- Application ID same as the id value in the tiapp.xml file -->
+                        <string>100119266991535</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <!-- Prefix the Facebook App ID with 'fb' -->
+                            <string>fb100119266991535</string>
+                        </array>
+                    </dict>
+                </array>
+                <key>FacebookAppID</key>
+                <!-- Facebook App ID -->
+                <string>100119266991535</string>
+                <key>FacebookDisplayName</key>
+                <!-- Facebook App Name from developer.facebook.com -->
+                <string>Aware App</string>
             </dict>
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
         <manifest>
-            <application android:theme="@style/Theme.AppCompat.Light.NoActionBar"></application>
-    		<use-sdk android:minSdkVersion="14" android:targetSdkVersion ="20"/>
+            <application android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+                <activity android:label="Aware App"
+                    android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+                <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+            </application>
+            <use-sdk android:minSdkVersion="14" android:targetSdkVersion="20"/>
         </manifest>
     </android>
     <mobileweb>
@@ -56,12 +79,13 @@
     <modules>
         <module platform="android">titutorial.youtubeplayer</module>
         <module platform="iphone">it.scsoft.tiyoutube</module>
+        <module platform="iphone">dk.napp.social</module>
         <module platform="android">facebook</module>
         <module platform="iphone">facebook</module>
     </modules>
     <deployment-targets>
-        <target device="android">true</target>
         <target device="blackberry">false</target>
+        <target device="android">true</target>
         <target device="ipad">false</target>
         <target device="iphone">true</target>
         <target device="mobileweb">false</target>
@@ -70,4 +94,6 @@
     <plugins>
         <plugin version="1.0">ti.alloy</plugin>
     </plugins>
+    <property name="appc-app-id" type="string">554a291971ccd24d7c7ee474</property>
+    <property name="appc-security-jailbreak-detect">false</property>
 </ti:app>

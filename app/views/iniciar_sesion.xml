@@ -1,0 +1,19 @@
+<Alloy>
+	<View class="container">
+		<View id="div_nav">
+		    <Button id="btn_back" onTouchstart="back_down" onTouchend="back_up"></Button>
+		    <Label id="lbl_titulo">Iniciar Sesión</Label>
+		    <Button id="btn_acceder" onClick="acceder">Acceder</Button>
+		</View>
+		<View id="div_main">
+		    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
+		    <TextField id="txt_email"></TextField>
+		    <TextField id="txt_contrasena"></TextField>
+		    <Button id="btn_olvide">¿Olvidaste tu contraseña?</Button>
+		    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
+		    <View id="div_registrate">
+				<Button id="btn_registrate">Registrate</Button>
+			</View>
+		</View>
+	</View>
+</Alloy>

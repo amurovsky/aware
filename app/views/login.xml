@@ -1,5 +1,17 @@
 <Alloy>
 	<View class="container">
-		<Button id="loginButton" onClick="login">Ingresa con Facebook</Button>
+		<View id="div_main">
+			<Button id="btn_saltar" onClick="saltar">Saltar</Button>
+			<Label id="lbl_logo">aware</Label>
+			<Label id="lbl_eslogan">Una app que será tu compañera</Label>
+		</View>
+		<View id="div_botones">
+			<View id="registro" onClick="abrirRegistro">
+				<Button id="btn_registro">Regístrate</Button>
+			</View>
+			<View id="sesion" onClick= "abrirSesion">
+				<Button id="btn_sesion">Iniciar Sesión</Button>
+			</View>
+		</View>
 	</View>
 </Alloy>

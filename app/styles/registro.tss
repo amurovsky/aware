@@ -1,0 +1,141 @@
+".container" : {
+  layout:'vertical'
+},
+"#div_nav":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'9.6%',
+},
+"#btn_back":{
+	bottom:0,
+	left:0,
+	height:'70%',
+	width:'20%',
+	color:'white',
+},
+"#lbl_titulo":{
+	bottom:'23%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+},
+"#btn_siguiente":{
+	bottom:'15%',
+	right:'5%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 15,
+	},
+},
+"#div_main":{
+	backgroundColor:'#fff0f8',
+},
+"#div_facebookBtn":{
+	 top:'11%',
+	 height:'8.5%',
+	 width:'93.6%',
+	 backgroundColor:'#3e5daf',
+	 borderRadius:2
+	 
+},
+"#btn_facebook":{
+	color:'white',
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	font:{
+		fontFamily: 'Raleway-Semibold',
+		fontSize: 15,
+	},
+},
+"#lbl_consentimiento":{
+	top:'21%',
+	color:'#797979',
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font:{
+		fontFamily: 'HelveticaNeue',
+		fontSize: 12,
+	},
+},
+"#linea1":{
+	backgroundColor:'#e6dde2',
+	top:'37.5%',
+	left:'3.4%',
+	height:1,
+	width:'42.13%',
+},
+"#separacion":{
+	top:'36%',
+	color:'#6e6e6e',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 14,
+	},
+},
+"#linea2":{
+	backgroundColor:'#e6dde2',
+	top:'37.5%',
+	right:'3.4%',
+	height:1,
+	width:'42.13%',
+},
+"#txt_nombre":{
+	top:'47.5%',
+	left:'3.4%',
+	width:'45.35%',
+	height:'7.5%',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Nombre',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+},
+"#txt_apellido":{
+	top:'47.5%',
+	right:'3.4%',
+	width:'45.35%',
+	height:'7.5%',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Apellido',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+	
+},
+"#txt_email":{
+	top:'56.49%',
+	height:'7.5%',
+	width:'93.6%',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Email',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+},
+"#txt_contrasena":{
+	top:'65.48%',
+	height:'7.5%',
+	width:'93.6%',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Contraseña',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+	
+},
+"#lbl_condiciones":{
+	top:'83%',
+	height:'7.5%',
+	color:'#797979',
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font:{
+		fontFamily: 'HelveticaNeue',
+		fontSize: 12,
+	},
+},

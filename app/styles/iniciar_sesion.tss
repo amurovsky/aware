@@ -1,0 +1,105 @@
+".container" : {
+  layout:'vertical'
+},
+"#div_nav":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'9.6%',
+},
+"#btn_back":{
+	bottom:0,
+	left:0,
+	height:'70%',
+	width:'20%',
+	color:'white',
+},
+"#lbl_titulo":{
+	bottom:'23%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+},
+"#btn_acceder":{
+	bottom:'15%',
+	right:'5%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 15,
+	},
+},
+"#div_main":{
+	backgroundColor:'#fff0f8',
+	layout:'vertical'
+},
+"#lbl_inicia":{
+	top:'7%',
+	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
+	color:'#797979',
+	width:Ti.UI.FILL,
+	font:{
+		fontFamily: 'HelveticaNeue-Regular',
+		fontSize: 12,
+	},
+},
+"#txt_email":{
+	top:'2.5%',
+	height:'7.5%',
+	width:'93.6%',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Email',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+},
+"#txt_contrasena":{
+	top:'1.8%',
+	height:'7.5%',
+	width:'93.6%',
+	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Contraseña',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 15,
+	},
+	
+},
+"#btn_olvide":{
+	top:'2.5%',
+	color:'#fa89c6',
+	width:Ti.UI.FILL,
+	font:{
+		fontFamily: 'HelveticaNeue-Bold',
+		fontSize: 12,
+	},
+},
+"#lbl_registrate":{
+	top:'26.5%',
+	color:'#929292',
+	width:Ti.UI.FILL,
+	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
+	font:{
+		fontFamily: 'HelveticaNeue-Regular',
+		fontSize: 12,
+	},
+},
+"#div_registrate":{
+	 top:'3%',
+	 height:'8.5%',
+	 width:'93.6%',
+	 backgroundColor:'#fa89c6',
+	 borderRadius:2
+	 
+},
+"#btn_registrate":{
+	color:'white',
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	font:{
+		fontFamily: 'Raleway-Semibold',
+		fontSize: 15,
+	},
+},

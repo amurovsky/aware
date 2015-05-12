@@ -81,7 +81,7 @@ var addGridItem = function(item){
 	$.tdgMain.add(tmpView);
 	
 	setTimeout(function(){
-		//Ti.API.info('Item Height is:' + tmpView.size.height);
+		Ti.API.info('Item Height is:' + tmpView.size.height);
 		
 		var frame = Ti.UI.createView({
 			width:Ti.UI.FILL,

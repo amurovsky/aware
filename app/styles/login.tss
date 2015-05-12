@@ -1,6 +1,66 @@
 ".container" : {
-	backgroundColor:'white'  
+	backgroundImage:'/all/fondoLogin.jpg'  
 },
-"#loginButton":{
-	
-}
+"#div_main":{
+	layout:'vertical'
+},
+"#btn_saltar":{
+	backgroundColor:'transparent',
+	top:'4%',
+	right:'5%',
+	color:'white',
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize: 15
+	}
+},
+"#lbl_logo":{
+	top:'27%',
+	color:'white',
+	font: {
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 68
+	}
+},
+"#lbl_eslogan":{
+	color:'white',
+	font: {
+		fontFamily: 'OpenSans',
+		fontSize: 15
+	}
+},
+"#div_botones":{
+	bottom:0,
+	height:'13.49%',
+	layout:'horizontal'
+},
+"#registro":{
+	left:-1,
+	width:'50%',
+	backgroundColor:'#fc79c2'
+},
+"#btn_registro":{
+	backgroundColor:'transparent',
+	color:'white',
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize: 14
+	}
+},
+"#sesion":{
+	left:0,
+	width:'50%',
+	backgroundColor:'white'
+},
+"#btn_sesion":{
+	backgroundColor:'transparent',
+	color:'#fc6dbd',
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize: 14
+	}
+},

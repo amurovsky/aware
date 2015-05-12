@@ -4,7 +4,7 @@ var args = arguments[0] || {};
 var Animator = require("Animator");
 var moment = require('alloy/moment');
 var icomoonlib = require('icomoonlib');
-var facebook = Alloy.Globals.Facebook;
+var fb = require('facebook');
 var osname = Ti.Platform.osname;
 var footer = $.footer;
 var screenWidth = Alloy.Globals.deviceWidth;
@@ -15,28 +15,17 @@ $.profileImg.image = Ti.App.Properties.getString('profileImg');
 $.profileName.text = Ti.App.Properties.getString('userName');
 $.profileMail.text = Ti.App.Properties.getString('email');
 //-------- Logout -------------------//
-function logout (e) {	
-	Ti.API.info('ADIOS');	
-
-facebook.addEventListener('logout', facebookLogoutHandler);
-    // The facebook logout handler
-function facebookLogoutHandler(e) {
-    if (e.success) {
-        // Success, clear the facebook browser cookies so someone else
-        // can login later, if the browser fallback is used
-        var client = Titanium.Network.createHTTPClient();
-        client.clearCookies('https://login.facebook.com');
-    } else if (e.error) {
-        // Error!
-        alert(e.error);
-    } 
+function logout_down (e) {
+  e.source.opacity=0.5;
 }
-
-	Ti.App.Properties.setString('name',null);
-	facebook.logout();
-	alert('Vuelve Pronto');
+function logout_up (e) {
+	e.source.opacity=1;	
+	Ti.API.info('ADIOS');
+	Ti.App.Properties.setString('userName',null);	
+	fb.logout();
 	Alloy.Globals.navigator.openLogin();
 }
+
 // ------------------  Funcion para abrir las diferentes vistas del menu ------------------------------------- //
 function menu(e){
 	var boton = e.source;
@@ -90,7 +79,7 @@ var compraButton = $.compraButton;
 var logoutButton = $.logoutButton;
 var cicloIcon  = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var compraIcon = icomoonlib.getIconAsBlob("Aware-Icons","compraIcon",screenHeight * 0.12,{color:"#ff82c8"});
-var logoutIcon = icomoonlib.getIconAsBlob("Aware-Icons","logoutIcon",screenHeight * 0.033,{color:"white"});
+var logoutIcon = icomoonlib.getIconAsBlob("Aware-Icons","logoutIcon",screenHeight * 0.035,{color:"white"});
 
 cicloButton.image = cicloIcon;
 compraButton.image = compraIcon;

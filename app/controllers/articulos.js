@@ -17,148 +17,148 @@ $.tdg.init({
 
 var items = [];
 
-    // var sample_data = [
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
-	        // image:'/gridImg/01.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
-	        // image:'/gridImg/02.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Do eiusmod tempor incididunt ut labore.', 
-	        // image:'/gridImg/03.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Consectetur adipisicing elit, sed do.', 
-	        // image:'/gridImg/04.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
-	        // image:'/gridImg/05.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
-	        // image:'/gridImg/06.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
-	        // image:'/gridImg/07.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
-	        // image:'/gridImg/08.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.', 
-	        // image:'/gridImg/09.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
-	        // image:'/gridImg/010.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.', 
-	        // image:'/gridImg/011.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet.', 
-	        // image:'/gridImg/012.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.', 
-	        // image:'/gridImg/013.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // //{title:'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image:'/gridImg/014.jpg', subtitle:'25 de noviembre 2015'}
-    // ];
-
-var sample_data = [
+    var sample_data = [
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
-	        image:'http://myrtlebeachbirthservices.com/wp-content/uploads/2014/10/breast-cancer-1.jpg', 
+	        image:'/gridImg/01.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
-	        image:'http://www.tunedbody.com/wp-content/uploads/2014/05/Breast-Cancer.jpg', 
+	        image:'/gridImg/02.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Do eiusmod tempor incididunt ut labore.', 
-	        image:'http://drhemi.com/wp-content/uploads/2012/10/Breast-Cancer-2.jpg', 
+	        image:'/gridImg/03.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Consectetur adipisicing elit, sed do.', 
-	        image:'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2011/12_2011/advanced_breast_cancer_treatments/493x335_advanced_breast_cancer_treatments.jpg', 
+	        image:'/gridImg/04.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
-	        image:'http://static.boredpanda.com/blog/wp-content/uploads/2014/10/breast-cancer-ads-16.jpg', 
+	        image:'/gridImg/05.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
-	        image:'http://www.thenaturesfarmacy.com/wp-content/uploads/2014/08/breast-cancer-health-1.jpg', 
+	        image:'/gridImg/06.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
-	        image:'http://womenadvancenc.org/wp-content/uploads/2014/10/Breast-cancer-survivor.jpg', 
+	        image:'/gridImg/07.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
-	        image:'http://cdn.inquisitr.com/wp-content/uploads/2012/03/breast-cancer-cadmium-study.jpg', 
+	        image:'/gridImg/08.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
         {
         	title:'Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.', 
-	        image:'http://i.huffpost.com/gen/1333122/thumbs/o-BREAST-CANCER-SURVIVOR-570.jpg?1', 
+	        image:'/gridImg/09.jpg', 
 	        subtitle:'25 de noviembre 2015'
         },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
-	        // image:'/gridImg/010.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.', 
-	        // image:'/gridImg/011.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet.', 
-	        // image:'/gridImg/012.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
-        // {
-        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.', 
-	        // image:'/gridImg/013.jpg', 
-	        // subtitle:'25 de noviembre 2015'
-        // },
+        {
+        	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
+	        image:'/gridImg/010.jpg', 
+	        subtitle:'25 de noviembre 2015'
+        },
+        {
+        	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.', 
+	        image:'/gridImg/011.jpg', 
+	        subtitle:'25 de noviembre 2015'
+        },
+        {
+        	title:'Lorem ipsum dolor sit amet.', 
+	        image:'/gridImg/012.jpg', 
+	        subtitle:'25 de noviembre 2015'
+        },
+        {
+        	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.', 
+	        image:'/gridImg/013.jpg', 
+	        subtitle:'25 de noviembre 2015'
+        },
         //{title:'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image:'/gridImg/014.jpg', subtitle:'25 de noviembre 2015'}
     ];
+
+// var sample_data = [
+        // {
+        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
+	        // image:'http://myrtlebeachbirthservices.com/wp-content/uploads/2014/10/breast-cancer-1.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
+	        // image:'http://www.tunedbody.com/wp-content/uploads/2014/05/Breast-Cancer.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Do eiusmod tempor incididunt ut labore.', 
+	        // image:'http://drhemi.com/wp-content/uploads/2012/10/Breast-Cancer-2.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Consectetur adipisicing elit, sed do.', 
+	        // image:'http://img.webmd.com/dtmcms/live/webmd/consumer_assets/site_images/article_thumbnails/news/2011/12_2011/advanced_breast_cancer_treatments/493x335_advanced_breast_cancer_treatments.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
+	        // image:'http://static.boredpanda.com/blog/wp-content/uploads/2014/10/breast-cancer-ads-16.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
+	        // image:'http://www.thenaturesfarmacy.com/wp-content/uploads/2014/08/breast-cancer-health-1.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
+	        // image:'http://womenadvancenc.org/wp-content/uploads/2014/10/Breast-cancer-survivor.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
+	        // image:'http://cdn.inquisitr.com/wp-content/uploads/2012/03/breast-cancer-cadmium-study.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // {
+        	// title:'Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.', 
+	        // image:'http://i.huffpost.com/gen/1333122/thumbs/o-BREAST-CANCER-SURVIVOR-570.jpg?1', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
+        // // {
+        	// // title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
+	        // // image:'/gridImg/010.jpg', 
+	        // // subtitle:'25 de noviembre 2015'
+        // // },
+        // // {
+        	// // title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.', 
+	        // // image:'/gridImg/011.jpg', 
+	        // // subtitle:'25 de noviembre 2015'
+        // // },
+        // // {
+        	// // title:'Lorem ipsum dolor sit amet.', 
+	        // // image:'/gridImg/012.jpg', 
+	        // // subtitle:'25 de noviembre 2015'
+        // // },
+        // // {
+        	// // title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.', 
+	        // // image:'/gridImg/013.jpg', 
+	        // // subtitle:'25 de noviembre 2015'
+        // // },
+        // //{title:'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image:'/gridImg/014.jpg', subtitle:'25 de noviembre 2015'}
+    // ];
 
 for (var x=0; x < sample_data.length; x++){
 	//CREATES A VIEW WITH OUR CUSTOM LAYOUT
 	var view = Alloy.createController('item_layout',{
-			image:sample_data[x].image,
+			image:sample_data[x].image, 
 			title:sample_data[x].title,
 			subtitle:sample_data[x].subtitle
 		}).getView();

@@ -1,0 +1,23 @@
+<Alloy>
+	<View class="container">
+		<View id="div_nav">
+		    <Button id="btn_back" onTouchstart="back_down" onTouchend="back_up"></Button>
+		    <Label id="lbl_titulo">Registro</Label>
+		    <Button id="btn_siguiente" onClick="siguiente">Siguiente</Button>
+		</View>
+		<View id="div_main">
+			<View id="div_facebookBtn">
+				<Button id="btn_facebook">Registrate con Facebook</Button>
+			</View>
+		    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicara nada en Facebook \n sin tu consentimiento previo</Label>
+		    <View id="linea1"></View>
+		    <Label id="separacion">O</Label>
+		    <View id="linea2"></View>
+		    <TextField id="txt_nombre"></TextField>
+		    <TextField id="txt_apellido"></TextField>
+		    <TextField id="txt_email"></TextField>
+		    <TextField id="txt_contrasena"></TextField>
+		    <Label id="lbl_condiciones">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®.</Label>
+		</View>
+	</View>
+</Alloy>

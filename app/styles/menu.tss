@@ -1,7 +1,12 @@
 //--------------- Estilos AMBAS plataformas -----------------------//
+"#div_logout":{
+	top:'2%',
+	right:5,
+	height:'8%',
+	width:'15%',
+},
 "#logoutButton":{
-	top:'5%',
-	right:'5%'
+	//right:'5%'
 },
 "#footer":{
 	backgroundColor:'#ff82c8',

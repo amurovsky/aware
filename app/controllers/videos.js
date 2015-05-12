@@ -2,6 +2,7 @@ var args = arguments[0] || {};
 var osname = Ti.Platform.osname;
 var icomoonlib = require('icomoonlib');
 var Animator = require("Animator");
+var fb = require('facebook');
 var activeMovie;
 
 // Obtenemos las dimensiones del dispositivo
@@ -64,6 +65,7 @@ for (var i=0; i < datosTabla.length; i++) {
 	    	scalingMode:Titanium.Media.VIDEO_SCALING_ASPECT_FILL,
 	    	url:'/video/test.mp4',
 	    	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
+	    	autoplay:false
 		});
 		var gradientView = Ti.UI.createView({
 				backgroundGradient: {
@@ -88,7 +90,7 @@ for (var i=0; i < datosTabla.length; i++) {
 		imagen = Ti.UI.createImageView({
 			image: '/all/primerVideo.jpg',
 			height:'150%',
-			width:'118%' 
+			width:'118%',
 		});
 		rows.add(imagen);
 		rows.add(gradientView);
@@ -201,6 +203,7 @@ for (var i=0; i < datosTabla.length; i++) {
 	  });
 	  var conteinerShareIcon = Ti.UI.createView({
 	  		width:'13%',
+	  		id:'conteinerShare'
 	  		//left:'87%'
 	  });
 	  var titulo = Titanium.UI.createLabel({
@@ -250,7 +253,7 @@ for (var i=0; i < datosTabla.length; i++) {
 	  var shareIcon = icomoonlib.getIconAsLabel("Aware-Icons",
                                  "shareIcon",
                                  screenHeight * 0.025,
-                                 {color:"#fcaed8",top:"10%",});
+                                 {color:"#fcaed8",top:"10%",id:'share'});
                                  
     conteinerTitles.add(titulo);
     conteinerTitles.add(subtitulo);
@@ -265,34 +268,42 @@ for (var i=0; i < datosTabla.length; i++) {
     rows.height = '100';
   };
   
-                                 
-   
+
   tableArray.push(rows);
+
 };
 tabla.data = tableArray;
 $.tablaConteiner.add(tabla);
+ 
+// shareIcon.addEventListener('click',function(e){
+// 	
+    // require('com.alcoapps.socialshare').share({
+	    // status                  : 'https://www.youtube.com/watch?v=n1JxsgqTQ9g',
+	    // //image                   : fileToShare.nativePath,
+	    // androidDialogTitle      : 'Compartir!'
+	// });
+// });
+
 var player = (osname === 'android') ? require('titutorial.youtubeplayer') : require('it.scsoft.tiyoutube');
 
-var get_yt_clip = require('/get_yt_clip');
-
+var social = require('com.alcoapps.socialshare');
 tabla.addEventListener('click',function(e){
 	Ti.API.info('Index: '+ e.index);
-	if (e.index == 2) {
+	Ti.API.info('Source: '+ e.source.id);
+	if (e.source.id == 'conteinerShare' || e.source.id == 'share') {
+		social.share({
+		    status                  : 'Auto Exploracion',
+		    url	                    : 'https://www.youtube.com/watch?v=n1JxsgqTQ9g',
+		    //image                   : '/all/secondPreview.png',
+		    androidDialogTitle      : 'Compartir!'
+		});
+    
+	}else{
 		if (osname === 'android') {
 			player.playVideo('n1JxsgqTQ9g');
 		}else{
-			//player.openVideo({url:'https://www.youtube.com/watch?v=n1JxsgqTQ9g'});
-			get_yt_clip('n1JxsgqTQ9g', function(err, clip_url) {
-        if (!err && clip_url) {
-            videoPlayer.url = clip_url;
-            videoPlayer.play();
-        }
-        else {
-            console.error(err);
-        }
-    });
+			player.openVideo({url:'https://www.youtube.com/watch?v=n1JxsgqTQ9g'});
 		}
-		
 	};
 	
 });
@@ -305,10 +316,6 @@ expandIcon.addEventListener('click',function(e){
 	}
 	
 });         
-Ti.API.info(player);
-player.addEventListener('finish',function(e){
-	alert('Termino el Video');
-});
 
 
 this.close = function(){

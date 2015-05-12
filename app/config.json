@@ -9,6 +9,7 @@
   "os:mobileweb": {},
   "dependencies": {
     "ytPlayer": "1.0",
-    "com.prodz.tidynamicgrid": "1.0"
+    "com.prodz.tidynamicgrid": "1.0",
+    "com.alcoapps.socialshare": "1.0"
   }
 }
