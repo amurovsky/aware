@@ -1,5 +1,4 @@
 ".container" : {
-  backgroundColor: 'gray',
   layout:'vertical',
   backgroundColor:'black'
 },
@@ -59,6 +58,8 @@
 	contentWidth: '100%',
 	contentHeight: 'auto',
 	layout: 'vertical',
+	//backgroundColor:'green',
+	//opacity:0.5
 },
 "#div_details":{
 	//height:492,
@@ -72,7 +73,7 @@
 	height:Titanium.UI.FIL,
 	width:'10.2%'
 },
-"#imv_share":{
+"#img_share":{
 	color:'yellow',
 	image:'/all/shareIcon.png'
 },
@@ -81,7 +82,6 @@
 	top:'63%',
 	height:'10.2%',
 	layout:'horizontal',
-	backgroundColor:'pink'
 },
 "#div_likeIcon":{
 	left:0,
@@ -89,7 +89,7 @@
 	height:Titanium.UI.FILL,
 	//backgroundColor:'blue'
 },
-"#imv_likeIcon":{
+"#img_likeIcon":{
 	right:7,
 	image:'/all/likeIcon.png',
 },
@@ -112,14 +112,20 @@
 	backgroundColor:'white',
 	opacity:0.4
 },
+"#div_artContent":{
+	layout:'vertical',
+	top:0,
+	
+},
 "#lbl_artTitulo":{
 	top:'2.7%',
 	left:'4.5%',
 	right:'4.5%',
+	height:'auto',
 	color:'white',
 	font:{
 		fontFamily: 'Raleway-Bold',
-		fontSize: 26,
+		fontSize:'20%',
 	},
 },
 "#lbl_subtitulo":{
@@ -128,7 +134,7 @@
 	left:'4.5%',
 	font:{
 		fontFamily: 'Raleway',
-		fontSize: 14,
+		fontSize:14,
 	},
 },
 "#lbl_fecha":{
@@ -138,17 +144,121 @@
 	color:'yellow',
 	font:{
 		fontFamily: 'Helvetica',
-		fontSize: 12,
+		fontSize: '10%',
 	},
 },
 "#div_descripcion":{
 	top:0,
-	height:500,
 	backgroundColor:'white',
+	layout:'vertical',
+	height:Ti.UI.SIZE,
 },
 "#lbl_descripcion":{
-	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	top:20,
 	left:'5%',
-	right:'5%'
+	right:'5%',
+	font:{
+		fontFamily: 'Helvetica-Light',
+		fontSize: '15%',
+	},
 },
+"#div_addComment":{
+	height:'18%',
+	backgroundColor:'#e3e5e6',
+	layout:'vertical'
+},
+"#div_numComentarios":{
+	height:'48%'
+},
+"#lbl_comentario_addComment":{
+	left:'4.5%',
+	color:'#c9418a',
+	font:{
+		fontFamily: 'Helvetica-Bold',
+		fontSize: 19,
+	},
+},
+"#lbl_numComentarios":{
+	right:'4.5%',
+	color:'#c9418a',
+	font:{
+		fontFamily: 'Helvetica-Bold',
+		fontSize: 19,
+	},
+},
+"#div_separador_gris":{
+	left:'4.5%',
+	right:'4.5%',
+	height:1,
+	backgroundColor:'gray',
+},
+"#div_separador_blanco":{
+	left:'4.5%',
+	right:'4.5%',
+	height:1,
+	backgroundColor:'white',
+},
+"#div_pic_txt":{
+	height:'48%',
+},
+"#txt_comentario":{
+	left:'20%',
+	right:'4.5%',
+	borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	hintText:'Añade un comentario...'
+},
+"#tbv_comentarios":{
+	height:'82%',
+	backgroundColor:'#fff0f8',
+},
+"#row_comentario":{
+	selectionStyle: 'none',
+},
+"#div_row":{
+	layout:'horizontal',
+	height:Ti.UI.SIZE,
+	
+},
+"#div_profile":{
+	left:0,
+	width:'20%',
+	height:Ti.UI.SIZE,
+	backgroundColor:'yellow'
+},
+"#div_comment":{
+	left:0,
+	width:'80%',
+	height:Ti.UI.SIZE,
+	layout:'vertical',
+},
+"#img_profile":{},
+"#lbl_nombre":{
+	left:0,
+	top:10,
+	color:'black',
+	font:{
+		fontFamily: 'Helvetica-Bold',
+		fontSize: 15,
+	},
+},
+"#lbl_comentario":{
+	left:0,
+	top:2,
+	color:'black',
+	font:{
+		fontFamily: 'Helvetica-Light',
+		fontSize: 13,
+	},
+},
+"#lbl_tiempo":{
+	left:0,
+	top:5,
+	color:'#c9418a',
+	font:{
+		fontFamily: 'Helvetica',
+		fontSize: 12,
+	},
+},
+
+
 

@@ -24,12 +24,12 @@ function like_down (e) {
 function like_up (e) {
 	e.source.opacity = 1;
 	if (!liked) {
-		$.imv_likeIcon.image = '/all/likeIcon_fill.png';
+		$.img_likeIcon.image = '/all/likeIcon_fill.png';
 		liked = true;
 		likes = likes + 1;
 		$.lbl_likes.text = likes;
 	}else{
-		$.imv_likeIcon.image = '/all/likeIcon.png';
+		$.img_likeIcon.image = '/all/likeIcon.png';
 		liked = false;
 		likes = likes - 1;
 		$.lbl_likes.text = likes;
