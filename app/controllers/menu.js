@@ -47,10 +47,11 @@ function menu(e){
 				// articulos.open({modal:true});
 				Alloy.Globals.navigator.openWindow('articulos');
 		 break;
-		// case 'puntos':
+		case 'puntos':
 			// var puntos = Alloy.createController('puntos').getView();
 				// puntos.open({modal:true});
-		// break;
+				Alloy.Globals.navigator.openWindow('puntos');
+		break;
 		// case 'regala':
 			// var regala = Alloy.createController('regala').getView();
 				// regala.open({modal:true});

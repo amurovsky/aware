@@ -15,8 +15,11 @@ function back_up (e) {
 function siguiente (e) {
   Alloy.Globals.navigator.openWindow('iniciar_sesion');
 }
-var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
-$.btn_back.add(backIcon);
+
+	var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
+	$.btn_back.add(backIcon);
+
+
 
 // var fb = require('facebook');
     // fb.initialize();

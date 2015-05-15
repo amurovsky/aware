@@ -12,6 +12,11 @@
 	height:'70%',
 	width:'20%',
 	color:'white',
+	backgroundColor:'transparent',
+	font:{
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 15,
+	}
 },
 "#lbl_titulo":{
 	bottom:'23%',
@@ -29,6 +34,7 @@
 		fontFamily: 'HelveticaNeue-Medium',
 		fontSize: 15,
 	},
+	backgroundColor:'transparent'
 },
 "#div_main":{
 	backgroundColor:'#fff0f8',
@@ -49,6 +55,7 @@
 		fontFamily: 'Raleway-Semibold',
 		fontSize: 15,
 	},
+	backgroundColor:'transparent'
 },
 "#lbl_consentimiento":{
 	top:'21%',
@@ -131,7 +138,7 @@
 },
 "#lbl_condiciones":{
 	top:'83%',
-	height:'7.5%',
+	height:'auto',
 	color:'#797979',
 	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
 	font:{

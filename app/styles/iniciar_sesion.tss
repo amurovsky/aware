@@ -12,6 +12,7 @@
 	height:'70%',
 	width:'20%',
 	color:'white',
+	backgroundColor:'transparent'
 },
 "#lbl_titulo":{
 	bottom:'23%',
@@ -29,6 +30,7 @@
 		fontFamily: 'HelveticaNeue-Medium',
 		fontSize: 15,
 	},
+	backgroundColor:'transparent'
 },
 "#div_main":{
 	backgroundColor:'#fff0f8',
@@ -75,6 +77,7 @@
 		fontFamily: 'HelveticaNeue-Bold',
 		fontSize: 12,
 	},
+	backgroundColor:'transparent'
 },
 "#lbl_registrate":{
 	top:'26.5%',
@@ -102,4 +105,5 @@
 		fontFamily: 'Raleway-Semibold',
 		fontSize: 15,
 	},
+	backgroundColor:'transparent'
 },

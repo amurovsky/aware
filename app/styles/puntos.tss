@@ -1,8 +1,20 @@
 ".container" : {
   backgroundColor: 'gray',
+  layout:'vertical',
+  backgroundColor:'black'
 },
-"#menu": {
-	
+"#div_nav":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'9.3%',
+},
+"#nav_separator":{
+	height:1,
+	width:'100%',
+	top:0,
+	backgroundColor:'#d375ab'
+},
+"#btn_menu": {
 	font:{
 		fontFamily: 'Helvetica-Neue',
 		fontSize: 15,
@@ -13,7 +25,7 @@
 	top : 20
 	
 },
-"#titulo":{
+"#lbl_titulo":{
 	font:{
 		fontFamily: 'Helvetica-Neue',
 		fontSize: 15,
@@ -21,4 +33,122 @@
 	},
 	color: 'white',
 	top:30
-}
+},
+"#img_back":{
+	top:0,
+	//left:0,
+	//width:'150%',
+	image:'/all/ejemplo1.png',
+	//backgroundColor:'black'
+	
+},
+"#div_gradient":{
+	top:-1,
+	backgroundGradient: {
+        type: 'linear',
+        startPoint: { x: '100%', y: '100%' },
+        endPoint: { x: '100%', y: '30%' },
+        colors: [{ color: 'black', offset:0.0}, { color: 'transparent', offset: 1.0}],
+    }
+},
+"#scroll_details":{
+	top: 0,
+	left: 0,
+	width:Ti.UI.FILL,
+	height: Ti.UI.FILL,
+	contentWidth: '100%',
+	contentHeight: 'auto',
+	layout: 'vertical',
+},
+"#div_details":{
+	//height:492,
+	layout:'vertical',
+	// backgroundColor:'green',
+	// opacity:0.5
+},
+"#div_share":{
+	//top:'2.3%',
+	left:5,
+	height:Titanium.UI.FIL,
+	width:'10.2%'
+},
+"#imv_share":{
+	color:'yellow',
+	image:'/all/shareIcon.png'
+},
+"#div_like":{
+	left:0,
+	top:'63%',
+	height:'10.2%',
+	layout:'horizontal',
+	backgroundColor:'pink'
+},
+"#div_likeIcon":{
+	left:0,
+	width:'12.8%',
+	height:Titanium.UI.FILL,
+	//backgroundColor:'blue'
+},
+"#imv_likeIcon":{
+	right:7,
+	image:'/all/likeIcon.png',
+},
+"#lbl_likes":{
+	left:0,
+	height:Titanium.UI.FILL,
+	color:'white',
+	font:{
+		fontFamily: 'Raleway-Bold',
+		fontSize: 22,
+	},
+	//backgroundColor:'green'
+},
+"#div_separator":{
+	top:0,
+	height:1,
+	left:'4.5%',
+	right:'4.5%',
+	width:'91%',
+	backgroundColor:'white',
+	opacity:0.4
+},
+"#lbl_artTitulo":{
+	top:'2.7%',
+	left:'4.5%',
+	right:'4.5%',
+	color:'white',
+	font:{
+		fontFamily: 'Raleway-Bold',
+		fontSize: 26,
+	},
+},
+"#lbl_subtitulo":{
+	top:'1%',
+	color:'white',
+	left:'4.5%',
+	font:{
+		fontFamily: 'Raleway',
+		fontSize: 14,
+	},
+},
+"#lbl_fecha":{
+	top:'2.7%',
+	left:'4.5%',
+	right:'4.5%',
+	color:'yellow',
+	font:{
+		fontFamily: 'Helvetica',
+		fontSize: 12,
+	},
+},
+"#div_descripcion":{
+	top:0,
+	height:500,
+	backgroundColor:'white',
+},
+"#lbl_descripcion":{
+	textAlign: Ti.UI.TEXT_ALIGNMENT_LEFT,
+	left:'5%',
+	right:'5%'
+},
+

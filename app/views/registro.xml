@@ -1,7 +1,7 @@
 <Alloy>
 	<View class="container">
 		<View id="div_nav">
-		    <Button id="btn_back" onTouchstart="back_down" onTouchend="back_up"></Button>
+		    <View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
 		    <Label id="lbl_titulo">Registro</Label>
 		    <Button id="btn_siguiente" onClick="siguiente">Siguiente</Button>
 		</View>

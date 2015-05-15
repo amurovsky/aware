@@ -24,8 +24,8 @@ var init = function(){
 	
 };
 
-if (osname == 'android') {
-		$.index.fbProxy = fb.createActivityWorker({lifecycleContainer: $.index});
-	};
+// if (osname == 'android') {
+		// $.index.fbProxy = fb.createActivityWorker({lifecycleContainer: $.index});
+	// };
 
 init();
