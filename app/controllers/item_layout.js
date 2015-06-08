@@ -6,7 +6,7 @@ var the_subtitle = args.subtitle || '';
 
 $.thumb.image = the_image;
 $.title.text = the_title;
-$.subtitle.text = the_subtitle;
+$.fecha.text = the_subtitle;
 
 imageSize = $.thumb.toImage();
 

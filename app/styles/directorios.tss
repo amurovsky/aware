@@ -1,24 +1,171 @@
 ".container" : {
-  backgroundColor: 'gray',
+  backgroundColor:'#fecce7',
+  layout:'vertical'
 },
-"#menu": {
-	
+"#div_statusBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:20,
+},
+"#div_nav":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'6.44%',
+},
+"#nav_separator":{
+	height:1,
+	width:'100%',
+	top:0,
+	backgroundColor:'#d375ab'
+},
+"#btn_menu": {
 	font:{
 		fontFamily: 'Helvetica-Neue',
-		fontSize: 15,
+		fontSize:'2.54%', //15
 		fontWeight: 'Bold'
 	},
 	color: 'white',
 	left: 10,
-	top : 20
+	//height:Ti.UI.FILL,
+	backgroundColor:'transparent'
 	
 },
-"#titulo":{
+"#lbl_titulo":{
 	font:{
 		fontFamily: 'Helvetica-Neue',
-		fontSize: 15,
+		fontSize:'2.54%', //15
 		fontWeight: 'Light'
 	},
 	color: 'white',
-	top:30
-}
+},
+"#div_main":{
+	top:0,
+},
+
+"#list_dir[platform=ios]":{
+	separatorColor:'transparent',
+	//separatorStyle: Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
+},
+"#dir_template[platform=ios]":{
+	height:250,
+	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+},
+"#dir_template":{
+	height:250,
+},
+"#rowConteiner":{
+	layout:'vertical',
+	height:250,
+},
+"#div_rowSeparator":{
+	top:0,
+	backgroundColor:'#fecce7',
+	height:'5.6%',
+},
+"#div_datos":{
+	backgroundColor:'white',
+	height:'72.8%',
+	layout:'vertical',
+},
+"#div_pic_lbl":{
+	top:20,
+	height:Ti.UI.SIZE,
+	layout:'horizontal',
+	horizontalWrap:'false'
+},
+"#div_logo":{
+	height:Ti.UI.SIZE,
+	width:'22.66%',
+	left:0,
+},
+"#div_imgMask":{
+	height:60,
+	width:60,
+	right:0,
+	borderRadius:30,
+},
+"#img_logo":{
+	width:'200%',
+	image:'/images/profilePic.png',
+},
+"#lbl_nombre":{
+	color:'#4f4f4f',
+	left:'6%',
+	right:'4.5%',
+	font:{
+		fontFamily: 'Montserrat',
+		fontSize: '2.69%', //16
+	},
+	width:'67%'
+},
+"#div_dir":{
+	top:'4%',
+	height:Ti.UI.SIZE,
+},
+"#lbl_direccion":{
+	color:'#545454',
+	left:'4.5%',
+	right:'4.5%',
+	opacity:0.9,
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize:'2.54%', //15
+	},
+},
+"#div_botones":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'21.6%',
+},
+"#btn_llamar":{
+	left:0,
+	color:'white',
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize: '2.39%' // 14
+	},
+		width:'49%',
+		height:Ti.UI.FILL,
+		textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+"#div_btnSeparator":{
+	width:2,
+	height:'57.40%',
+	backgroundColor:'white',
+},
+"#btn_mapa":{
+	right:0,
+	color:'white',
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize:'2.39%' // 14
+	},
+	width:'49%',
+	height:Ti.UI.FILL,
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER
+},
+
+
+// --------------------- ANDROID -------------------------------------- //
+
+"#div_nav[platform=android]":{
+	height:'9.44%',
+},
+"#btn_menu[platform=android]": {
+	font: {fontSize:'15sp'},	
+},
+"#lbl_titulo[platform=android]":{
+ 	font: {fontSize:'15sp'},
+},
+"#lbl_nombre[platform=android]":{
+	font: {fontSize:'16sp'},
+},
+"#lbl_direccion[platform=android]":{
+	font: {fontSize:'15sp'},
+},
+"#btn_llamar[platform=android]":{
+	font: {fontSize:'14sp'},
+},
+"#btn_mapa[platform=android]":{
+	font: {fontSize:'14sp'},
+},

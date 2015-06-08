@@ -1,0 +1,246 @@
+".container" : {
+  backgroundColor: '#fb8bc7',
+  layout:'vertical',
+},
+"#div_statusBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:20,
+},
+"#div_nav":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'6.44%',
+},
+"#nav_separator":{
+	height:1,
+	width:'100%',
+	top:0,
+	backgroundColor:'#d375ab'
+},
+"#btn_menu": {
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize:'2.54%', //15
+		fontWeight: 'Bold'
+	},
+	color: 'white',
+	left: 10,
+	//height:Ti.UI.FILL,
+	backgroundColor:'transparent'
+	
+},
+"#lbl_titulo":{
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize:'2.54%', //15
+		fontWeight: 'Light'
+	},
+	color: 'white',
+},
+
+// -------------- TEMPLATE VIDEO PRINCIPAL ------------------------------- //
+"#list_videos[platform=ios]":{
+	separatorColor:'transparent',
+	//separatorStyle: Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
+},
+"#video_pri_template[platform=ios]":{
+	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+},
+"#video_pri_template":{
+	height:212,
+},
+"#rowConteiner1":{
+	height:212,
+},
+"#vid_prev":{
+	backgroundColor:'#111',
+	mediaControlStyle:Titanium.Media.VIDEO_CONTROL_NONE,
+	scalingMode:Titanium.Media.VIDEO_SCALING_ASPECT_FILL,
+	url:'/video/test.mp4',
+	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
+},
+"#img_prev":{
+	image: '/images/primerVideo.jpg',
+	height:'150%',
+	width:'118%',
+},
+"#div_gradient":{
+	backgroundGradient: {
+	    type: 'linear',
+	    startPoint: { x: '100%', y: '100%' },
+	    endPoint: { x: '100%', y: '60%' },
+	    colors: [{ color: 'black', offset:0.0}, { color: 'transparent', offset: 1.0}],
+	}
+},
+"#div_titulos":{
+	bottom:'14%',
+	height:Ti.UI.SIZE,
+	layout:'vertical'
+},
+"#lbl_titulo1":{
+	color: 'white',
+	left:'6%',
+	right:'17.6%',
+	font:{
+		fontFamily:'Raleway-Light',
+		fontSize:'2.3%'
+	},
+},
+"#lbl_titulo2":{
+ 	color: '#eeeeee',
+	left:'6%',
+	right:'17.6%',
+	font:{
+		fontFamily:'Raleway-Bold',
+		fontSize:25
+	},
+},
+"#lbl_duracion":{
+ 	color: '#fa89c6',
+	bottom: '5%',
+	left:'6%',
+	font:{
+		fontFamily:'HelveticaNeue-Medium',
+		fontSize:'2.6%'
+	},	
+},
+"#div_expand":{
+	right:0,
+	bottom:0,
+	height:'23.11%',
+	width:'17.6%',
+},
+"#img_expandIcon":{
+	image: '/images/expandIcon.png',
+},
+
+// -------------- TEMPLATE DESCRIPCION ------------------------------- //
+
+"#video_desc_template[platform=ios]":{
+	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+},
+"#video_desc_template":{
+	height:Ti.UI.SIZE,
+},
+"#rowConteiner2":{
+	height:Ti.UI.SIZE,
+	backgroundColor:'white',
+	layout:'vertical',
+},
+"#lbl_tituloDesc":{
+ 	color: '#4f4f4f',
+	right:'6%',
+	top: '6%',
+	left: '6%',
+	font:{
+		fontFamily: 'Montserrat-Regular', 
+		fontSize:16
+	},
+},
+"#lbl_descripcion":{
+	color: '#606060',
+	left:'6%',
+	right:'6%',
+	top: 0,
+	font:{
+		fontFamily: 'HelveticaNeue-Light', 
+		fontSize:15
+	},
+},
+// "#div_separador":{
+	// backgroundColor: '#fecce7',
+	// height:10,
+	// bottom:0
+// },
+
+// -------------- TEMPLATE VIDEOS ------------------------------- //
+
+"#video_list_template[platform=ios]":{
+	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+},
+
+"#video_list_template":{
+	top:10,
+	height:100,
+},
+"#rowConteiner3":{
+	height:100,
+	backgroundColor:'#fecce7',
+},
+"#div_wrapper":{
+	backgroundColor: 'white',
+	//bottom: '5%',
+	top:'10%',
+	left:'2.66%',
+	right:'2.66%',
+	layout:'horizontal',
+	borderWidth:1,
+	borderColor:'#cccccc'	
+},
+"#div_thumbnail":{
+	width:'42%',
+},
+"#img_thumbnail":{
+  	height:'76%',
+	width:'85%',
+	image:"/images/secondPreview.png"
+},
+"#div_duracion2":{
+	opacity:0.8,
+ 	backgroundColor: 'black',
+ 	height:'30%',
+ 	width:'35%',
+ 	bottom:0,
+ 	right:0
+},
+"#lbl_duracion2":{
+	color:'white',
+ 	font:{
+ 		fontFamily:'HelveticaNeue', 
+ 		fontSize:12
+ 	}
+},
+"#div_textos":{
+	width:'45%',
+	layout:'vertical',
+},
+"#lbl_tituloVid":{
+	color:'#505050',
+    top : '7%',
+    font:{
+    	fontFamily:'Helvetica-Light', 
+    	fontSize: 13
+    }
+},
+"#lbl_subtituloVid":{
+    top:'7%',
+    left:0,
+    color : '#fb8ac7',
+    font:{
+    	fontFamily:'Helvetica-Bold', 
+    	fontSize:10
+    }
+},
+"#div_shareIcon":{
+  	width:'13%',
+},
+"#img_shareIcon":{
+	top:"10%",
+	image:'/images/shareIconPink.png',
+	
+},
+
+
+
+// --------------------- ANDROID -------------------------------------- //
+
+"#div_nav[platform=android]":{
+	height:'9.44%',
+},
+"#btn_menu[platform=android]": {
+	font: {fontSize:'15sp'},	
+},
+"#lbl_titulo[platform=android]":{
+ 	font: {fontSize:'15sp'},
+},

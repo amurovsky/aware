@@ -8,8 +8,8 @@
 		<View id="imageMask">
 			<ImageView id="profileImg"></ImageView>
 		</View>
-		<Label id="profileName">Ana María López</Label>
-		<Label id="profileMail">anamaria_loop@hotmail.com</Label>
+		<Label id="profileName"></Label>
+		<Label id="profileMail"></Label>
 		<Button id="videos" onClick="menu">Videos Tutoriales</Button>
 		<View id="vidSeparator"></View>
 		<Button id="articulos" onClick="menu">Articulos de Interés</Button>
@@ -26,10 +26,12 @@
 			</View>
 			<View id="ciclo">
 				<ImageView id="cicloButton"></ImageView>
+				<!-- <ImageView id="cerrarCiclo" class="cerrarButton"></ImageView> -->
 				<Label id="tituloCiclo">Inicio de \nmi ciclo</Label>
 			</View>
 			<View id="compra">
 				<ImageView id="compraButton"></ImageView>
+				<!-- <ImageView id="cerrarComprar" class="cerrarButton"></ImageView> -->
 				<Label id="tituloCompra">Compra de \nAware® Pad</Label>
 			</View>
 			<View id="fechaCompra">
@@ -37,10 +39,5 @@
 				<Label id="restoFechaCompra">Nov / 2015</Label>
 			</View>
 		</View>
-		<!-- <ImageView id="calendar"></ImageView>
-		<Label id="comprasteLabel">Compraste tu Aware® Pad el</Label>
-		<Label id="fechaLabel">05 / Nov / 14</Label>
-		<Button id="cambiarFechaButton" onClick="showPicker">cambiar fecha</Button>
-		<View id="fechaUnderline"></View> -->
 	</View>
 </Alloy>

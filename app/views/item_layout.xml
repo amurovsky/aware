@@ -1,9 +1,11 @@
 <Alloy>
 	<View id="mainView">
-			<ImageView id="thumb">
-				<Label id="likes">♡ 666</Label>
-			</ImageView>
+			<ImageView id="thumb"></ImageView>
 			<Label id="title"></Label>
-			<Label id="subtitle"></Label>
+			<View id="div_fecha_likes">
+				<Label id="fecha"></Label>
+				<Label id="likes">♡ 666</Label>
+			</View>
+
 	</View>	
 </Alloy>

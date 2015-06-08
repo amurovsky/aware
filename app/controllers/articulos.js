@@ -4,84 +4,95 @@ function cerrarVentana(){
 	Alloy.Globals.navigator.goBack();
 }
 
+//CUSTOM FUNCTION TO DEFINE WHAT HAPPENS WHEN AN ITEM IN THE GRID IS CLICKED
+var showGridItemInfo = function(e){
+	//alert('Title is: ' + e.source.data.title + '. Image is: ' + e.source.data.image);
+	Alloy.Globals.navigator.openWindow('articulo_detalle');
+};
+
+var delay = (OS_ANDROID) ? 1000:2000;
+
 $.tdg.init({
     columns:2,
-    space:-0.5,
-    delayTime:2000,
+    space:5,
+    delayTime:delay,
     gridBackgroundColor:'#fecce7',
     itemBackgroundColor:'#fff',
-    itemBorderColor:'white',
+    itemBorderColor:'transparent',
     itemBorderWidth:0,
-    itemBorderRadius:0
+    itemBorderRadius:0,
+    onItemClick: showGridItemInfo
 });
 
-var items = [];
-
+function createSampleData(){
+	
+	var items = [];
+	
     var sample_data = [
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
 	        image:'/gridImg/01.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
 	        image:'/gridImg/02.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
-        {
-        	title:'Do eiusmod tempor incididunt ut labore.', 
-	        image:'/gridImg/03.jpg', 
-	        subtitle:'25 de noviembre 2015'
-        },
+        // {
+        	// title:'Do eiusmod tempor incididunt ut labore.', 
+	        // image:'/gridImg/03.jpg', 
+	        // subtitle:'25 de noviembre 2015'
+        // },
         {
         	title:'Consectetur adipisicing elit, sed do.', 
 	        image:'/gridImg/04.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit.', 
-	        image:'/gridImg/05.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        image:'/gridImg/014.jpg', 
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
 	        image:'/gridImg/06.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
 	        image:'/gridImg/07.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.', 
 	        image:'/gridImg/08.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna.', 
 	        image:'/gridImg/09.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 2015'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 
 	        image:'/gridImg/010.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et.', 
 	        image:'/gridImg/011.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Lorem ipsum dolor sit amet.', 
 	        image:'/gridImg/012.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         {
         	title:'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.', 
 	        image:'/gridImg/013.jpg', 
-	        subtitle:'25 de noviembre 2015'
+	        subtitle:'25 de nov 15'
         },
         //{title:'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image:'/gridImg/014.jpg', subtitle:'25 de noviembre 2015'}
     ];
@@ -154,7 +165,7 @@ var items = [];
         // // },
         // //{title:'Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image:'/gridImg/014.jpg', subtitle:'25 de noviembre 2015'}
     // ];
-
+    
 for (var x=0; x < sample_data.length; x++){
 	//CREATES A VIEW WITH OUR CUSTOM LAYOUT
 	var view = Alloy.createController('item_layout',{
@@ -179,6 +190,9 @@ for (var x=0; x < sample_data.length; x++){
 
 //ADD ALL THE ITEMS TO THE GRID
 $.tdg.addGridItems(items);
+}
+createSampleData();
+
 
 // ------ Close Event ------//
 this.close = function(){

@@ -1,8 +1,17 @@
 <Alloy>
-	<Window>
-		<View class="container">
-			<Button id="menu" onClick="cerrarVentana">Menu</Button>
-			<Label id="titulo">Regala Salud</Label>
+	<View class="container">
+		<View id="div_background"></View>
+		<View id="div_main">
+			<View id="div_wrapper">
+				<Label id="lbl_texto1">¿Deseas compartir esta aplicación?</Label>
+				<Label id="lbl_texto2">Puedes enviar el \n link de descarga a una amiga.</Label>
+			</View>
+			<ImageView id="img_sombra"></ImageView>
+			<ImageView id="img_regalo"></ImageView>
+			<ImageView id="img_close" onClick="cerrarVentana"></ImageView>
+			<View id="div_pinkWrapper" onClick="compartirApp">
+				<Label id="lbl_ok">Ok!</Label>
+			</View>
 		</View>
-	</Window>
+	</View>
 </Alloy>

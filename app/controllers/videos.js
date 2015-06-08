@@ -3,6 +3,7 @@ var osname = Ti.Platform.osname;
 var icomoonlib = require('icomoonlib');
 var Animator = require("Animator");
 var fb = require('facebook');
+yt = require('youtube');
 var activeMovie;
 
 // Obtenemos las dimensiones del dispositivo
@@ -65,7 +66,6 @@ for (var i=0; i < datosTabla.length; i++) {
 	    	scalingMode:Titanium.Media.VIDEO_SCALING_ASPECT_FILL,
 	    	url:'/video/test.mp4',
 	    	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
-	    	autoplay:false
 		});
 		var gradientView = Ti.UI.createView({
 				backgroundGradient: {
@@ -88,7 +88,7 @@ for (var i=0; i < datosTabla.length; i++) {
 		        }
 		});
 		imagen = Ti.UI.createImageView({
-			image: '/all/primerVideo.jpg',
+			image: '/images/primerVideo.jpg',
 			height:'150%',
 			width:'118%',
 		});
@@ -231,8 +231,8 @@ for (var i=0; i < datosTabla.length; i++) {
 	        }
 	    });
 	  var thumbnail = Ti.UI.createView({
-	  		//image:'/all/' + tableImg[i-2],
-	  		backgroundImage:'/all/' + tableImg[i-2],
+	  		//image:'/images/' + tableImg[i-2],
+	  		backgroundImage:'/images/' + tableImg[i-2],
 	  		//backgroundColor:'gray',
 	  		height:'76%',
 	  		width:'85%'
@@ -294,28 +294,29 @@ tabla.addEventListener('click',function(e){
 		social.share({
 		    status                  : 'Auto Exploracion',
 		    url	                    : 'https://www.youtube.com/watch?v=n1JxsgqTQ9g',
-		    //image                   : '/all/secondPreview.png',
+		    //image                   : '/images/secondPreview.png',
 		    androidDialogTitle      : 'Compartir!'
 		});
     
 	}else{
-		if (osname === 'android') {
-			player.playVideo('n1JxsgqTQ9g');
-		}else{
-			player.openVideo({url:'https://www.youtube.com/watch?v=n1JxsgqTQ9g'});
-		}
+		// if (osname === 'android') {
+			// player.playVideo('n1JxsgqTQ9g');
+		// }else{
+			//player.openVideo({url:'https://www.youtube.com/watch?v=n1JxsgqTQ9g'});
+			yt.play('n1JxsgqTQ9g');
+		//}
 	};
 	
 });
      
-expandIcon.addEventListener('click',function(e){
-	if (osname === 'android') {
-		player.playVideo('ZE7TzIGrRb8');
-	}else{
-		player.openVideo({url:'https://www.youtube.com/watch?v=ZE7TzIGrRb8'});	
-	}
-	
-});         
+// expandIcon.addEventListener('click',function(e){
+	// if (osname === 'android') {
+		// player.playVideo('ZE7TzIGrRb8');
+	// }else{
+		// player.openVideo({url:'https://www.youtube.com/watch?v=ZE7TzIGrRb8'});	
+	// }
+// 	
+// });         
 
 
 this.close = function(){

@@ -11,9 +11,15 @@ var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 
 //-------- ProfileImage && Username && Email ----------------//
-$.profileImg.image = Ti.App.Properties.getString('profileImg');
-$.profileName.text = Ti.App.Properties.getString('userName');
-$.profileMail.text = Ti.App.Properties.getString('email');
+if (Ti.App.Properties.getString('userName') != null) {
+	$.profileImg.image = Ti.App.Properties.getString('profileImg');
+	$.profileName.text = Ti.App.Properties.getString('userName');
+	$.profileMail.text = Ti.App.Properties.getString('email');
+}else{
+	$.profileImg.image = '/images/emptyProfile.jpg';
+	$.profileName.text = 'Usuario Anonimo';
+}
+
 //-------- Logout -------------------//
 function logout_down (e) {
   e.source.opacity=0.5;
@@ -22,8 +28,19 @@ function logout_up (e) {
 	e.source.opacity=1;	
 	Ti.API.info('ADIOS');
 	Ti.App.Properties.setString('userName',null);	
+	Ti.App.Properties.setString('profileImg',null);
+	Ti.App.Properties.setString('email',null);
 	fb.logout();
 	Alloy.Globals.navigator.openLogin();
+}
+
+// ---------------- REGALA SALUD -------------------- //
+
+function regalaSalud (e) {
+	var regala = Alloy.createController('regala').getView();
+	
+	
+	$.menu.add(regala);
 }
 
 // ------------------  Funcion para abrir las diferentes vistas del menu ------------------------------------- //
@@ -32,13 +49,21 @@ function menu(e){
 	Ti.API.info('boton Id:' + boton.id);
 	switch(boton.id){
 		case 'videos':
-			//var videos = Alloy.createController('videos').getView();
+			// var videos = Alloy.createController('videos').getView();
 				//videos.open({transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
 				//videos.show({theme: (osname == 'android') ? 'Theme.AppCompat.Light.NoActionBar' : ''});
 				//$.index.add(videos);
 				
-				Alloy.Globals.navigator.openWindow('videos');
-				//new Animator().flip({view:videos,value:{x:-1,y:1},duration:500});
+				// var targetedValue = Ti.UI.create2DMatrix();
+    				// targetedValue = targetedValue.scale(-1, 1);
+    				// var animation = Ti.UI.createAnimation({transform: targetedValue, duration: 1000});
+    				// $.menu.animate(animation);
+					// animation.addEventListener('complete',function(){
+						// Alloy.Globals.navigator.openWindow('videos2');
+					// });
+					
+				Alloy.Globals.navigator.openWindow('videos2');
+				//new Animator().flip({view:videos,duration:500});
 				//new Animator().moveTo({view:videos, value:{x:Ti.Platform.displayCaps.platformWidth,y:0},duration:500});
 				
 		break;
@@ -52,19 +77,22 @@ function menu(e){
 				// puntos.open({modal:true});
 				Alloy.Globals.navigator.openWindow('puntos');
 		break;
-		// case 'regala':
+		case 'regala':
 			// var regala = Alloy.createController('regala').getView();
 				// regala.open({modal:true});
-		// break;
-		// case 'directorios':
+				regalaSalud();
+		break;
+		case 'directorios':
 			// var directorios = Alloy.createController('directorios').getView();
 				// directorios.open({modal:true});
-		// break;
+				Alloy.Globals.navigator.openWindow('directorios');
+		break;
 	}
 	
 }
 
 //--------- Animaciones de la parte inferior del Menu ------------------------ //
+Ti.API.info('width of the mask: ' + $.imageMask.size.width);
 
 $.tituloCiclo.font = {fontFamily:'OpenSans-SemiBold',fontSize:screenHeight * 0.022};
 $.tituloCompra.font = {fontFamily:'OpenSans-SemiBold',fontSize:screenHeight * 0.022};
@@ -78,6 +106,7 @@ $.restoFechaCompra.font = {fontFamily:'OpenSans-SemiBold',fontSize:screenHeight 
 var cicloButton = $.cicloButton;
 var compraButton = $.compraButton;
 var logoutButton = $.logoutButton;
+
 var cicloIcon  = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var compraIcon = icomoonlib.getIconAsBlob("Aware-Icons","compraIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var logoutIcon = icomoonlib.getIconAsBlob("Aware-Icons","logoutIcon",screenHeight * 0.035,{color:"white"});
@@ -86,26 +115,44 @@ cicloButton.image = cicloIcon;
 compraButton.image = compraIcon;
 logoutButton.image = logoutIcon;
 var flag = 0;
-compraButton.addEventListener('click',function(){
-	if (flag == 0) {
-		new Animator().moveTo({view:footer,value:{x:-(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500});
+$.compra.addEventListener('click',function(){
+	if (flag == 0) {	
+		new Animator().moveTo({view:footer,value:{x:-(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500,onComplete:function(){
+			new Animator().fade({view:compraButton,value:0, duration:250,delay:20,onComplete:function(){
+				compraButton.image = icomoonlib.getIconAsBlob("Aware-Icons","closeIcon",screenHeight * 0.12,{color:"#ff82c8"});
+				new Animator().fade({view:compraButton,value:1, duration:250,delay:20});
+			}});
+		}});
 		flag=1;
 	}else{
-		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500});
+		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500,onComplete:function(){
+			new Animator().fade({view:compraButton,value:0, duration:250,delay:20,onComplete:function(){
+				compraButton.image = icomoonlib.getIconAsBlob("Aware-Icons","compraIcon",screenHeight * 0.12,{color:"#ff82c8"});
+				new Animator().fade({view:compraButton,value:1, duration:250,delay:20});
+			}});
+		}});
 		flag=0;
-	};
-	
+	}
 });
 
-cicloButton.addEventListener('click',function(){
-	if (flag == 0) {
-		new Animator().moveTo({view:footer,value:{x:(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500});
+$.ciclo.addEventListener('click',function(){
+	if (flag == 0) {		
+		new Animator().moveTo({view:footer,value:{x:(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500,onComplete:function(){
+			new Animator().fade({view:cicloButton,value:0, duration:250,delay:20,onComplete:function(){
+				cicloButton.image = icomoonlib.getIconAsBlob("Aware-Icons","closeIcon",screenHeight * 0.12,{color:"#ff82c8"});
+				new Animator().fade({view:cicloButton,value:1, duration:250,delay:20});
+			}});
+		}});
 		flag=1;
 	}else{
-		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500});
+		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500,onComplete:function(){
+			new Animator().fade({view:cicloButton,value:0, duration:250,delay:20,onComplete:function(){
+				cicloButton.image = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
+				new Animator().fade({view:cicloButton,value:1, duration:250,delay:20});
+			}});
+		}});
 		flag=0;
-	};
-	
+	}
 });
 
 //----------------   Mostrar PickerView en sus diferentes Versiones (Android & IOS) ----------------//

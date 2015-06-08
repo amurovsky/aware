@@ -1,8 +1,44 @@
 <Alloy>
-	<Window>
-		<View class="container">
-			<Button id="menu" onClick="cerrarVentana">Menu</Button>
-			<Label id="titulo">Medicos Afiliados</Label>
+	<View class="container">
+		<View id="div_statusBar" platform="ios"></View>
+		<View id="div_nav">
+			<Button id="btn_menu" onClick="cerrarVentana">Menú</Button>
+			<Label id="lbl_titulo">Directorio de doctores</Label>
 		</View>
-	</Window>
+		<View id="nav_separator"></View>
+		<View id="div_main">
+			<ListView onItemclick="listItemHandler" defaultItemTemplate="dir_template" backgroundColor="#fecce7" id="list_dir">
+				<Templates>
+					<ItemTemplate name="dir_template" id="dir_template">
+						<View id="rowConteiner">
+							<View id="div_rowSeparator"></View>
+							<View id="div_datos">
+								<View id="div_pic_lbl">
+									<View id="div_logo">
+										<View id="div_imgMask">
+											<ImageView id="img_logo" bindId="img_logo"></ImageView>
+										</View>
+									</View>
+									<Label id="lbl_nombre" bindId="lbl_nombre"></Label>
+								</View>
+								<View id="div_dir">
+									<Label id="lbl_direccion" bindId="lbl_direccion"></Label>
+								</View>
+							</View>
+							<View id="div_botones">
+								<Label id="btn_llamar" bindId="llamar">LLamar ahora</Label>
+								<View id="div_btnSeparator"></View>
+								<Label id="btn_mapa" bindId="mapa">Ver mapa</Label>
+							</View>
+						</View>
+					</ItemTemplate>
+				</Templates>
+				<ListSection id="listSection">
+ 					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='CONSULTORIO DE GINECOLOGÍA PROVIDENCIA' lbl_direccion:text='Avenida Guadalupe No.350 Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'></ListItem>
+ 					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='GINE. ARTURO GALVÁN ROMERO' lbl_direccion:text='Bernardo de Balbuena No.91 Colonia Ladron de Guevara Guadalajara, Jal.'></ListItem>
+ 					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='NACER HUMANO' lbl_direccion:text='Av. de los Maestros No.1838 Colonia de los Doctores Guadalajara, Jal.'></ListItem>
+                </ListSection>
+			</ListView>
+		</View>
+	</View>
 </Alloy>

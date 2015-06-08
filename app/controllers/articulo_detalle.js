@@ -1,5 +1,5 @@
 var args = arguments[0] || {};
-
+var rect;
 function cerrarVentana(){
 	Alloy.Globals.navigator.goBack();
 }
@@ -9,11 +9,11 @@ function cerrarVentana(){
 // $.div_details.height = imageSize.height;
 
 $.img_back.addEventListener('load', function(e){
-	 var rect = $.img_back.getRect();
+	    rect = $.img_back.getRect();
         Ti.API.info(rect.width); //actual width of imageView
         Ti.API.info(rect.height); //actual height of imageView  
         $.div_details.height = rect.height;
-        $.div_gradient.height = rect.height;
+        $.div_gradient.height = rect.height + 1;
 });
 
 var liked = false;
@@ -24,12 +24,12 @@ function like_down (e) {
 function like_up (e) {
 	e.source.opacity = 1;
 	if (!liked) {
-		$.img_likeIcon.image = '/all/likeIcon_fill.png';
+		$.img_likeIcon.image = '/images/likeIcon_fill.png';
 		liked = true;
 		likes = likes + 1;
 		$.lbl_likes.text = likes;
 	}else{
-		$.img_likeIcon.image = '/all/likeIcon.png';
+		$.img_likeIcon.image = '/images/likeIcon.png';
 		liked = false;
 		likes = likes - 1;
 		$.lbl_likes.text = likes;
@@ -51,8 +51,8 @@ $.scroll_details.addEventListener('scroll', function(e) {
 	//Ti.API.info(offset);
 	if (offset <= 0) {
 		
-		var height = 492 - offset;
-		backdropImageHeight = Math.ceil((850 * 9) / 16);
+		backdropImageHeight = Math.ceil((rect.height * 9) / 16);
+		var height = backdropImageHeight - offset;
 		var scale = height / backdropImageHeight;
 		
 		var transform = Ti.UI.create2DMatrix({scale: scale});

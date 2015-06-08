@@ -66,7 +66,9 @@
 	top:'1%'
 },"#profileImg[platform=ios]":{
 	//borderRadius: 40,
-	image: '/all/profilePic.png',
+	//image: '/images/profilePic.png',
+	//image: '/images/emptyProfile.jpg',
+	defaultImage:'/images/emptyProfile.jpg',
 	//top: '8%',
 	//height: 86,
 	//width: 80
@@ -75,7 +77,7 @@
 },
 //--------------- Estilos IOS -----------------------//
 ".container[platform=ios]":{
-	backgroundImage:'/all/fondoMenu.png',
+	backgroundImage:'/images/fondoMenu.png',
 	
 },"#imageMask[platform=ios]":{
 	height:86,
@@ -180,7 +182,7 @@
 	}
 	
  },"#calendar[platform=ios]":{
-	image: '/all/calendarIcon.png',
+	image: '/images/calendarIcon.png',
 	top: '74%'
 },"#comprasteLabel[platform=ios]":{
 	color: '#ff89c7',
@@ -253,7 +255,7 @@
 //--------------- Estilos ANDROID -----------------------//
 
 ".container[platform=android]":{
-	backgroundImage:'/all/fondoMenu.png',
+	backgroundImage:'/images/fondoMenu.png',
 	orientationModes: [Titanium.UI.PORTRAIT]
 
 },"Button[platform=android]":{
@@ -338,7 +340,7 @@
 	width: 200
 	
 },"#calendar[platform=android]":{
-	image: '/all/calendarIcon.png',
+	image: '/images/calendarIcon.png',
 	top: '74%',
 	width: '7%',
 	height: '4%'

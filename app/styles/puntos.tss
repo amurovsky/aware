@@ -2,10 +2,15 @@
   layout:'vertical',
   backgroundColor:'black'
 },
+"#div_statusBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:20,
+},
 "#div_nav":{
 	top:0,
 	backgroundColor:'#fb8bc7',
-	height:'9.3%',
+	height:'6.44%',
 },
 "#nav_separator":{
 	height:1,
@@ -16,249 +21,33 @@
 "#btn_menu": {
 	font:{
 		fontFamily: 'Helvetica-Neue',
-		fontSize: 15,
+		fontSize:'2.54%', //15
 		fontWeight: 'Bold'
 	},
 	color: 'white',
 	left: 10,
-	top : 20
+	//height:Ti.UI.FILL,
+	backgroundColor:'transparent'
 	
 },
 "#lbl_titulo":{
 	font:{
 		fontFamily: 'Helvetica-Neue',
-		fontSize: 15,
+		fontSize:'2.54%', //15
 		fontWeight: 'Light'
 	},
 	color: 'white',
-	top:30
-},
-"#img_back":{
-	top:0,
-	//left:0,
-	//width:'150%',
-	image:'/all/ejemplo1.png',
-	//backgroundColor:'black'
-	
-},
-"#div_gradient":{
-	top:-1,
-	backgroundGradient: {
-        type: 'linear',
-        startPoint: { x: '100%', y: '100%' },
-        endPoint: { x: '100%', y: '30%' },
-        colors: [{ color: 'black', offset:0.0}, { color: 'transparent', offset: 1.0}],
-    }
-},
-"#scroll_details":{
-	top: 0,
-	left: 0,
-	width:Ti.UI.FILL,
-	height: Ti.UI.FILL,
-	contentWidth: '100%',
-	contentHeight: 'auto',
-	layout: 'vertical',
-	//backgroundColor:'green',
-	//opacity:0.5
-},
-"#div_details":{
-	//height:492,
-	layout:'vertical',
-	// backgroundColor:'green',
-	// opacity:0.5
-},
-"#div_share":{
-	//top:'2.3%',
-	left:5,
-	height:Titanium.UI.FIL,
-	width:'10.2%'
-},
-"#img_share":{
-	color:'yellow',
-	image:'/all/shareIcon.png'
-},
-"#div_like":{
-	left:0,
-	top:'63%',
-	height:'10.2%',
-	layout:'horizontal',
-},
-"#div_likeIcon":{
-	left:0,
-	width:'12.8%',
-	height:Titanium.UI.FILL,
-	//backgroundColor:'blue'
-},
-"#img_likeIcon":{
-	right:7,
-	image:'/all/likeIcon.png',
-},
-"#lbl_likes":{
-	left:0,
-	height:Titanium.UI.FILL,
-	color:'white',
-	font:{
-		fontFamily: 'Raleway-Bold',
-		fontSize: 22,
-	},
-	//backgroundColor:'green'
-},
-"#div_separator":{
-	top:0,
-	height:1,
-	left:'4.5%',
-	right:'4.5%',
-	width:'91%',
-	backgroundColor:'white',
-	opacity:0.4
-},
-"#div_artContent":{
-	layout:'vertical',
-	top:0,
-	
-},
-"#lbl_artTitulo":{
-	top:'2.7%',
-	left:'4.5%',
-	right:'4.5%',
-	height:'auto',
-	color:'white',
-	font:{
-		fontFamily: 'Raleway-Bold',
-		fontSize:'20%',
-	},
-},
-"#lbl_subtitulo":{
-	top:'1%',
-	color:'white',
-	left:'4.5%',
-	font:{
-		fontFamily: 'Raleway',
-		fontSize:14,
-	},
-},
-"#lbl_fecha":{
-	top:'2.7%',
-	left:'4.5%',
-	right:'4.5%',
-	color:'yellow',
-	font:{
-		fontFamily: 'Helvetica',
-		fontSize: '10%',
-	},
-},
-"#div_descripcion":{
-	top:0,
-	backgroundColor:'white',
-	layout:'vertical',
-	height:Ti.UI.SIZE,
-},
-"#lbl_descripcion":{
-	top:20,
-	left:'5%',
-	right:'5%',
-	font:{
-		fontFamily: 'Helvetica-Light',
-		fontSize: '15%',
-	},
-},
-"#div_addComment":{
-	height:'18%',
-	backgroundColor:'#e3e5e6',
-	layout:'vertical'
-},
-"#div_numComentarios":{
-	height:'48%'
-},
-"#lbl_comentario_addComment":{
-	left:'4.5%',
-	color:'#c9418a',
-	font:{
-		fontFamily: 'Helvetica-Bold',
-		fontSize: 19,
-	},
-},
-"#lbl_numComentarios":{
-	right:'4.5%',
-	color:'#c9418a',
-	font:{
-		fontFamily: 'Helvetica-Bold',
-		fontSize: 19,
-	},
-},
-"#div_separador_gris":{
-	left:'4.5%',
-	right:'4.5%',
-	height:1,
-	backgroundColor:'gray',
-},
-"#div_separador_blanco":{
-	left:'4.5%',
-	right:'4.5%',
-	height:1,
-	backgroundColor:'white',
-},
-"#div_pic_txt":{
-	height:'48%',
-},
-"#txt_comentario":{
-	left:'20%',
-	right:'4.5%',
-	borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
-	hintText:'Añade un comentario...'
-},
-"#tbv_comentarios":{
-	height:'82%',
-	backgroundColor:'#fff0f8',
-},
-"#row_comentario":{
-	selectionStyle: 'none',
-},
-"#div_row":{
-	layout:'horizontal',
-	height:Ti.UI.SIZE,
-	
-},
-"#div_profile":{
-	left:0,
-	width:'20%',
-	height:Ti.UI.SIZE,
-	backgroundColor:'yellow'
-},
-"#div_comment":{
-	left:0,
-	width:'80%',
-	height:Ti.UI.SIZE,
-	layout:'vertical',
-},
-"#img_profile":{},
-"#lbl_nombre":{
-	left:0,
-	top:10,
-	color:'black',
-	font:{
-		fontFamily: 'Helvetica-Bold',
-		fontSize: 15,
-	},
-},
-"#lbl_comentario":{
-	left:0,
-	top:2,
-	color:'black',
-	font:{
-		fontFamily: 'Helvetica-Light',
-		fontSize: 13,
-	},
-},
-"#lbl_tiempo":{
-	left:0,
-	top:5,
-	color:'#c9418a',
-	font:{
-		fontFamily: 'Helvetica',
-		fontSize: 12,
-	},
 },
 
+// --------------------- ANDROID -------------------------------------- //
 
+"#div_nav[platform=android]":{
+	height:'9.44%',
+},
+"#btn_menu[platform=android]": {
+	font: {fontSize:'15sp'},	
+},
+"#lbl_titulo[platform=android]":{
+ 	font: {fontSize:'15sp'},
+},
 

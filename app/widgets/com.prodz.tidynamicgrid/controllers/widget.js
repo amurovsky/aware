@@ -23,8 +23,8 @@ var init = function(opts){
 	columnWidth = (newWidth / columns) - space;
 	
 	//ADJUST THE SCROLLVIEW
-	$.tdgScrollView.left = space+"dp";
-	$.tdgScrollView.top = space+"dp";
+	$.tdgScrollView.left = space;
+	$.tdgScrollView.top = space;
 	$.tdgScrollView.right = -1;
 	
 	//MAIN BG COLOR
@@ -46,13 +46,13 @@ var init = function(opts){
 	
 	for(var x=0;x<columns;x++){
 		colViews[x] = Ti.UI.createView({
-			width:columnWidth+"dp",
+			width:columnWidth,
 			height:Ti.UI.SIZE,
 			backgroundColor:'transparent',
 			top:0,
 			left:0,
-			right:space+"dp",
-			bottom:space+"dp",
+			right:space,
+			bottom:space,
 			layout:'vertical'
 		});
 		$.tdgScrollView.add(colViews[x]);
@@ -68,6 +68,7 @@ var addGridItems = function(args){
 	for (var x=0;x < data.length; x++){
 		addGridItem(data[x]);
 	}
+	
 };
 
 var addGridItem = function(item){
@@ -79,15 +80,14 @@ var addGridItem = function(item){
 	});
 	tmpView.add(item.view);
 	$.tdgMain.add(tmpView);
-	
 	setTimeout(function(){
-		Ti.API.info('Item Height is:' + tmpView.size.height);
+		//Ti.API.info('Item Height is:' + tmpView.size.height);
 		
 		var frame = Ti.UI.createView({
 			width:Ti.UI.FILL,
-			height:Ti.UI.SIZE,
+			height:tmpView.size.height,
 			backgroundColor:itemsOptions.backgroundColor,
-			bottom:space+"dp",
+			bottom:space,
 			borderColor:itemsOptions.borderColor,
 			borderRadius:itemsOptions.borderRadius,
 			borderWidth:itemsOptions.borderWidth
@@ -95,10 +95,10 @@ var addGridItem = function(item){
 		
 		var overlay = Ti.UI.createView({
 			width:Ti.UI.FILL,
-			height:Ti.UI.SIZE,
+			height:Ti.UI.FILL,
 			backgroundColor:'transparent',
 			zIndex:1,
-			data:item.data
+			data:item.data,
 		});
 		
 		var gridElement = item.view;

@@ -1,0 +1,65 @@
+<Alloy>
+	<View class="container">
+		<View id="div_statusBar" platform="ios"></View>
+			<View id="div_nav">
+				<Button id="btn_menu" onClick="cerrarVentana">Menú</Button>
+				<Label id="lbl_titulo">Videos Tutoriales</Label>
+			</View>
+		<View id="nav_separator"></View>
+		<View id="div_main">
+			<ListView onItemclick="listItemHandler" id="list_videos" backgroundColor="#fecce7" showVerticalScrollIndicator="false">
+				<Templates>
+					<ItemTemplate name="video_pri_template" id="video_pri_template">
+						<View id="rowConteiner1">
+							<VideoPlayer id="vid_prev" bindId="vid_prev" platform="ios"></VideoPlayer>
+							<View id="img_prev" bindId="img_prev" platform="android"></View>
+							<View id="div_gradient">
+								<View id="div_titulos">
+									<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
+									<Label id="lbl_titulo2" bindId="lbl_titulo2"></Label>
+								</View> 
+								<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
+								<View id="div_expand">
+									<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
+								</View>
+							</View>
+						</View>
+					</ItemTemplate>
+					<ItemTemplate name="video_desc_template" id="video_desc_template">
+						<View id="rowConteiner2">
+							<Label id="lbl_tituloDesc" bindId="lbl_tituloDesc"></Label>
+							<Label id="lbl_descripcion" bindId="lbl_descripcion"></Label>
+							<!-- <View id="div_separador"></View> -->
+						</View>
+					</ItemTemplate>
+					<ItemTemplate name="video_list_template" id="video_list_template">
+						<View id="rowConteiner3">
+							<View id="div_wrapper">
+								<View id="div_thumbnail">
+									<ImageView id="img_thumbnail" bindId="img_thumbnail">
+										<View id="div_duracion2">
+											<Label id="lbl_duracion2" bindId="lbl_duracion2"></Label>
+										</View>
+									</ImageView>
+								</View>
+								<View id="div_textos">
+									<Label id="lbl_tituloVid" bindId="lbl_tituloVid"></Label>
+									<Label id="lbl_subtituloVid" bindId="lbl_subtituloVid"></Label>
+								</View>
+								<View id="div_shareIcon">
+									<ImageView id="img_shareIcon" bindId="img_shareIcon"></ImageView>
+								</View>
+							</View>
+						</View>
+					</ItemTemplate>
+				</Templates>
+				<ListSection id="listSection">
+ 					<ListItem template="video_pri_template" lbl_titulo1:text="Cinco sencillos pasos" lbl_titulo2:text="Para la autoexploración" lbl_duracion:text="7:50 min"></ListItem>
+ 					<ListItem template="video_desc_template" lbl_tituloDesc:text="Tutorial No.1" lbl_descripcion:text="Explórate 7 días después de la menstruación, si ya no reglas hazlo en un día fijo del mes. Si olvidaste hacerlo en la fecha programada hazlo cuando te acuerdes; lo más importante es hacerlo periódicamente, conocer lo que es normal y cómo se sienten las mamas dependiendo del periodo del mes, la edad o de ciertas circunstancias como el embarazo."></ListItem>
+ 					<ListItem template="video_list_template" img_thumbnail:image="/images/secondPreview.png" lbl_duracion2:text="4:34" lbl_tituloVid:text="Como hacer una correcta autoexploración" lbl_subtituloVid:text="Tutorial no.02 de Aware®"></ListItem>
+ 					<ListItem template="video_list_template" img_thumbnail:image="/images/thirdPreview.png" lbl_duracion2:text="9:12" lbl_tituloVid:text="Como hacer una correcta autoexploración" lbl_subtituloVid:text="Tutorial no.03 de Aware®"></ListItem>
+                </ListSection>
+			</ListView>
+		</View>
+	</View>
+</Alloy>
