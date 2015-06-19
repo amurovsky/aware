@@ -10,32 +10,31 @@
 			<ImageView id="img_back"></ImageView>
 			<View id="div_gradient"></View>
 			<ScrollView id="scroll_details">
+				<!---------------- DIV IMAGEN PRINCIPAL ------------------->
 				<View id="div_details">
-					<View id="div_like">
-						<View id="div_likeIcon" onTouchstart="like_down" onTouchend="like_up">
-							<ImageView id="img_likeIcon"></ImageView>
+					<View id="div_wrapper">	
+						<View id="div_like">
+							<View id="div_likeIcon" onTouchstart="like_down" onTouchend="like_up">
+								<ImageView id="img_likeIcon"></ImageView>
+							</View>
+							<Label id='lbl_likes'>391</Label>
+							<View id="div_share" onTouchstart="share_down" onTouchend="share_up">
+								<ImageView id="img_share"></ImageView>
+							</View>
 						</View>
-						<Label id='lbl_likes'>391</Label>
-						<View id="div_share" onTouchstart="share_down" onTouchend="share_up">
-							<ImageView id="img_share"></ImageView>
+						<View id="div_separator"></View>
+						<View id="div_artContent">
+							<Label id="lbl_artTitulo"></Label>
+							<Label id="lbl_fecha"></Label>
 						</View>
-					</View>
-					<View id="div_separator"></View>
-					<View id="div_artContent">
-						<Label id="lbl_artTitulo">Cuanto antes se sepa, mejor: La detección precoz del cancer de mama, herramienta principal</Label>
-						<Label id="lbl_fecha">25 de septiembre del 2008</Label>
 					</View>
 				</View>
+				<!---------------- DIV DESCRIPCIOn ------------------->
 				<View id="div_descripcion">
-					<Label id="lbl_descripcion">Praesent at mauris a arcu vulputate scelerisque. Praesent tempus tellus ut eros tincidunt molestie. Sed consectetur viverra mi et tristique. Praesent vitae sodales sapien. Maecenas sed felis eget metus tristique rhoncus ut sit amet mi. Aenean posuere mattis fermentum. Nulla semper enim in velit aliquam, sed venenatis mi pretium. Nam convallis turpis et posuere porttitor. Donec condimentum vulputate purus, et pellentesque neque elementum a. Phasellus in viverra dolor, a semper lorem. In hac habitasse platea dictumst.
-
-Morbi pellentesque dictum ultrices. In hac habitasse platea dictumst. Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat. Aliquam faucibus diam quis tempor imperdiet. Vestibulum rhoncus dui in odio aliquet, vel condimentum tellus hendrerit. 
-
-Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum sit amet malesuada orci. Nulla finibus turpis quis tortor faucibus luctus. Nunc quis arcu et lorem sagittis accumsan. Fusce in est velit. Sed ipsum elit, pharetra et turpis at, elementum aliquet nibh.
-
-					</Label>
+					<Label id="lbl_descripcion"></Label>
 					<View id="div_whiteSpace"></View>
 				</View>
+				<!---------------- DIV ADD COMMENT ------------------->
 				<View id="div_addComment">
 					<View id="div_numComentarios">
 						<Label id="lbl_comentario_addComment">Comentarios</Label>
@@ -50,8 +49,12 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 							</View>
 						<!-- </View> -->
 						<TextField id="txt_comentario"></TextField>
+						<View id="div_enviar">
+							<Label id="lbl_enviar">Enviar</Label>
+						</View>
 					</View>
 				</View>
+				<!---------------- TABLEVIEW COMENTARIOS ------------------->
 				<TableView id="tbv_comentarios">
 					<TableViewRow id="row_comentario">
 						<View id="div_row">
@@ -91,8 +94,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Maria de Jesus</Label>
-								<Label id="lbl_comentario">Me encantó el artículo, en verdad creo que se tocan punto muy importantes en el.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -106,10 +109,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Julia Catalina</Label>
-								<Label id="lbl_comentario">In hac habitasse platea dictumst. Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat. Aliquam faucibus diam quis tempor imperdiet. Vestibulum rhoncus dui in odio aliquet, vel condimentum tellus hendrerit. 
-
-Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum sit amet malesuada orci. Nulla finibus turpis quis tortor faucibus luctus. Nunc quis arcu et lorem sagittis accumsan.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -123,8 +124,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Pedro Ocaranza</Label>
-								<Label id="lbl_comentario">Wow comenzare a aplicar esta tecnica.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -138,8 +139,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Maria de Jesus</Label>
-								<Label id="lbl_comentario">Me encantó el artículo, en verdad creo que se tocan punto muy importantes en el.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -153,8 +154,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Maria de Jesus</Label>
-								<Label id="lbl_comentario">Me encantó el artículo, en verdad creo que se tocan punto muy importantes en el.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -168,8 +169,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Maria de Jesus</Label>
-								<Label id="lbl_comentario">Me encantó el artículo, en verdad creo que se tocan punto muy importantes en el.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -183,8 +184,8 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Maria de Jesus</Label>
-								<Label id="lbl_comentario">Me encantó el artículo, en verdad creo que se tocan punto muy importantes en el.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>
@@ -198,8 +199,23 @@ Pellentesque nec tortor sed elit facilisis vulputate non sed ipsum. Vestibulum s
 								</View>
 							</View>
 							<View id="div_comment">
-								<Label id="lbl_nombre">Martha Esparza</Label>
-								<Label id="lbl_comentario">Me encantó el artículo, en verdad creo que se tocan punto muy importantes en el.</Label>
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
+								<Label id="lbl_tiempo">Hace 26 min</Label>
+								<View id="div_pinkSpace"></View>
+							</View>
+						</View>
+					</TableViewRow>
+					<TableViewRow id="row_comentario">
+						<View id="div_row">
+							<View id="div_profile">
+								<View id="div_imageMask">
+									<ImageView id="img_profile"></ImageView>
+								</View>
+							</View>
+							<View id="div_comment">
+								<Label id="lbl_nombre">Jessica Lopez</Label>
+								<Label id="lbl_comentario">Nulla at sem eget ligula pulvinar efficitur. Maecenas ullamcorper sem eget ex gravida, ac iaculis quam feugiat.</Label>
 								<Label id="lbl_tiempo">Hace 26 min</Label>
 								<View id="div_pinkSpace"></View>
 							</View>

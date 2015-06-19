@@ -3,11 +3,17 @@
 	height:Ti.UI.SIZE,
 	layout:'vertical',
 	backgroundColor:'transparent',
-	zIndex:0
+	zIndex:0,
 },
 "#thumb":{
 	width:Ti.UI.FILL,
 	height:Ti.UI.SIZE
+},
+"#div_separador":{
+	width:Ti.UI.FILL,
+	height:1,
+	opacity:0.7,
+	backgroundColor:'#c8bcc3'
 },
 "#title":{
 	width:Ti.UI.FILL,
@@ -16,7 +22,7 @@
 	left:5,
 	right:5,
 	top:3,
-	color:'black'
+	color:'#666666'
 },
 "#div_fecha_likes":{
 	top:5,
@@ -30,12 +36,26 @@
 	bottom:5,
 	color:'#fb8ac7'
 },
-"#likes":{
-	top:0,
+"#div_likes":{
 	right:5,
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE,
+	layout:'horizontal',
+},
+"#img_like":{
+	image:'/images/likeIcon.png',
+	height:12
+},
+"#likes":{
+	left:5,
 	height:Ti.UI.SIZE,
 	font:{fontSize:12},
 	color:'#fb8ac7',
+},
+"#div_shadow":{
+	width:Ti.UI.FILL,
+	height:1,
+	backgroundColor:'#dbb2c8',
 },
 
 

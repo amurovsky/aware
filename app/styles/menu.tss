@@ -15,6 +15,15 @@
 	layout:'horizontal',
 	width:'200%',
 },
+// "#lbl_null":{
+	// width:Ti.UI.FILL,
+	// height:Ti.UI.FILL,
+	// textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	// color:'white',
+	// left:5,
+	// right:5,
+	// visible:false
+// },
 "#fechaCiclo":{
 	backgroundColor:'#ff82c8',
 	width:'25%',
@@ -38,6 +47,7 @@
 },
 "#compraButton":{
 	top:'11%',
+	//width: Ti.UI.FILL
 },
 "#diaFechaCiclo":{
 	color:'white',
@@ -64,20 +74,22 @@
 	textAlign:'center',
 	color:'#ff82c8',
 	top:'1%'
-},"#profileImg[platform=ios]":{
+},"#profileImg":{
 	//borderRadius: 40,
 	//image: '/images/profilePic.png',
 	//image: '/images/emptyProfile.jpg',
-	defaultImage:'/images/emptyProfile.jpg',
+	//defaultImage:'/images/emptyProfile.jpg',
 	//top: '8%',
-	//height: 86,
-	//width: 80
-	width:'200%'
+	height: Ti.UI.FILL,
+	width: Ti.UI.FILL
+	//width:'200%'
 	
 },
 //--------------- Estilos IOS -----------------------//
 ".container[platform=ios]":{
 	backgroundImage:'/images/fondoMenu.png',
+	width:'100%',
+    height:'100%'
 	
 },"#imageMask[platform=ios]":{
 	height:86,
@@ -256,7 +268,7 @@
 
 ".container[platform=android]":{
 	backgroundImage:'/images/fondoMenu.png',
-	orientationModes: [Titanium.UI.PORTRAIT]
+	
 
 },"Button[platform=android]":{
 	

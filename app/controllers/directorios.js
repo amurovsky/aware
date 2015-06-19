@@ -1,11 +1,34 @@
 var args = arguments[0] || {};
 var osname = Ti.Platform.osname;
+var navigation = Alloy.Globals.navigation;
+var data = [];
 
-var data = [{nombre:'CONSULTORIO PROVIDENCIA GINECOLOGÍA',imagen:'/images/profilePic.png',direccion:'Avenida Guadalupe No.350 Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'},
-			{nombre:'GINE. ARTURO GALVÁN ROMERO',imagen:'/images/profilePic.png',direccion:'Bernardo de Balbuena No.91 Colonia Ladron de Guevara Guadalajara, Jal. Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'},
-			{nombre:'Nacer Humano',imagen:'/images/profilePic.png',direccion:'Av. de los Maestros No.1838 Colonia de los Doctores Guadalajara, Jal. Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'}];
+Alloy.Globals.ws.doctors(function(status,obj){
+	if (status) {
+		for(var i=0; i<obj.doctores.length; i++){
+			data.push({
+				template: "dir_template", 
+				img_logo:{image:'http://digital.testingweb.mx:8101/uploads/'+obj.doctores[i].thumbnail}, 
+				lbl_nombre:{text:obj.doctores[i].name}, 
+				lbl_direccion:{text:obj.doctores[i].address},
+				telefono:obj.doctores[i].telephone,
+				coordenadas:obj.doctores[i].coordenates });
+		}
+		$.listSection.setItems(data);	
+	}else{
+		var dialog = Ti.UI.createAlertDialog({
+			message:obj,
+			buttonNames:['Aceptar'],
+			title:''
+		});
+		dialog.show();
+	}
+	
+});
+
 function cerrarVentana(){
-	Alloy.Globals.navigator.goBack();
+	//Alloy.Globals.navigator.goBack();
+	navigation.back();
 }
 
 function listItemHandler (e) {
@@ -33,7 +56,9 @@ function listItemHandler (e) {
   		
   		
   }else if (bindId === 'mapa'){
-  	var url = 'http://maps.google.com/maps?q=20.6315862,-103.4336804&z=13';
+  	Ti.API.info('index: ' + e.itemIndex + ' Coordenadas: ' + data[e.itemIndex].coordenadas);
+  	var url = 'http://maps.google.com/maps?q='+data[e.itemIndex].coordenadas+'&z=13';
+  	//var url = 'http://maps.google.com/maps?q=20.6315862,-103.4336804&z=13';
   	if (osname == 'android') {
   		
   		var intent = Ti.Android.createIntent({

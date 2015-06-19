@@ -1,6 +1,8 @@
 ".container" : {
   backgroundColor: '#fb8bc7',
   layout:'vertical',
+  width:'100%',
+  height:'100%'
 },
 "#div_statusBar":{
 	top:0,
@@ -40,7 +42,7 @@
 },
 
 // -------------- TEMPLATE VIDEO PRINCIPAL ------------------------------- //
-"#list_videos[platform=ios]":{
+"#list_videos":{
 	separatorColor:'transparent',
 	//separatorStyle: Titanium.UI.iPhone.ListViewSeparatorStyle.NONE
 },
@@ -48,22 +50,31 @@
 	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
 },
 "#video_pri_template":{
-	height:212,
+	height:Ti.UI.SIZE,
+},
+"#rowWrapper":{
+	//height:212,
+	height:Ti.UI.SIZE,
+	layout:'vertical'
 },
 "#rowConteiner1":{
 	height:212,
+	//height:Ti.UI.SIZE,
 },
-"#vid_prev":{
-	backgroundColor:'#111',
-	mediaControlStyle:Titanium.Media.VIDEO_CONTROL_NONE,
-	scalingMode:Titanium.Media.VIDEO_SCALING_ASPECT_FILL,
-	url:'/video/test.mp4',
-	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
-},
+// "#vid_prev":{
+	// backgroundColor:'#111',
+	// mediaControlStyle:Titanium.Media.VIDEO_CONTROL_NONE,
+	// scalingMode:Titanium.Media.VIDEO_SCALING_MODE_FILL,
+	// url:'/video/test.mp4',
+	// repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
+	// height:'100%',
+	// width:'100%',
+	// autoplay:true,
+	// zIndex:0
+// },
 "#img_prev":{
 	image: '/images/primerVideo.jpg',
-	height:'150%',
-	width:'118%',
+	width:'100%',
 },
 "#div_gradient":{
 	backgroundGradient: {
@@ -71,7 +82,7 @@
 	    startPoint: { x: '100%', y: '100%' },
 	    endPoint: { x: '100%', y: '60%' },
 	    colors: [{ color: 'black', offset:0.0}, { color: 'transparent', offset: 1.0}],
-	}
+	},
 },
 "#div_titulos":{
 	bottom:'14%',
@@ -105,14 +116,31 @@
 		fontSize:'2.6%'
 	},	
 },
-"#div_expand":{
+"#div_share_expand":{
 	right:0,
 	bottom:0,
-	height:'23.11%',
+	height:'46.22%',
 	width:'17.6%',
+	layout:'vertical',
+	//backgroundColor:'green'
+},
+"#div_share":{
+	height:'45%',
+	//backgroundColor:'pink',
+},
+"#img_share":{
+	image: '/images/shareIcon.png',
+	height:'40.8%'
+},
+"#div_expand":{
+	top:5,
+	height:'45%',
+	//backgroundColor:'yellow'
 },
 "#img_expandIcon":{
 	image: '/images/expandIcon.png',
+	height:'40.8%'
+	
 },
 
 // -------------- TEMPLATE DESCRIPCION ------------------------------- //
@@ -120,18 +148,23 @@
 "#video_desc_template[platform=ios]":{
 	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
 },
-"#video_desc_template":{
-	height:Ti.UI.SIZE,
-},
+// "#video_desc_template":{
+	// height:Ti.UI.SIZE,
+// },
 "#rowConteiner2":{
 	height:Ti.UI.SIZE,
 	backgroundColor:'white',
+	//layout:'vertical',
+},
+"#div_descripcion":{
+	height:Ti.UI.SIZE,
 	layout:'vertical',
+	top:10
 },
 "#lbl_tituloDesc":{
  	color: '#4f4f4f',
 	right:'6%',
-	top: '6%',
+	bottom: 10,
 	left: '6%',
 	font:{
 		fontFamily: 'Montserrat-Regular', 
@@ -142,7 +175,8 @@
 	color: '#606060',
 	left:'6%',
 	right:'6%',
-	top: 0,
+	bottom:10,
+	//height:Ti.UI.SIZE,
 	font:{
 		fontFamily: 'HelveticaNeue-Light', 
 		fontSize:15
@@ -158,10 +192,11 @@
 
 "#video_list_template[platform=ios]":{
 	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+
 },
 
 "#video_list_template":{
-	top:10,
+	//top:10,
 	height:100,
 },
 "#rowConteiner3":{
@@ -181,9 +216,12 @@
 "#div_thumbnail":{
 	width:'42%',
 },
-"#img_thumbnail":{
+"#div_imageWrapper":{
   	height:'76%',
 	width:'85%',
+},
+"#img_thumbnail":{
+	height:'150%',
 	image:"/images/secondPreview.png"
 },
 "#div_duracion2":{
@@ -243,4 +281,13 @@
 },
 "#lbl_titulo[platform=android]":{
  	font: {fontSize:'15sp'},
+},
+"#lbl_titulo1[platform=android]":{
+	font:{fontSize:'15sp'},
+},
+"#lbl_titulo2[platform=android]":{
+	font:{fontSize:'25sp'},
+},
+"#lbl_duracion[platform=android]":{
+	font:{fontSize:'15sp'},	
 },

@@ -1,11 +1,16 @@
 <Alloy>
 	<View id="mainView">
 			<ImageView id="thumb"></ImageView>
+			<View id="div_separador"></View>
 			<Label id="title"></Label>
 			<View id="div_fecha_likes">
 				<Label id="fecha"></Label>
-				<Label id="likes">♡ 666</Label>
+				<View id="div_likes">
+					<ImageView id="img_like"></ImageView>
+					<Label id="likes">666</Label>
+				</View>
+				
 			</View>
-
+			<View id="div_shadow"></View>
 	</View>	
 </Alloy>

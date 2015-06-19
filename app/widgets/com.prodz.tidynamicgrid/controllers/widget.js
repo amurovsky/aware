@@ -64,11 +64,12 @@ var init = function(opts){
 
 var addGridItems = function(args){
 	//clearGrid();
+	Alloy.Globals.loading.show('Cargando articulos...');
 	data = args || {};
 	for (var x=0;x < data.length; x++){
 		addGridItem(data[x]);
 	}
-	
+
 };
 
 var addGridItem = function(item){
@@ -82,7 +83,6 @@ var addGridItem = function(item){
 	$.tdgMain.add(tmpView);
 	setTimeout(function(){
 		//Ti.API.info('Item Height is:' + tmpView.size.height);
-		
 		var frame = Ti.UI.createView({
 			width:Ti.UI.FILL,
 			height:tmpView.size.height,
@@ -120,7 +120,9 @@ var addGridItem = function(item){
 		if(currentCol == colViews.length){
 			currentCol=0;
 		}	
+		Alloy.Globals.loading.hide();
 	},delayTime);
+	
 };
 
 var clearGrid = function(){
@@ -131,6 +133,7 @@ var clearGrid = function(){
 var setOnItemClick = function(fnt){
 	onItemClick = fnt || function(){Ti.API.info('TiDynamicGrid -> onItemClick is not defined.');};
 };
+
 
 exports.init=init;
 exports.addGridItems = addGridItems;

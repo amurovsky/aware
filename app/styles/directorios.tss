@@ -1,6 +1,8 @@
 ".container" : {
   backgroundColor:'#fecce7',
-  layout:'vertical'
+  layout:'vertical',
+  width:'100%',
+  height:'100%'
 },
 "#div_statusBar":{
 	top:0,
@@ -83,9 +85,11 @@
 	width:60,
 	right:0,
 	borderRadius:30,
+	borderColor:'#dfdfdf'
 },
 "#img_logo":{
-	width:'200%',
+	width:'150%',
+	//height:'200%',
 	image:'/images/profilePic.png',
 },
 "#lbl_nombre":{

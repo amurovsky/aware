@@ -26,7 +26,7 @@
 								</View>
 							</View>
 							<View id="div_botones">
-								<Label id="btn_llamar" bindId="llamar">LLamar ahora</Label>
+								<Label id="btn_llamar" bindId="llamar">Llamar ahora</Label>
 								<View id="div_btnSeparator"></View>
 								<Label id="btn_mapa" bindId="mapa">Ver mapa</Label>
 							</View>
@@ -34,9 +34,9 @@
 					</ItemTemplate>
 				</Templates>
 				<ListSection id="listSection">
- 					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='CONSULTORIO DE GINECOLOGÍA PROVIDENCIA' lbl_direccion:text='Avenida Guadalupe No.350 Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'></ListItem>
+ 					<!-- <ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='CONSULTORIO DE GINECOLOGÍA PROVIDENCIA' lbl_direccion:text='Avenida Guadalupe No.350 Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'></ListItem>
  					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='GINE. ARTURO GALVÁN ROMERO' lbl_direccion:text='Bernardo de Balbuena No.91 Colonia Ladron de Guevara Guadalajara, Jal.'></ListItem>
- 					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='NACER HUMANO' lbl_direccion:text='Av. de los Maestros No.1838 Colonia de los Doctores Guadalajara, Jal.'></ListItem>
+ 					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='NACER HUMANO' lbl_direccion:text='Av. de los Maestros No.1838 Colonia de los Doctores Guadalajara, Jal.'></ListItem> -->
                 </ListSection>
 			</ListView>
 		</View>

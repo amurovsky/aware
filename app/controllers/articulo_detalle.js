@@ -1,12 +1,23 @@
 var args = arguments[0] || {};
+var moment = require('alloy/moment');
+var navigation = Alloy.Globals.navigation;
+var screenWidth = Alloy.Globals.deviceWidth;
+var screenHeight = Alloy.Globals.deviceHeight;
 var rect;
 function cerrarVentana(){
-	Alloy.Globals.navigator.goBack();
+	//Alloy.Globals.navigator.goBack();
+	navigation.back();
 }
 
-// imageSize = $.img_back.toImage();
-// Ti.API.info(imageSize.height);
-// $.div_details.height = imageSize.height;
+if (args.liked != null) {
+	if (args.liked == '1') {
+		$.img_likeIcon.image = '/images/likeIcon_fill.png';	
+	}else $.img_likeIcon.image = '/images/likeIcon.png';	
+}
+$.img_back.image = args.imagen;
+$.lbl_artTitulo.text = args.titulo;
+$.lbl_descripcion.text = args.contenido;
+$.lbl_fecha.text = moment(args.fecha).lang("es").format('LL');
 
 $.img_back.addEventListener('load', function(e){
 	    rect = $.img_back.getRect();
@@ -15,6 +26,22 @@ $.img_back.addEventListener('load', function(e){
         $.div_details.height = rect.height;
         $.div_gradient.height = rect.height + 1;
 });
+if(!OS_IOS){
+	$.div_addComment.height = screenHeight * 0.18 ;
+	$.tbv_comentarios.height = screenHeight * 0.686 ;
+
+	$.tbv_comentarios.addEventListener('touchstart', function(){
+    	$.scroll_details.canCancelEvents = false;
+	});
+	$.tbv_comentarios.addEventListener('touchend', function(){
+	    $.scroll_details.canCancelEvents = true;
+	});
+	$.tbv_comentarios.addEventListener('touchcancel', function(){
+	    $.scroll_details.canCancelEvents = true;
+	});
+}
+
+
 
 var liked = false;
 var likes = 361;
@@ -72,6 +99,6 @@ $.scroll_details.addEventListener('scroll', function(e) {
 });
 
 
-this.close = function(){
-	$.destroy();
-};
+// this.close = function(){
+	// $.destroy();
+// };

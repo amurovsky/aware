@@ -1,11 +1,10 @@
 <Alloy>
-	
 	<View class="container">
 		<View id="div_logout" onTouchstart="logout_down" onTouchend="logout_up">
 			<ImageView id="logoutButton"></ImageView>
 		</View>
 		
-		<View id="imageMask">
+		<View id="imageMask" onClick="changeProfile">
 			<ImageView id="profileImg"></ImageView>
 		</View>
 		<Label id="profileName"></Label>
@@ -20,9 +19,10 @@
 		<View id="regSeparator"></View>
 		<Button id="directorios" onClick="menu">Directorio de Doctores</Button>
 		<View id="footer">
-			<View id="fechaCiclo">
-				<Label id="diaFechaCiclo" onClick="showPicker">05</Label>
-				<Label id="restoFechaCiclo">Nov / 2015</Label>
+			<View id="fechaCiclo" onClick="showPicker">
+				<Label id="diaFechaCiclo"></Label>
+				<Label id="restoFechaCiclo"></Label>
+				<Label id="lbl_null">Toca aqui para \n registrar tu fecha</Label>
 			</View>
 			<View id="ciclo">
 				<ImageView id="cicloButton"></ImageView>
@@ -34,9 +34,10 @@
 				<!-- <ImageView id="cerrarComprar" class="cerrarButton"></ImageView> -->
 				<Label id="tituloCompra">Compra de \nAware® Pad</Label>
 			</View>
-			<View id="fechaCompra">
-				<Label id="diaFechaCompra" onClick="showPicker">05</Label>
-				<Label id="restoFechaCompra">Nov / 2015</Label>
+			<View id="fechaCompra" onClick="showPicker">
+				<Label id="diaFechaCompra"></Label>
+				<Label id="restoFechaCompra"></Label>
+				<!-- <Label id="lbl_null">Toca aqui para \n registrar tu fecha</Label> -->
 			</View>
 		</View>
 	</View>

@@ -1,5 +1,5 @@
 var args = arguments[0] || {};
-
+var navigation = Alloy.Globals.navigation;
 var icomoonlib = require('icomoonlib');
 var osname = Ti.Platform.osname;
 var screenWidth = Alloy.Globals.deviceWidth;
@@ -14,14 +14,45 @@ function back_down (e) {
 }
 function back_up (e) {
 	e.source.opacity = 1;
-  Alloy.Globals.navigator.goBack();
+  //Alloy.Globals.navigator.goBack();
+  navigation.back();
 }
 function siguiente (e) {
-  Alloy.Globals.navigator.openWindow('iniciar_sesion');
+  //Alloy.Globals.navigator.openWindow('iniciar_sesion');
+  var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
+  var name = $.txt_nombre.getValue();
+  var lastname = $.txt_apellido.getValue();
+  var email = $.txt_email.getValue();
+  var password = $.txt_contrasena.getValue();
+  var image = '';
+  
+  if (name == '' || lastname == '' || email == '' || password == '') {
+  	dialog.message = "Debes completar todos los campos";
+	dialog.show();
+  }else{
+  	Alloy.Globals.loading.show('Registrando...');
+  	Alloy.Globals.ws.register(name, lastname, email, password, image, function(status, obj){
+  		Alloy.Globals.loading.hide();
+  		if (status) {
+  			navigation.open('iniciar_sesion',{email:email});
+  		}else{
+  			dialog.message = obj;
+			dialog.show();
+  		}
+  		
+  	});
+  }
+  
+  //navigation.open('iniciar_sesion');
 }
 
+var LO = Alloy.createWidget('com.caffeinalab.titanium.loader', {
+    cancelable: false,
+    useImages: false
+});
 function registro_facebook (e) {
-  Alloy.Globals.panelLoading.show();
+	LO.show('Conectando con Facebook');
+  //Alloy.Globals.panelLoading.show();
   //Alloy.Globals.panelLoading.setMessage('Cargando...');
   fb.authorize();
   
@@ -48,7 +79,8 @@ function registro_facebook (e) {
             Ti.App.Properties.setString('profileImg','http://graph.facebook.com/'+e.uid+'/picture?type=large');
 			Ti.App.Properties.setString('email',results.email);
 			Ti.App.Properties.setString('userName',results.name);
-			Alloy.Globals.navigator.openWindow('menu',true);
+			//Alloy.Globals.navigator.openWindow('menu',true);
+			navigation.open('menu');
         }
         else if (e.cancelled) {
             // user cancelled 
@@ -57,11 +89,13 @@ function registro_facebook (e) {
         else {
             Ti.API.info('cancelado por usuario: '+e.error);         
         }
+        LO.hide();
     });
+    
     fb.addEventListener('logout', function(e) {
         Ti.API.info('logged out');
         Ti.API.info('Logged In: ' + fb.loggedIn);
-        Alloy.Globals.navigator.openLogin();
+        //Alloy.Globals.navigator.openLogin();
     });
 // 	
 // 
@@ -76,6 +110,6 @@ function registro_facebook (e) {
     
 //$.div_main.add(loginButton);
 
-this.close = function(){
-	$.destroy();
-};
+// this.close = function(){
+	// $.destroy();
+// };

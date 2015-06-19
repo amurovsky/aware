@@ -1,0 +1,95 @@
+<Alloy>
+	<View class="container">
+		<View id="div_statusBar" platform="ios"></View>
+		<View id="div_nav">
+			<Button id="btn_menu" onClick="cerrarVentana">Atras</Button>
+			<Label id="lbl_titulo">Articulo</Label>
+		</View>
+		<View id="nav_separator"></View>
+		<View id="div_main">
+			<ImageView id="img_back"></ImageView>
+			<View id="div_gradient"></View>
+			<ScrollView id="scroll_details">
+				<!---------------- DIV IMAGEN PRINCIPAL ------------------->
+				<View id="div_details">
+					<View id="div_wrapper">	
+						<View id="div_like">
+							<View id="div_likeIcon" onTouchstart="like_down" onTouchend="like_up">
+								<ImageView id="img_likeIcon"></ImageView>
+							</View>
+							<Label id='lbl_likes'>391</Label>
+							<View id="div_share" onTouchstart="share_down" onTouchend="share_up">
+								<ImageView id="img_share"></ImageView>
+							</View>
+						</View>
+						<View id="div_separator"></View>
+						<View id="div_artContent">
+							<Label id="lbl_artTitulo"></Label>
+							<Label id="lbl_fecha"></Label>
+						</View>
+					</View>
+				</View>
+				<!---------------- DIV DESCRIPCIOn ------------------->
+				<View id="div_descripcion">
+					<Label id="lbl_descripcion"></Label>
+					<View id="div_whiteSpace"></View>
+				</View>
+				<!---------------- DIV ADD COMMENT ------------------->
+				<View id="div_addComment">
+					<View id="div_numComentarios">
+						<Label id="lbl_comentario_addComment">Comentarios</Label>
+						<Label id="lbl_numComentarios"></Label>
+					</View>
+					<View id="div_separador_gris"></View>
+					<View id="div_separador_blanco"></View>
+					<View id="div_pic_txt">
+						<View id="div_addImageMask">
+							<ImageView id="img_profileMe"></ImageView>
+						</View>
+						<TextField id="txt_comentario"></TextField>
+						<View id="div_enviar" onTouchstart="enviar_down" onTouchend="enviar_up" onTouchcancel="enviar_cancelar">
+							<Label id="lbl_enviar">Enviar</Label>
+						</View>
+					</View>
+				</View>
+				<!---------------- LIST VIEW COMMENTS ------------------->
+				<ListView id="list_comments" defaultItemTemplate="comment_template" backgroundColor="#fff0f8" canScroll="false">
+					<Templates>
+						<ItemTemplate name="comment_template" id="comment_template">
+							<View id="div_row">
+								<View id="div_profile">
+									<View id="div_imageMask">
+										<ImageView id="img_profile" bindId="img_profile"></ImageView>
+									</View>
+								</View>
+								<View id="div_comment">
+									<Label id="lbl_nombre" bindId="lbl_nombre"></Label>
+									<Label id="lbl_comentario" bindId="lbl_comentario"></Label>
+									<Label id="lbl_tiempo" bindId="lbl_tiempo"></Label>
+									<View id="div_pinkSpace"></View>
+								</View>
+							</View>
+						</ItemTemplate>
+					</Templates>
+					<ListSection id="listSection">
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Brenda Tururu" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                </ListSection>
+				</ListView>
+			</ScrollView>
+		</View>
+	</View>
+</Alloy>

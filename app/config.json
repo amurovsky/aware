@@ -10,6 +10,7 @@
   "dependencies": {
     "ytPlayer": "1.0",
     "com.prodz.tidynamicgrid": "1.0",
-    "com.alcoapps.socialshare": "1.0"
+    "com.alcoapps.socialshare": "1.0",
+    "com.caffeinalab.titanium.loader": "1.3.0"
   }
 }
