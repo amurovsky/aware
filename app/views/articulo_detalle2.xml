@@ -17,7 +17,7 @@
 							<View id="div_likeIcon" onTouchstart="like_down" onTouchend="like_up">
 								<ImageView id="img_likeIcon"></ImageView>
 							</View>
-							<Label id='lbl_likes'>391</Label>
+							<Label id='lbl_likes'></Label>
 							<View id="div_share" onTouchstart="share_down" onTouchend="share_up">
 								<ImageView id="img_share"></ImageView>
 							</View>
@@ -72,7 +72,7 @@
 						</ItemTemplate>
 					</Templates>
 					<ListSection id="listSection">
-	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <!-- <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
@@ -86,7 +86,7 @@
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
-	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Brenda Tururu" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Brenda Tururu" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/> -->
 	                </ListSection>
 				</ListView>
 			</ScrollView>

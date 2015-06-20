@@ -78,11 +78,11 @@
 	//borderRadius: 40,
 	//image: '/images/profilePic.png',
 	//image: '/images/emptyProfile.jpg',
-	//defaultImage:'/images/emptyProfile.jpg',
+	defaultImage:'/images/emptyProfile.jpg',
 	//top: '8%',
-	height: Ti.UI.FILL,
-	width: Ti.UI.FILL
-	//width:'200%'
+	//height: Ti.UI.FILL,
+	//width: Ti.UI.FILL
+	width:'150%'
 	
 },
 //--------------- Estilos IOS -----------------------//

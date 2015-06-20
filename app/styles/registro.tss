@@ -41,6 +41,15 @@
 "#div_main":{
 	backgroundColor:'#fff0f8',
 },
+"#scroll_details":{
+	top: 0,
+	left: 0,
+	width:Ti.UI.FILL,
+	height: Ti.UI.SIZE,
+	contentWidth: '100%',
+	contentHeight: 'auto',
+	scrollType:'vertical',
+},
 "#div_facebookBtn":{
 	 top:'11%',
 	 height:'8.5%',

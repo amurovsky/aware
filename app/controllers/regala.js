@@ -14,11 +14,11 @@ $.lbl_ok.font = {fontFamily:'OpenSans-ExtraBold',fontSize:screenHeight * 0.04};
 
 function secuencia_animacion () {
 	new Animator().fade({ view: $.div_background, value: 0.7, duration: 500,onComplete:function(){
-		new Animator().fade({ view: $.div_wrapper, value: 1, duration: 500,onComplete:loopedAnimation }); 
-		new Animator().fade({ view: $.img_close, value: 1, duration: 500,onComplete:function(){
-			new Animator().fade({ view: $.img_regalo, value: 1, duration: 500 }); 
-			new Animator().fade({ view: $.img_sombra, value: 1, duration: 500,onComplete:function(){
-				new Animator().fade({ view: $.div_pinkWrapper, value: 1, duration: 500,});
+		new Animator().fade({ view: $.div_wrapper, value: 1, duration: 250,onComplete:loopedAnimation }); 
+		new Animator().fade({ view: $.img_close, value: 1, duration: 250,onComplete:function(){
+			new Animator().fade({ view: $.img_regalo, value: 1, duration: 250 }); 
+			new Animator().fade({ view: $.img_sombra, value: 1, duration: 250,onComplete:function(){
+				new Animator().fade({ view: $.div_pinkWrapper, value: 1, duration: 250,});
 			}});	
 		}});
 	}});

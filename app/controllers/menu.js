@@ -16,42 +16,48 @@ Ti.API.info('*--- SESSION ID ---*',Ti.App.Properties.getString('sessid'));
 if (Ti.App.Properties.getString('userName') != null) {
 	$.profileName.text = Ti.App.Properties.getString('userName');
 	$.profileMail.text = Ti.App.Properties.getString('email');
+	$.profileImg.image = Ti.App.Properties.getString('profileImg');
 	if (Ti.App.Properties.getString('profileImg')) {
-		$.profileImg.backgroundImage = Ti.App.Properties.getString('profileImg');
+		$.profileImg.image = Ti.App.Properties.getString('profileImg');
 	}else{
-		$.profileImg.backgroundImage = '/images/emptyProfile.png';
+		$.profileImg.image = '/images/emptyProfile.png';
 	}
 }else{
-	$.profileImg.backgroundImage = '/images/emptyProfile.png';
+	$.profileImg.image = '/images/emptyProfile.png';
 	$.profileName.text = 'Usuario Anonimo';
 }
 
 // ----------- Change Profile -------------------------- //
 function changeProfile (e) {
-  	// var ImageUploadPanel = require("ImageUploadPanel");
-	// var imgUploadPanel = new ImageUploadPanel($.menu, "Selecciona una foto de perfil");
-		// imgUploadPanel.open({
-			// success: function(imageResource){
-				// Ti.API.info('Succes.!');
-				// $.profileImg.setBackgroundImage(imageResource);
-			// },
-			// cancel: function(){
-				// // Alloy.Globals.panelLoading.hide();
-			// },
-			// error: function(error){
-				// // Alloy.Globals.panelLoading.hide();
-// 				
-				// // called when there's an error
-				// var a = Titanium.UI.createAlertDialog({title:'Error'});
-// 				
-				// if (error.code == Titanium.Media.NO_CAMERA) {
-					// a.setMessage('Su dispositivo no tiene camara integrada');
-				// } else {
-					// a.setMessage('Ocurrio un error inesperado: ' + error.code);
-				// }
-				// a.show();
-			// }
-		// });
+  	var ImageUploadPanel = require("ImageUploadPanel");
+	var imgUploadPanel = new ImageUploadPanel($.menu, "Selecciona una foto de perfil");
+		imgUploadPanel.open({
+			success: function(imageResource){
+				Ti.API.info('Succes.!');
+				if (imageResource.height > imageResource.width) {
+					$.profileImg.setHeight('150%');
+				}else{
+					$.profileImg.setWidth('150%');
+				}
+				$.profileImg.setImage(imageResource);
+			},
+			cancel: function(){
+				// Alloy.Globals.panelLoading.hide();
+			},
+			error: function(error){
+				// Alloy.Globals.panelLoading.hide();
+				
+				// called when there's an error
+				var a = Titanium.UI.createAlertDialog({title:'Error'});
+				
+				if (error.code == Titanium.Media.NO_CAMERA) {
+					a.setMessage('Su dispositivo no tiene camara integrada');
+				} else {
+					a.setMessage('Ocurrio un error inesperado: ' + error.code);
+				}
+				a.show();
+			}
+		});
 }
 
 
@@ -60,6 +66,7 @@ function logout_down (e) {
   e.source.opacity=0.5;
 }
 function logout_up (e) {
+	Alloy.Globals.loading.show('Cerrando Sesión...');
 	e.source.opacity=1;	
 	Ti.API.info('ADIOS');
 	Ti.App.Properties.setString('userName',null);	
@@ -71,6 +78,7 @@ function logout_up (e) {
 	//Alloy.Globals.navigator.openLogin();
 	navigation.open('login',{transition: 'crossFade', duration: 500, transitionColor: '#fff'});
 	navigation.clearHistory();
+	Alloy.Globals.loading.hide();
 }
 
 // ---------------- REGALA SALUD -------------------- //

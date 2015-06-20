@@ -1,4 +1,5 @@
 var args = arguments[0] || {};
+var social = require('com.alcoapps.socialshare');
 var moment = require('alloy/moment');
 var navigation = Alloy.Globals.navigation;
 var screenWidth = Alloy.Globals.deviceWidth;
@@ -176,6 +177,12 @@ function share_down (e) {
 }
 function share_up (e) {
 	e.source.opacity = 1;
+	social.share({
+	    status                  : 'Texto de Ejemplo!',
+	    url	                    : 'http://cancerdemamalabatallademivida.blogspot.mx/2015/03/en-las-nubes.html',
+	    //image                   : '/images/secondPreview.png',
+	    androidDialogTitle      : 'Compartir!'
+	});
 }
 
 $.scroll_details.addEventListener('scroll', function(e) {

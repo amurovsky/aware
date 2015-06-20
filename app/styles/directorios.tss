@@ -91,6 +91,7 @@
 	width:'150%',
 	//height:'200%',
 	image:'/images/profilePic.png',
+	defaultImage:'/images/emptyProfile.png'
 },
 "#lbl_nombre":{
 	color:'#4f4f4f',

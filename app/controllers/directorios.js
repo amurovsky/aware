@@ -35,8 +35,8 @@ function listItemHandler (e) {
   var item = $.listSection.getItemAt(e.itemIndex);
   var bindId = e.bindId;
   Ti.API.info('BindID:' + bindId);
-  
   if (bindId === 'llamar') {
+  		var index = e.itemIndex;
 	  	var dialog = Ti.UI.createAlertDialog({
 	    cancel: 1,
 	    buttonNames: ['Llamar', 'Cancelar'],
@@ -47,8 +47,8 @@ function listItemHandler (e) {
 	    if (e.index === e.source.cancel){
 	      Ti.API.info('The cancel button was clicked');
 	    }else{
-	    	Ti.API.info('Llamando... a: ' + item.lbl_nombre.text);
-	    	Ti.Platform.openURL('tel://3310417804');
+	    	Ti.API.info('Llamando... a: ' + item.lbl_nombre.text + ' Tel: ' + data[index].telefono);
+	    	Ti.Platform.openURL('tel://' + data[index].telefono);
 	    }
 
 	  });
@@ -58,7 +58,6 @@ function listItemHandler (e) {
   }else if (bindId === 'mapa'){
   	Ti.API.info('index: ' + e.itemIndex + ' Coordenadas: ' + data[e.itemIndex].coordenadas);
   	var url = 'http://maps.google.com/maps?q='+data[e.itemIndex].coordenadas+'&z=13';
-  	//var url = 'http://maps.google.com/maps?q=20.6315862,-103.4336804&z=13';
   	if (osname == 'android') {
   		
   		var intent = Ti.Android.createIntent({

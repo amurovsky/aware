@@ -12,9 +12,11 @@ function abrirSesion (e) {
 }
 
 function saltar (e){
+	Alloy.Globals.loading.show('Cargando...');
 	//Alloy.Globals.navigator.openWindow('menu',true);
 	navigation.open('menu');
 	navigation.clearHistory();
+	Alloy.Globals.loading.hide();
 }
 
 var images = [];

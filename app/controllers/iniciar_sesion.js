@@ -48,6 +48,11 @@ function acceder (e) {
 	
 }
 
+function goToRegister (e) {
+	
+  	navigation.open('registro');
+
+}
 var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
 $.btn_back.add(backIcon);
 
