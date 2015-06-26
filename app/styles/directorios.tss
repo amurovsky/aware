@@ -40,10 +40,18 @@
 	},
 	color: 'white',
 },
+"#btn_buscar":{
+	right:'5%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 15,
+	},
+	backgroundColor:'transparent'
+},
 "#div_main":{
 	top:0,
 },
-
 "#list_dir[platform=ios]":{
 	separatorColor:'transparent',
 	//separatorStyle: Titanium.UI.iPhone.ListViewSeparatorStyle.NONE

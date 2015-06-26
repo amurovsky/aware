@@ -3,13 +3,23 @@
   width:'100%',
   height:'100%'
 },
+"#div_statusBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:20,
+},
 "#div_nav":{
 	top:0,
 	backgroundColor:'#fb8bc7',
-	height:'9.6%',
+	height:'6.44%',
+},
+"#nav_separator":{
+	height:1,
+	width:'100%',
+	top:0,
+	backgroundColor:'#d375ab'
 },
 "#btn_back":{
-	bottom:0,
 	left:0,
 	height:'70%',
 	width:'20%',
@@ -17,15 +27,14 @@
 	backgroundColor:'transparent'
 },
 "#lbl_titulo":{
-	bottom:'23%',
-	color:'white',
 	font:{
-		fontFamily: 'HelveticaNeue-Light',
-		fontSize: 15,
+		fontFamily: 'Helvetica-Neue',
+		fontSize:'2.54%', //15
+		fontWeight: 'Light'
 	},
+	color: 'white',
 },
 "#btn_acceder":{
-	bottom:'15%',
 	right:'5%',
 	color:'white',
 	font:{
@@ -37,6 +46,48 @@
 "#div_main":{
 	backgroundColor:'#fff0f8',
 	layout:'vertical'
+},
+"#div_facebookBtn":{
+	 top:'7%',
+	 height:'8.5%',
+	 width:'93.6%',
+	 backgroundColor:'#3e5daf',
+	 borderRadius:2
+	 
+},
+"#btn_facebook":{
+	color:'white',
+	height:Ti.UI.FILL,
+	width:Ti.UI.FILL,
+	font:{
+		fontFamily: 'Raleway-Semibold',
+		fontSize: 15,
+	},
+	backgroundColor:'transparent'
+},
+"#div_separacion":{
+	top:'7%',
+	height:Ti.UI.SIZE,
+	width:Ti.UI.FILL,
+},
+"#linea1":{
+	backgroundColor:'#e6dde2',
+	left:'3.4%',
+	height:1,
+	width:'42%',
+},
+"#separacion":{
+	color:'#6e6e6e',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 14,
+	},
+},
+"#linea2":{
+	backgroundColor:'#e6dde2',
+	right:'3.4%',
+	height:1,
+	width:'42%',
 },
 "#lbl_inicia":{
 	top:'7%',
@@ -83,7 +134,7 @@
 	backgroundColor:'transparent'
 },
 "#lbl_registrate":{
-	top:'26.5%',
+	top:'7%',
 	color:'#929292',
 	width:Ti.UI.FILL,
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
@@ -109,4 +160,16 @@
 		fontSize: 15,
 	},
 	backgroundColor:'transparent'
+},
+
+// --------------------- ANDROID -------------------------------------- //
+
+"#div_nav[platform=android]":{
+	height:'9.44%',
+},
+"#btn_acceder[platform=android]": {
+	font: {fontSize:'15sp'},	
+},
+"#lbl_titulo[platform=android]":{
+ 	font: {fontSize:'15sp'},
 },

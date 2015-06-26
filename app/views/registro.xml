@@ -1,12 +1,14 @@
 <Alloy>
 	<View class="container">
+		<View id="div_statusBar" platform="ios"></View>
 		<View id="div_nav">
-		    <View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
-		    <Label id="lbl_titulo">Registro</Label>
-		    <Button id="btn_siguiente" onClick="siguiente">Siguiente</Button>
+			<View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
+			<Label id="lbl_titulo">Iniciar Sesión</Label>
+			<Button id="btn_siguiente" onClick="siguiente">Siguiente</Button>
 		</View>
+		<View id="nav_separator"></View>
 		<View id="div_main">
-			<ScrollView id="scroll_registro" platform="ios">
+			<ScrollView>
 				<View id="div_facebookBtn">
 					<Button id="btn_facebook" onClick="registro_facebook">Registrate con Facebook</Button>
 				</View>

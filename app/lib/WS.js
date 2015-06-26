@@ -152,6 +152,17 @@ var WS = {
 				var response = JSON.parse(this.responseText);
 				// CODE GOES HERE
 				if(!response.error){
+					// var moment = require('alloy/moment');
+					// for(var i = 0; i < response.comments.length; i++){
+						// Alloy.Collections.comments = Alloy.createModel('comments',{
+							// image: 		response.comments[i].user.image || '/images/emptyProfile.png',
+							// nombre: 	response.comments[i].user.name + ' ' + response.comments[i].user.lastname, 
+						    // comentario: response.comments[i].message,  
+						    // tiempo:		moment(response.comments[i].created_at).lang("es").startOf('minute').fromNow(),
+						// });
+						// Alloy.Collections.comments.save();
+						// //Alloy.Collections.comments.add(comments);
+					// }
 					fnCallback(true,{comentarios:response.comments});
 				}
 			},

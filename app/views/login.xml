@@ -1,8 +1,8 @@
 <Alloy>
 	<View class="container">
 		<View id="div_main">
-			<!-- <VideoPlayer id="vid_background"></VideoPlayer> -->
-			<ImageView id="vid_background"></ImageView>
+			<VideoPlayer id="vid_background"></VideoPlayer>
+			<!-- <ImageView id="vid_background"></ImageView> -->
 				<Button id="btn_saltar" onClick="saltar">Saltar</Button>
 				<ImageView id="img_logo"></ImageView>
 				<!-- <Label id="lbl_eslogan">Una app que será tu compañera</Label> -->

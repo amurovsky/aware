@@ -1,19 +1,31 @@
 <Alloy>
 	<View class="container">
+		<View id="div_statusBar" platform="ios"></View>
 		<View id="div_nav">
-		    <Button id="btn_back" onTouchstart="back_down" onTouchend="back_up"></Button>
-		    <Label id="lbl_titulo">Iniciar Sesión</Label>
-		    <Button id="btn_acceder" onClick="acceder">Acceder</Button>
+			<View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
+			<Label id="lbl_titulo">Iniciar Sesión</Label>
+			<Button id="btn_acceder" onClick="acceder">Acceder</Button>
 		</View>
+		<View id="nav_separator"></View>
 		<View id="div_main">
-		    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
-		    <TextField id="txt_email" value="ing.jegc@gmail.com"></TextField>
-		    <TextField id="txt_contrasena" value="abc123"></TextField>
-		    <Button id="btn_olvide">¿Olvidaste tu contraseña?</Button>
-		    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
-		    <View id="div_registrate" onClick="goToRegister">
-				<Button id="btn_registrate">Registrate</Button>
-			</View>
+			<ScrollView layout="vertical">
+				<View id="div_facebookBtn">
+					<Button id="btn_facebook" onClick="acceder_fb">Iniciar con Facebook</Button>
+				</View>
+				<View id="div_separacion">
+					<View id="linea1"></View>
+			    	<Label id="separacion">O</Label>
+			    	<View id="linea2"></View>
+				</View>
+			    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
+			    <TextField id="txt_email" value="ing.jegc@gmail.com"></TextField>
+			    <TextField id="txt_contrasena" value="abc123"></TextField>
+			    <Button id="btn_olvide">¿Olvidaste tu contraseña?</Button>
+			    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
+			    <View id="div_registrate" onClick="goToRegister">
+					<Button id="btn_registrate">Registrate</Button>
+				</View> 
+			</ScrollView>
 		</View>
 	</View>
 </Alloy>

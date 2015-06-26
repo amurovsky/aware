@@ -17,6 +17,10 @@ function back_up (e) {
   //Alloy.Globals.navigator.goBack();
   	navigation.back();
 }
+
+function acceder_fb (e) {
+	
+}
 function acceder (e) {
 	
 	var email = $.txt_email.getValue();

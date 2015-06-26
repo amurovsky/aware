@@ -4,7 +4,7 @@
 			<ImageView id="logoutButton"></ImageView>
 		</View>
 		
-		<View id="imageMask" onClick="changeProfile">
+		<View id="imageMask">
 			<ImageView id="profileImg"></ImageView>
 		</View>
 		<Label id="profileName"></Label>
@@ -18,11 +18,12 @@
 		<Button id="regala" onClick="menu">Regala Salud</Button>
 		<View id="regSeparator"></View>
 		<Button id="directorios" onClick="menu">Directorio de Doctores</Button>
+		<View id="div_main" height="Ti.UI.FILL" width="Ti.UI.FILL" visible="false"></View>
 		<View id="footer">
 			<View id="fechaCiclo" onClick="showPicker">
 				<Label id="diaFechaCiclo"></Label>
 				<Label id="restoFechaCiclo"></Label>
-				<Label id="lbl_null">Toca aqui para \n registrar tu fecha</Label>
+				<!-- <Label id="lbl_null">Toca aqui para \n registrar tu fecha</Label> -->
 			</View>
 			<View id="ciclo">
 				<ImageView id="cicloButton"></ImageView>

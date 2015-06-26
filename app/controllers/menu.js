@@ -12,6 +12,16 @@ var screenHeight = Alloy.Globals.deviceHeight;
 var navigation = Alloy.Globals.navigation;
 Ti.API.info('*--- SESSION ID ---*',Ti.App.Properties.getString('sessid'));
 
+
+//-------- CHECK NETWORK ----------------//
+if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
+     var alertDialog = Titanium.UI.createAlertDialog({
+              title: 'Precaucion!',
+              message: 'Esta aplicacion necesita una conexion a Internet Constante.',
+              buttonNames: ['Aceptar']
+            });
+            alertDialog.show();
+}
 //-------- ProfileImage && Username && Email ----------------//
 if (Ti.App.Properties.getString('userName') != null) {
 	$.profileName.text = Ti.App.Properties.getString('userName');
@@ -165,7 +175,8 @@ compraButton.image = compraIcon;
 logoutButton.image = logoutIcon;
 var flag = 0;
 $.compra.addEventListener('click',function(){
-	if (flag == 0) {	
+	if (flag == 0) {
+		$.div_main.visible = true;	
 		new Animator().moveTo({view:footer,value:{x:-(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500,onComplete:function(){
 			new Animator().fade({view:compraButton,value:0, duration:50,delay:20,onComplete:function(){
 				compraButton.image = icomoonlib.getIconAsBlob("Aware-Icons","closeIcon",screenHeight * 0.12,{color:"#ff82c8"});
@@ -174,6 +185,7 @@ $.compra.addEventListener('click',function(){
 		}});
 		flag=1;
 	}else{
+		$.div_main.visible = false;
 		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500,onComplete:function(){
 			new Animator().fade({view:compraButton,value:0, duration:50,delay:20,onComplete:function(){
 				compraButton.image = icomoonlib.getIconAsBlob("Aware-Icons","compraIcon",screenHeight * 0.12,{color:"#ff82c8"});
@@ -185,7 +197,8 @@ $.compra.addEventListener('click',function(){
 });
 
 $.ciclo.addEventListener('click',function(){
-	if (flag == 0) {		
+	if (flag == 0) {	
+		$.div_main.visible = true;	
 		new Animator().moveTo({view:footer,value:{x:(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500,onComplete:function(){
 			new Animator().fade({view:cicloButton,value:0, duration:50,delay:20,onComplete:function(){
 				cicloButton.image = icomoonlib.getIconAsBlob("Aware-Icons","closeIcon",screenHeight * 0.12,{color:"#ff82c8"});
@@ -194,6 +207,7 @@ $.ciclo.addEventListener('click',function(){
 		}});
 		flag=1;
 	}else{
+		$.div_main.visible = false;
 		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500,onComplete:function(){
 			new Animator().fade({view:cicloButton,value:0, duration:50,delay:20,onComplete:function(){
 				cicloButton.image = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
@@ -252,15 +266,24 @@ var deviceId = Ti.Platform.id ;
 Ti.API.info('DEVICE ID: ' + deviceId);
 
 Alloy.Globals.ws.getUserDate(deviceId,function(status,obj){
+	var fecha = moment().lang("es").format("DD MMM / YYYY");
+    var fechaSplited = fecha.split(" ");
+    var diaFecha = fechaSplited[0];
+    var RestoFecha = fechaSplited[1] +' '+ fechaSplited[2] +' ' + fechaSplited[3];
+ 
 	if (status) {
-		Ti.API.info('Ya te Entro - GET');
+		diaFechaCompra.text = diaFecha;
+		diaFechaCiclo.text = diaFecha;
+		restoFechaCompra.text = RestoFecha.toUpperCase();
+		restoFechaCiclo.text = RestoFecha.toUpperCase();
+
 		for (var i=0; i < obj.fechas.length; i++) {
 			if (obj.fechas[i].type == 'purchase') {
 				var fecha = moment(obj.fechas[i].date).lang("es").format("DD MMM / YYYY");
 				var fechaSplited = fecha.split(" ");
 			    diaFechaCompra.text = fechaSplited[0];
 			    var toUpperCase = fechaSplited[1] +' '+ fechaSplited[2] +' ' + fechaSplited[3];
-			    restoFechaCompra.text = toUpperCase.toUpperCase();	
+			    restoFechaCompra.text = toUpperCase.toUpperCase();
 			}else{
 				var fecha = moment(obj.fechas[i].date).lang("es").format("DD MMM / YYYY");
 				var fechaSplited = fecha.split(" ");
@@ -444,12 +467,10 @@ function showPicker(e){
 					var fecha = moment(e.value).lang("es").format("DD MMM / YYYY");
 	    			var fechaSplited = fecha.split(" ");
 	    			if (boton.id == 'fechaCompra' || boton.id == 'diaFechaCompra' || boton.id == 'restoFechaCompra') {
-	    				Ti.API.info('SE TOCO COMPRA');
 	    				diaFechaCompra.text = fechaSplited[0];
 	    				var toUpperCase = fechaSplited[1] +' '+ fechaSplited[2] +' ' + fechaSplited[3];
 	    				restoFechaCompra.text = toUpperCase.toUpperCase();
 	    			}else{
-	    				Ti.API.info('SE TOCO CICLO');
 	    				diaFechaCiclo.text = fechaSplited[0];
 	    				var toUpperCase = fechaSplited[1] +' '+ fechaSplited[2] +' ' + fechaSplited[3];
 	    				restoFechaCiclo.text = toUpperCase.toUpperCase();
@@ -467,10 +488,12 @@ function showPicker(e){
 				});
 				b.addEventListener('click', function()
 				{
+					var mainWindow = Alloy.Globals.navigation.getMainWindow();
 					var t3 = Titanium.UI.create2DMatrix();
 					t3 = t3.scale(0);
 					w.animate({transform:t3,duration:300});
-					w.remove(w);
+					w.hide();
+					mainWindow.remove(w);
 					if (fechadeCompra != null) {
 						if (boton.id == 'fechaCompra' || boton.id == 'diaFechaCompra' || boton.id == 'restoFechaCompra') {
 							addUserDate(deviceId,'purchase',fechaWS);

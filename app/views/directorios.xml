@@ -4,10 +4,13 @@
 		<View id="div_nav">
 			<Button id="btn_menu" onClick="cerrarVentana">Menú</Button>
 			<Label id="lbl_titulo">Directorio de doctores</Label>
+			<!-- <Button id="btn_buscar" onClick="buscar">Buscar</Button> -->
 		</View>
 		<View id="nav_separator"></View>
 		<View id="div_main">
 			<ListView onItemclick="listItemHandler" defaultItemTemplate="dir_template" backgroundColor="#fecce7" id="list_dir">
+				<!-- <SearchBar hintText="Buscar..." showCancel="false" barColor='#fb8bc7' platform="ios"></SearchBar>
+				<SearchView ns="Ti.UI.Android" platform="android" hintText="Buscar..." iconified="true" color="white"></SearchView> -->
 				<Templates>
 					<ItemTemplate name="dir_template" id="dir_template">
 						<View id="rowConteiner">
@@ -26,13 +29,18 @@
 								</View>
 							</View>
 							<View id="div_botones">
-								<Label id="btn_llamar" bindId="llamar">Llamar ahora</Label>
+								<Label id="btn_llamar" bindId="llamar" onClick="llamarButton">Llamar ahora</Label>
 								<View id="div_btnSeparator"></View>
 								<Label id="btn_mapa" bindId="mapa">Ver mapa</Label>
 							</View>
 						</View>
 					</ItemTemplate>
 				</Templates>
+				<!-- <HeaderView>
+                <View id="div_search" backgroundColor="#fb8bc7" height="50">
+	                    <TextField id="searchBar" color="#545454" hintText="Buscar..." borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" width="90%"></TextField>
+	                </View>
+	            </HeaderView> -->
 				<ListSection id="listSection">
  					<!-- <ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='CONSULTORIO DE GINECOLOGÍA PROVIDENCIA' lbl_direccion:text='Avenida Guadalupe No.350 Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'></ListItem>
  					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='GINE. ARTURO GALVÁN ROMERO' lbl_direccion:text='Bernardo de Balbuena No.91 Colonia Ladron de Guevara Guadalajara, Jal.'></ListItem>

@@ -1,0 +1,18 @@
+<Alloy>
+	<View class="container">
+		<View id="div_row">
+			<View id="div_profile">
+				<View id="div_imageMask">
+					<ImageView id="img_profile"></ImageView>
+				</View>
+			</View>
+			<View id="div_comment">
+				<Label id="lbl_nombre"></Label>
+				<Label id="lbl_comentario"></Label>
+				<Label id="lbl_tiempo"></Label>
+				<View id="div_pinkSpace"></View>
+			</View>
+		</View>
+		<View height="1" backgroundColor="#c0c0c0" width="Ti.UI.FILL"></View>
+	</View>
+</Alloy>

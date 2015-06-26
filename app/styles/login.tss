@@ -9,18 +9,18 @@
 	top:0,
 	height:'86.51%'
 },
-// "#vid_background":{
-	// backgroundColor:'#111',
-	// mediaControlStyle:Titanium.Media.VIDEO_CONTROL_NONE,
-	// scalingMode:Titanium.Media.VIDEO_SCALING_ASPECT_FILL,
-	// url:'/video/videoBackground.m4v',
-	// repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
-// },
 "#vid_background":{
-	duration:38,
-	repeatCount:0,
-	width:'150%'
+	backgroundColor:'#fb8bc7',
+	mediaControlStyle:Titanium.Media.VIDEO_CONTROL_NONE,
+	scalingMode:Titanium.Media.VIDEO_SCALING_ASPECT_FILL,
+	url:'/video/videoBackground.m4v',
+	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
 },
+// "#vid_background":{
+	// duration:38,
+	// repeatCount:0,
+	// width:'150%'
+// },
 "#btn_saltar":{
 	backgroundColor:'transparent',
 	top:'4%',

@@ -47,13 +47,13 @@
 							<ImageView id="img_profileMe"></ImageView>
 						</View>
 						<TextField id="txt_comentario"></TextField>
-						<View id="div_enviar" onTouchstart="enviar_down" onTouchend="enviar_up" onTouchcancel="enviar_cancelar">
+						<View id="div_enviar" onTouchstart="enviar_down" onTouchend="enviar_up" onTouchcancel="enviar_cancelar" touchEnabled="false" opacity="0.5">
 							<Label id="lbl_enviar">Enviar</Label>
 						</View>
 					</View>
 				</View>
 				<!---------------- LIST VIEW COMMENTS ------------------->
-				<ListView id="list_comments" defaultItemTemplate="comment_template" backgroundColor="#fff0f8" canScroll="false">
+				<!-- <ListView id="list_comments" defaultItemTemplate="comment_template" backgroundColor="#fff0f8" canScroll="false">
 					<Templates>
 						<ItemTemplate name="comment_template" id="comment_template">
 							<View id="div_row">
@@ -72,9 +72,6 @@
 						</ItemTemplate>
 					</Templates>
 					<ListSection id="listSection">
-	                    <!-- <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
-	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
-	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
@@ -86,9 +83,12 @@
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
 	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
-	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Brenda Tururu" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/> -->
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Maria Lopez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Karla Hernandez" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Pedro Ocaranza" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min" />
+	                    <ListItem img_profile:image="/images/profilePic.png" lbl_nombre:text="Brenda Tururu" lbl_comentario:text="Buen Articulo.!" lbl_tiempo:text="Hace 26 min"/>
 	                </ListSection>
-				</ListView>
+				</ListView> -->
 			</ScrollView>
 		</View>
 	</View>

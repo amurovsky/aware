@@ -1,10 +1,14 @@
 var args = arguments[0] || {};
 var navigation = Alloy.Globals.navigation;
+var icomoonlib = require('icomoonlib');
 var Map = require('ti.map');
+var screenWidth = Alloy.Globals.deviceWidth;
+var screenHeight = Alloy.Globals.deviceHeight;
+
 
 var coordenadas = [];
 
-function cerrarVentana(){
+function cerrarVentana(e){
 	//Alloy.Globals.navigator.goBack();
 	navigation.back();
 }
@@ -12,7 +16,7 @@ function cerrarVentana(){
 
 var mapview = Map.createView({
     mapType: Map.NORMAL_TYPE,
-    // region: {latitude:latitude, longitude:longitud,
+    // region: {latitude:'20.631824', longitude:'-103.433575',
             // latitudeDelta:0.01, longitudeDelta:0.01},
     animate:true,
     regionFit:true,
@@ -26,7 +30,7 @@ Ti.Geolocation.getCurrentPosition(function(e) {
         return; 
     }
     
-    mapview.setLocation({
+    mapview.setRegion({
         latitude : e.coords.latitude,
         longitude : e.coords.longitude,
         latitudeDelta : 0.01,
@@ -45,8 +49,8 @@ Alloy.Globals.ws.points(function(status,obj){
 			    longitude:	coordenates[1],
 			    title:		obj.puntos[i].name,
 			    subtitle:	obj.puntos[i].address,
-			    rightButton:'/images/expandIcon.png',
-			    //image:'/images/shareIcon.png',
+			    rightButton:icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
+			    // image:icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
 			    myid:i // Custom property to uniquely identify this annotation.
 			});
 			mapview.addAnnotation(annotation);
@@ -65,17 +69,27 @@ $.div_main.add(mapview);
 
 // Handle click events on any annotations on this map.
 mapview.addEventListener('click', function(evt) {
-    Ti.API.info("Annotation " + evt.title + " clicked, id: " + evt.annotation.myid);
-    if (evt.clicksource == 'rightButton') {
-    	if (Titanium.Platform.canOpenURL('GoogleMaps://')) {
-    		Ti.Platform.openURL('GoogleMaps://http://maps.google.com/maps?q='+ [evt.annotation.myid] +'&z=13');
-    	}else{
-    		//Ti.Platform.openURL('maps://http://maps.google.com/maps?q='+evt.annotation.latitude+','+evt.annotation.longitude+'&z=13');
-    		Ti.Platform.openURL('maps://http://maps.google.com/maps?q='+ coordenadas[evt.annotation.myid] +'&z=13');
-    	};
+	evt.cancelBubble = true;
+    Ti.API.info("Annotation " + evt.title + " clicked, id: " + evt.annotation.myid + ' ClickSource: ' + evt.clicksource + ' Source: ' + evt.source.name);
+    var url = 'http://maps.google.com/maps?q='+ coordenadas[evt.annotation.myid] +'&z=13';
+    if (evt.clicksource == 'rightButton' || evt.clicksource == 'rightPane') {
     	
-    	
-    };
+	    	if (!OS_IOS) {
+	  		
+		  		var intent = Ti.Android.createIntent({
+			        action: Ti.Android.ACTION_VIEW,
+			        data:url
+		    	});
+		    	Ti.Android.currentActivity.startActivity(intent);
+		    	
+		  	}else{
+	    	if (Titanium.Platform.canOpenURL('GoogleMaps://')) {
+	    		Ti.Platform.openURL('GoogleMaps://'+ url);
+	    	}else{
+	    		Ti.Platform.openURL('maps://'+ url);
+	    	}
+    	}
+    }
     
 });
 

@@ -6,7 +6,7 @@ var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var fb = require('facebook');
 fb.appid = 100119266991535;
-fb.permissions=['email'];
+//fb.permissions=['email'];
 fb.forceDialogAuth=false;
 
 function back_down (e) {
@@ -52,9 +52,7 @@ var LO = Alloy.createWidget('com.caffeinalab.titanium.loader', {
 });
 function registro_facebook (e) {
 	LO.show('Conectando con Facebook');
-  //Alloy.Globals.panelLoading.show();
-  //Alloy.Globals.panelLoading.setMessage('Cargando...');
-  fb.authorize();
+  	fb.authorize();
   
 }
 
@@ -65,9 +63,11 @@ function registro_facebook (e) {
 
     // fb.initialize();
 // 
+	
 	fb.addEventListener('login',function(e) {
         // You *will* get this event if loggedIn == false below
         // Make sure to handle all possible cases of this event
+        
         if (e.success) {
         
         	var results = e.data;
@@ -84,7 +84,7 @@ function registro_facebook (e) {
         }
         else if (e.cancelled) {
             // user cancelled 
-            alert('cancelled');
+            Ti.API.info('cancelled');
         }
         else {
             Ti.API.info('cancelado por usuario: '+e.error);         
