@@ -41,6 +41,10 @@ function acceder (e) {
 				Ti.App.Properties.setString('userName',username);
 				Ti.App.Properties.setString('userId',obj.user.id);
 				Ti.App.Properties.setString('sessid',obj.sessid);
+				
+				var PushClient = require('PushClientComponent');
+					PushClient.register();
+					
 				navigation.open('menu');
 				navigation.clearHistory();
 			}else{

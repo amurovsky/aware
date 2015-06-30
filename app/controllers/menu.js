@@ -28,11 +28,14 @@ if (Ti.App.Properties.getString('userName') != null) {
 	$.profileMail.text = Ti.App.Properties.getString('email');
 	$.profileImg.image = Ti.App.Properties.getString('profileImg');
 	if (Ti.App.Properties.getString('profileImg')) {
+		Ti.API.info('Si tiene imagen: ' + Ti.App.Properties.getString('profileImg'));
 		$.profileImg.image = Ti.App.Properties.getString('profileImg');
 	}else{
+		Ti.API.info('No tiene imagen');
 		$.profileImg.image = '/images/emptyProfile.png';
 	}
 }else{
+	Ti.API.info('No hay user ');
 	$.profileImg.image = '/images/emptyProfile.png';
 	$.profileName.text = 'Usuario Anonimo';
 }

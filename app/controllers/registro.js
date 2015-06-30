@@ -64,39 +64,39 @@ function registro_facebook (e) {
     // fb.initialize();
 // 
 	
-	fb.addEventListener('login',function(e) {
-        // You *will* get this event if loggedIn == false below
-        // Make sure to handle all possible cases of this event
-        
-        if (e.success) {
-        
-        	var results = e.data;
-        	Ti.API.info('Results: '+results);
-        	Ti.API.info('Mail: '+e.email);
-            Ti.API.info('login from uid: '+e.uid+', name: '+results.name + ', mail: ' + results.email);
-            Ti.API.info('Logged In: ' + fb.loggedIn);
-            Ti.API.info('UID: ' + e.uid);
-            Ti.App.Properties.setString('profileImg','http://graph.facebook.com/'+e.uid+'/picture?type=large');
-			Ti.App.Properties.setString('email',results.email);
-			Ti.App.Properties.setString('userName',results.name);
-			//Alloy.Globals.navigator.openWindow('menu',true);
-			navigation.open('menu');
-        }
-        else if (e.cancelled) {
-            // user cancelled 
-            Ti.API.info('cancelled');
-        }
-        else {
-            Ti.API.info('cancelado por usuario: '+e.error);         
-        }
-        LO.hide();
-    });
+fb.addEventListener('login',function(e) {
+    // You *will* get this event if loggedIn == false below
+    // Make sure to handle all possible cases of this event
     
-    fb.addEventListener('logout', function(e) {
-        Ti.API.info('logged out');
+    if (e.success) {
+    
+    	var results =  (OS_IOS) ? e.data : JSON.parse(e.data);
+    	Ti.API.info('Results: '+ results);
+    	Ti.API.info('Mail: '+e.email);
+        Ti.API.info('login from uid: '+e.uid+', name: '+results.name + ', mail: ' + results.email);
         Ti.API.info('Logged In: ' + fb.loggedIn);
-        //Alloy.Globals.navigator.openLogin();
-    });
+        Ti.API.info('UID: ' + e.uid);
+        Ti.App.Properties.setString('profileImg','http://graph.facebook.com/'+e.uid+'/picture?type=large');
+		Ti.App.Properties.setString('email',results.email);
+		Ti.App.Properties.setString('userName',results.name);
+		//Alloy.Globals.navigator.openWindow('menu',true);
+		navigation.open('menu');
+    }
+    else if (e.cancelled) {
+        // user cancelled 
+        Ti.API.info('cancelled');
+    }
+    else {
+        Ti.API.info('cancelado por usuario: '+e.error);         
+    }
+    LO.hide();
+});
+
+fb.addEventListener('logout', function(e) {
+    Ti.API.info('logged out');
+    Ti.API.info('Logged In: ' + fb.loggedIn);
+    //Alloy.Globals.navigator.openLogin();
+});
 // 	
 // 
 // 

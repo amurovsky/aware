@@ -1,4 +1,5 @@
 Alloy.Globals.panelLoading = require('PanelLoading');
+var fb = require('facebook');
 Alloy.Globals.ws = require('WS');
 Alloy.Globals.loading = Alloy.createWidget('com.caffeinalab.titanium.loader', {cancelable: false, useImages: false});
 // var NavigatorComponent = require("NavigatorComponent");
@@ -67,7 +68,7 @@ var conf = {
 	// The first controller which will be opened when we run navigation.init() and the one opened
 	// when calling navigation.home
 	
-	//index: "login", 
+	//index: "testPush", 
 	
 	// indexOptions holds options which will be provided when opening the home/default/welcome/index view.
 	// It holds the options required for the navigation.open method, the transition which will be
@@ -102,11 +103,21 @@ var conf = {
 	
 if (Ti.App.Properties.getString('userName')) {
 		Ti.API.info('Ya estas Loggeado.!');
+		var PushClient = require('PushClientComponent');
+		PushClient.register();
 		conf.index = 'menu';
 	}else{
 		conf.index = 'login';
-	};
+	}
 
 /* -- Bootstrap your application above this line -- */
 
 navigation.init(conf);
+
+
+
+// if (OS_ANDROID) {
+	// var mainView = Alloy.Globals.navigation.getMainWindow();
+    // $.index.fbProxy = fb.createActivityWorker({lifecycleContainer: mainView});
+//     
+// }

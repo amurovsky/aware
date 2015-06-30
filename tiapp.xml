@@ -1,142 +1,145 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ti:app 
-  xmlns:ti="http://ti.appcelerator.org">
-  <id>com.tejuinomx.aware</id>
-  <name>aware</name>
-  <version>1.0</version>
-  <publisher>tejuinodevelopers</publisher>
-  <url>http://www.tejuino.mx</url>
-  <description>undefined</description>
-  <copyright>2015 by tejuinodevelopers</copyright>
-  <icon>appicon.png</icon>
-  <fullscreen>false</fullscreen>
-  <navbar-hidden>false</navbar-hidden>
-  <analytics>true</analytics>
-  <guid>67645bd0-a2ee-41b0-9333-4175e240167d</guid>
-  <property name="ti.ui.defaultunit" type="string">dp</property>
-  <property name="ti.facebook.appid">100119266991535</property>
-  <property name="google.console.apikey">AIzaSyBbEufenCtmwB5UFJ-hkIASZYheldebw74</property>
-  <ios>
-    <plist>
-      <dict>
-        <key>UISupportedInterfaceOrientations~iphone</key>
-        <array>
-          <string>UIInterfaceOrientationPortrait</string>
-        </array>
-        <key>UISupportedInterfaceOrientations~ipad</key>
-        <array>
-          <string>UIInterfaceOrientationPortrait</string>
-          <string>UIInterfaceOrientationPortraitUpsideDown</string>
-          <string>UIInterfaceOrientationLandscapeLeft</string>
-          <string>UIInterfaceOrientationLandscapeRight</string>
-        </array>
-        <key>UIRequiresPersistentWiFi</key>
-        <false/>
-        <key>UIPrerenderedIcon</key>
-        <false/>
-        <key>UIStatusBarHidden</key>
-        <false/>
-        <key>UIStatusBarStyle</key>
-        <string>UIStatusBarStyleDefault</string>
-        <key>CFBundleURLTypes</key>
-        <array>
-          <dict>
-            <key>CFBundleURLName</key>
-            <!-- Application ID same as the id value in the tiapp.xml file -->
-            <string>100119266991535</string>
-            <key>CFBundleURLSchemes</key>
-            <array>
-              <!-- Prefix the Facebook App ID with 'fb' -->
-              <string>fb100119266991535</string>
-            </array>
-          </dict>
-        </array>
-        <key>FacebookAppID</key>
-        <!-- Facebook App ID -->
-        <string>100119266991535</string>
-        <key>FacebookDisplayName</key>
-        <!-- Facebook App Name from developer.facebook.com -->
-        <string>Aware App</string>
-        <!-- Registramos NSLocation -->
-        <key>NSLocationAlwaysUsageDescription</key>
-        <string>Para poder acceder a tu ubicación porfavor acepta la localización.</string>
-      </dict>
-    </plist>
-  </ios>
-  <android 
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <manifest>
-      <application android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:label="Aware App" android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
-        <!-- Allows the API to download data from Google Map servers -->
-        <uses-permission android:name="android.permission.INTERNET"/>
-        <!-- Allows the API to cache data -->
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-        <!-- Use GPS for device location -->
-        <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-        <!-- Use Wi-Fi or mobile connection for device location -->
-        <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-        <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
-        <!-- Allows the API to access Google web-based services -->
-        <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-        <!-- Specify OpenGL ES 2.0 as a requirement -->
-        <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
-        <!-- Replace com.domain.appid with your application ID -->
-        <uses-permission android:name="com.tejuinomx.aware.permission.MAPS_RECEIVE"/>
-        <permission android:name="com.tejuinomx.aware.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
-        <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
-        <meta-data android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBbEufenCtmwB5UFJ-hkIASZYheldebw74"/>
-      </application>
-      <use-sdk android:minSdkVersion="14" android:targetSdkVersion="20"/>
-    </manifest>
-  </android>
-  <mobileweb>
-    <precache/>
-    <splash>
-      <enabled>true</enabled>
-      <inline-css-images>true</inline-css-images>
-    </splash>
-    <theme>default</theme>
-  </mobileweb>
-  <modules>
-    <module platform="android">titutorial.youtubeplayer</module>
-    <module platform="iphone">it.scsoft.tiyoutube</module>
-    <module platform="iphone">dk.napp.social</module>
-    <module platform="android">facebook</module>
-    <module platform="iphone">facebook</module>
-    <module platform="iphone">ti.map</module>
-    <module platform="android">ti.map</module>
-    <module platform="android" version="2.2.1">ti.imagefactory</module>
-    <module platform="iphone" version="1.2.0">ti.imagefactory</module>
-    <module platform="commonjs">ti.cloud</module>
-  </modules>
-  <deployment-targets>
-    <target device="android">true</target>
-    <target device="ipad">false</target>
-    <target device="iphone">true</target>
-    <target device="mobileweb">false</target>
-  </deployment-targets>
-  <sdk-version>3.5.1.GA</sdk-version>
-  <plugins>
-    <plugin version="1.6">ti.alloy</plugin>
-  </plugins>
-  <property name="appc-app-id" type="string">555e25ca7ef7a8ac45851fa7</property>
-  <property name="appc-security-jailbreak-detect">false</property>
-  <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
-  <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
-  <property name="acs-oauth-secret-development" type="string">9XwFbViUPGxH1QP0PTTeW47sYEnwKsIE</property>
-  <property name="acs-oauth-key-development" type="string">APUT84PTzycObuGeVZ392sZogeY1ngeg</property>
-  <property name="acs-api-key-development" type="string">uGAZSp5u7kfJzKXNu4g4fU8LQ6wkhFtw</property>
-  <property name="acs-username-development" type="string">appc_app_user_dev</property>
-  <property name="acs-password-development" type="string">r19Y4M3XqGEn1LdLOD</property>
-  <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
-  <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
-  <property name="acs-oauth-secret-production" type="string">j2wahX83kjjycXOlY73k0kt9lJO7chvi</property>
-  <property name="acs-oauth-key-production" type="string">lhYfCaahHmgeLob0PbBCZUHOF8110rqB</property>
-  <property name="acs-api-key-production" type="string">5AKWdKa3vArPPBK9WxEI8bZ0S6D8tVNZ</property>
-  <property name="acs-username-production" type="string">appc_app_user</property>
-  <property name="acs-password-production" type="string">KwqVzF4loJQZfLlySB</property>
-  <property name="appc-org-id" type="string">100016077</property>
-  <property name="appc-creator-user-id" type="string">bec3dd2e-4b6b-4812-a237-d28e4fbb3629</property>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.tejuinomx.aware</id>
+    <name>aware</name>
+    <version>1.0</version>
+    <publisher>tejuinodevelopers</publisher>
+    <url>http://www.tejuino.mx</url>
+    <description>undefined</description>
+    <copyright>2015 by tejuinodevelopers</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>67645bd0-a2ee-41b0-9333-4175e240167d</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <property name="ti.facebook.appid">100119266991535</property>
+    <property name="google.console.apikey">AIzaSyBbEufenCtmwB5UFJ-hkIASZYheldebw74</property>
+    <ios>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <!-- Application ID same as the id value in the tiapp.xml file -->
+                        <string>100119266991535</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <!-- Prefix the Facebook App ID with 'fb' -->
+                            <string>fb100119266991535</string>
+                        </array>
+                    </dict>
+                </array>
+                <key>FacebookAppID</key>
+                <!-- Facebook App ID -->
+                <string>100119266991535</string>
+                <key>FacebookDisplayName</key>
+                <!-- Facebook App Name from developer.facebook.com -->
+                <string>Aware App</string>
+                <!-- Registramos NSLocation -->
+                <key>NSLocationAlwaysUsageDescription</key>
+                <string>Para poder acceder a tu ubicación porfavor acepta la localización.</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android">
+        <manifest>
+            <application android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+                <activity android:label="Aware App"
+                    android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+                <meta-data android:name="com.facebook.sdk.ApplicationId" android:value="@string/facebook_app_id"/>
+                <!-- Allows the API to download data from Google Map servers -->
+                <uses-permission android:name="android.permission.INTERNET"/>
+                <!-- Allows the API to cache data -->
+                <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+                <!-- Use GPS for device location -->
+                <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+                <!-- Use Wi-Fi or mobile connection for device location -->
+                <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+                <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION"/>
+                <!-- Allows the API to access Google web-based services -->
+                <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+                <!-- Specify OpenGL ES 2.0 as a requirement -->
+                <uses-feature android:glEsVersion="0x00020000" android:required="true"/>
+                <!-- Replace com.domain.appid with your application ID -->
+                <uses-permission android:name="com.tejuinomx.aware.permission.MAPS_RECEIVE"/>
+                <permission
+                    android:name="com.tejuinomx.aware.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
+                <!-- Replace "PASTE YOUR GOOGLE MAPS API KEY HERE" with the Google API key you obtained -->
+                <meta-data
+                    android:name="com.google.android.maps.v2.API_KEY" android:value="AIzaSyBbEufenCtmwB5UFJ-hkIASZYheldebw74"/>
+            </application>
+            <use-sdk android:minSdkVersion="14" android:targetSdkVersion="20"/>
+        </manifest>
+    </android>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="android">titutorial.youtubeplayer</module>
+        <module platform="iphone">it.scsoft.tiyoutube</module>
+        <module platform="iphone">dk.napp.social</module>
+        <module platform="android">facebook</module>
+        <module platform="iphone">facebook</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="android">ti.map</module>
+        <module platform="android" version="2.2.1">ti.imagefactory</module>
+        <module platform="iphone" version="1.2.0">ti.imagefactory</module>
+        <module platform="commonjs">ti.cloud</module>
+        <module platform="android">br.com.arlsoft.pushclient</module>
+        <module platform="iphone">br.com.arlsoft.pushclient</module>
+    </modules>
+    <deployment-targets>
+        <target device="android">true</target>
+        <target device="ipad">false</target>
+        <target device="iphone">true</target>
+        <target device="mobileweb">false</target>
+    </deployment-targets>
+    <sdk-version>3.5.1.GA</sdk-version>
+    <plugins>
+        <plugin version="1.6">ti.alloy</plugin>
+    </plugins>
+    <property name="appc-app-id" type="string">555e25ca7ef7a8ac45851fa7</property>
+    <property name="appc-security-jailbreak-detect">false</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">9XwFbViUPGxH1QP0PTTeW47sYEnwKsIE</property>
+    <property name="acs-oauth-key-development" type="string">APUT84PTzycObuGeVZ392sZogeY1ngeg</property>
+    <property name="acs-api-key-development" type="string">uGAZSp5u7kfJzKXNu4g4fU8LQ6wkhFtw</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">r19Y4M3XqGEn1LdLOD</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">j2wahX83kjjycXOlY73k0kt9lJO7chvi</property>
+    <property name="acs-oauth-key-production" type="string">lhYfCaahHmgeLob0PbBCZUHOF8110rqB</property>
+    <property name="acs-api-key-production" type="string">5AKWdKa3vArPPBK9WxEI8bZ0S6D8tVNZ</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">KwqVzF4loJQZfLlySB</property>
+    <property name="appc-org-id" type="string">100016077</property>
+    <property name="appc-creator-user-id" type="string">bec3dd2e-4b6b-4812-a237-d28e4fbb3629</property>
 </ti:app>

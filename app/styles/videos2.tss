@@ -71,10 +71,10 @@
 	// width:'100%',
 	autoplay:true,
 },
-// "#img_prev":{
-	// image: '/images/primerVideo.jpg',
-	// width:'100%',
-// },
+"#img_prev":{
+	image: '/images/primerVideo.jpg',
+	height:'150%',
+},
 "#div_gradient":{
 	backgroundGradient: {
 	    type: 'linear',

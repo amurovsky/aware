@@ -49,8 +49,10 @@ Alloy.Globals.ws.points(function(status,obj){
 			    longitude:	coordenates[1],
 			    title:		obj.puntos[i].name,
 			    subtitle:	obj.puntos[i].address,
-			    rightButton:icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
+			    //rightButton:icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
+			    rightButton: (OS_IOS) ? '/images/carIcon.png' : icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.08,{color:"#fb8ac7"}),
 			    // image:icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
+			    image:(OS_IOS) ? '/images/pinIcon.png' : icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.07,{color:"#fb8ac7"}),
 			    myid:i // Custom property to uniquely identify this annotation.
 			});
 			mapview.addAnnotation(annotation);

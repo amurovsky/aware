@@ -40,15 +40,15 @@
 	},
 	color: 'white',
 },
-"#btn_buscar":{
-	right:'5%',
-	color:'white',
-	font:{
-		fontFamily: 'HelveticaNeue-Medium',
-		fontSize: 15,
-	},
-	backgroundColor:'transparent'
-},
+// "#btn_buscar":{
+	// right:'5%',
+	// color:'white',
+	// font:{
+		// fontFamily: 'HelveticaNeue-Medium',
+		// fontSize: 15,
+	// },
+	// backgroundColor:'transparent'
+// },
 "#div_main":{
 	top:0,
 },

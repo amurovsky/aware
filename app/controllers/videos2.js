@@ -40,10 +40,10 @@ Alloy.Globals.ws.videos(function(status,obj){
 	if (status) {
 		data=[
 			{template: "video_pri_template", 
+			img_prev: { image:obj.videos[0].thumbnail },
 			lbl_titulo1: { text:obj.videos[0].title_top },
 			lbl_titulo2: { text:obj.videos[0].title_bottom}, 
 			lbl_duracion: {text:obj.videos[0].duration},
-			//{template: "video_desc_template", 
 			lbl_tituloDesc: { text:'Tutorial no.1'},
 			lbl_descripcion:{ text:obj.videos[0].description},}
 		];

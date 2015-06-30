@@ -14,6 +14,8 @@ function abrirSesion (e) {
 function saltar (e){
 	Alloy.Globals.loading.show('Cargando...');
 	//Alloy.Globals.navigator.openWindow('menu',true);
+	var PushClient = require('PushClientComponent');
+		PushClient.register();
 	navigation.open('menu');
 	navigation.clearHistory();
 	Alloy.Globals.loading.hide();
