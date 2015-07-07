@@ -97,6 +97,7 @@
 	},
 },
 "#div_share":{
+	top:6,
 	left:5,
 	height:Titanium.UI.SIZE,
 	width:'10.2%'
@@ -170,6 +171,9 @@
 	borderColor:'#c0c0c0',
 	borderWidth:1
 },
+"#div_addComment[if=Alloy.Globals.iphoneSmall]":{
+	height:'20%',
+},
 "#div_numComentarios":{
 	height:'48%'
 },
@@ -213,10 +217,17 @@
 	width:42,
 	borderRadius:21,
 },
+"#div_addImageMask[if=Alloy.Globals.iphoneTall]":{
+	top:6,
+	height:32,
+	width:32,
+	borderRadius:16,
+},
 "#img_profileMe":{
-	image:'/images/profilePic.png',
+	//image:'/images/profilePic.png',
 	width:'100%',
-	backgroundColor:'#c0c0c0'
+	height:'100%',
+	//backgroundColor:'#c0c0c0'
 },
 "#txt_comentario":{
 	left:'4.5%',
@@ -224,6 +235,15 @@
 	height:'64.15%',
 	borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
 	hintText:'Añade un comentario...'
+},
+"#txtArea_comentario":{
+	top:6,
+	left:'4.5%',
+	width:'57.06%',
+	height:'80%',
+	//hintText:'Añade un comentario...'
+	value:'Añade un comentario...'
+	
 },
 "#div_enviar":{
 	backgroundColor:'#c9418a',
@@ -281,6 +301,7 @@
 },
 "#img_profile":{
 	//image:'/images/profilePic.png',
+	//defaultImage:'/images/emptyProfile.png',
 	width:'100%',
 	height:'100%',
 	backgroundColor:'#c0c0c0'

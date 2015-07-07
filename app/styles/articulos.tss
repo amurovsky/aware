@@ -40,10 +40,62 @@
 	},
 	color: 'white',
 },
+"#btn_buscar":{
+	right:0,
+	height:'100%',
+	width:'15%',
+},
 "#articulosGrid":{
 	top:0
 },"#tdg":{}
-
+//------------ Search ListView -----------------//
+"#res_template[platform=ios]":{
+	selectionStyle:Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+},
+"#res_template":{
+	height:100,
+},
+"#div_imageMask":{
+	top:'5%',
+	height:'90%',
+	width:'20%',
+	left:'4.5%',
+	backgroundColor:'#f2f2f2'
+},
+"#img_image":{
+	width:'150%',
+},
+"#div_text":{
+	height:Ti.UI.SIZE,
+	width:Ti.UI.FILL,
+	layout:'vertical',
+},
+"#lbl_title":{
+	// width:Ti.UI.FILL,
+	// height:'80%',
+	top:0,
+	left:'4.5%',
+	right:'4.5%',
+	color:'#666666',
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize:16,
+		fontWeight: 'Light'
+	},
+},
+"#lbl_subtitle":{
+	// width:Ti.UI.FILL,
+	// height:'20%',
+	left:'4.5%',
+	right:'4.5%',
+	top:5,
+	color:'#fb8ac7',
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize:12,
+		fontWeight: 'Light'
+	},
+},
 // --------------------- ANDROID -------------------------------------- //
 
 "#div_nav[platform=android]":{
@@ -55,5 +107,6 @@
 "#lbl_titulo[platform=android]":{
  	font: {fontSize:'15sp'},
 },
+
 
 

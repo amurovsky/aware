@@ -41,16 +41,16 @@ function buscar (e) {
 	
 	if (!abierto) {
 		$.div_search.setHeight(50);
-		var abierto = true;
+		abierto = true;
 	}else {
 		$.div_search.setHeight(0);
-		var abierto = false;
+		abierto = false;
  	}
 }
 
 function cerrarVentana(){
-	//Alloy.Globals.navigator.goBack();
-	navigation.back();
+	Alloy.Globals.navigator.goBack();
+	//navigation.back();
 }
 
 function llamarButton (e) {
@@ -131,6 +131,6 @@ function listItemHandler (e) {
   
 }
 
-// this.close = function(){
-	// $.destroy();
-// };
+this.close = function(){
+	$.destroy();
+};

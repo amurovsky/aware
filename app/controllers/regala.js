@@ -51,12 +51,14 @@ function cerrarVentana(){
 
 function compartirApp(){
 	new Animator().fade({ view: $.regala, value: 0, duration: 500,onComplete:destroyView});
+	Alloy.Globals.loading.show('Cargando...');
 	social.share({
 	    status                  : ' - Aware App',
 	    url	                    : 'https://itunes.apple.com/app/id959317044',
 	    //image                   : '/images/secondPreview.png',
 	    androidDialogTitle      : 'Compartir!'
 	});
+	Alloy.Globals.loading.hide();
 }
 
 secuencia_animacion();

@@ -9,8 +9,8 @@ var screenHeight = Alloy.Globals.deviceHeight;
 var coordenadas = [];
 
 function cerrarVentana(e){
-	//Alloy.Globals.navigator.goBack();
-	navigation.back();
+	Alloy.Globals.navigator.goBack();
+	//navigation.back();
 }
 
 
@@ -96,6 +96,6 @@ mapview.addEventListener('click', function(evt) {
 });
 
 
-// this.close = function(){
-	// $.destroy();
-// };
+this.close = function(){
+	$.destroy();
+};

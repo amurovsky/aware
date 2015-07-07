@@ -6,6 +6,7 @@ var navigation = Alloy.Globals.navigation;
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var articleId = args.articleId;
+var txt_comentario = (!OS_IOS) ? $.txt_comentario : $.txtArea_comentario ;
 var data = [];
 var rect;
 var medidas;
@@ -17,13 +18,38 @@ $.lbl_artTitulo.text = args.titulo;
 $.lbl_descripcion.text = args.contenido;
 $.lbl_fecha.text = moment(args.fecha).lang("es").format('LL');
 $.lbl_likes.text = args.likes;
+$.img_profileMe.image = Ti.App.Properties.getString('profileImg');
+
+if (!Alloy.Globals.isLogged){
+	txt_comentario.touchEnabled = false;
+	$.div_enviar.touchEnabled = false;
+	$.lbl_enviar.touchEnabled = false;
+	txt_comentario.opacity = 0.5;
+	$.div_enviar.opacity = 0.5;
+	var dialog = Ti.UI.createAlertDialog({
+			cancel: 1,
+			message:'Es necesario estar registrado para dejar un comentario',
+			buttonNames:['Registrar', 'Cancelar'],
+			title:''
+		});
+		dialog.addEventListener('click', function(e){
+		    if (e.index === e.source.cancel){
+		      Ti.API.info('The cancel button was clicked');
+		    }else{
+		    	Alloy.Globals.navigator.openLogin();
+		    }
+		});
+	$.div_addComment.addEventListener('click',function(){
+		dialog.show();
+	});
+}
+	
 if (args.liked != null) {
 	if (args.liked == '1') {
 		$.img_likeIcon.image = '/images/likeIcon_fill.png';	
 		liked = true;
 	}else $.img_likeIcon.image = '/images/likeIcon.png';	
 }
-
 
 $.img_back.addEventListener('load', function(e){
 	    rect = $.img_back.getRect();
@@ -41,12 +67,20 @@ $.div_addComment.addEventListener('postlayout', function(e) {
     Ti.API.info(' X: '+ medida.x +' Y: '+ medida.y + ' Width: ' +medida.width +' Height'+ medida.height);
 
 });
+
+txt_comentario.addEventListener('focus',function(e){
+		Ti.API.info('Estamos en Focus.!!!');
+		$.div_enviar.touchEnabled = true;
+		$.lbl_enviar.touchEbabled = true;
+		$.div_enviar.opacity = 1;
+		e.source.value = "";
+});
+
+
 function getComments () {
 	Alloy.Globals.ws.getComments(articleId,function(status,obj){
 		if (status) {
 			$.lbl_numComentarios.text = obj.comentarios.length;
-			// var model = Alloy.Collections.comments[0].get('comentario');
-			// Ti.API.info(model);
 			var view;
 			for(var i = obj.comentarios.length-1; i >= 0; i--){
 				view = Alloy.createController('comentarios',{
@@ -58,14 +92,6 @@ function getComments () {
 				
 				$.scroll_details.add(view);
 			}
-			// if(view){
-				// view.addEventListener('postlayout', function(e) {
-				    // // Calculate the center using the RO rect property
-				    // medida = view.getRect();
-				    // Ti.API.info(' Comment X: '+ medida.x +' Y: '+ medida.y + ' Width: ' +medida.width +' Height'+ medida.height);
-				// });
-			// }
-			
 		}else{
 			var dialog = Ti.UI.createAlertDialog({
 				message:obj,
@@ -89,53 +115,13 @@ function removeAllChildren(viewObject){
     }
 }
 
-// if(!OS_IOS){
-	// $.div_addComment.height = screenHeight * 0.18 ;
-	// $.list_comments.height = screenHeight * 0.686 ;
-// 
-	// $.list_comments.addEventListener('touchstart', function(){
-    	// $.scroll_details.canCancelEvents = false;
-	// });
-	// $.list_comments.addEventListener('touchend', function(){
-	    // $.scroll_details.canCancelEvents = true;
-	// });
-	// $.list_comments.addEventListener('touchcancel', function(){
-	    // $.scroll_details.canCancelEvents = true;
-	// });
-// }
-$.txt_comentario.addEventListener('focus', function(e){
-	var dialog = Ti.UI.createAlertDialog({
-		cancel: 1,
-		message:'Es necesario estar registrado para dejar un comentario',
-		buttonNames:['Registrar', 'Cancelar'],
-		title:''
-	});
-	
 
-	dialog.addEventListener('click', function(e){
-	    if (e.index === e.source.cancel){
-	      Ti.API.info('The cancel button was clicked');
-	    }else{
-	    	Alloy.Globals.loading.show('Cargando...');
-	    	Alloy.Globals.navigation.open('login');
-	    	navigation.clearHistory();
-	    	Alloy.Globals.loading.hide();
-	    }
-	});
-	if (Ti.App.Properties.getString('sessid') == null){
-			dialog.show();
-		} else {
-			$.div_enviar.touchEnabled = true;
-			$.div_enviar.opacity = 1;
-		}
-	
-});
 
 var likes = args.likes;
 
 function cerrarVentana(){
-	//Alloy.Globals.navigator.goBack();
-	navigation.back();
+	Alloy.Globals.navigator.goBack();
+	//navigation.back();
 }
 
 function enviar_down (e) {
@@ -143,14 +129,19 @@ function enviar_down (e) {
 }
 function enviar_up (e) {
 	e.source.opacity = 1;
+	if (e.source.touchEnable == false) {
+		Ti.API.info('Retorno de boton Enviar.!!!');
+		return;
+	}
 	
-	var message = $.txt_comentario.getValue();
+	
+	var message = txt_comentario.getValue();
 	if (message != ''){
-		$.txt_comentario.blur();
+		txt_comentario.blur();
 		//$.scroll_details.scrollTo(0,medida.y + medida.height+100);
 		Alloy.Globals.ws.addComment(Ti.App.Properties.getString('sessid'), args.articleId, message, function(status,obj){
 			if (status) {
-				$.txt_comentario.value = '';
+				txt_comentario.value = '';
 				Alloy.Globals.loading.show('Cargando');
 					removeAllChildren($.scroll_details);
 					getComments();
@@ -162,8 +153,6 @@ function enviar_up (e) {
 					//(OS_IOS) ? $.scroll_details.scrollTo(0, medida.y) : $.scroll_details.scrollTo(0, scroll) ;
 					Alloy.Globals.loading.hide();
 				}, 1000);
-				$.div_enviar.touchEnabled = false;
-				$.div_enviar.opacity = 0.5;
 			}else{
 				var dialog = Ti.UI.createAlertDialog({
 					message:obj,
@@ -180,8 +169,6 @@ function enviar_up (e) {
 				title:''
 			});
 			dialog.show();
-			$.div_enviar.touchEnabled = false;
-			$.div_enviar.opacity = 0.5;
 	}
 	
   
@@ -206,10 +193,11 @@ function like_up (e) {
 	    if (e.index === e.source.cancel){
 	      Ti.API.info('The cancel button was clicked');
 	    }else{
-	    	Alloy.Globals.loading.show('Cargando...');
-	    	Alloy.Globals.navigation.open('login');
-	    	navigation.clearHistory();
-	    	Alloy.Globals.loading.hide();
+	    	// Alloy.Globals.loading.show('Cargando...');
+	    	// Alloy.Globals.navigation.open('login');
+	    	// navigation.clearHistory();
+	    	// Alloy.Globals.loading.hide();
+	    	Alloy.Globals.navigator.openLogin();
 	    }
 	});
 	if (Ti.App.Properties.getString('sessid') == null){
@@ -262,16 +250,19 @@ function share_down (e) {
 }
 function share_up (e) {
 	e.source.opacity = 1;
+	Alloy.Globals.loading.show('Cargando...');
+	var url = 'http://cancerdemamalabatallademivida.blogspot.mx/2015/03/en-las-nubes.html';
 	social.share({
 	    status                  : 'Texto de Ejemplo!',
-	    url	                    : 'http://cancerdemamalabatallademivida.blogspot.mx/2015/03/en-las-nubes.html',
+	    url	                    : url,
 	    //image                   : '/images/secondPreview.png',
 	    androidDialogTitle      : 'Compartir!'
 	});
+	Alloy.Globals.loading.hide();
 }
 
 $.scroll_details.addEventListener('scroll', function(e) {
-	(!OS_IOS) ? $.txt_comentario.blur() : '' ;
+	(!OS_IOS) ? txt_comentario.blur() : '' ;
 	var opacity = 1.0;
 	var offset = e.y;
 	//Ti.API.info(offset);
@@ -302,3 +293,8 @@ $.scroll_details.addEventListener('scroll', function(e) {
 	// }
 
 });
+
+// ------ Close Event ------//
+this.close = function(){
+	$.destroy();
+}; 

@@ -4,11 +4,34 @@
 			<View id="div_nav">
 				<Button id="btn_menu" onClick="cerrarVentana">Menú</Button>
 				<Label id="lbl_titulo">Articulos de interes</Label>
+				<View id="btn_buscar" onTouchstart="buscar_down" onTouchend="buscar_up"></View>
 			</View>
 			<View id="nav_separator"></View>
 			<View id="articulosGrid">
 				<Require type="widget" src="com.prodz.tidynamicgrid" id="tdg"/>
+				<View id="div_wrapper" visible="false">
+					<View id="div_search" backgroundColor="#fb8bc7" height="50" top="0">
+	                    <TextField id="searchBar" color="#545454" hintText="Buscar..." borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" width="90%" onChange="txtChange"></TextField>
+	                </View>
+					<ListView id="list_results" onItemclick="listItemHandler" defaultItemTemplate="res_template" backgroundColor="#fecce7" top="50" separatorColor="#c0c0c0">
+						<!-- <SearchBar id="searchBar" hintText="Buscar..." showCancel="false" barColor='#fb8bc7' platform="ios" top="0" visible="true"></SearchBar>
+						<SearchView id="searchBar" ns="Ti.UI.Android" platform="android" hintText="Buscar..." iconified="true" color="white" top="0"></SearchView> -->
+						<Templates> 
+							<ItemTemplate name="res_template" id="res_template">
+								<View id="div_row" layout="horizontal" height="Ti.UI.SIZE" backgroundColor="white">
+									<View id="div_imageMask">
+										<ImageView id="img_image" bindId="img_image"></ImageView>
+									</View>
+									<View id="div_text">
+										<Label id="lbl_title" bindId="lbl_title"></Label>
+										<Label id="lbl_subtitle" bindId="lbl_subtitle"></Label>
+									</View>
+								</View>
+							</ItemTemplate>
+						</Templates>
+						<ListSection id="listSection"></ListSection>
+					</ListView>
+				</View>
 			</View>
-			
 		</View>
 </Alloy>

@@ -27,6 +27,29 @@ var WS = {
 		});
 	},
 	
+	loginFb : function(token, fnCallback) {
+		Ti.API.info('--- WS > FACEBOOK LOGIN ---');
+		
+		var xhr = Ti.Network.createHTTPClient({
+			onload: function(e){
+				Ti.API.info('Respuesta:' + this.responseText);
+				var response = JSON.parse(this.responseText);
+				// CODE GOES HERE
+				if(!response.error){
+					Ti.API.info('--- STATUS ---');
+					fnCallback(true,{sessid:response.sessid, user:response.user});
+				}
+			},
+			onerror: function(e){ WS.defaultErrorHandler(e, fnCallback); }
+		});
+		
+		xhr.open('POST', WS.url + '/facebook-login');
+		
+		xhr.send({
+			token: token,
+		});
+	},
+	
 	register : function(name, lastname, email, password, image, fnCallback) {
 		Ti.API.info('--- WS > REGISTER USER ---');
 		

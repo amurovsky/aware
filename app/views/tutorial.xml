@@ -1,0 +1,15 @@
+<Alloy>
+	<View class="container" backgroundColor="green" height="100%" width="100%">
+		<ScrollableView id="scrollableView" showPagingControl="true">
+            <View id="view1" backgroundColor="#123">
+               <Label>View 1</Label>
+            </View>
+            <View id="view2" backgroundColor="#246">
+             <Label>View 2</Label>
+             </View>
+            <View id="view3" backgroundColor="#48b">
+             <Label>View 3</Label>
+             </View>
+        </ScrollableView>
+	</View>
+</Alloy>

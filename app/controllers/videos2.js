@@ -13,8 +13,8 @@ var navigation = Alloy.Globals.navigation;
 
 function cerrarVentana(){
 	//if (osname !== 'android') {activeMovie.stop();};
-	//Alloy.Globals.navigator.goBack();
-	navigation.back();
+	Alloy.Globals.navigator.goBack();
+	//navigation.back();
 }
                              
 function listItemHandler (e) {
@@ -23,14 +23,18 @@ function listItemHandler (e) {
   Ti.API.info('BindID:' + bindId);
   var url = ytLink[e.itemIndex].split('=');
   if (bindId === 'img_shareIcon' || bindId === 'div_shareIcon' || bindId === 'img_share' || bindId === 'div_share') {
+  	Alloy.Globals.loading.show('Cargando...');
   	social.share({
 		    status                  : 'Texto de Ejemplo!',
 		    url	                    : ytLink[e.itemIndex],
 		    //image                   : '/images/secondPreview.png',
 		    androidDialogTitle      : 'Compartir!'
 		});
-  }else if(bindId === 'div_expandIcon' || bindId === 'img_expandIcon' || bindId === 'vid_prev' || bindId === 'img_thumbnail'){
+	Alloy.Globals.loading.hide();
+  }else if(bindId === 'div_expandIcon' || bindId === 'img_expandIcon' || bindId === 'img_thumbnail'){
+  	Alloy.Globals.loading.show('Cargando...');
   	yt.play(url[1]);
+  	Alloy.Globals.loading.hide();
   }
   
 }
@@ -74,6 +78,6 @@ Alloy.Globals.ws.videos(function(status,obj){
 
 //$.listSection.setItems(videoPriData);
 
-// this.close = function(){
-	// $.destroy();
-// };                     
+this.close = function(){
+	$.destroy();
+};                     

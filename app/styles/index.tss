@@ -1,4 +1,9 @@
 ".container[platform=ios]": {
 	statusBarStyle: Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,
-	backgroundColor:'#fb8bc7'
+	backgroundColor:'#fb8bc7',
+	orientationModes: [Titanium.UI.PORTRAIT]
+},
+".container[platform=android]": {
+	backgroundColor:'#fb8bc7',
+	orientationModes: [Titanium.UI.PORTRAIT]
 }

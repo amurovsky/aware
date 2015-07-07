@@ -5,17 +5,20 @@ var osname = Ti.Platform.osname;
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var fb = require('facebook');
-fb.appid = 100119266991535;
+fb.appid = Ti.App.Properties.getString('ti.facebook.appid');
 //fb.permissions=['email'];
 fb.forceDialogAuth=false;
 
+var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
+	$.btn_back.add(backIcon);
+	
 function back_down (e) {
   e.source.opacity = 0.5;
 }
 function back_up (e) {
 	e.source.opacity = 1;
-  //Alloy.Globals.navigator.goBack();
-  navigation.back();
+  	Alloy.Globals.navigator.goBack();
+  	//navigation.back();
 }
 function siguiente (e) {
   //Alloy.Globals.navigator.openWindow('iniciar_sesion');
@@ -34,7 +37,8 @@ function siguiente (e) {
   	Alloy.Globals.ws.register(name, lastname, email, password, image, function(status, obj){
   		Alloy.Globals.loading.hide();
   		if (status) {
-  			navigation.open('iniciar_sesion',{email:email});
+  			//navigation.open('iniciar_sesion',{email:email});
+  			Alloy.Globals.navigator.openWindow('iniciar_sesion',true,{email:email},'forward');
   		}else{
   			dialog.message = obj;
 			dialog.show();
@@ -56,8 +60,7 @@ function registro_facebook (e) {
   
 }
 
-	var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
-	$.btn_back.add(backIcon);
+
 
 
 
@@ -71,16 +74,23 @@ fb.addEventListener('login',function(e) {
     if (e.success) {
     
     	var results =  (OS_IOS) ? e.data : JSON.parse(e.data);
-    	Ti.API.info('Results: '+ results);
-    	Ti.API.info('Mail: '+e.email);
-        Ti.API.info('login from uid: '+e.uid+', name: '+results.name + ', mail: ' + results.email);
-        Ti.API.info('Logged In: ' + fb.loggedIn);
-        Ti.API.info('UID: ' + e.uid);
-        Ti.App.Properties.setString('profileImg','http://graph.facebook.com/'+e.uid+'/picture?type=large');
-		Ti.App.Properties.setString('email',results.email);
-		Ti.App.Properties.setString('userName',results.name);
-		//Alloy.Globals.navigator.openWindow('menu',true);
-		navigation.open('menu');
+    	var token = fb.getAccessToken();
+    	
+    	Alloy.Globals.ws.loginFb(token,function(status, obj){
+    		if (status){
+		        Ti.App.Properties.setString('profileImg',obj.user.image);
+				Ti.App.Properties.setString('email',obj.user.username);
+				Ti.App.Properties.setString('userName',obj.user.name);
+				Ti.App.Properties.setString('sessid',obj.sessid);
+				LO.hide();
+				Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+				//navigation.open('menu');
+    		}else{
+				dialog.message = obj;
+				dialog.show();
+			}
+    	});
+    	
     }
     else if (e.cancelled) {
         // user cancelled 
@@ -89,7 +99,7 @@ fb.addEventListener('login',function(e) {
     else {
         Ti.API.info('cancelado por usuario: '+e.error);         
     }
-    LO.hide();
+    
 });
 
 fb.addEventListener('logout', function(e) {
@@ -110,6 +120,6 @@ fb.addEventListener('logout', function(e) {
     
 //$.div_main.add(loginButton);
 
-// this.close = function(){
-	// $.destroy();
-// };
+this.close = function(){
+	$.destroy();
+};

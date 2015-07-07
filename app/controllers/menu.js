@@ -11,6 +11,9 @@ var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var navigation = Alloy.Globals.navigation;
 Ti.API.info('*--- SESSION ID ---*',Ti.App.Properties.getString('sessid'));
+if (Ti.App.Properties.getString('sessid')) {
+	Alloy.Globals.isLogged = true;
+}
 
 
 //-------- CHECK NETWORK ----------------//
@@ -32,12 +35,14 @@ if (Ti.App.Properties.getString('userName') != null) {
 		$.profileImg.image = Ti.App.Properties.getString('profileImg');
 	}else{
 		Ti.API.info('No tiene imagen');
-		$.profileImg.image = '/images/emptyProfile.png';
+		$.profileImg.image = '/images/emptyProfile.jpg';
+		Ti.App.Properties.setString('profileImg','/images/emptyProfile.jpg');
 	}
 }else{
 	Ti.API.info('No hay user ');
-	$.profileImg.image = '/images/emptyProfile.png';
+	$.profileImg.image = '/images/emptyProfile.jpg';
 	$.profileName.text = 'Usuario Anonimo';
+	Ti.App.Properties.setString('profileImg','/images/emptyProfile.jpg');
 }
 
 // ----------- Change Profile -------------------------- //
@@ -79,7 +84,7 @@ function logout_down (e) {
   e.source.opacity=0.5;
 }
 function logout_up (e) {
-	Alloy.Globals.loading.show('Cerrando Sesión...');
+	//Alloy.Globals.loading.show('Cerrando Sesión...');
 	e.source.opacity=1;	
 	Ti.API.info('ADIOS');
 	Ti.App.Properties.setString('userName',null);	
@@ -88,10 +93,11 @@ function logout_up (e) {
 	Ti.App.Properties.setString('userId',null);
 	Ti.App.Properties.setString('sessid',null);
 	fb.logout();
-	//Alloy.Globals.navigator.openLogin();
-	navigation.open('login',{transition: 'crossFade', duration: 500, transitionColor: '#fff'});
-	navigation.clearHistory();
-	Alloy.Globals.loading.hide();
+	
+	Alloy.Globals.navigator.openLogin();
+	// navigation.open('login',{transition: 'crossFade', duration: 500, transitionColor: '#fff'});
+	// navigation.clearHistory();
+	// Alloy.Globals.loading.hide();
 }
 
 // ---------------- REGALA SALUD -------------------- //
@@ -120,8 +126,8 @@ function menu(e){
 						// Alloy.Globals.navigator.openWindow('videos2');
 					// });
 					
-				//Alloy.Globals.navigator.openWindow('videos2');
-				navigation.open('videos2');
+				Alloy.Globals.navigator.openWindow('videos2',false,[],'forward');
+				//navigation.open('videos2');
 				//new Animator().flip({view:videos,duration:500});
 				//new Animator().moveTo({view:videos, value:{x:Ti.Platform.displayCaps.platformWidth,y:0},duration:500});
 				
@@ -129,14 +135,14 @@ function menu(e){
 		 case 'articulos':
 			// var articulos = Alloy.createController('articulos').getView();
 				// articulos.open({modal:true});
-				//Alloy.Globals.navigator.openWindow('articulos');
-				navigation.open('articulos');
+				Alloy.Globals.navigator.openWindow('articulos',false,[],'forward');
+				//navigation.open('articulos');
 		 break;
 		case 'puntos':
 			// var puntos = Alloy.createController('puntos').getView();
 				// puntos.open({modal:true});
-				//Alloy.Globals.navigator.openWindow('puntos');
-				navigation.open('puntos');
+				Alloy.Globals.navigator.openWindow('puntos',false,[],'forward');
+				//navigation.open('puntos');
 		break;
 		case 'regala':
 			// var regala = Alloy.createController('regala').getView();
@@ -146,8 +152,8 @@ function menu(e){
 		case 'directorios':
 			// var directorios = Alloy.createController('directorios').getView();
 				// directorios.open({modal:true});
-				//Alloy.Globals.navigator.openWindow('directorios');
-				navigation.open('directorios');
+				Alloy.Globals.navigator.openWindow('directorios',false,[],'forward');
+				//navigation.open('directorios');
 		break;
 	}
 	
@@ -491,12 +497,12 @@ function showPicker(e){
 				});
 				b.addEventListener('click', function()
 				{
-					var mainWindow = Alloy.Globals.navigation.getMainWindow();
+					//var mainWindow = Alloy.Globals.navigation.getMainWindow();
 					var t3 = Titanium.UI.create2DMatrix();
 					t3 = t3.scale(0);
 					w.animate({transform:t3,duration:300});
 					w.hide();
-					mainWindow.remove(w);
+					//w.remove(w);
 					if (fechadeCompra != null) {
 						if (boton.id == 'fechaCompra' || boton.id == 'diaFechaCompra' || boton.id == 'restoFechaCompra') {
 							addUserDate(deviceId,'purchase',fechaWS);
@@ -523,6 +529,6 @@ function showPicker(e){
 	};
 }
 
-// this.close = function(){
-	// $.destroy();
-// };
+this.close = function(){
+	$.destroy();
+};

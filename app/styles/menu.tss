@@ -1,4 +1,10 @@
 //--------------- Estilos AMBAS plataformas -----------------------//
+".container":{
+	backgroundImage:'/images/fondoMenu.png',
+	width:'100%',
+    height:'100%',
+	
+}
 "#div_logout":{
 	top:'2%',
 	right:5,
@@ -86,12 +92,7 @@
 	
 },
 //--------------- Estilos IOS -----------------------//
-".container[platform=ios]":{
-	backgroundImage:'/images/fondoMenu.png',
-	width:'100%',
-    height:'100%'
-	
-},"#imageMask[platform=ios]":{
+"#imageMask[platform=ios]":{
 	height:86,
 	width:86,
 	top:'8%',
@@ -266,11 +267,7 @@
 
 //--------------- Estilos ANDROID -----------------------//
 
-".container[platform=android]":{
-	backgroundImage:'/images/fondoMenu.png',
-	
-
-},"Button[platform=android]":{
+"Button[platform=android]":{
 	
 	backgroundImage: 'NONE',
 	color: 'white',

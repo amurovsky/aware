@@ -2,23 +2,25 @@ var args = arguments[0] || {};
 var navigation = Alloy.Globals.navigation;
 
 function abrirRegistro (e) {
-  //Alloy.Globals.navigator.openWindow('registro');
-  navigation.open('registro');
+  Alloy.Globals.navigator.openWindow('registro',false,[],'forward');
+  //navigation.open('registro');
 }
 
 function abrirSesion (e) {
-  //Alloy.Globals.navigator.openWindow('iniciar_sesion');
-  navigation.open('iniciar_sesion');
+  Alloy.Globals.navigator.openWindow('iniciar_sesion',false,[],'forward');
+  //navigation.open('iniciar_sesion');
 }
 
 function saltar (e){
-	Alloy.Globals.loading.show('Cargando...');
-	//Alloy.Globals.navigator.openWindow('menu',true);
+	//Alloy.Globals.loading.show('Cargando...');
+	Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+	
 	var PushClient = require('PushClientComponent');
 		PushClient.register();
-	navigation.open('menu');
-	navigation.clearHistory();
-	Alloy.Globals.loading.hide();
+		
+	// navigation.open('menu');
+	// navigation.clearHistory();
+	// Alloy.Globals.loading.hide();
 }
 
 if (!OS_IOS) {
@@ -42,8 +44,10 @@ if (!OS_IOS) {
 		// // start animation
 		// $.vid_background.start();
 	// });
-// this.close = function(){
-	// $.destroy();
-// };
+	
+	
+this.close = function(){
+	$.destroy();
+};
 
     

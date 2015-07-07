@@ -46,9 +46,10 @@
 						<View id="div_addImageMask">
 							<ImageView id="img_profileMe"></ImageView>
 						</View>
-						<TextField id="txt_comentario"></TextField>
+						<TextField id="txt_comentario" platform="android"></TextField>
+						<TextArea id="txtArea_comentario" platform="ios"></TextArea>
 						<View id="div_enviar" onTouchstart="enviar_down" onTouchend="enviar_up" onTouchcancel="enviar_cancelar" touchEnabled="false" opacity="0.5">
-							<Label id="lbl_enviar">Enviar</Label>
+							<Label id="lbl_enviar" touchEnabled="false" >Enviar</Label>
 						</View>
 					</View>
 				</View>

@@ -27,3 +27,5 @@ Ti.API.info('------ DisplayCaps -------');
 Ti.API.info("smallDevice:", Alloy.Globals.smallDevice);
 Ti.API.info("bigDevice:", Alloy.Globals.bigDevice);
 Ti.API.info(Alloy.Globals.deviceWidth + " x " + Alloy.Globals.deviceHeight);
+
+Alloy.Globals.isLogged = false;

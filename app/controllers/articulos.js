@@ -1,22 +1,31 @@
 var args = arguments[0] || {};
 var moment = require('alloy/moment');
+var icomoonlib = require('icomoonlib');
 var navigation = Alloy.Globals.navigation;
+var screenWidth = Alloy.Globals.deviceWidth;
+var screenHeight = Alloy.Globals.deviceHeight;
+
+var searchIcon = icomoonlib.getIconAsLabel("Aware-Icons","searchIcon",screenHeight * 0.04,{color:"white"});
+	$.btn_buscar.add(searchIcon);
 
 function cerrarVentana(){
-	//Alloy.Globals.navigator.goBack();
-	navigation.back();
+	Alloy.Globals.navigator.goBack();
+	//navigation.back();
 }
+
+var items = [];
 
 //CUSTOM FUNCTION TO DEFINE WHAT HAPPENS WHEN AN ITEM IN THE GRID IS CLICKED
 var showGridItemInfo = function(e){
 	//alert('Title is: ' + e.source.data.title + '. Image is: ' + e.source.data.image);
 	var data = e.source.data;
-	navigation.open('articulo_detalle2',{titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId});
+	//navigation.open('articulo_detalle2',{titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId});
+	Alloy.Globals.navigator.openWindow('articulo_detalle2',false, {titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId},'forward');
 };
 
 
 
-var delay = (OS_ANDROID) ? 1000:2000;
+var delay = (OS_ANDROID) ? 1000:500;
 
 $.tdg.init({
     columns:2,
@@ -38,7 +47,8 @@ if (Ti.App.Properties.getString('userId')) {
 Alloy.Globals.ws.articles(userID,function(status,obj){
 	Ti.API.info('Ya entro');
 	if (status) {
-		var items = [];
+		
+		var dataSearch = [];
 	   for (var x=0; x < obj.articulos.length; x++){
 			//CREATES A VIEW WITH OUR CUSTOM LAYOUT
 			var view = Alloy.createController('item_layout',{
@@ -65,8 +75,20 @@ Alloy.Globals.ws.articles(userID,function(status,obj){
 		        view: view,
 		        data: values
 		    });
-		};
 
+		    // FILL DATASEARCH
+		    dataSearch.push({
+		    	template: 	'res_template',
+		    	properties:		{ searchableText:obj.articulos[x].title },
+		    	img_image:		{ image:obj.articulos[x].thumbnail },
+		    	lbl_title:		{ text:obj.articulos[x].title},
+		    	lbl_subtitle:	{ text:moment(obj.articulos[x].created_at).lang("es").format('LL')},	
+		    });
+		    
+		    
+		};
+Ti.API.info('DataSearch: ' + JSON.stringify(dataSearch));
+$.listSection.setItems(dataSearch);
 //ADD ALL THE ITEMS TO THE GRID
 $.tdg.addGridItems(items);    
         
@@ -81,10 +103,42 @@ $.tdg.addGridItems(items);
 	}
 });
 	
+function listItemHandler (e) {
+	var data = items[e.itemIndex].data;
+  	var item = $.listSection.getItemAt(e.itemIndex);
+	var bindId = e.bindId;
+	$.searchBar.blur();
+	Ti.API.info('BindID:' + bindId);
+	Ti.API.info('Item: ' + JSON.stringify(e.source.id));
+	Alloy.Globals.navigator.openWindow('articulo_detalle2',false, {titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId},'forward');
+}
+
+function txtChange (e) {
+	$.list_results.searchText = e.value;
+}
+
+function buscar_down (e) {
+	e.source.opacity = 0.5;
+}
+var abierto = false;
+function buscar_up (e) {
+	e.source.opacity = 1;
+	
+	if (!abierto) {
+		Ti.API.info('Abriendo...');
+		$.div_wrapper.setVisible(true);
+		abierto = true;
+	}else {
+		Ti.API.info('Cerrando...');
+		$.div_wrapper.setVisible(false);
+		$.searchBar.blur();
+		$.searchBar.setValue('');
+		abierto = false;
+ 	}
+}
 
 
-
-// // ------ Close Event ------//
-// this.close = function(){
-	// $.destroy();
-// }; 
+// ------ Close Event ------//
+this.close = function(){
+	$.destroy();
+}; 

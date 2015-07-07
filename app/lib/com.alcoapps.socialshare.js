@@ -31,6 +31,11 @@ function share(args){
 			intent.putExtra(Ti.Android.EXTRA_TEXT, args.status);
 		}
 		
+		// add text status
+		if (args.url){
+			intent.putExtra(Ti.Android.EXTRA_TEXT, args.url);
+		}
+		
 		// change type according to the content
 		if (args.image){
 			intent.type = "image/*";
