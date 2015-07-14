@@ -91,6 +91,17 @@ var PushClientComponent = {
 					Ti.API.info('Parse API Error:\n\n' + JSON.stringify(response));
 				} else {
 					Ti.API.info('Parse API Success:\n\n' + JSON.stringify(response));
+					Ti.API.info('-- AQUI REGISTRAR DEVICE --');
+					Alloy.Globals.ws.setupDevice(Ti.Platform.id, Ti.Platform.osname, response.installationId, function(status, obj){
+						if(status){
+							Ti.API.info(' -- TU DISPOSITIVO QUEDO REGISTRADO --');
+						}else{
+							var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
+							dialog.message = obj;
+							dialog.show();
+						}
+						
+					});
 				}
 			});
 		};
@@ -142,10 +153,10 @@ var PushClientComponent = {
 				Ti.API.info('Callback:\n\nInvalid callback');
 				// Should never happen...
 			} else if (event.mode == PushClient.MODE_FOREGROUND) {
-				if (OS_ANDROID) {
-					PushClient.showLocalNotification(event.data);
-					// Force to show local notification
-				}
+				// if (OS_ANDROID) {
+					// PushClient.showLocalNotification(event.data);
+					// // Force to show local notification
+				// }
 				Ti.API.info('Callback in Foreground:\n\n' + JSON.stringify(event.data));
 				// Push data received with app in foreground
 			} else if (event.mode == PushClient.MODE_CLICK) {

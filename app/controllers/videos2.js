@@ -39,8 +39,8 @@ function listItemHandler (e) {
   
 }
 
-
-Alloy.Globals.ws.videos(function(status,obj){
+var deviceId = Ti.Platform.id;
+Alloy.Globals.ws.videos(deviceId, function(status,obj){
 	if (status) {
 		data=[
 			{template: "video_pri_template", 

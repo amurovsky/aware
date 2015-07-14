@@ -1,5 +1,5 @@
 var WS = {
-	//url : 'http://192.168.15.101:8101/ws',
+	//rl : 'http://192.168.15.101:8101/ws',
 	url : 'http://digital.testingweb.mx:8101/ws',
 	
 	login : function(email, password, fnCallback) {
@@ -36,7 +36,6 @@ var WS = {
 				var response = JSON.parse(this.responseText);
 				// CODE GOES HERE
 				if(!response.error){
-					Ti.API.info('--- STATUS ---');
 					fnCallback(true,{sessid:response.sessid, user:response.user});
 				}
 			},
@@ -47,6 +46,74 @@ var WS = {
 		
 		xhr.send({
 			token: token,
+		});
+	},
+	
+	restorePassword : function(email, fnCallback) {
+		Ti.API.info('--- WS > RESTORE PASSWORD ---');
+		
+		var xhr = Ti.Network.createHTTPClient({
+			onload: function(e){
+				Ti.API.info('Respuesta:' + this.responseText);
+				var response = JSON.parse(this.responseText);
+				// CODE GOES HERE
+				if(!response.error){
+					fnCallback(true,{operacion:response.operation});
+				}
+			},
+			onerror: function(e){ WS.defaultErrorHandler(e, fnCallback); }
+		});
+		
+		xhr.open('POST', WS.url + '/restore-password');
+		
+		xhr.send({
+			username: email,
+		});
+	},
+	
+	setupDevice : function(id, osname, installationId, fnCallback) {
+		Ti.API.info('--- WS > SETUP DEVICE ---');
+		
+		var xhr = Ti.Network.createHTTPClient({
+			onload: function(e){
+				Ti.API.info('Respuesta:' + this.responseText);
+				var response = JSON.parse(this.responseText);
+				// CODE GOES HERE
+				if(!response.error){
+					fnCallback(true);
+				}
+			},
+			onerror: function(e){ WS.defaultErrorHandler(e, fnCallback); }
+		});
+		
+		xhr.open('POST', WS.url + '/setup-device');
+		
+		xhr.send({
+			id: id,
+			osname: osname,
+			push_installation_id: installationId
+		});
+	},
+	
+	newContentCount : function(deviceId, fnCallback) {
+		Ti.API.info('--- WS > NEW CONTENT COUNT ---');
+		
+		var xhr = Ti.Network.createHTTPClient({
+			onload: function(e){
+				Ti.API.info('Respuesta:' + this.responseText);
+				var response = JSON.parse(this.responseText);
+				// CODE GOES HERE
+				if(!response.error){
+					fnCallback(true,{articulos:response.articles, videos:response.videos});
+				}
+			},
+			onerror: function(e){ WS.defaultErrorHandler(e, fnCallback); }
+		});
+		
+		xhr.open('POST', WS.url + '/new-content-count');
+		
+		xhr.send({
+			id_device: deviceId
 		});
 	},
 	
@@ -78,7 +145,49 @@ var WS = {
 		});
 	},
 	
-	videos : function(fnCallback) {
+	editUser : function(sessid, name, lastname, email, password, image, fnCallback) {
+		Ti.API.info('--- WS > EDIT USER ---');
+		
+		var params;
+		if(password != null){
+			params = {
+				'sessid':	sessid,
+				'name':		name,
+				'lastname':	lastname,
+				'username': email,
+				'image':	image,
+				'password':	password
+			};
+		}else{
+			params = {
+				'sessid':	sessid,
+				'name':		name,
+				'lastname':	lastname,
+				'username': email,
+				'image':	image,
+			};
+		}
+		
+		Ti.API.info('Parametros: ' + JSON.stringify(params));
+		
+		var xhr = Ti.Network.createHTTPClient({
+			onload: function(e){
+				Ti.API.info('Respuesta:' + this.responseText);
+				var response = JSON.parse(this.responseText);
+				//CODE GOES HERE
+				if(!response.error){
+					fnCallback(true,{user:response.user});
+				}
+			},
+			onerror: function(e){ WS.defaultErrorHandler(e, fnCallback); }
+		});
+		
+		xhr.open('POST', WS.url + '/edit-user');
+		
+		xhr.send(params);
+	},
+	
+	videos : function(deviceId, fnCallback) {
 		Ti.API.info('--- WS > VIDEOS ---');
 		
 		var xhr = Ti.Network.createHTTPClient({
@@ -95,10 +204,12 @@ var WS = {
 		
 		xhr.open('POST', WS.url + '/videos');
 		
-		xhr.send();
+		xhr.send({
+			id_device: deviceId
+		});
 	},
 
-	articles : function(userID,fnCallback) {
+	articles : function(userID, deviceId, fnCallback) {
 		Ti.API.info('--- WS > ARTICLES ---');
 		
 		var xhr = Ti.Network.createHTTPClient({
@@ -116,7 +227,8 @@ var WS = {
 		xhr.open('POST', WS.url + '/articles');
 		
 		xhr.send({
-			id_user:userID
+			id_user:userID,
+			id_device:deviceId
 		});
 	},
 	

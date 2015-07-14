@@ -1,15 +1,28 @@
 <Alloy>
-	<View class="container" backgroundColor="green" height="100%" width="100%">
-		<ScrollableView id="scrollableView" showPagingControl="true">
-            <View id="view1" backgroundColor="#123">
-               <Label>View 1</Label>
+	<View class="container" id="container">
+		<View id="div_saltar" onClick="saltarEvent">
+			<Label id="lbl_saltar">saltar</Label>
+		</View>
+		<ScrollableView id="scrollableView" showPagingControl="true" onScroll="onScrollEvent" onScrollend="onScrollendEvent" onPostlayout="onPostlayoutEvent">
+            <View id="view1" layout="vertical">
+            	<ImageView id="img_compraTour" class="img_tour"></ImageView>
+               	<Label id="lbl_recuerda" class="titulo">Recuerda</Label>
+               	<Label id="lbl_recuerdaExp" class="descripcion">Registra la fecha de inicio de tu ciclo menstrual, y Aware® te recordará hacer tu autoexploración mes a mes.</Label>
             </View>
-            <View id="view2" backgroundColor="#246">
-             <Label>View 2</Label>
+            <View id="view2" layout="vertical">
+            	<ImageView id="img_cicloTour" class="img_tour"></ImageView>
+             	<Label id="lbl_renueva" class="titulo">Renueva</Label>
+             	<Label id="lbl_renuevaExp" class="descripcion">Registra la fecha de compra de tu parche y  te recordaremos comprar uno nuevo después de 11 meses.</Label>
              </View>
-            <View id="view3" backgroundColor="#48b">
-             <Label>View 3</Label>
+            <View id="view3" layout="vertical">
+            	<ImageView id="img_likeTour" class="img_tour"></ImageView>
+             	<Label id="lbl_participa" class="titulo">Participa</Label>
+             	<Label id="lbl_participaExp" class="descripcion">Registrate con tu correo electrónico o tu cuenta personal de facebook y  podrás comentar y dar like al contenido de la aplicación.</Label>
              </View>
         </ScrollableView>
+        <View id="div_switch" layout="horizontal" top="3%" height="Ti.UI.SIZE" width="Ti.UI.SIZE">
+        	<Label id="lbl_switch">No mostrar el tour</Label>
+        	<Switch id="switch_recuerdame" onChange="onChangeEvent"></Switch>
+        </View>
 	</View>
 </Alloy>

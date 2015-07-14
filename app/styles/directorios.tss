@@ -40,17 +40,17 @@
 	},
 	color: 'white',
 },
-// "#btn_buscar":{
-	// right:'5%',
-	// color:'white',
-	// font:{
-		// fontFamily: 'HelveticaNeue-Medium',
-		// fontSize: 15,
-	// },
-	// backgroundColor:'transparent'
-// },
+"#btn_buscar":{
+	right:0,
+	height:'100%',
+	width:'15%',
+},
 "#div_main":{
 	top:0,
+	layout:'vertical'
+},
+"#searchBar":{
+	color:'#545454'
 },
 "#list_dir[platform=ios]":{
 	separatorColor:'transparent',
@@ -181,4 +181,8 @@
 },
 "#btn_mapa[platform=android]":{
 	font: {fontSize:'14sp'},
+},
+"#searchBar[platform=android]":{
+	color:'white',
+	hintTextColor:'white'
 },

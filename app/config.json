@@ -1,11 +1,11 @@
 {
   "global": {
-		"Instructions" : "!!! do not change the ParseGCMSenderId config !!!",
-		"ParseGCMSenderId": "1076345567071",
-		"ParseRESTApiBaseUri": "https://api.parse.com/1/",
-		"ParseApplicationId": "khiRnb6DsfXpkwGgdbiO8zc4dzBsELwC3QXIFQsm",
-		"ParseRESTApiKey": "1Khk0LFkrtB7hx1Idx23YUevNrXscp3wZRdobvnf"
-	}, 
+    "Instructions": "!!! do not change the ParseGCMSenderId config !!!",
+    "ParseGCMSenderId": "1076345567071",
+    "ParseRESTApiBaseUri": "https://api.parse.com/1/",
+    "ParseApplicationId": "khiRnb6DsfXpkwGgdbiO8zc4dzBsELwC3QXIFQsm",
+    "ParseRESTApiKey": "1Khk0LFkrtB7hx1Idx23YUevNrXscp3wZRdobvnf"
+  },
   "env:development": {},
   "env:test": {},
   "env:production": {},

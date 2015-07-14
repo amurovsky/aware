@@ -6,7 +6,6 @@ var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var fb = require('facebook');
 fb.appid = Ti.App.Properties.getString('ti.facebook.appid');
-//fb.permissions=['email'];
 fb.forceDialogAuth=false;
 
 var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
@@ -55,70 +54,67 @@ var LO = Alloy.createWidget('com.caffeinalab.titanium.loader', {
     useImages: false
 });
 function registro_facebook (e) {
+	var PushClient = require('PushClientComponent');
+		PushClient.register();
+	if ( fb.loggedIn == true){
+		fb.logout();
+	}
 	LO.show('Conectando con Facebook');
   	fb.authorize();
   
 }
 
 
+function facebookLogin (token) {
+	Alloy.Globals.ws.loginFb(token,function(status, obj){
+		if (status){
+			var username = obj.user.name + ' ' + obj.user.lastname;
+		    Ti.App.Properties.setString('profileImg',obj.user.image);
+			Ti.App.Properties.setString('email',obj.user.username);
+			Ti.App.Properties.setString('userName',username);
+			Ti.App.Properties.setString('sessid',obj.sessid);
+			LO.hide();
+			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+			//navigation.open('menu');
+		}else{
+			var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
+			LO.hide();
+			dialog.message = obj;
+			dialog.show();
+		}
+	});
+}
 
-
-
-    // fb.initialize();
-// 
 	
-fb.addEventListener('login',function(e) {
-    // You *will* get this event if loggedIn == false below
+fb.addEventListener('login',facebookLoginEvent);
+
+function facebookLoginEvent (e) {
+	fb.removeEventListener('login',facebookLoginEvent);
+  // You *will* get this event if loggedIn == false below
     // Make sure to handle all possible cases of this event
-    
+    var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
     if (e.success) {
-    
-    	var results =  (OS_IOS) ? e.data : JSON.parse(e.data);
     	var token = fb.getAccessToken();
-    	
-    	Alloy.Globals.ws.loginFb(token,function(status, obj){
-    		if (status){
-		        Ti.App.Properties.setString('profileImg',obj.user.image);
-				Ti.App.Properties.setString('email',obj.user.username);
-				Ti.App.Properties.setString('userName',obj.user.name);
-				Ti.App.Properties.setString('sessid',obj.sessid);
-				LO.hide();
-				Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
-				//navigation.open('menu');
-    		}else{
-				dialog.message = obj;
-				dialog.show();
-			}
-    	});
-    	
+    	Ti.API.info('Token: ' + token);
+    	facebookLogin(token);
     }
     else if (e.cancelled) {
         // user cancelled 
         Ti.API.info('cancelled');
+        LO.hide();
     }
     else {
-        Ti.API.info('cancelado por usuario: '+e.error);         
+        Ti.API.info('cancelado por usuario: '+e.error);
+        LO.hide();         
     }
-    
-});
+}
 
 fb.addEventListener('logout', function(e) {
     Ti.API.info('logged out');
     Ti.API.info('Logged In: ' + fb.loggedIn);
     //Alloy.Globals.navigator.openLogin();
 });
-// 	
-// 
-// 
-    // var loginButton = fb.createLoginButton({
-        // readPermissions: ['email'],
-        // width:'90%',
-        // top:'10%'
-    // });   
-    
-    
-    
-//$.div_main.add(loginButton);
+
 
 this.close = function(){
 	$.destroy();

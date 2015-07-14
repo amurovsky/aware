@@ -1,0 +1,56 @@
+<Alloy>
+	<View class="container">
+		<View id="main_wrapper">
+			<View id="div_statusBar" platform="ios"></View>
+			<View id="div_nav">
+				<View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
+				<Label id="lbl_titulo">Editar Perfil</Label>
+				<Button id="btn_guardar" onClick="guardar">Guardar</Button>
+			</View>
+			<View id="nav_separator"></View>
+			<View id="div_main">
+				<View id="div_wrapper">
+					<View id="div_nombre_apellido">
+						<View id="div_nombre" class="div_small">
+							<View class="divImgSmall">
+								<ImageView id="img_nombre"></ImageView>
+							</View>
+							<TextField id="txt_nombre" class="textfield"></TextField>
+						</View>
+						<View id="div_apellido" class="div_small">
+							<View class="divImgSmall">
+								<ImageView id="img_apellido"></ImageView>
+							</View>
+							<TextField id="txt_apellido" class="textfield"></TextField>
+						</View>
+					</View>
+					<View id="div_image">
+						<View id="imageMask" onPostlayout="imageMaskComplete">
+							<ImageView id="profileImg"></ImageView>
+						</View>
+						<Button id="btn_editar" onClick="changeProfile">Editar</Button>
+					</View>
+				</View>
+				<View id="div_mail" class="div_large" opacity="0.5">
+					<View class="divImgLarge">
+						<ImageView id="img_mail"></ImageView>
+					</View>
+					<TextField id="txt_mail" class="textfield" editable="false" enabled="false"></TextField>
+				</View>
+				<Label id="lbl_cambiarContra">Cambiar Contraseña</Label>
+				<View id="div_contrasena" class="div_large">
+					<View class="divImgLarge">
+						<ImageView id="img_contrasena"></ImageView>
+					</View>
+					<TextField id="txt_contrasena" class="textfield"></TextField>
+				</View>
+				<View id="div_repContrasena" class="div_large">
+					<View class="divImgLarge">
+						<ImageView id="img_repContrasena"></ImageView>
+					</View>
+					<TextField id="txt_repContrasena" class="textfield"></TextField>
+				</View>
+			</View>
+		</View>
+	</View>
+</Alloy>

@@ -20,7 +20,7 @@ var showGridItemInfo = function(e){
 	//alert('Title is: ' + e.source.data.title + '. Image is: ' + e.source.data.image);
 	var data = e.source.data;
 	//navigation.open('articulo_detalle2',{titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId});
-	Alloy.Globals.navigator.openWindow('articulo_detalle2',false, {titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId},'forward');
+	Alloy.Globals.navigator.openWindow('articulo_detalle2',false, {titulo:data.title, imagen:data.image, fecha:data.subtitle, contenido:data.content, liked:data.liked, likes:data.likes, articleId:data.articleId, link:data.link},'forward');
 };
 
 
@@ -29,7 +29,7 @@ var delay = (OS_ANDROID) ? 1000:500;
 
 $.tdg.init({
     columns:2,
-    space:5,
+    space:0,
     delayTime:delay,
     gridBackgroundColor:'#fecce7',
     itemBackgroundColor:'#fff',
@@ -43,8 +43,8 @@ if (Ti.App.Properties.getString('userId')) {
 	userID = Ti.App.Properties.getString('userId');
 }else userID = null;
 
-
-Alloy.Globals.ws.articles(userID,function(status,obj){
+var deviceId = Ti.Platform.id;
+Alloy.Globals.ws.articles(userID, deviceId, function(status,obj){
 	Ti.API.info('Ya entro');
 	if (status) {
 		
@@ -67,7 +67,8 @@ Alloy.Globals.ws.articles(userID,function(status,obj){
 		        content:	obj.articulos[x].content,
 		        likes:		obj.articulos[x].likes,
 		        liked:		(obj.articulos[x].user_liked != 'undefined') ? obj.articulos[x].user_liked : null,
-		        articleId:	obj.articulos[x].id
+		        articleId:	obj.articulos[x].id,
+		        link:		obj.articulos[x].link
 		    };
 		
 		    //NOW WE PUSH TO THE ARRAY THE VIEW AND THE DATA

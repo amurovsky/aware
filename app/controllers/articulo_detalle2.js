@@ -251,7 +251,7 @@ function share_down (e) {
 function share_up (e) {
 	e.source.opacity = 1;
 	Alloy.Globals.loading.show('Cargando...');
-	var url = 'http://cancerdemamalabatallademivida.blogspot.mx/2015/03/en-las-nubes.html';
+	var url = args.link;
 	social.share({
 	    status                  : 'Texto de Ejemplo!',
 	    url	                    : url,

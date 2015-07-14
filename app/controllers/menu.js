@@ -15,6 +15,33 @@ if (Ti.App.Properties.getString('sessid')) {
 	Alloy.Globals.isLogged = true;
 }
 
+//-------- NOTIFICATION CONTENT ----------------//
+if(screenHeight == 568 && OS_IOS){
+	$.div_notiVid.right = '15%';
+	$.div_notiArt.right = '15%';
+}
+var notiIcon = icomoonlib.getIconAsBlob("Aware-Icons","notiIcon",(OS_IOS) ? screenHeight * 0.058 : screenHeight * 0.058,{color:"#f34eaa"});
+Ti.API.info('ICONMOON: ' + JSON.stringify(notiIcon));
+$.noti_art.image = notiIcon;
+$.noti_vid.image = notiIcon;
+
+Alloy.Globals.ws.newContentCount(Ti.Platform.id,function(status, obj){
+	if (status){
+		if(obj.videos > 0){
+			$.div_notiVid.visible = true;
+			$.lbl_notiVid.text = obj.videos;
+		}
+		if(obj.articulos > 0){
+			$.div_notiArt.visible = true;
+	    	$.lbl_notiArt.text = obj.articulos;
+		}
+		
+	}else{
+		Ti.API.info('No pudimos traer NEW CONTENT');
+	}
+});
+
+
 
 //-------- CHECK NETWORK ----------------//
 if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
@@ -47,35 +74,10 @@ if (Ti.App.Properties.getString('userName') != null) {
 
 // ----------- Change Profile -------------------------- //
 function changeProfile (e) {
-  	var ImageUploadPanel = require("ImageUploadPanel");
-	var imgUploadPanel = new ImageUploadPanel($.menu, "Selecciona una foto de perfil");
-		imgUploadPanel.open({
-			success: function(imageResource){
-				Ti.API.info('Succes.!');
-				if (imageResource.height > imageResource.width) {
-					$.profileImg.setHeight('150%');
-				}else{
-					$.profileImg.setWidth('150%');
-				}
-				$.profileImg.setImage(imageResource);
-			},
-			cancel: function(){
-				// Alloy.Globals.panelLoading.hide();
-			},
-			error: function(error){
-				// Alloy.Globals.panelLoading.hide();
-				
-				// called when there's an error
-				var a = Titanium.UI.createAlertDialog({title:'Error'});
-				
-				if (error.code == Titanium.Media.NO_CAMERA) {
-					a.setMessage('Su dispositivo no tiene camara integrada');
-				} else {
-					a.setMessage('Ocurrio un error inesperado: ' + error.code);
-				}
-				a.show();
-			}
-		});
+	if (Alloy.Globals.isLogged) {
+		Alloy.Globals.navigator.openWindow('edit_profile',false,[],'forward');
+	}
+	
 }
 
 
@@ -98,6 +100,15 @@ function logout_up (e) {
 	// navigation.open('login',{transition: 'crossFade', duration: 500, transitionColor: '#fff'});
 	// navigation.clearHistory();
 	// Alloy.Globals.loading.hide();
+}
+
+//-------- INFO -------------------//
+function info_down (e) {
+  e.source.opacity=0.5;
+}
+function info_up (e) {
+	e.source.opacity=1;	
+	Alloy.Globals.navigator.openWindow('tutorial',false,[],'forward');
 }
 
 // ---------------- REGALA SALUD -------------------- //
@@ -178,6 +189,7 @@ var logoutButton = $.logoutButton;
 var cicloIcon  = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var compraIcon = icomoonlib.getIconAsBlob("Aware-Icons","compraIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var logoutIcon = icomoonlib.getIconAsBlob("Aware-Icons","logoutIcon",screenHeight * 0.035,{color:"white"});
+$.img_info.image = icomoonlib.getIconAsBlob("Aware-Icons","infoIcon",screenHeight * 0.04,{color:"white"});
 
 cicloButton.image = cicloIcon;
 compraButton.image = compraIcon;
@@ -237,36 +249,7 @@ var restoFechaCiclo = $.restoFechaCiclo;
 
 Ti.API.info('Fecha de Compra: ' + Ti.App.Properties.getString('fechadeCompra'));
 Ti.API.info('Fecha de Ciclo: ' + Ti.App.Properties.getString('fechadeCiclo'));
-//evaluamos si hay fecha de Compra almacenada se pone la fecha actual
-// if (Ti.App.Properties.getString('fechadeCompra') != null) {
-	// var fechaCompra = Ti.App.Properties.getString('fechadeCompra');
-    // var fechaCompraSplited = fechaCompra.split(" ");
-    // diaFechaCompra.text = fechaCompraSplited[0];
-    // restoFechaCompra.text = fechaCompraSplited[1] +' '+ fechaCompraSplited[2] +' ' + fechaCompraSplited[3];
-// 
-// }else{
-	// //ponemos fecha actual si no hay fecha almacenada
-	// var fecha = moment().lang("es").format("DD MMM / YYYY");
-    // var fechaSplited = fecha.split(" ");
-    // diaFechaCompra.text = fechaSplited[0];
-    // restoFechaCompra.text = fechaSplited[1] +' '+ fechaSplited[2] +' ' + fechaSplited[3]; 
-    // //restoFechaCompra.text = 'Ingresa la fecha de Compra :)';    
-// };
-// 
-// //evaluamos si hay fecha de Ciclo almacenada se pone la fecha actual
-// if (Ti.App.Properties.getString('fechadeCiclo') != null) {
-    // var fechaCiclo = Ti.App.Properties.getString('fechadeCiclo');
-    // var fechaCicloSplited = fechaCiclo.split(" ");
-    // diaFechaCiclo.text = fechaCicloSplited[0];
-    // restoFechaCiclo.text = fechaCicloSplited[1] +' '+ fechaCicloSplited[2] +' ' + fechaCicloSplited[3];
-// }else{
-	// //ponemos fecha actual si no hay fecha almacenada
-	// var fecha = moment().lang("es").format("DD MMM / YYYY");
-    // var fechaSplited = fecha.split(" ");
-    // diaFechaCiclo.text = fechaSplited[0];
-    // restoFechaCiclo.text = fechaSplited[1] +' '+ fechaSplited[2] +' ' + fechaSplited[3];
-    // //restoFechaCiclo.text = 'Ingresa la fecha de ciclo :)'; 
-// };
+
 
 //--------- FUNCIONES WS ------------------------ //
 
@@ -327,6 +310,22 @@ function addUserDate (deviceId,type,date) {
 		
 	});
 }
+
+
+Alloy.Globals.ws.newContentCount(deviceId, function(status,obj){
+	if (status) {
+		Ti.API.info('Ya te Entro - New CONTENT');
+	}else{
+		var dialog = Ti.UI.createAlertDialog({
+			message:obj,
+			buttonNames:['Aceptar'],
+			title:''
+		});
+		dialog.show();
+	}
+	
+});
+
 
 //----------------   Mostrar PickerView en sus diferentes Versiones (Android & IOS) ----------------//
 

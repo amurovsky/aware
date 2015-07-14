@@ -248,6 +248,7 @@
 "#lbl_tituloVid":{
 	color:'#505050',
     top : '7%',
+    left:0,
     font:{
     	fontFamily:'Helvetica-Light', 
     	fontSize: 13

@@ -11,15 +11,20 @@ Alloy.Globals.currentWindow     = $.index;
 Alloy.Globals.currentController = null;
 var osname = Ti.Platform.osname;
 var init = function(){
-	
-	if (Ti.App.Properties.getString('userName')) {
-		Ti.API.info('Estas Logeado con Facebook.!');
-		var PushClient = require('PushClientComponent');
-			PushClient.register();
-		Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+	Ti.API.info('verTour Bool: ' +Ti.App.Properties.getBool('verTour'));
+	if(Ti.App.Properties.getBool('verTour')){
+		Alloy.Globals.navigator.openWindow('tutorial',true,[],'forward');
 	}else{
-		Alloy.Globals.navigator.openLogin();
-	};
+		if (Ti.App.Properties.getString('userName')) {
+			Ti.API.info('Estas Logeado con Facebook.!');
+			var PushClient = require('PushClientComponent');
+				PushClient.register();
+			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+		}else{
+			Alloy.Globals.navigator.openLogin();
+		}
+	}
+	
 	//if (osname != 'android') {
 		// if(Ti.App.Properties.getObject('userName') == null){
 			// Alloy.Globals.navigator.openLogin();

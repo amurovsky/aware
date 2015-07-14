@@ -1,0 +1,170 @@
+".container" : {
+  width:'100%',
+  height:'100%'
+},
+"#main_wrapper" : {
+	layout:'vertical'
+},
+"#div_statusBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:20,
+},
+"#div_nav":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'6.44%',
+},
+"#nav_separator":{
+	height:1,
+	width:'100%',
+	top:0,
+	backgroundColor:'#d375ab'
+},
+"#btn_back":{
+	left:0,
+	height:'70%',
+	width:'20%',
+	color:'white',
+	backgroundColor:'transparent'
+},
+"#lbl_titulo":{
+	font:{ 
+		fontFamily: 'Helvetica-Neue',
+		fontSize:'2.54%', //15
+		fontWeight: 'Light'
+	},
+	color: 'white',
+},
+"#btn_guardar":{
+	right:'5%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 15,
+	},
+	backgroundColor:'transparent'
+},
+"#div_main":{
+	backgroundColor:'#fff0f8',
+	layout:'vertical'
+},
+"#div_wrapper":{
+	layout:'horizontal',
+	height:'22.7%'
+},
+"#div_nombre_apellido":{
+	layout:'vertical',
+	width:'71.2%'
+},
+".textfield":{
+	width:Ti.UI.FILL,
+	height:Ti.UI.FILL,
+	color:'#6e6e6e',
+	font:{
+		fontFamily: 'HelveticaNeue-Light',
+		fontSize: 14,
+	},
+},
+".div_small":{
+	backgroundColor:'white',
+	layout:'horizontal',
+	left:'4.68%',
+	height:'32.5%',
+	width:'95.13%',
+	borderRadius:5,
+	borderWidth:1,
+	borderColor:'#d5d5d5',
+},
+"#div_nombre":{
+	top:'17.64%',
+},
+".divImgSmall":{
+	width:'16.14%',
+},
+"#txt_nombre":{
+	hintText:'Priscila',
+},
+"#div_apellido":{
+	top:'7.35%',
+},
+"#txt_apellido":{
+	hintText:'Funtes Vazques'
+},
+"#div_image":{
+	width:'28.8%'
+},
+"#imageMask":{
+	top:'17.54%',
+	height:'53%',
+	//width:72,
+	//borderRadius:'80%',
+},
+"#profileImg":{
+	width:'150%'
+},
+"#btn_editar":{
+	backgroundColor:'transparent',
+	color:'#fb8cc8',
+	bottom:'5%',
+	font:{
+		fontFamily: 'HelveticaNeue-Regular',
+		fontSize: 15,
+	},
+},
+".div_large":{
+	backgroundColor:'white',
+	layout:'horizontal',
+	left:'3.33%',
+	height:'7.5%',
+	width:'93.06%',
+	borderRadius:5,
+	borderWidth:1,
+	borderColor:'#d5d5d5',
+},
+".divImgLarge":{
+	width:'11.74%',
+},
+"#txt_mail":{
+	hintText:'priscila94@gmail.com',
+},
+"#lbl_cambiarContra":{
+	color:'#fb8cc8',
+	top:'5.48%',
+	left:'3.33%',
+	font:{
+		fontFamily: 'HelveticaNeue-Bold',
+		fontSize: 20,
+	},
+},
+"#div_contrasena":{
+	top:'2.5%'
+},
+"#txt_contrasena":{
+	passwordMask:true,
+	hintText:'Contraseña Nueva'
+},
+"#div_repContrasena":{
+	top:'1.5%'
+},
+"#txt_repContrasena":{
+	passwordMask:true,
+	hintText:'Confirma contraseña Nueva'
+},
+
+
+
+
+
+
+// --------------------- ANDROID -------------------------------------- //
+
+"#div_nav[platform=android]":{
+	height:'9.44%',
+},
+"#btn_guardar[platform=android]": {
+	font: {fontSize:'15sp'},	
+},
+"#lbl_titulo[platform=android]":{
+ 	font: {fontSize:'15sp'},
+},

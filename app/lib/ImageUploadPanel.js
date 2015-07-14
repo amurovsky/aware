@@ -1,6 +1,8 @@
+var icomoonlib = require('icomoonlib');
+var screenWidth = Alloy.Globals.deviceWidth;
+var screenHeight = Alloy.Globals.deviceHeight;
 
 var ImageUploadPanel = function(viewParent, title){
-	
 	var oRef = this;
 	
 	var panel;
@@ -12,10 +14,6 @@ var ImageUploadPanel = function(viewParent, title){
 	
 	var init = function(){
 		panel = Ti.UI.createView({
-			left: 0,
-			right: 0,
-			top: 0,
-			bottom: 0,
 			zIndex: 10,
 			backgroundColor: "#cc000000",
 			zIndex: 20,
@@ -23,7 +21,7 @@ var ImageUploadPanel = function(viewParent, title){
 		});
 		
 		lblH1 = Ti.UI.createLabel({
-			top: "130dp",
+			top: "25%",
 			textAlign: "center",
 			color: "#FFF",
 			text: title,
@@ -34,55 +32,57 @@ var ImageUploadPanel = function(viewParent, title){
 		});
 		
 		var btnClose = Ti.UI.createImageView({
-			top: "60dp",
+			top: "17%",
 			image: "/images/close.png",
 			tintColor: "#fff",
 		});
 		
 		var btnGalleryCont = Ti.UI.createView({
 			left: "5%",
-			width: "45%",
-			height: "130dp",
+			width: '44%',
+			height: Ti.UI.SIZE,
+			layout:'vertical',
 		});
 		
 		var btnCameraCont = Ti.UI.createView({
 			right: "5%",
-			width: "45%",
-			height: "130dp",
+			width: '44%',
+			height: Ti.UI.SIZE,
+			layout:'vertical',
 		});
 		
 		var btnGallery = Ti.UI.createImageView({
-			image: "/images/compraIcon.png",
+			image: icomoonlib.getIconAsBlob("Aware-Icons","galeriaIcon",screenHeight * 0.15,{color:"white"}),
 		});
 		
 		var btnCamera = Ti.UI.createImageView({
-			image: "/images/cicloIcon.png",
+			image: icomoonlib.getIconAsBlob("Aware-Icons","camaraIcon",screenHeight * 0.15,{color:"white"}),
 		});
 		
 		var lblGallery = Ti.UI.createLabel({
-			bottom: 0,
+			top:'4%',
 			textAlign: "center",
 			color: "#fff",
 			textAlign: "center",
 			text: "Abrir Galería",
 			font: {
 				fontFamily: "Aileron-Regular",
-			}
+			},
 		});
 		
 		var lblCamera = Ti.UI.createLabel({
-			bottom: 0,
+			top:'4%',
 			textAlign: "center",
 			color: "#fff",
 			textAlign: "center",
 			text: "Tomar Foto",
 			font: {
 				fontFamily: "Aileron-Regular",
-			}
+			},
 		});
 		
-		btnGallery.addEventListener("click", oRef.openGallery);
-		btnCamera.addEventListener("click", oRef.openCamera);
+		btnGalleryCont.addEventListener("click", oRef.openGallery);
+		btnCameraCont.addEventListener("click", oRef.openCamera);
 		
 		btnGalleryCont.add(btnGallery);
 		btnGalleryCont.add(lblGallery);
@@ -134,7 +134,6 @@ var ImageUploadPanel = function(viewParent, title){
 		Titanium.Media.openPhotoGallery({
 			success:function(event) {
 				onComplete(event.media, event);
-				
 			},
 			cancel:function() {
 				if(onCancel != null){

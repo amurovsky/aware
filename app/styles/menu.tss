@@ -14,6 +14,12 @@
 "#logoutButton":{
 	//right:'5%'
 },
+"#div_info":{
+	top:'2%',
+	left:5,
+	height:'8%',
+	width:'15%',
+},
 "#footer":{
 	backgroundColor:'#ff82c8',
 	bottom:0,
@@ -21,15 +27,6 @@
 	layout:'horizontal',
 	width:'200%',
 },
-// "#lbl_null":{
-	// width:Ti.UI.FILL,
-	// height:Ti.UI.FILL,
-	// textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
-	// color:'white',
-	// left:5,
-	// right:5,
-	// visible:false
-// },
 "#fechaCiclo":{
 	backgroundColor:'#ff82c8',
 	width:'25%',
@@ -84,13 +81,56 @@
 	//borderRadius: 40,
 	//image: '/images/profilePic.png',
 	//image: '/images/emptyProfile.jpg',
-	defaultImage:'/images/emptyProfile.jpg',
+	//defaultImage:'/images/emptyProfile.jpg',
 	//top: '8%',
 	//height: Ti.UI.FILL,
 	//width: Ti.UI.FILL
-	width:'150%'
+	//width:'150%',
+	height: '150%',
 	
 },
+".notiDiv[platform=ios]":{
+ 	right:'20%',
+ 	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+},
+".notiLbl[platform=ios]":{
+	color:'white',
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize: 13
+	},
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+},
+"#div_notiVid[platform=ios]":{
+	top:'33%',
+},
+"#div_notiArt[platform=ios]":{
+	top:'41%'
+}
+
+//--------------- Estilos ANDROID NOTIFICACIONES -----------------------//
+".notiDiv[platform=android]":{
+	right:'15%',
+ 	width:Ti.UI.SIZE,
+	height:Ti.UI.SIZE,
+},
+".notiLbl[platform=android]":{
+	color:'white',
+	font: {
+		fontFamily: 'OpenSans-SemiBold',
+		fontSize: 13
+	},
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+},
+"#div_notiVid[platform=android]":{
+	top:'31%',
+},
+"#div_notiArt[platform=android]":{
+	top:'39%'
+},
+
+
 //--------------- Estilos IOS -----------------------//
 "#imageMask[platform=ios]":{
 	height:86,

@@ -28,4 +28,9 @@ Ti.API.info("smallDevice:", Alloy.Globals.smallDevice);
 Ti.API.info("bigDevice:", Alloy.Globals.bigDevice);
 Ti.API.info(Alloy.Globals.deviceWidth + " x " + Alloy.Globals.deviceHeight);
 
+Ti.API.info('verTour Bool Alloy.js: ' +Ti.App.Properties.getBool('verTour'));
+if (Ti.App.Properties.getBool('verTour') == null){
+	Ti.App.Properties.setBool('verTour',true);
+}
+
 Alloy.Globals.isLogged = false;

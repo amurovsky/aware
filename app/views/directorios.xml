@@ -1,13 +1,17 @@
 <Alloy>
+	<!-- <Collection src="doctores" /> -->
 	<View class="container">
 		<View id="div_statusBar" platform="ios"></View>
 		<View id="div_nav">
 			<Button id="btn_menu" onClick="cerrarVentana">Menú</Button>
 			<Label id="lbl_titulo">Directorio de doctores</Label>
-			<!-- <Button id="btn_buscar" onClick="buscar">Buscar</Button> -->
+			<View id="btn_buscar" onTouchstart="buscar_down" onTouchend="buscar_up"></View>
 		</View>
 		<View id="nav_separator"></View>
 		<View id="div_main">
+			<View id="div_search" backgroundColor="#fb8bc7" height="0" top="0">
+                <TextField id="searchBar" hintText="Buscar..." borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" width="90%" onChange="txtChange"></TextField>
+            </View>
 			<ListView onItemclick="listItemHandler" defaultItemTemplate="dir_template" backgroundColor="#fecce7" id="list_dir">
 				<!-- <SearchBar hintText="Buscar..." showCancel="false" barColor='#fb8bc7' platform="ios"></SearchBar>
 				<SearchView ns="Ti.UI.Android" platform="android" hintText="Buscar..." iconified="true" color="white"></SearchView> -->
@@ -31,17 +35,14 @@
 							<View id="div_botones">
 								<Label id="btn_llamar" bindId="llamar" onClick="llamarButton">Llamar ahora</Label>
 								<View id="div_btnSeparator"></View>
-								<Label id="btn_mapa" bindId="mapa">Ver mapa</Label>
+								<Label id="btn_mapa" bindId="mapa" onClick="mapaButton">Ver mapa</Label>
 							</View>
 						</View>
 					</ItemTemplate>
 				</Templates>
-				<!-- <HeaderView>
-                <View id="div_search" backgroundColor="#fb8bc7" height="50">
-	                    <TextField id="searchBar" color="#545454" hintText="Buscar..." borderStyle="Ti.UI.INPUT_BORDERSTYLE_ROUNDED" width="90%"></TextField>
-	                </View>
-	            </HeaderView> -->
-				<ListSection id="listSection">
+	            <ListSection id="listSection">
+				<!-- <ListSection id="listSection" dataCollection="doctores"> -->
+					<!-- <ListItem img_logo:image='{image}' lbl_nombre:text='{name}' lbl_direccion:text='{address}'></ListItem> -->
  					<!-- <ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='CONSULTORIO DE GINECOLOGÍA PROVIDENCIA' lbl_direccion:text='Avenida Guadalupe No.350 Colonia San Ignacio, entre San Francisco y Villa Romana. Zapopan, Jalisco.'></ListItem>
  					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='GINE. ARTURO GALVÁN ROMERO' lbl_direccion:text='Bernardo de Balbuena No.91 Colonia Ladron de Guevara Guadalajara, Jal.'></ListItem>
  					<ListItem img_logo:image='/images/profilePic.png' lbl_nombre:text='NACER HUMANO' lbl_direccion:text='Av. de los Maestros No.1838 Colonia de los Doctores Guadalajara, Jal.'></ListItem> -->

@@ -3,15 +3,25 @@
 		<View id="div_logout" onTouchstart="logout_down" onTouchend="logout_up">
 			<ImageView id="logoutButton"></ImageView>
 		</View>
-		
-		<View id="imageMask">
+		<View id="div_info" onTouchstart="info_down" onTouchend="info_up">
+			<ImageView id="img_info"></ImageView>
+		</View>
+		<View id="imageMask" onClick="changeProfile">
 			<ImageView id="profileImg"></ImageView>
 		</View>
 		<Label id="profileName"></Label>
 		<Label id="profileMail"></Label>
 		<Button id="videos" onClick="menu">Videos Tutoriales</Button>
+		<View id="div_notiVid" class="notiDiv" visible="false">
+			<ImageView id="noti_vid"></ImageView>
+			<Label id="lbl_notiVid" class="notiLbl"></Label>
+		</View>
 		<View id="vidSeparator"></View>
 		<Button id="articulos" onClick="menu">Articulos de Interés</Button>
+		<View id="div_notiArt" class="notiDiv" visible="false">
+			<ImageView id="noti_art"></ImageView>
+			<Label id="lbl_notiArt" class="notiLbl"></Label>
+		</View>
 		<View id="artSeparator"></View>
 		<Button id="puntos" onClick="menu">Puntos de Venta</Button>
 		<View id="punSeparator"></View>

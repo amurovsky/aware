@@ -1,16 +1,15 @@
 exports.definition = {
 	config: {
 		columns: {
-		    "image": "string",
-		    "name": "string",
-		    "adress": "string",
-		    "telephone": "string",
-		    "coordinates": "string",
-		    "id": "integer"
+		    "image": "TEXT",
+		    "name": "TEXT",
+		    "address": "TEXT",
+		    "telephone": "TEXT",
+		    "coordinates": "TEXT",
 		},
 		adapter: {
 			type: "sql",
-			collection_name: "doctores"
+			collection_name: "doctores",
 		}
 	},
 	extendModel: function(Model) {

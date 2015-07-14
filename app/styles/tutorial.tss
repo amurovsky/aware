@@ -1,4 +1,77 @@
 
 ".container" : {
-
+	backgroundColor: 'rgb(255,135,197)',
+	height:'100%',
+	width:'100%',
+	layout:'vertical'
+},
+"#scrollableView" : {
+	top:'2%',
+	showPagingControl: true,
+	height:'70%',
+	pagingControlColor:'transparent'
+},
+"#scrollableView[platform=android]" : {
+	showPagingControl: false,
+},
+"#div_saltar" : {
+	color:'white',
+	borderColor:'white',
+	borderWidth:'1.5',
+	borderRadius:'5',
+	height:'5%',
+	width:'16%',
+	top:'7.5%',
+	right:'7%',
+},
+"#lbl_saltar" : {
+	color:'white',
+	font: {
+		fontFamily: 'Raleway-Regular',
+		fontSize: 16
+	}
+},
+".img_tour" : {
+	top:'9.5%',
+	opacity:0,
+},
+".img_tour[Alloy.Globals.smallDevice]" : {
+	top:'7%',
+	opacity:0,
+},
+".titulo" : {
+	top:'9%',
+	color:'white',
+	font: {
+		fontFamily: 'Raleway-Bold',
+		fontSize: 28
+	},
+	opacity:0
+},
+".descripcion" : {
+	top:'3%',
+	color:'white',
+	left:'9%',
+	right:'9%',
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
+	font: {
+		fontFamily: 'Raleway-Regular',
+		fontSize: 18
+	},
+	opacity:0
+},
+"#lbl_switch" : {
+	left:'5%',
+	color:'white',
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
 }
+"#switch_recuerdame" : {
+	left:'6%',
+	tintColor:'white',
+	onTintColor:'#50ffffff',
+	thumbTintColor:'white',
+},
+
+
+
+

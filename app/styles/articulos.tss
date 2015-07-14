@@ -107,6 +107,9 @@
 "#lbl_titulo[platform=android]":{
  	font: {fontSize:'15sp'},
 },
-
+"#searchBar[platform=android]":{
+	color:'white',
+	hintTextColor:'white'
+},
 
 
