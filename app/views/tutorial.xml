@@ -7,17 +7,17 @@
             <View id="view1" layout="vertical">
             	<ImageView id="img_compraTour" class="img_tour"></ImageView>
                	<Label id="lbl_recuerda" class="titulo">Recuerda</Label>
-               	<Label id="lbl_recuerdaExp" class="descripcion">Registra la fecha de inicio de tu ciclo menstrual, y Aware® te recordará hacer tu autoexploración mes a mes.</Label>
+               	<Label id="lbl_recuerdaExp" class="descripcion">Ingresa la fecha de tu auto-exploración con el Pad Aware® y te recordaremos hacerla mes a mes.</Label>
             </View>
             <View id="view2" layout="vertical">
             	<ImageView id="img_cicloTour" class="img_tour"></ImageView>
              	<Label id="lbl_renueva" class="titulo">Renueva</Label>
-             	<Label id="lbl_renuevaExp" class="descripcion">Registra la fecha de compra de tu parche y  te recordaremos comprar uno nuevo después de 11 meses.</Label>
+             	<Label id="lbl_renuevaExp" class="descripcion">Registra la fecha de adquisición de tu Pad Aware ® y te recordaremos adquirir uno nuevo después de 11 meses.</Label>
              </View>
             <View id="view3" layout="vertical">
             	<ImageView id="img_likeTour" class="img_tour"></ImageView>
              	<Label id="lbl_participa" class="titulo">Participa</Label>
-             	<Label id="lbl_participaExp" class="descripcion">Registrate con tu correo electrónico o tu cuenta personal de facebook y  podrás comentar y dar like al contenido de la aplicación.</Label>
+             	<Label id="lbl_participaExp" class="descripcion">Ingresa con tu correo electrónico o tu cuenta personal de Facebook y podrás comentar y dar like al contenido de la aplicación.</Label>
              </View>
         </ScrollableView>
         <View id="div_switch" layout="horizontal" top="3%" height="Ti.UI.SIZE" width="Ti.UI.SIZE">

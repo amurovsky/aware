@@ -4,7 +4,6 @@ var args = arguments[0] || {};
 var Animator = require("Animator");
 var moment = require('alloy/moment');
 var icomoonlib = require('icomoonlib');
-var fb = require('facebook');
 var osname = Ti.Platform.osname;
 var footer = $.footer;
 var screenWidth = Alloy.Globals.deviceWidth;
@@ -26,6 +25,7 @@ $.noti_art.image = notiIcon;
 $.noti_vid.image = notiIcon;
 
 Alloy.Globals.ws.newContentCount(Ti.Platform.id,function(status, obj){
+	
 	if (status){
 		if(obj.videos > 0){
 			$.div_notiVid.visible = true;
@@ -34,8 +34,8 @@ Alloy.Globals.ws.newContentCount(Ti.Platform.id,function(status, obj){
 		if(obj.articulos > 0){
 			$.div_notiArt.visible = true;
 	    	$.lbl_notiArt.text = obj.articulos;
+	    	
 		}
-		
 	}else{
 		Ti.API.info('No pudimos traer NEW CONTENT');
 	}
@@ -74,10 +74,30 @@ if (Ti.App.Properties.getString('userName') != null) {
 
 // ----------- Change Profile -------------------------- //
 function changeProfile (e) {
+	//Alloy.Globals.notifier.show("Se ha publicado un nuevo video \" JAVA Swing para principiantes - Ejecutar .exe desde JAVA \"!");
+	// Alloy.Globals.notifier.show({
+	    // view: Alloy.Globals.currentController.getView(),
+	    // message:'Se ha publicado un nuevo video \" JAVA Swing para principiantes - Ejecutar .exe desde JAVA \"!'
+	// });
 	if (Alloy.Globals.isLogged) {
 		Alloy.Globals.navigator.openWindow('edit_profile',false,[],'forward');
+	}else{
+		var dialog = Ti.UI.createAlertDialog({
+			cancel: 1,
+			message:'Es necesario estar registrado para cambiar tu foto de perfil',
+			buttonNames:['Registrar', 'Cancelar'],
+			title:''
+		});
+
+		dialog.addEventListener('click', function(e){
+		    if (e.index === e.source.cancel){
+		      Ti.API.info('The cancel button was clicked');
+		    }else{
+		    	Alloy.Globals.navigator.openLogin();
+		    }
+		});
+		dialog.show();
 	}
-	
 }
 
 
@@ -94,7 +114,8 @@ function logout_up (e) {
 	Ti.App.Properties.setString('email',null);
 	Ti.App.Properties.setString('userId',null);
 	Ti.App.Properties.setString('sessid',null);
-	fb.logout();
+	Alloy.Globals.isLogged = false;
+	Alloy.Globals.fb.logout();
 	
 	Alloy.Globals.navigator.openLogin();
 	// navigation.open('login',{transition: 'crossFade', duration: 500, transitionColor: '#fff'});
@@ -109,6 +130,7 @@ function info_down (e) {
 function info_up (e) {
 	e.source.opacity=1;	
 	Alloy.Globals.navigator.openWindow('tutorial',false,[],'forward');
+	Alloy.Globals.comeFromMenu = true;
 }
 
 // ---------------- REGALA SALUD -------------------- //

@@ -16,8 +16,10 @@ function cerrarVentana(e){
 
 var mapview = Map.createView({
     mapType: Map.NORMAL_TYPE,
-    // region: {latitude:'20.631824', longitude:'-103.433575',
-            // latitudeDelta:0.01, longitudeDelta:0.01},
+    // region: {latitude:'20.6737919', 
+    		// longitude:'-103.3354131',
+            // latitudeDelta:0.20, 
+            // longitudeDelta:0.25},
     animate:true,
     regionFit:true,
     userLocation:true
@@ -33,8 +35,8 @@ Ti.Geolocation.getCurrentPosition(function(e) {
     mapview.setRegion({
         latitude : e.coords.latitude,
         longitude : e.coords.longitude,
-        latitudeDelta : 0.01,
-        longitudeDelta : 0.01
+        latitudeDelta : 0.25,
+        longitudeDelta : 0.25
     });
 });
 
@@ -42,20 +44,22 @@ Alloy.Globals.ws.points(function(status,obj){
 	Ti.API.info('Respuesta de Puntos de Venta');
 	if (status) {
 		for (var i=0; i < obj.puntos.length; i++) {
-			coordenadas.push(obj.puntos[i].coordenates);
-			var coordenates = obj.puntos[i].coordenates.split(',');
-			var annotation = Map.createAnnotation({
-			    latitude:	coordenates[0],
-			    longitude:	coordenates[1],
-			    title:		obj.puntos[i].name,
-			    subtitle:	obj.puntos[i].address,
-			    //rightButton:icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
-			    rightButton: (OS_IOS) ? '/images/carIcon.png' : icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.08,{color:"#fb8ac7"}),
-			    // image:icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
-			    image:(OS_IOS) ? '/images/pinIcon.png' : icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.07,{color:"#fb8ac7"}),
-			    myid:i // Custom property to uniquely identify this annotation.
-			});
-			mapview.addAnnotation(annotation);
+			if (obj.puntos[i].coordenates != '') {
+				coordenadas.push(obj.puntos[i].coordenates);
+				var coordenates = obj.puntos[i].coordenates.split(',');
+				var annotation = Map.createAnnotation({
+				    latitude:	coordenates[0],
+				    longitude:	coordenates[1],
+				    title:		obj.puntos[i].name,
+				    subtitle:	obj.puntos[i].address,
+				    //rightButton:icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
+				    rightButton: (OS_IOS) ? '/images/carIcon.png' : icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.08,{color:"#fb8ac7"}),
+				    // image:icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
+				    image:(OS_IOS) ? '/images/pinIcon.png' : icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.07,{color:"#fb8ac7"}),
+				    myid:i // Custom property to uniquely identify this annotation.
+				});
+				mapview.addAnnotation(annotation);
+			}
 		}
 	}else{
 			var dialog = Ti.UI.createAlertDialog({

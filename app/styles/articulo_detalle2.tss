@@ -210,27 +210,38 @@
 	height:'48%',
 	layout:'horizontal',
 },
+// "#div_addImageMask":{
+	// top:6,
+	// left:'4.5%',
+	// height:42,
+	// width:42,
+	// borderRadius:21,
+	// borderColor:'green'
+// },
 "#div_addImageMask":{
-	top:6,
-	left:'4.5%',
-	height:42,
-	width:42,
-	borderRadius:21,
+	height:Ti.UI.FILL,
+	width:'21%',
 },
-"#div_addImageMask[if=Alloy.Globals.iphoneTall]":{
-	top:6,
-	height:32,
-	width:32,
-	borderRadius:16,
-},
+
+// "#div_addImageMask[if=Alloy.Globals.iphoneTall]":{
+	// top:6,
+	// height:32,
+	// width:32,
+	// borderRadius:16,
+// },
+// "#div_addImageMask[if=Alloy.Globals.iphoneSmall]":{
+	// top:6,
+	// height:32,
+	// width:32,
+	// borderRadius:16,
+// },
 "#img_profileMe":{
 	//image:'/images/profilePic.png',
-	width:'100%',
-	height:'100%',
+	defaultImage:'images/emptyProfile.jpg'
 	//backgroundColor:'#c0c0c0'
 },
 "#txt_comentario":{
-	left:'4.5%',
+	//left:'4.5%',
 	width:'57.06%',
 	height:'64.15%',
 	borderStyle:Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
@@ -238,7 +249,7 @@
 },
 "#txtArea_comentario":{
 	top:6,
-	left:'4.5%',
+	//left:'4.5%',
 	width:'57.06%',
 	height:'80%',
 	//hintText:'Añade un comentario...'
@@ -301,10 +312,10 @@
 },
 "#img_profile":{
 	//image:'/images/profilePic.png',
-	//defaultImage:'/images/emptyProfile.png',
+	defaultImage:'/images/emptyProfile.jpg',
 	width:'100%',
 	height:'100%',
-	backgroundColor:'#c0c0c0'
+	backgroundColor:'#c0c0c0',
 },
 "#div_comment":{
 	left:0,

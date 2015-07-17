@@ -6,7 +6,6 @@ var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var scrollView = $.scrollableView;
 $.switch_recuerdame.value = Ti.App.Properties.getBool('verTour');
-(!OS_IOS) ? $.switch_recuerdame.setStyle(Titanium.UI.Android.SWITCH_STYLE_SWITCH) : '';
 
 $.img_compraTour.image = icomoonlib.getIconAsBlob("Aware-Icons","compraTourIcon",screenHeight * 0.28,{color:"white"});
 $.img_cicloTour.image = icomoonlib.getIconAsBlob("Aware-Icons","cicloTourIcon",screenHeight * 0.28,{color:"white"});
@@ -27,11 +26,18 @@ if (OS_IOS){
 }
 
 function saltarEvent (e) {
-  if (Ti.App.Properties.getString('userName')) {
-			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
-		}else{
-			Alloy.Globals.navigator.openLogin();
-		}
+	
+	if (Alloy.Globals.comeFromMenu) {
+		Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+		Alloy.Globals.comeFromMenu = false;
+		return;
+	}
+	if (Ti.App.Properties.getString('userName')) {
+		Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
+	}else{
+		Alloy.Globals.navigator.openLogin();
+		
+	}
 }
 function onScrollEvent (e) {
 
@@ -101,7 +107,6 @@ function onScrollendEvent (e) {
 			$.lbl_renuevaExp.opacity = 0;
 		}
 	}
-  
 }
 
 function onChangeEvent (e) {

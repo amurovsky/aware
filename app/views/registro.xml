@@ -8,11 +8,11 @@
 		</View>
 		<View id="nav_separator"></View>
 		<View id="div_main">
-			<ScrollView>
+			<ScrollView id="scroll">
 				<View id="div_facebookBtn">
 					<Button id="btn_facebook" onClick="registro_facebook">Registrate con Facebook</Button>
 				</View>
-			    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicara nada en Facebook \n sin tu consentimiento previo</Label>
+			    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicará nada en Facebook \n sin tu consentimiento previo</Label>
 			    <View id="linea1"></View>
 			    <Label id="separacion">O</Label>
 			    <View id="linea2"></View>

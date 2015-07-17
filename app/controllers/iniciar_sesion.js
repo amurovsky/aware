@@ -3,7 +3,7 @@ var navigation = Alloy.Globals.navigation;
 var icomoonlib = require('icomoonlib');
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
-var fb = require('facebook');
+var fb = Alloy.Globals.fb;
 fb.appid = Ti.App.Properties.getString('ti.facebook.appid');
 fb.forceDialogAuth=false;
 
@@ -11,6 +11,7 @@ var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight *
 $.btn_back.add(backIcon);
 
 $.alertDialog.style = (OS_IOS) ? Ti.UI.iPhone.AlertDialogStyle.PLAIN_TEXT_INPUT : '';
+
 
 if (args.email) {
 	$.txt_email.setValue(args.email);
@@ -26,8 +27,7 @@ function back_up (e) {
 }
 
 function acceder_fb (e) {
-	var PushClient = require('PushClientComponent');
-		PushClient.register();
+	Alloy.Globals.PushClient.register();
 	if ( fb.loggedIn == true){
 		fb.logout();
 	}
@@ -38,7 +38,14 @@ function acceder_fb (e) {
 function facebookLogin (token) {
 	Alloy.Globals.ws.loginFb(token,function(status, obj){
 		if (status){
-			var username = obj.user.name + ' ' + obj.user.lastname;
+			var lastname;
+			if (obj.user.lastname) {
+				Ti.API.info('si hay apellido.!');
+				lastname = obj.user.lastname;
+			}else{
+				lastname = '';
+			}
+			var username = obj.user.name + ' ' + lastname;
 		    Ti.App.Properties.setString('profileImg',obj.user.image);
 			Ti.App.Properties.setString('email',obj.user.username);
 			Ti.App.Properties.setString('userName',username);
@@ -77,8 +84,7 @@ function acceder (e) {
 				Ti.App.Properties.setString('sessid',obj.sessid);
 				Ti.App.Properties.setString('profileImg', obj.user.image);
 				
-				var PushClient = require('PushClientComponent');
-					PushClient.register();
+				Alloy.Globals.PushClient.register();
 					
 				Alloy.Globals.navigator.openWindow('menu',true,[],'forward');	
 				// navigation.open('menu');
@@ -165,6 +171,15 @@ fb.addEventListener('logout', function(e) {
     Ti.API.info('logged out');
     Ti.API.info('Logged In: ' + fb.loggedIn);
     //Alloy.Globals.navigator.openLogin();
+});
+
+$.txt_email.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Mail ');
+	$.txt_contrasena.focus();
+});
+$.txt_contrasena.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Contraseña');
+	acceder();
 });
 
 

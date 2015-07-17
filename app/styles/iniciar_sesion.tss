@@ -104,6 +104,9 @@
 	height:'7.5%',
 	width:'93.6%',
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	clearButtonMode:Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
+	returnKeyType:Titanium.UI.RETURNKEY_NEXT,
+	keyboardType:Titanium.UI.KEYBOARD_EMAIL,
 	hintText:'Email',
 	font:{
 		fontFamily: 'HelveticaNeue-Light',
@@ -115,6 +118,8 @@
 	height:'7.5%',
 	width:'93.6%',
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	clearButtonMode:Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
+	returnKeyType:Titanium.UI.RETURNKEY_GO,
 	hintText:'Contraseña',
 	passwordMask:true,
 	font:{

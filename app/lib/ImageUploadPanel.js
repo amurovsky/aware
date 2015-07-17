@@ -98,7 +98,6 @@ var ImageUploadPanel = function(viewParent, title){
 		panel.addEventListener("click", oRef.close);
 		btnClose.addEventListener("click", oRef.close);
 	};
-	
 	this.openCamera = function(){
 		Titanium.Media.showCamera({
 			success:function(event) {

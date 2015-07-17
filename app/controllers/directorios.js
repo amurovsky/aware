@@ -128,7 +128,7 @@ function mapaButton (e) {
   if (bindId === 'mapa'){
 	  	Ti.API.info('index: ' + e.itemIndex + ' Coordenadas: ' + item.coordenadas);
 	  	var url = 'http://maps.google.com/maps?q='+item.coordenadas+'&z=13';
-	  	if (osname == 'android') {
+	  	if (!OS_IOS) {
 	  		
 	  		var intent = Ti.Android.createIntent({
 		        action: Ti.Android.ACTION_VIEW,
@@ -137,22 +137,20 @@ function mapaButton (e) {
 	    	Ti.Android.currentActivity.startActivity(intent);
 	    	
 	  	}else{
-	  		
 	  		if (Titanium.Platform.canOpenURL('GoogleMaps://')) {
-	    		Ti.Platform.openURL('GoogleMaps:'+url);
+	    		Ti.Platform.openURL('GoogleMaps://'+url);
 	    	}else{
 	    		Ti.Platform.openURL('maps://'+url);
-	    	};
-	  		
+	    	}
 	  	}
-	
 	}
 }
 function listItemHandler (e) {
 	
-	//$.searchBar.blur();	
-	  var item = $.listSection.getItemAt(e.itemIndex);
-	  var bindId = e.bindId;
+
+	  // var item = $.listSection.getItemAt(e.itemIndex);
+	  // var bindId = e.bindId;
+	  
 	  //Ti.API.info('Objeto:' + JSON.stringify(e));
 	  //Ti.API.info('BindID:' + bindId);
 	  //Ti.API.info('Item: ' + JSON.stringify(e.source.id));

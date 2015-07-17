@@ -44,7 +44,8 @@
 					<View id="div_separador_blanco"></View>
 					<View id="div_pic_txt">
 						<View id="div_addImageMask">
-							<ImageView id="img_profileMe"></ImageView>
+							<ImageView id="img_profileMe" class="img-circle-xs"></ImageView>
+							<ImageView id="borderShape" image="/images/borderShape.png" height="43" width="43" platform="android"></ImageView>
 						</View>
 						<TextField id="txt_comentario" platform="android"></TextField>
 						<TextArea id="txtArea_comentario" platform="ios"></TextArea>

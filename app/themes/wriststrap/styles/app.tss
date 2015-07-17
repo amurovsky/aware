@@ -1,0 +1,93 @@
+// Image
+".img-circle":{
+    width:'86dp',
+    height:'86dp',
+    borderRadius: '43dp'
+}
+".img-circle[if=Alloy.Globals.iphoneSmall]":{
+    width:'70dp',
+    height:'70dp',
+    borderRadius: '35dp'
+}
+".img-circle-sm":{
+    width:'76dp',
+    height:'76dp',
+    borderRadius: '38dp'
+}
+".img-circle-sm[if=Alloy.Globals.iphoneSmall]":{
+    width:'60dp',
+    height:'60dp',
+    borderRadius: '30dp'
+}
+".img-circle-xs":{
+    width:'42dp',
+    height:'42dp',
+    borderRadius: '21dp'
+}
+".img-circle-xs[if=Alloy.Globals.iphoneSmall]":{
+    width:'32dp',
+    height:'32dp',
+    borderRadius: '16dp'
+}
+".img-circle-xs[if=Alloy.Globals.iphoneTall]":{
+    width:'32dp',
+    height:'32dp',
+    borderRadius: '16dp'
+}
+// ".thumbnail-container":{
+    // layout: 'composite',
+    // width:'140dp',
+    // height:'140dp',
+    // borderRadius:'4dp',
+    // borderWidth:'1dp',
+    // borderColor: '#dddddd'
+// }
+// 
+// ".img-thumbnail":{
+    // width:'130dp',
+    // height:'130dp',
+// }
+// 
+// ".thumbnail-circle-container":{
+    // layout: 'composite',
+    // width:'140dp',
+    // height:'140dp',
+    // borderRadius:'70dp',
+    // borderWidth:'1dp',
+    // borderColor: '#dddddd'
+// }
+// 
+// ".img-thumbnail-circle":{
+    // width:'130dp',
+    // height:'130dp',
+    // borderRadius: '65dp'
+// }
+// 
+// ".thumbnail-container-sm":{
+    // layout: 'composite',
+    // width:'60dp',
+    // height:'60dp',
+    // borderRadius:'4dp',
+    // borderWidth:'1dp',
+    // borderColor: '#dddddd'
+// }
+// 
+// ".img-thumbnail-sm":{
+    // width:'50dp',
+    // height:'50dp',
+// }
+// 
+// ".thumbnail-circle-container-sm":{
+    // layout: 'composite',
+    // width:'60dp',
+    // height:'60dp',
+    // borderRadius:'30dp',
+    // borderWidth:'1dp',
+    // borderColor: '#dddddd'
+// }
+// 
+// ".img-thumbnail-circle-sm":{
+    // width:'50dp',
+    // height:'50dp',
+    // borderRadius: '25dp'
+// }

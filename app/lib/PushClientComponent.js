@@ -76,6 +76,7 @@ var PushClientComponent = {
 		// "category" (String) to iOS 8 interactive notification
 		
 		var eventSuccess = function(event) {
+			PushClient.removeEventListener(PushClient.EVENT_SUCCESS, eventSuccess);
 			Ti.API.info('eventSuccess:' + JSON.stringify(event));
 		
 			if (!event) {
@@ -92,7 +93,8 @@ var PushClientComponent = {
 				} else {
 					Ti.API.info('Parse API Success:\n\n' + JSON.stringify(response));
 					Ti.API.info('-- AQUI REGISTRAR DEVICE --');
-					Alloy.Globals.ws.setupDevice(Ti.Platform.id, Ti.Platform.osname, response.installationId, function(status, obj){
+					Ti.API.info('-- INSTALLATION ID: ' + response.objectId);
+					Alloy.Globals.ws.setupDevice(Ti.Platform.id, Ti.Platform.osname, response.objectId, function(status, obj){
 						if(status){
 							Ti.API.info(' -- TU DISPOSITIVO QUEDO REGISTRADO --');
 						}else{
@@ -146,9 +148,22 @@ var PushClientComponent = {
 			}
 		};
 		
+		
 		var eventCallback = function(event) {
 			Ti.API.info('eventCallback:' + JSON.stringify(event));
-		
+			var dataContainer = (OS_ANDROID) ? event.data.data : event.data;
+			var payload = (typeof dataContainer === "object") ? dataContainer : JSON.parse(dataContainer);
+			Ti.API.info('Notification: ' + payload.alert);
+			
+			if (OS_IOS){
+				Alloy.Globals.notifier.show(payload.alert);
+			}else{
+				Alloy.Globals.notifier.show({
+				    view: Alloy.Globals.currentController.getView(),
+				    message:payload.alert
+				});
+			}
+			
 			if (!event) {
 				Ti.API.info('Callback:\n\nInvalid callback');
 				// Should never happen...

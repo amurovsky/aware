@@ -16,6 +16,10 @@ function cerrarVentana(){
 	Alloy.Globals.navigator.goBack();
 	//navigation.back();
 }
+
+function postLayout (e) {
+  Ti.API.info('POSTLAYOUT: ' + JSON.stringify(e));
+}
                              
 function listItemHandler (e) {
   var item = $.listSection.getItemAt(e.itemIndex);
@@ -25,8 +29,8 @@ function listItemHandler (e) {
   if (bindId === 'img_shareIcon' || bindId === 'div_shareIcon' || bindId === 'img_share' || bindId === 'div_share') {
   	Alloy.Globals.loading.show('Cargando...');
   	social.share({
-		    status                  : 'Texto de Ejemplo!',
-		    url	                    : ytLink[e.itemIndex],
+		    status                  : '',
+		    url						: ytLink[e.itemIndex],
 		    //image                   : '/images/secondPreview.png',
 		    androidDialogTitle      : 'Compartir!'
 		});
@@ -46,9 +50,9 @@ Alloy.Globals.ws.videos(deviceId, function(status,obj){
 			{template: "video_pri_template", 
 			img_prev: { image:obj.videos[0].thumbnail },
 			lbl_titulo1: { text:obj.videos[0].title_top },
-			lbl_titulo2: { text:obj.videos[0].title_bottom}, 
+			//lbl_titulo2: { text:obj.videos[0].title_bottom}, 
 			lbl_duracion: {text:obj.videos[0].duration},
-			lbl_tituloDesc: { text:'Tutorial no.1'},
+			lbl_tituloDesc: { text:obj.videos[0].title_bottom},
 			lbl_descripcion:{ text:obj.videos[0].description},}
 		];
 			ytLink.push(obj.videos[0].youtube_link);
@@ -74,7 +78,10 @@ Alloy.Globals.ws.videos(deviceId, function(status,obj){
 	
 });
 
-
+yt.addEventListener('complete',function(){
+	Ti.API.info('Se completo el video Ajuaaa.!');
+	//$.vid_prev.play();
+});
 
 //$.listSection.setItems(videoPriData);
 

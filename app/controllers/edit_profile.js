@@ -25,6 +25,7 @@ function imageMaskComplete (e) {
   Ti.API.info('Width: ' + medida.width + ' Height: ' + medida.height  + ' radius/2: ' + (medida.width/2) );
   $.imageMask.setWidth(medida.height);
   $.imageMask.setBorderRadius(medida.height / 2);
+  //$.btn_editar
 }
 function back_down (e) {
   e.source.opacity = 0.5;
@@ -35,16 +36,20 @@ function back_up (e) {
 }
 var imageFromGallery;
 function changeProfile (e) {
+	$.txt_nombre.blur();
+	$.txt_apellido.blur();
+	$.txt_contrasena.blur();
+	$.txt_repContrasena.blur();
 	var ImageUploadPanel = require("ImageUploadPanel");
 	var imgUploadPanel = new ImageUploadPanel($.edit_profile, "Selecciona una foto de perfil");
 		imgUploadPanel.open({
 			success: function(imageResource){
 				Ti.API.info('Succes.!');
-				if (imageResource.height > imageResource.width) {
-					$.profileImg.setHeight('150%');
-				}else{
-					$.profileImg.setWidth('150%');
-				}
+				// if (imageResource.height > imageResource.width) {
+					// $.profileImg.setHeight('150%');
+				// }else{
+					// $.profileImg.setWidth('150%');
+				// }
 				$.profileImg.setImage(imageResource);
 				imageFromGallery = imageResource;
 			},
@@ -71,7 +76,8 @@ function guardar (e) {
 	var sessid = Ti.App.Properties.getString('sessid');
 	var password = null;
 	var image = imageFromGallery;
-	if ($.txt_contrasena.value != '') {
+	Ti.API.info('Valor de textfield: ' + $.txt_contrasena.value.length);
+	if ($.txt_contrasena.value.lenght != 0) {
 			if ($.txt_contrasena.value === $.txt_repContrasena.value){
 				Ti.API.info('La contra si es mayor a 0');
 			password = $.txt_contrasena.value;
@@ -111,6 +117,24 @@ function guardar (e) {
 	
 }
 
+
+$.txt_nombre.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Nombre');
+	$.txt_apellido.focus();
+});
+$.txt_apellido.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Apellido');
+	$.txt_contrasena.focus();
+});
+$.txt_contrasena.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Contraseña');
+	$.txt_repContrasena.focus();
+});
+$.txt_repContrasena.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Contraseña');
+	$.txt_repContrasena.blur();
+	guardar();
+});
 
 
 

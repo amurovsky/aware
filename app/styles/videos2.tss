@@ -74,6 +74,7 @@
 "#img_prev":{
 	image: '/images/primerVideo.jpg',
 	height:'150%',
+	defaultImage:'images/defaultImage.jpg',
 },
 "#div_gradient":{
 	backgroundGradient: {
@@ -93,19 +94,19 @@
 	left:'6%',
 	right:'17.6%',
 	font:{
-		fontFamily:'Raleway-Light',
-		fontSize:'2.3%'
-	},
-},
-"#lbl_titulo2":{
- 	color: '#eeeeee',
-	left:'6%',
-	right:'17.6%',
-	font:{
 		fontFamily:'Raleway-Bold',
-		fontSize:25
+		fontSize:'15sp'
 	},
 },
+// "#lbl_titulo2":{
+ 	// color: '#eeeeee',
+	// left:'6%',
+	// right:'17.6%',
+	// font:{
+		// fontFamily:'Raleway-Bold',
+		// fontSize:25
+	// },
+// },
 "#lbl_duracion":{
  	color: '#fa89c6',
 	bottom: '5%',
@@ -156,15 +157,19 @@
 "#rowConteiner2":{
 	height:Ti.UI.SIZE,
 	backgroundColor:'white',
+	borderColor:'#c0c0c0',
+	borderWidth:1,
+	left:-1,
+	right:-1,
 	//layout:'vertical',
 },
 "#div_descripcion":{
 	height:Ti.UI.SIZE,
 	layout:'vertical',
-	top:10
+	top:10,
 },
 "#lbl_tituloDesc":{
- 	color: '#4f4f4f',
+ 	color: '#fb8ac7',
 	right:'6%',
 	bottom: 10,
 	left: '6%',
@@ -224,7 +229,8 @@
 },
 "#img_thumbnail":{
 	height:'150%',
-	image:"/images/secondPreview.png"
+	image:"/images/secondPreview.png",
+	defaultImage:'images/defaultImage.jpg',
 },
 "#div_duracion2":{
 	opacity:0.8,

@@ -6,7 +6,7 @@
 			<Label id="lbl_titulo">Videos Tutoriales</Label>
 		</View>
 		<View id="nav_separator"></View>
-		<View id="div_main">
+		<View id="div_main" onPostlayout="postLayout">
 			<ListView onItemclick="listItemHandler" id="list_videos" backgroundColor="#fecce7" showVerticalScrollIndicator="false">
 				<Templates>
 					<ItemTemplate name="video_pri_template" id="video_pri_template">
@@ -17,7 +17,7 @@
 									<View id="div_gradient">
 										<View id="div_titulos">
 											<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
-											<Label id="lbl_titulo2" bindId="lbl_titulo2"></Label>
+											<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
 										</View> 
 										<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
 										<View id="div_share_expand">
@@ -36,7 +36,7 @@
 									<View id="div_gradient" platform="android">
 										<View id="div_titulos">
 											<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
-											<Label id="lbl_titulo2" bindId="lbl_titulo2"></Label>
+											<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
 										</View> 
 										<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
 										<View id="div_share_expand">

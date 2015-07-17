@@ -1,6 +1,6 @@
 var WS = {
-	//rl : 'http://192.168.15.101:8101/ws',
-	url : 'http://digital.testingweb.mx:8101/ws',
+	//url : 'http://192.168.15.101:8101/ws',
+	 url : 'http://digital.testingweb.mx:8101/ws',
 	
 	login : function(email, password, fnCallback) {
 		Ti.API.info('--- WS > LOGIN ---');
@@ -71,7 +71,7 @@ var WS = {
 		});
 	},
 	
-	setupDevice : function(id, osname, installationId, fnCallback) {
+	setupDevice : function(id, osname, objectid, fnCallback) {
 		Ti.API.info('--- WS > SETUP DEVICE ---');
 		
 		var xhr = Ti.Network.createHTTPClient({
@@ -91,7 +91,7 @@ var WS = {
 		xhr.send({
 			id: id,
 			osname: osname,
-			push_installation_id: installationId
+			push_installation_id: objectid
 		});
 	},
 	
@@ -414,7 +414,7 @@ var WS = {
 			onerror: function(e){ WS.defaultErrorHandler(e, fnCallback); }
 		});
 		
-		xhr.open('POST', WS.url + '/register-user-date');
+		xhr.open('POST', WS.url + '/register-date');
 		
 		xhr.send({
 			deviceid: deviceId,

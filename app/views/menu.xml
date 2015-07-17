@@ -6,9 +6,10 @@
 		<View id="div_info" onTouchstart="info_down" onTouchend="info_up">
 			<ImageView id="img_info"></ImageView>
 		</View>
-		<View id="imageMask" onClick="changeProfile">
-			<ImageView id="profileImg"></ImageView>
-		</View>
+		<!-- <View id="imageMask" onClick="changeProfile"> -->
+			<ImageView id="profileImg" class="img-circle" onClick="changeProfile"></ImageView>
+			<ImageView id="borderShape" onClick="changeProfile" image="/images/borderShape.png" top="2.9%" height="87dp" width="87dp" platform="android"></ImageView>
+		<!-- </View> -->
 		<Label id="profileName"></Label>
 		<Label id="profileMail"></Label>
 		<Button id="videos" onClick="menu">Videos Tutoriales</Button>
@@ -38,12 +39,12 @@
 			<View id="ciclo">
 				<ImageView id="cicloButton"></ImageView>
 				<!-- <ImageView id="cerrarCiclo" class="cerrarButton"></ImageView> -->
-				<Label id="tituloCiclo">Inicio de \nmi ciclo</Label>
+				<Label id="tituloCiclo">Recordatorio de \nauto-exploración</Label>
 			</View>
 			<View id="compra">
 				<ImageView id="compraButton"></ImageView>
 				<!-- <ImageView id="cerrarComprar" class="cerrarButton"></ImageView> -->
-				<Label id="tituloCompra">Compra de \nAware® Pad</Label>
+				<Label id="tituloCompra">Fecha de \nadquisición</Label>
 			</View>
 			<View id="fechaCompra" onClick="showPicker">
 				<Label id="diaFechaCompra"></Label>

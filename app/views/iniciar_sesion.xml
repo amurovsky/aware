@@ -27,12 +27,12 @@
 			    	<View id="linea2"></View>
 				</View>
 			    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
-			    <TextField id="txt_email" value="ing.jegc@gmail.com"></TextField>
-			    <TextField id="txt_contrasena" value="abc123"></TextField>
+			    <TextField id="txt_email"></TextField>
+			    <TextField id="txt_contrasena"></TextField>
 			    <Button id="btn_olvide" onClick="olvideMiContrasena">¿Olvidaste tu contraseña?</Button>
 			    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
 			    <View id="div_registrate" onClick="goToRegister">
-					<Button id="btn_registrate">Registrate</Button>
+					<Button id="btn_registrate">Regístrate</Button>
 				</View> 
 			</ScrollView>
 		</View>

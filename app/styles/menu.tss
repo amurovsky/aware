@@ -81,14 +81,24 @@
 	//borderRadius: 40,
 	//image: '/images/profilePic.png',
 	//image: '/images/emptyProfile.jpg',
-	//defaultImage:'/images/emptyProfile.jpg',
-	//top: '8%',
+	defaultImage:'/images/emptyProfile.jpg',
+	top: '8%',
 	//height: Ti.UI.FILL,
 	//width: Ti.UI.FILL
 	//width:'150%',
-	height: '150%',
+	//height: '150%',
 	
 },
+"#profileImg[if=Alloy.Globals.iphoneSmall]":{
+	top: '7%',
+},
+"#profileImg[if=Alloy.Globals.iphoneTall]":{
+	top: '6%',
+},
+"#profileImg[platform=android]":{
+	top: '3%',
+},
+
 ".notiDiv[platform=ios]":{
  	right:'20%',
  	width:Ti.UI.SIZE,
@@ -132,17 +142,18 @@
 
 
 //--------------- Estilos IOS -----------------------//
-"#imageMask[platform=ios]":{
-	height:86,
-	width:86,
-	top:'8%',
-	borderRadius:43,
-},"#imageMask[if=Alloy.Globals.iphoneSmall]":{
-	height:66,
-	width:66,
-	top:'8%',
-	borderRadius:33,
-},"#profileName[platform=ios]":{
+// "#imageMask[platform=ios]":{
+	// height:86,
+	// width:86,
+	// top:'8%',
+	// borderRadius:43,
+// },"#imageMask[if=Alloy.Globals.iphoneSmall]":{
+	// height:66,
+	// width:66,
+	// top:'8%',
+	// borderRadius:33,
+// },
+"#profileName[platform=ios]":{
 	top:'22%',
 	color: 'white',
 	height: '4%',
@@ -312,12 +323,14 @@
 	backgroundImage: 'NONE',
 	color: 'white',
 
-},"#imageMask[platform=android]":{
-	height:66,
-	width:66,
-	top:'5%',
-	borderRadius:33,
-},"#profileName[platform=android]":{
+},
+// "#imageMask[platform=android]":{
+	// height:66,
+	// width:66,
+	// top:'5%',
+	// borderRadius:33,
+// },
+"#profileName[platform=android]":{
 	top:'18%',
 	color: 'white',
 	height: '4%',

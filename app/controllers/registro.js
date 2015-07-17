@@ -1,15 +1,15 @@
 var args = arguments[0] || {};
-var navigation = Alloy.Globals.navigation;
 var icomoonlib = require('icomoonlib');
 var osname = Ti.Platform.osname;
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
-var fb = require('facebook');
+var fb = Alloy.Globals.fb;
 fb.appid = Ti.App.Properties.getString('ti.facebook.appid');
-fb.forceDialogAuth=false;
+fb.forceDialogAuth = false;
 
 var backIcon = icomoonlib.getIconAsLabel("Aware-Icons","backIcon",screenHeight * 0.031,{color:"white",left:'20%'});
 	$.btn_back.add(backIcon);
+	
 	
 function back_down (e) {
   e.source.opacity = 0.5;
@@ -54,8 +54,7 @@ var LO = Alloy.createWidget('com.caffeinalab.titanium.loader', {
     useImages: false
 });
 function registro_facebook (e) {
-	var PushClient = require('PushClientComponent');
-		PushClient.register();
+	Alloy.Globals.PushClient.register();
 	if ( fb.loggedIn == true){
 		fb.logout();
 	}
@@ -68,7 +67,14 @@ function registro_facebook (e) {
 function facebookLogin (token) {
 	Alloy.Globals.ws.loginFb(token,function(status, obj){
 		if (status){
-			var username = obj.user.name + ' ' + obj.user.lastname;
+			var lastname;
+			if (obj.user.lastname) {
+				Ti.API.info('si hay apellido.!');
+				lastname = obj.user.lastname;
+			}else{
+				lastname = '';
+			}
+			var username = obj.user.name + ' ' + lastname;
 		    Ti.App.Properties.setString('profileImg',obj.user.image);
 			Ti.App.Properties.setString('email',obj.user.username);
 			Ti.App.Properties.setString('userName',username);
@@ -114,6 +120,24 @@ fb.addEventListener('logout', function(e) {
     Ti.API.info('Logged In: ' + fb.loggedIn);
     //Alloy.Globals.navigator.openLogin();
 });
+
+$.txt_nombre.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Nombre');
+	$.txt_apellido.focus();
+});
+$.txt_apellido.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Apellido');
+	$.txt_email.focus();
+});
+$.txt_email.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Mail ');
+	$.txt_contrasena.focus();
+});
+$.txt_contrasena.addEventListener('return',function(){
+	Ti.API.info('Entro Return en Contraseña');
+	siguiente();
+});
+
 
 
 this.close = function(){

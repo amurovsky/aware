@@ -1,5 +1,4 @@
 var args = arguments[0] || {};
-var navigation = Alloy.Globals.navigation;
 
 function abrirRegistro (e) {
   Alloy.Globals.navigator.openWindow('registro',false,[],'forward');
@@ -14,9 +13,8 @@ function abrirSesion (e) {
 function saltar (e){
 	//Alloy.Globals.loading.show('Cargando...');
 	Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
-	
-	var PushClient = require('PushClientComponent');
-		PushClient.register();
+
+		Alloy.Globals.PushClient.register();
 		
 	// navigation.open('menu');
 	// navigation.clearHistory();

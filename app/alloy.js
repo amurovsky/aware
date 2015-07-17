@@ -34,3 +34,4 @@ if (Ti.App.Properties.getBool('verTour') == null){
 }
 
 Alloy.Globals.isLogged = false;
+Alloy.Globals.comeFromMenu = false;

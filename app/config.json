@@ -4,7 +4,8 @@
     "ParseGCMSenderId": "1076345567071",
     "ParseRESTApiBaseUri": "https://api.parse.com/1/",
     "ParseApplicationId": "khiRnb6DsfXpkwGgdbiO8zc4dzBsELwC3QXIFQsm",
-    "ParseRESTApiKey": "1Khk0LFkrtB7hx1Idx23YUevNrXscp3wZRdobvnf"
+    "ParseRESTApiKey": "1Khk0LFkrtB7hx1Idx23YUevNrXscp3wZRdobvnf",
+    "theme":"wriststrap"
   },
   "env:development": {},
   "env:test": {},
@@ -16,6 +17,7 @@
   "dependencies": {
     "com.prodz.tidynamicgrid": "1.0",
     "com.alcoapps.socialshare": "1.0",
-    "com.caffeinalab.titanium.loader": "1.3.0"
+    "com.caffeinalab.titanium.loader": "1.3.0",
+    "com.caffeinalab.titanium.notifications": "1.6.0"
   }
 }

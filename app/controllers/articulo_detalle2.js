@@ -253,8 +253,8 @@ function share_up (e) {
 	Alloy.Globals.loading.show('Cargando...');
 	var url = args.link;
 	social.share({
-	    status                  : 'Texto de Ejemplo!',
-	    url	                    : url,
+	    status                  : '',
+	    url						: url,
 	    //image                   : '/images/secondPreview.png',
 	    androidDialogTitle      : 'Compartir!'
 	});

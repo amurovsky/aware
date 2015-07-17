@@ -136,6 +136,8 @@
 	width:'45.35%',
 	height:'7.5%',
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	returnKeyType:Titanium.UI.RETURNKEY_NEXT,
+	clearButtonMode:Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
 	hintText:'Nombre',
 	font:{
 		fontFamily: 'HelveticaNeue-Light',
@@ -148,6 +150,8 @@
 	width:'45.35%',
 	height:'7.5%',
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	returnKeyType:Titanium.UI.RETURNKEY_NEXT,
+	clearButtonMode:Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
 	hintText:'Apellido',
 	font:{
 		fontFamily: 'HelveticaNeue-Light',
@@ -160,6 +164,11 @@
 	height:'7.5%',
 	width:'93.6%',
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	autocorrect:false,
+	autocapitalization:Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE,
+	keyboardType:Titanium.UI.KEYBOARD_EMAIL,
+	returnKeyType:Titanium.UI.RETURNKEY_NEXT,
+	clearButtonMode:Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
 	hintText:'Email',
 	font:{
 		fontFamily: 'HelveticaNeue-Light',
@@ -171,6 +180,8 @@
 	height:'7.5%',
 	width:'93.6%',
 	borderStyle: Ti.UI.INPUT_BORDERSTYLE_ROUNDED,
+	returnKeyType:Titanium.UI.RETURNKEY_GO,
+	clearButtonMode:Titanium.UI.INPUT_BUTTONMODE_ONFOCUS,
 	hintText:'Contraseña',
 	passwordMask:true,
 	font:{
