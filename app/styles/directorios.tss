@@ -62,6 +62,7 @@
 },
 "#dir_template":{
 	height:250,
+	backgroundColor:'#fecce7'
 },
 "#rowConteiner":{
 	layout:'vertical',

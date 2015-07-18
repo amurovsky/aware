@@ -13,41 +13,43 @@
 						<View id="rowWrapper">
 							<View id="rowConteiner1">
 								<!------------ COMPONENTE IOS ------------>
+								
 								<VideoPlayer id="vid_prev" bindId="vid_prev" platform="ios">
-									<View id="div_gradient">
-										<View id="div_titulos">
-											<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
-											<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
-										</View> 
-										<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
-										<View id="div_share_expand">
-											<View id="div_share" bindId="div_share">
-												<ImageView id="img_share" bindId="img_share"></ImageView>
-											</View>
-											<View id="div_expand" bindId="div_expandIcon">
-												<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
+									<View id="img_back" bindId='img_back'>
+										<View id="div_gradient">
+											<View id="div_titulos">
+												<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
+												<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
+											</View> 
+											<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
+											<View id="div_share_expand">
+												<View id="div_share" bindId="div_share">
+													<ImageView id="img_share" bindId="img_share"></ImageView>
+												</View>
+												<View id="div_expand" bindId="div_expandIcon">
+													<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
+												</View>
 											</View>
 										</View>
 									</View>
 								</VideoPlayer>
-								
 								<!------------ COMPONENTE ANDROID ------------>
 								<ImageView id="img_prev" bindId="img_prev" platform="android"></ImageView>
-									<View id="div_gradient" platform="android">
-										<View id="div_titulos">
-											<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
-											<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
-										</View> 
-										<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
-										<View id="div_share_expand">
-											<View id="div_share" bindId="div_share">
-												<ImageView id="img_share" bindId="img_share"></ImageView>
-											</View>
-											<View id="div_expand" bindId="div_expandIcon">
-												<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
-											</View>
+								<View id="div_gradient" platform="android">
+									<View id="div_titulos">
+										<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
+									
+									</View> 
+									<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
+									<View id="div_share_expand">
+										<View id="div_share" bindId="div_share">
+											<ImageView id="img_share" bindId="img_share"></ImageView>
+										</View>
+										<View id="div_expand" bindId="div_expandIcon">
+											<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
 										</View>
 									</View>
+								</View>
 								
 							</View>
 						<!-- </ItemTemplate>

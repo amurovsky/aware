@@ -10,7 +10,7 @@ var ytLink = [];
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
 var navigation = Alloy.Globals.navigation;
-
+var blob;
 function cerrarVentana(){
 	//if (osname !== 'android') {activeMovie.stop();};
 	Alloy.Globals.navigator.goBack();
@@ -35,7 +35,7 @@ function listItemHandler (e) {
 		    androidDialogTitle      : 'Compartir!'
 		});
 	Alloy.Globals.loading.hide();
-  }else if(bindId === 'div_expandIcon' || bindId === 'img_expandIcon' || bindId === 'img_thumbnail'){
+  }else if(bindId === 'div_expandIcon' || bindId === 'img_expandIcon' || bindId === 'img_thumbnail' || bindId == 'lbl_titulo1'){
   	Alloy.Globals.loading.show('Cargando...');
   	yt.play(url[1]);
   	Alloy.Globals.loading.hide();
@@ -46,8 +46,11 @@ function listItemHandler (e) {
 var deviceId = Ti.Platform.id;
 Alloy.Globals.ws.videos(deviceId, function(status,obj){
 	if (status) {
+		 blob = Ti.UI.createImageView({ image: obj.videos[0].thumbnail }).toImage();
 		data=[
 			{template: "video_pri_template", 
+			vid_prev:{},
+			img_back:{},
 			img_prev: { image:obj.videos[0].thumbnail },
 			lbl_titulo1: { text:obj.videos[0].title_top },
 			//lbl_titulo2: { text:obj.videos[0].title_bottom}, 
@@ -77,11 +80,16 @@ Alloy.Globals.ws.videos(deviceId, function(status,obj){
 	}
 	
 });
+if (OS_IOS){
+	yt.addEventListener('complete',function(){
+		Ti.API.info('Se completo el video Ajuaaa.!');
+		var item = $.listSection.getItemAt(0);
+		item.img_back.backgroundImage = blob;
+		$.listSection.updateItemAt(0,item);
+		//$.vid_prev.play();
+	});
+}
 
-yt.addEventListener('complete',function(){
-	Ti.API.info('Se completo el video Ajuaaa.!');
-	//$.vid_prev.play();
-});
 
 //$.listSection.setItems(videoPriData);
 

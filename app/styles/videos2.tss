@@ -51,6 +51,7 @@
 },
 "#video_pri_template":{
 	height:Ti.UI.SIZE,
+	backgroundColor:'#fecce7'
 },
 "#rowWrapper":{
 	//height:212,
@@ -71,8 +72,10 @@
 	// width:'100%',
 	autoplay:true,
 },
+"#img_back":{
+	//image: '/images/defaultImage.jpg',	
+},
 "#img_prev":{
-	image: '/images/primerVideo.jpg',
 	height:'150%',
 	defaultImage:'images/defaultImage.jpg',
 },
@@ -150,6 +153,7 @@
 
 "#video_desc_template[platform=ios]":{
 	selectionStyle : Titanium.UI.iPhone.ListViewCellSelectionStyle.NONE,
+	separatorColor:'transparent',
 },
 // "#video_desc_template":{
 	// height:Ti.UI.SIZE,
@@ -205,6 +209,7 @@
 "#video_list_template":{
 	//top:10,
 	height:100,
+	backgroundColor:'#fecce7'
 },
 "#rowConteiner3":{
 	height:100,
