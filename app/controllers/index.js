@@ -26,7 +26,7 @@ var init = function(){
 	if(Ti.App.Properties.getBool('verTour')){
 		Alloy.Globals.navigator.openWindow('tutorial',true,[],'forward');
 	}else{
-		if (Ti.App.Properties.getString('userName')) {
+		if (Ti.App.Properties.getString('name')) {
 			Ti.API.info('Estas Logeado.!');
 			Alloy.Globals.PushClient.register();
 			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');

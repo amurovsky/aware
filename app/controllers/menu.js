@@ -53,8 +53,10 @@ if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
             alertDialog.show();
 }
 //-------- ProfileImage && Username && Email ----------------//
-if (Ti.App.Properties.getString('userName') != null) {
-	$.profileName.text = Ti.App.Properties.getString('userName');
+if (Ti.App.Properties.getString('name') != null) {
+	var lastname = '';
+	if(Ti.App.Properties.getString('lastname')){lastname = Ti.App.Properties.getString('lastname');}
+	$.profileName.text = Ti.App.Properties.getString('name') + ' ' + lastname;
 	$.profileMail.text = Ti.App.Properties.getString('email');
 	$.profileImg.image = Ti.App.Properties.getString('profileImg');
 	if (Ti.App.Properties.getString('profileImg')) {
@@ -109,7 +111,8 @@ function logout_up (e) {
 	//Alloy.Globals.loading.show('Cerrando Sesión...');
 	e.source.opacity=1;	
 	Ti.API.info('ADIOS');
-	Ti.App.Properties.setString('userName',null);	
+	Ti.App.Properties.setString('name',null);	
+	Ti.App.Properties.setString('lastname',null);
 	Ti.App.Properties.setString('profileImg',null);
 	Ti.App.Properties.setString('email',null);
 	Ti.App.Properties.setString('userId',null);

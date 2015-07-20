@@ -32,7 +32,7 @@ function saltarEvent (e) {
 		Alloy.Globals.comeFromMenu = false;
 		return;
 	}
-	if (Ti.App.Properties.getString('userName')) {
+	if (Ti.App.Properties.getString('name')) {
 		Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
 	}else{
 		Alloy.Globals.navigator.openLogin();

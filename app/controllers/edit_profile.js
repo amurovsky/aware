@@ -12,11 +12,11 @@ $.img_repContrasena.image = icomoonlib.getIconAsBlob("Aware-Icons","contraIcon",
 
 
 $.profileImg.image = Ti.App.Properties.getString('profileImg');
-if (Ti.App.Properties.getString('userName') != null) {
-	var nombreCompleto = Ti.App.Properties.getString('userName');
-	var nombreSplit = nombreCompleto.split(' ');
-	$.txt_nombre.value = nombreSplit[0];
-	$.txt_apellido.value = nombreSplit[1];
+if (Ti.App.Properties.getString('name') != null) {
+	// var nombreCompleto = Ti.App.Properties.getString('userName');
+	// var nombreSplit = nombreCompleto.split(' ');
+	$.txt_nombre.value =Ti.App.Properties.getString('name');
+	if (Ti.App.Properties.getString('lastname')){$.txt_apellido.value = Ti.App.Properties.getString('lastname');}
 	$.txt_mail.value = Ti.App.Properties.getString('email');
 }
 
@@ -100,8 +100,10 @@ function guardar (e) {
 		Alloy.Globals.loading.hide();
 		if (status) {
 			Ti.API.info('Te entreo Edit User.!!');
-			var username = obj.user.name + ' ' + obj.user.lastname;
-			Ti.App.Properties.setString('userName',username);
+			//var username = obj.user.name + ' ' + obj.user.lastname;
+			//Ti.App.Properties.setString('userName',username);
+			Ti.App.Properties.setString('name',obj.user.name);
+			Ti.App.Properties.setString('lastname',obj.user.lastname);
 			Ti.App.Properties.setString('email',obj.user.username);
 			Ti.App.Properties.setString('profileImg', obj.user.image);
 			Alloy.Globals.navigator.goBack();

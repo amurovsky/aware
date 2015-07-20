@@ -41,14 +41,17 @@ function facebookLogin (token) {
 			var lastname;
 			if (obj.user.lastname) {
 				Ti.API.info('si hay apellido.!');
-				lastname = obj.user.lastname;
-			}else{
-				lastname = '';
+				//lastname = obj.user.lastname;
+				Ti.App.Properties.setString('lastname',obj.user.lastname);
 			}
-			var username = obj.user.name + ' ' + lastname;
+			else{
+				Ti.App.Properties.setString('lastname','');
+			}
+			//var username = obj.user.name + ' ' + lastname;
+			Ti.App.Properties.setString('name',obj.user.name);
 		    Ti.App.Properties.setString('profileImg',obj.user.image);
 			Ti.App.Properties.setString('email',obj.user.username);
-			Ti.App.Properties.setString('userName',username);
+			//Ti.App.Properties.setString('userName',username);
 			Ti.App.Properties.setString('sessid',obj.sessid);
 			Alloy.Globals.loading.hide();
 			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
@@ -77,9 +80,11 @@ function acceder (e) {
 			//Alloy.Globals.loading.hide();
 			if(status){
 				Ti.API.info('Status: ' + obj.sessid);
-				var username = obj.user.name + ' ' + obj.user.lastname;
+				//var username = obj.user.name + ' ' + obj.user.lastname;
+				Ti.App.Properties.setString('name',obj.user.name);
+				Ti.App.Properties.setString('lastname',obj.user.lastname);
 				Ti.App.Properties.setString('email',obj.user.username);
-				Ti.App.Properties.setString('userName',username);
+				//Ti.App.Properties.setString('userName',username);
 				Ti.App.Properties.setString('userId',obj.user.id);
 				Ti.App.Properties.setString('sessid',obj.sessid);
 				Ti.App.Properties.setString('profileImg', obj.user.image);
