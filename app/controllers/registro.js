@@ -57,9 +57,12 @@ function registro_facebook (e) {
 	Alloy.Globals.PushClient.register();
 	if ( fb.loggedIn == true){
 		fb.logout();
+	}else{
+		fb.addEventListener('login',facebookLoginEvent);
+		LO.show('Conectando con Facebook');
+  		fb.authorize();
 	}
-	LO.show('Conectando con Facebook');
-  	fb.authorize();
+	
   
 }
 
@@ -95,7 +98,7 @@ function facebookLogin (token) {
 }
 
 	
-fb.addEventListener('login',facebookLoginEvent);
+
 
 function facebookLoginEvent (e) {
 	fb.removeEventListener('login',facebookLoginEvent);

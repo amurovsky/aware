@@ -30,9 +30,11 @@ function acceder_fb (e) {
 	Alloy.Globals.PushClient.register();
 	if ( fb.loggedIn == true){
 		fb.logout();
+	}else{
+		fb.addEventListener('login',facebookLoginEvent);
+		Alloy.Globals.loading.show('Conectando con Facebook');
+  		fb.authorize();
 	}
-	Alloy.Globals.loading.show('Conectando con Facebook');
-  	fb.authorize();
 }
 
 function facebookLogin (token) {
@@ -149,7 +151,7 @@ $.alertDialog.addEventListener('click', function(e){
 	
 });
 
-fb.addEventListener('login',facebookLoginEvent);
+
 
 function facebookLoginEvent (e) {
 	fb.removeEventListener('login',facebookLoginEvent);
