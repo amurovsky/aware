@@ -9,7 +9,7 @@
 			</View>
 			<View id="nav_separator"></View>
 			<View id="div_main">
-				<ScrollView layout="vertical">
+				<ScrollView layout="vertical" height="100%" width="100%">
 					<View id="div_wrapper">
 						<View id="div_nombre_apellido">
 							<View id="div_nombre" class="div_small">
@@ -28,7 +28,7 @@
 						<View id="div_image" onClick="changeProfile">
 							<View id="imageMask">
 								<ImageView id="profileImg" class="img-circle-sm"></ImageView>
-								<ImageView id="borderShape" image="/images/borderShape.png"   height="78dp" width="78dp" platform="android"></ImageView>
+								<ImageView id="borderShape" image="/images/borderShape.png" top="7.2%" height="78dp" width="78dp" platform="android"></ImageView>
 							</View>
 							<Label id="btn_editar">Editar</Label>
 						</View>

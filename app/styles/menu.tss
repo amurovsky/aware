@@ -156,7 +156,6 @@
 "#profileName[platform=ios]":{
 	top:'22%',
 	color: 'white',
-	height: '4%',
 	width: 'auto',
 	font: {
 		fontFamily: 'OpenSans-SemiBold',
@@ -245,10 +244,7 @@
 		fontSize: 15
 	}
 	
- },"#calendar[platform=ios]":{
-	image: '/images/calendarIcon.png',
-	top: '74%'
-},"#comprasteLabel[platform=ios]":{
+ },"#comprasteLabel[platform=ios]":{
 	color: '#ff89c7',
 	top: '81%',
 	font: {
@@ -331,9 +327,9 @@
 	// borderRadius:33,
 // },
 "#profileName[platform=android]":{
-	top:'18%',
+	top:'18.5%',
 	color: 'white',
-	height: '4%',
+	//height: '4%',
 	width: 'auto',
 	font: {
 		fontFamily: 'OpenSans-SemiBold',
@@ -342,7 +338,7 @@
 	
 },"#profileMail[platform=android]":{
 	color: 'white',
-	top: '22%',
+	top: '23%',
 	font: {
 		fontFamily: 'OpenSans',
 		fontSize: 9
@@ -401,11 +397,6 @@
 	top: '62%',
 	width: 200
 	
-},"#calendar[platform=android]":{
-	image: '/images/calendarIcon.png',
-	top: '74%',
-	width: '7%',
-	height: '4%'
 },"#comprasteLabel[platform=android]":{
 	color: 'pink',
 	top: '81%',

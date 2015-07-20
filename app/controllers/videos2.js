@@ -16,10 +16,6 @@ function cerrarVentana(){
 	Alloy.Globals.navigator.goBack();
 	//navigation.back();
 }
-
-function postLayout (e) {
-  Ti.API.info('POSTLAYOUT: ' + JSON.stringify(e));
-}
                              
 function listItemHandler (e) {
   var item = $.listSection.getItemAt(e.itemIndex);
@@ -46,10 +42,9 @@ function listItemHandler (e) {
 var deviceId = Ti.Platform.id;
 Alloy.Globals.ws.videos(deviceId, function(status,obj){
 	if (status) {
-		 blob = Ti.UI.createImageView({ image: obj.videos[0].thumbnail }).toImage();
+		 if(OS_IOS){blob = Ti.UI.createImageView({ image: obj.videos[0].thumbnail }).toImage();}
 		data=[
 			{template: "video_pri_template", 
-			vid_prev:{},
 			img_back:{},
 			img_prev: { image:obj.videos[0].thumbnail },
 			lbl_titulo1: { text:obj.videos[0].title_top },

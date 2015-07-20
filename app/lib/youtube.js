@@ -13,22 +13,25 @@ var lib = Alloy.Globals;
  
 var win = null,
     videoPlayer = null;
-    
-videoPlayer = Ti.Media.createVideoPlayer({
+
+
+if(OS_IOS){
+	videoPlayer = Ti.Media.createVideoPlayer({
         backgroundColor: '#000',
         fullscreen: true,
         autoplay: true,
         scalingMode: Ti.Media.VIDEO_SCALING_ASPECT_FIT,
         mediaControlMode: Ti.Media.VIDEO_CONTROL_DEFAULT   
-    });    
-
-
-exports.addEventListener=videoPlayer.addEventListener;
-exports.on = function(name, cb) { return videoPlayer.addEventListener(name, cb); };
-exports.off = function(name, cb) { return videoPlayer.removeEventListener(name, cb); };
-exports._hasListenersForEventType = function(name, flag) {
-        return videoPlayer._hasListenersForEventType(name, flag);
-      };    
+    });
+    
+	exports.addEventListener=videoPlayer.addEventListener;
+	exports.on = function(name, cb) { return videoPlayer.addEventListener(name, cb); };
+	exports.off = function(name, cb) { return videoPlayer.removeEventListener(name, cb); };
+	exports._hasListenersForEventType = function(name, flag) {
+	        return videoPlayer._hasListenersForEventType(name, flag);
+	      };  
+}
+  
  
 exports.isPlaying = false;
  
@@ -131,15 +134,16 @@ function playVideo(url) {
             title: 'View Training Video',
             backgroundColor: '#000'
         });
+    }else{
+    	videoPlayer = Ti.Media.createVideoPlayer({
+	        backgroundColor: '#000',
+	        url: url,
+	        fullscreen: true,
+	        autoplay: true,
+	        scalingMode: Ti.Media.VIDEO_SCALING_ASPECT_FIT,
+	        mediaControlMode: Ti.Media.VIDEO_CONTROL_DEFAULT   
+	    });
     }
-    // videoPlayer = Ti.Media.createVideoPlayer({
-        // backgroundColor: '#000',
-        // url: url,
-        // fullscreen: true,
-        // autoplay: true,
-        // scalingMode: Ti.Media.VIDEO_SCALING_ASPECT_FIT,
-        // mediaControlMode: Ti.Media.VIDEO_CONTROL_DEFAULT   
-    // });
     videoPlayer.url = url;
     videoPlayer.addEventListener('complete', function(e) { 
         Ti.API.info('video player complete');

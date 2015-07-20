@@ -6,7 +6,7 @@
 			<Label id="lbl_titulo">Videos Tutoriales</Label>
 		</View>
 		<View id="nav_separator"></View>
-		<View id="div_main" onPostlayout="postLayout">
+		<View id="div_main">
 			<ListView onItemclick="listItemHandler" id="list_videos" backgroundColor="#fecce7" showVerticalScrollIndicator="false">
 				<Templates>
 					<ItemTemplate name="video_pri_template" id="video_pri_template">

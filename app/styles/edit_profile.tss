@@ -105,8 +105,9 @@
 "#imageMask":{
 	height:Ti.UI.SIZE,
 	width:Ti.UI.FILL,
-	top:'4%'
+	top:'4%',
 	//borderRadius:'80%',
+	
 },
 "#profileImg":{
 	top:'20%',
@@ -114,10 +115,10 @@
 	defaultImage:'/images/emptyProfile.jpg',
 	//bottom:0
 },
-// "#profileImg[platform=android]":{
-	// top:'8%',
-	// //width:'150%'
-// },
+"#profileImg[platform=android]":{
+	top:'8%',
+	//width:'150%'
+},
 // "#profileImg[if=Alloy.Globals.iphoneTall]":{
 	// top:'8%',
 	// //width:'150%'
