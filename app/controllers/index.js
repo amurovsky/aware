@@ -1,7 +1,7 @@
 Alloy.Globals.loading = Alloy.createWidget('com.caffeinalab.titanium.loader', {cancelable: false, useImages: false});
 Alloy.Globals.PushClient = require('PushClientComponent');
 var NavigatorComponent = require("NavigatorComponent");
-Alloy.Globals.panelLoading = require('PanelLoading');
+// Alloy.Globals.panelLoading = require('PanelLoading');
 Alloy.Globals.ws = require('WS');
 Alloy.Globals.fb = require('facebook');
 var fb = Alloy.Globals.fb;
@@ -22,6 +22,7 @@ Alloy.Globals.notifier = Alloy.createWidget('com.caffeinalab.titanium.notificati
     animationDuration: 200, // animation sliding duration
 });
 var init = function(){
+	Ti.UI.iPhone.appBadge = 0;
 	Ti.API.info('verTour Bool: ' +Ti.App.Properties.getBool('verTour'));
 	if(Ti.App.Properties.getBool('verTour')){
 		Alloy.Globals.navigator.openWindow('tutorial',true,[],'forward');

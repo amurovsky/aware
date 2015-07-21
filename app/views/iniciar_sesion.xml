@@ -16,7 +16,8 @@
 			<Button id="btn_acceder" onClick="acceder">Acceder</Button>
 		</View>
 		<View id="nav_separator"></View>
-		<View id="div_main">
+		<!-- COMPONENTES IOS -->
+		<View id="div_main" platform="ios">
 			<ScrollView layout="vertical">
 				<View id="div_facebookBtn">
 					<Button id="btn_facebook" onClick="acceder_fb">Iniciar con Facebook</Button>
@@ -35,6 +36,25 @@
 					<Button id="btn_registrate">Regístrate</Button>
 				</View> 
 			</ScrollView>
+		</View>
+		<!-- COMPONENTES ANDROID -->
+		<View id="div_main" platform="android">
+			<View id="div_facebookBtn">
+				<Button id="btn_facebook" onClick="acceder_fb">Iniciar con Facebook</Button>
+			</View>
+			<View id="div_separacion">
+				<View id="linea1"></View>
+		    	<Label id="separacion">O</Label>
+		    	<View id="linea2"></View>
+			</View>
+		    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
+		    <TextField id="txt_email"></TextField>
+		    <TextField id="txt_contrasena"></TextField>
+		    <Button id="btn_olvide" onClick="olvideMiContrasena">¿Olvidaste tu contraseña?</Button>
+		    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
+		    <View id="div_registrate" onClick="goToRegister">
+				<Button id="btn_registrate">Regístrate</Button>
+			</View> 
 		</View>
 	</View>
 </Alloy>

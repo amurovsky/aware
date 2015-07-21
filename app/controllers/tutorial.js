@@ -53,10 +53,9 @@ function onPostlayoutEvent (e) {
 		Ti.API.info('PostLayout');
 		if (OS_IOS){
 			new Animator().scale({view:$.img_compraTour,value:1, duration:250,});
-			new Animator().fade({view:$.img_compraTour,value:1, duration:500, onComplete:function(){
-				new Animator().fade({view:$.lbl_recuerda,value:1, duration:250});
-				new Animator().fade({view:$.lbl_recuerdaExp,value:1, duration:250});
-			}});
+			new Animator().fade({view:$.img_compraTour,value:1, duration:500});
+			new Animator().fade({view:$.lbl_recuerda,value:1, duration:250});
+			new Animator().fade({view:$.lbl_recuerdaExp,value:1, duration:250});
 			new Animator().scale({view:$.img_cicloTour,value:0, duration:0,});
 			new Animator().scale({view:$.img_likeTour,value:0, duration:0,});
 		}
@@ -68,10 +67,9 @@ function onScrollendEvent (e) {
 		Ti.API.info('Estamos en Scrollend en la vista: ' + e.view + ' currentPage: ' + e.currentPage);
 	  	if((e.currentPage == 0))	{
 	  		new Animator().scale({view:$.img_compraTour,value:1, duration:250,});
-			new Animator().fade({view:$.img_compraTour,value:1, duration:500, onComplete:function(){
-				new Animator().fade({view:$.lbl_recuerda,value:1, duration:250});
-				new Animator().fade({view:$.lbl_recuerdaExp,value:1, duration:250});
-			}});
+			new Animator().fade({view:$.img_compraTour,value:1, duration:500});
+			new Animator().fade({view:$.lbl_recuerda,value:1, duration:250});
+			new Animator().fade({view:$.lbl_recuerdaExp,value:1, duration:250});
 			new Animator().scale({view:$.img_cicloTour,value:0, duration:0,});
 			new Animator().scale({view:$.img_likeTour,value:0, duration:0,});
 			$.lbl_renueva.opacity = 0;
@@ -81,10 +79,9 @@ function onScrollendEvent (e) {
 	  	}else if (e.currentPage == 1){
 			Ti.API.info('Estamos en currentPage: ' + e.view);
 			new Animator().scale({view:$.img_cicloTour,value:1, duration:250,});
-			new Animator().fade({view:$.img_cicloTour,value:1, duration:500, onComplete:function(){
-				new Animator().fade({view:$.lbl_renueva,value:1, duration:250});
-				new Animator().fade({view:$.lbl_renuevaExp,value:1, duration:250});
-			}});
+			new Animator().fade({view:$.img_cicloTour,value:1, duration:500});
+			new Animator().fade({view:$.lbl_renueva,value:1, duration:250});
+			new Animator().fade({view:$.lbl_renuevaExp,value:1, duration:250});
 			new Animator().scale({view:$.img_compraTour,value:0, duration:0,});
 			new Animator().scale({view:$.img_likeTour,value:0, duration:0,});
 			$.lbl_recuerda.opacity = 0;
@@ -95,10 +92,9 @@ function onScrollendEvent (e) {
 		}else if (e.currentPage == 2){
 			//new Animator().moveTo({view:$.img_likeTour,value:{x:(Ti.Platform.displayCaps.platformWidth + (screenHeight * 0.28)) / 2,y:0}, duration:500,});
 			new Animator().scale({view:$.img_likeTour,value:1, duration:250,});
-			new Animator().fade({view:$.img_likeTour,value:1, duration:500, onComplete:function(){
-				new Animator().fade({view:$.lbl_participa,value:1, duration:250, delay:2});
-				new Animator().fade({view:$.lbl_participaExp,value:1, duration:250, delay:2});
-			}});
+			new Animator().fade({view:$.img_likeTour,value:1, duration:500});
+			new Animator().fade({view:$.lbl_participa,value:1, duration:250, delay:2});
+			new Animator().fade({view:$.lbl_participaExp,value:1, duration:250, delay:2});
 			new Animator().scale({view:$.img_cicloTour,value:0, duration:0,});
 			new Animator().scale({view:$.img_compraTour,value:0, duration:0,});
 			$.lbl_recuerda.opacity = 0;

@@ -8,7 +8,8 @@
 				<Button id="btn_guardar" onClick="guardar">Guardar</Button>
 			</View>
 			<View id="nav_separator"></View>
-			<View id="div_main">
+			<View id="div_main" platform="ios">
+				<!-- COMPONENTES IOS -->
 				<ScrollView layout="vertical" height="100%" width="100%">
 					<View id="div_wrapper">
 						<View id="div_nombre_apellido">
@@ -53,6 +54,51 @@
 						<TextField id="txt_repContrasena" class="textfield"></TextField>
 					</View>
 				</ScrollView>
+			</View>
+			<!-- COMPONENTES ANDROID -->
+			<View id="div_main" platform="android">
+				<View id="div_wrapper">
+					<View id="div_nombre_apellido">
+						<View id="div_nombre" class="div_small">
+							<View class="divImgSmall">
+								<ImageView id="img_nombre"></ImageView>
+							</View>
+							<TextField id="txt_nombre" class="textfield"></TextField>
+						</View>
+						<View id="div_apellido" class="div_small">
+							<View class="divImgSmall">
+								<ImageView id="img_apellido"></ImageView>
+							</View>
+							<TextField id="txt_apellido" class="textfield"></TextField>
+						</View>
+					</View>
+					<View id="div_image" onClick="changeProfile">
+						<View id="imageMask">
+							<ImageView id="profileImg" class="img-circle-sm"></ImageView>
+							<ImageView id="borderShape" image="/images/borderShape.png" top="7.2%" height="78dp" width="78dp" platform="android"></ImageView>
+						</View>
+						<Label id="btn_editar">Editar</Label>
+					</View>
+				</View>
+				<View id="div_mail" class="div_large" opacity="0.5">
+					<View class="divImgLarge">
+						<ImageView id="img_mail"></ImageView>
+					</View>
+					<TextField id="txt_mail" class="textfield" editable="false" enabled="false"></TextField>
+				</View>
+				<Label id="lbl_cambiarContra">Cambiar Contraseña</Label>
+				<View id="div_contrasena" class="div_large">
+					<View class="divImgLarge">
+						<ImageView id="img_contrasena"></ImageView>
+					</View>
+					<TextField id="txt_contrasena" class="textfield"></TextField>
+				</View>
+				<View id="div_repContrasena" class="div_large">
+					<View class="divImgLarge">
+						<ImageView id="img_repContrasena"></ImageView>
+					</View>
+					<TextField id="txt_repContrasena" class="textfield"></TextField>
+				</View>
 			</View>
 		</View>
 	</View>

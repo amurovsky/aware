@@ -147,9 +147,9 @@ function enviar_up (e) {
 					getComments();
 				//$.scroll_details.scrollTo(0,medida.y);
 				setTimeout(function(){
-					var scroll = medida.y + medida.height*3;
-				    Ti.API.info('Called using setTimeout' + scroll);
-				    (OS_IOS) ? '' : $.scroll_details.scrollTo(0, scroll) ;
+					// var scroll = medida.y + medida.height*3;
+				    // Ti.API.info('Called using setTimeout' + scroll);
+				    // (OS_IOS) ? '' : $.scroll_details.scrollTo(0, scroll) ;
 					//(OS_IOS) ? $.scroll_details.scrollTo(0, medida.y) : $.scroll_details.scrollTo(0, scroll) ;
 					Alloy.Globals.loading.hide();
 				}, 1000);

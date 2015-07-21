@@ -148,11 +148,13 @@ function playVideo(url) {
     videoPlayer.addEventListener('complete', function(e) { 
         Ti.API.info('video player complete');
         exports.close();
+        Alloy.Globals.isClicked = false;
     });
     videoPlayer.addEventListener('fullscreen', function(e) {
         if (!e.entering) {
             Ti.API.info('video player fullscreen exit');
             exports.close();
+            Alloy.Globals.isClicked = false;
         }
     });
     if(OS_IOS) {

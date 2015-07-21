@@ -68,6 +68,7 @@
 	scalingMode:Titanium.Media.VIDEO_SCALING_MODE_FILL,
 	url:'/video/test.mp4',
 	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
+	allowsAirPlay:false,
 	// height:'100%',
 	// width:'100%',
 	autoplay:true,

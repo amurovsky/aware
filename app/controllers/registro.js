@@ -26,7 +26,8 @@ function siguiente (e) {
   var lastname = $.txt_apellido.getValue();
   var email = $.txt_email.getValue();
   var password = $.txt_contrasena.getValue();
-  var image = '';
+  var image = '/images/emptyProfile.jpg';
+  //var image = '';
   
   if (name == '' || lastname == '' || email == '' || password == '') {
   	dialog.message = "Debes completar todos los campos";

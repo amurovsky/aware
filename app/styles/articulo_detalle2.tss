@@ -271,13 +271,13 @@
 		fontSize: 11,
 	},
 },
-"#tbv_comentarios":{
-	height:'82%',
-	backgroundColor:'#fff0f8',
-},
-"#row_comentario":{
-	selectionStyle: 'none',
-},
+// "#tbv_comentarios":{
+	// height:'82%',
+	// backgroundColor:'#fff0f8',
+// },
+// "#row_comentario":{
+	// selectionStyle: 'none',
+// },
 // ------------------ COMMENTS LIST ------------------- //
 // "#list_comments":{
 	// separatorColor:'#c0c0c0',
