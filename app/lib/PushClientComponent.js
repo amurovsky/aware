@@ -150,28 +150,29 @@ var PushClientComponent = {
 		
 		
 		var eventCallback = function(event) {
+			PushClient.removeEventListener(PushClient.EVENT_CALLBACK, eventCallback);
 			Ti.API.info('eventCallback:' + JSON.stringify(event));
 			var dataContainer = (OS_ANDROID) ? event.data.data : event.data;
 			var payload = (typeof dataContainer === "object") ? dataContainer : JSON.parse(dataContainer);
-			Ti.API.info('Notification: ' + payload.alert);
 			
-			if (OS_IOS){
-				Alloy.Globals.notifier.show(payload.alert);
-			}else{
-				Alloy.Globals.notifier.show({
-				    view: Alloy.Globals.currentController.getView(),
-				    message:payload.alert
-				});
-			}
 			
 			if (!event) {
 				Ti.API.info('Callback:\n\nInvalid callback');
 				// Should never happen...
 			} else if (event.mode == PushClient.MODE_FOREGROUND) {
-				// if (OS_ANDROID) {
-					// PushClient.showLocalNotification(event.data);
-					// // Force to show local notification
-				// }
+				Ti.API.info('Notification: ' + payload.alert);
+				Ti.API.info('Notification: ' + payload.alert);
+				if(payload.alert){
+					if (OS_IOS){
+						Alloy.Globals.notifier.show(payload.alert);
+					}else{
+						Alloy.Globals.notifier.show({
+						    view: Alloy.Globals.currentController.getView(),
+						    message:payload.alert
+						});
+					}
+				}
+				
 				Ti.API.info('Callback in Foreground:\n\n' + JSON.stringify(event.data));
 				// Push data received with app in foreground
 			} else if (event.mode == PushClient.MODE_CLICK) {

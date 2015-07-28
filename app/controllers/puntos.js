@@ -13,7 +13,30 @@ function cerrarVentana(e){
 	//navigation.back();
 }
 
-
+if(!OS_IOS){
+	if(!Ti.Geolocation.locationServicesEnabled){
+		var dialog = Ti.UI.createAlertDialog({
+			cancel: 1,
+			message:'Para encontrar los mas cercanos, activa tu GPS',
+			buttonNames:['Activar GPS', 'Cancelar'],
+			title:''
+		});
+		dialog.addEventListener('click', function(e){
+		    if (e.index === e.source.cancel){
+		      Ti.API.info('The cancel button was clicked');
+		    }else{
+		    	//open up the settings page
+				var settingsIntent = Titanium.Android.createIntent({
+					action : 'android.settings.LOCATION_SOURCE_SETTINGS'
+				});
+				Ti.Android.currentActivity.startActivity(settingsIntent);
+			}
+		});
+		
+		dialog.show();
+		
+	}
+}
 var mapview = Map.createView({
     mapType: Map.NORMAL_TYPE,
     // region: {latitude:'20.6737919', 

@@ -97,9 +97,7 @@ function facebookLogin (token) {
 		}
 	});
 }
-
 	
-
 
 function facebookLoginEvent (e) {
 	fb.removeEventListener('login',facebookLoginEvent);
@@ -122,6 +120,9 @@ function facebookLoginEvent (e) {
     }
 }
 
+function condiciones_click (e) {
+  Titanium.Platform.openURL('http://corporinter.com/assets/aviso_de_privacidad-27-01-2015.pdf');
+}
 fb.addEventListener('logout', function(e) {
     Ti.API.info('logged out');
     Ti.API.info('Logged In: ' + fb.loggedIn);

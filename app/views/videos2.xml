@@ -18,15 +18,15 @@
 									<View id="img_back" bindId='img_back'>
 										<View id="div_gradient">
 											<View id="div_titulos">
-												<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
+												<Label id="lbl_titulo1" bindId="lbl_titulo1" onClick="playVideo"></Label>
 												<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
 											</View> 
 											<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
 											<View id="div_share_expand">
-												<View id="div_share" bindId="div_share">
+												<View id="div_share" bindId="div_share" onClick="shareVideo">
 													<ImageView id="img_share" bindId="img_share"></ImageView>
 												</View>
-												<View id="div_expand" bindId="div_expandIcon">
+												<View id="div_expand" bindId="div_expandIcon" onClick="playVideo">
 													<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
 												</View>
 											</View>
@@ -37,15 +37,15 @@
 								<ImageView id="img_prev" bindId="img_prev" platform="android"></ImageView>
 								<View id="div_gradient" platform="android">
 									<View id="div_titulos">
-										<Label id="lbl_titulo1" bindId="lbl_titulo1"></Label>
+										<Label id="lbl_titulo1" bindId="lbl_titulo1" onClick="playVideo"></Label>
 									
 									</View> 
 									<Label id="lbl_duracion" bindId="lbl_duracion"></Label>
 									<View id="div_share_expand">
-										<View id="div_share" bindId="div_share">
+										<View id="div_share" bindId="div_share" onClick="shareVideo">
 											<ImageView id="img_share" bindId="img_share"></ImageView>
 										</View>
-										<View id="div_expand" bindId="div_expandIcon">
+										<View id="div_expand" bindId="div_expandIcon" onClick="playVideo">
 											<ImageView id="img_expandIcon" bindId="img_expandIcon"></ImageView>
 										</View>
 									</View>
@@ -67,7 +67,7 @@
 							<View id="div_wrapper">
 								<View id="div_thumbnail">
 									<View id="div_imageWrapper">
-										<ImageView id="img_thumbnail" bindId="img_thumbnail"></ImageView>
+										<ImageView id="img_thumbnail" bindId="img_thumbnail" onClick="playVideo"></ImageView>
 										<View id="div_duracion2">
 											<Label id="lbl_duracion2" bindId="lbl_duracion2"></Label>
 										</View>
@@ -77,7 +77,7 @@
 									<Label id="lbl_tituloVid" bindId="lbl_tituloVid"></Label>
 									<Label id="lbl_subtituloVid" bindId="lbl_subtituloVid"></Label>
 								</View>
-								<View id="div_shareIcon" bindId="div_shareIcon">
+								<View id="div_shareIcon" bindId="div_shareIcon" onClick="shareVideo">
 									<ImageView id="img_shareIcon" bindId="img_shareIcon"></ImageView>
 								</View>
 							</View>

@@ -21,7 +21,7 @@
 			    <TextField id="txt_apellido"></TextField>
 			    <TextField id="txt_email"></TextField>
 			    <TextField id="txt_contrasena"></TextField>
-			    <Label id="lbl_condiciones">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®.</Label>
+			    <Label id="lbl_condiciones" onClick="condiciones_click">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®. Aware® es una aplicación de Grupo Corporinter.</Label>
 		    </ScrollView>
 		</View>
 		<!-- COMPONENTES ANDROID -->
@@ -37,7 +37,7 @@
 		    <TextField id="txt_apellido"></TextField>
 		    <TextField id="txt_email"></TextField>
 		    <TextField id="txt_contrasena"></TextField>
-		    <Label id="lbl_condiciones">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®.</Label>
+		    <Label id="lbl_condiciones" onClick="condiciones_click">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®.</Label>
 		</View>
 	</View>
 </Alloy>

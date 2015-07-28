@@ -6,42 +6,52 @@ var fb = require('facebook');
 yt = require('youtube');
 var data = [];
 var ytLink = [];
-
-var screenWidth = Alloy.Globals.deviceWidth;
-var screenHeight = Alloy.Globals.deviceHeight;
-var navigation = Alloy.Globals.navigation;
 var blob;
+
 function cerrarVentana(){
 	//if (osname !== 'android') {activeMovie.stop();};
 	Alloy.Globals.navigator.goBack();
 	//navigation.back();
 }
-Alloy.Globals.isClicked = false;                             
+
+function playVideo (e) {
+	Alloy.Globals.loading.show('Cargando...');
+	var url = ytLink[e.itemIndex].split('=');
+	yt.play(url[1]);
+}
+
+function shareVideo (e) {
+	Ti.API.info('ShareVideo');
+  	Alloy.Globals.loading.show('Cargando...');
+	social.share({
+	    status                  : '',
+	    url						: ytLink[e.itemIndex],
+	    //image                   : '/images/secondPreview.png',
+	    androidDialogTitle      : 'Compartir!'
+	});	
+	Alloy.Globals.loading.hide();
+}
+
+
+//Alloy.Globals.isClicked = false;                             
 function listItemHandler (e) {
-	Ti.API.info(' first IsClicked: ' + Alloy.Globals.isClicked);
-	if (!Alloy.Globals.isClicked) {
-		Alloy.Globals.isClicked = true;
-		Ti.API.info(' second IsClicked: ' + Alloy.Globals.isClicked);
-		var item = $.listSection.getItemAt(e.itemIndex);
-		var bindId = e.bindId;
-		Ti.API.info('BindID:' + bindId);
-		var url = ytLink[e.itemIndex].split('=');
-		if (bindId === 'img_shareIcon' || bindId === 'div_shareIcon' || bindId === 'img_share' || bindId === 'div_share') {
-		  	Alloy.Globals.loading.show('Cargando...');
-		  	social.share({
-			    status                  : '',
-			    url						: ytLink[e.itemIndex],
-			    //image                   : '/images/secondPreview.png',
-			    androidDialogTitle      : 'Compartir!'
-			});	
-			Alloy.Globals.loading.hide();
-			Alloy.Globals.isClicked = false;
-		}else if(bindId === 'div_expandIcon' || bindId === 'img_expandIcon' || bindId === 'img_thumbnail' || bindId == 'lbl_titulo1'){
-		  	Alloy.Globals.loading.show('Cargando...');
-		  	yt.play(url[1]);
-		  	Alloy.Globals.loading.hide();
-		}
-	}
+	// Ti.API.info(' first IsClicked: ' + Alloy.Globals.isClicked);
+	// if (!Alloy.Globals.isClicked) {
+		// Alloy.Globals.isClicked = true;
+		// Ti.API.info(' second IsClicked: ' + Alloy.Globals.isClicked);
+		// var item = $.listSection.getItemAt(e.itemIndex);
+		// var bindId = e.bindId;
+		// Ti.API.info('BindID:' + bindId);
+		// var url = ytLink[e.itemIndex].split('=');
+		// if (bindId === 'img_shareIcon' || bindId === 'div_shareIcon' || bindId === 'img_share' || bindId === 'div_share') {
+// 		  	
+			// Alloy.Globals.isClicked = false;
+		// }else if(bindId === 'div_expandIcon' || bindId === 'img_expandIcon' || bindId === 'img_thumbnail' || bindId == 'lbl_titulo1'){
+		  	// Alloy.Globals.loading.show('Cargando...');
+		  	// yt.play(url[1]);
+		  	// Alloy.Globals.loading.hide();
+		// }
+	// }
 }
 
 var deviceId = Ti.Platform.id;

@@ -8,40 +8,10 @@ var osname = Ti.Platform.osname;
 var footer = $.footer;
 var screenWidth = Alloy.Globals.deviceWidth;
 var screenHeight = Alloy.Globals.deviceHeight;
-var navigation = Alloy.Globals.navigation;
 Ti.API.info('*--- SESSION ID ---*',Ti.App.Properties.getString('sessid'));
 if (Ti.App.Properties.getString('sessid')) {
 	Alloy.Globals.isLogged = true;
 }
-
-//-------- NOTIFICATION CONTENT ----------------//
-if(screenHeight == 568 && OS_IOS){
-	$.div_notiVid.right = '15%';
-	$.div_notiArt.right = '15%';
-}
-var notiIcon = icomoonlib.getIconAsBlob("Aware-Icons","notiIcon",(OS_IOS) ? screenHeight * 0.058 : screenHeight * 0.058,{color:"#f34eaa"});
-Ti.API.info('ICONMOON: ' + JSON.stringify(notiIcon));
-$.noti_art.image = notiIcon;
-$.noti_vid.image = notiIcon;
-
-Alloy.Globals.ws.newContentCount(Ti.Platform.id,function(status, obj){
-	
-	if (status){
-		if(obj.videos > 0){
-			$.div_notiVid.visible = true;
-			$.lbl_notiVid.text = obj.videos;
-		}
-		if(obj.articulos > 0){
-			$.div_notiArt.visible = true;
-	    	$.lbl_notiArt.text = obj.articulos;
-	    	
-		}
-	}else{
-		Ti.API.info('No pudimos traer NEW CONTENT');
-	}
-});
-
-
 
 //-------- CHECK NETWORK ----------------//
 if(Titanium.Network.networkType == Titanium.Network.NETWORK_NONE){
@@ -76,11 +46,6 @@ if (Ti.App.Properties.getString('name') != null) {
 
 // ----------- Change Profile -------------------------- //
 function changeProfile (e) {
-	//Alloy.Globals.notifier.show("Se ha publicado un nuevo video \" JAVA Swing para principiantes - Ejecutar .exe desde JAVA \"!");
-	// Alloy.Globals.notifier.show({
-	    // view: Alloy.Globals.currentController.getView(),
-	    // message:'Se ha publicado un nuevo video \" JAVA Swing para principiantes - Ejecutar .exe desde JAVA \"!'
-	// });
 	if (Alloy.Globals.isLogged) {
 		Alloy.Globals.navigator.openWindow('edit_profile',false,[],'forward');
 	}else{
@@ -336,21 +301,32 @@ function addUserDate (deviceId,type,date) {
 	});
 }
 
+//-------- NOTIFICATION CONTENT ----------------//
+if(screenHeight == 568 && OS_IOS){
+	$.div_notiVid.right = '15%';
+	$.div_notiArt.right = '15%';
+}
+var notiIcon = icomoonlib.getIconAsBlob("Aware-Icons","notiIcon",(OS_IOS) ? screenHeight * 0.058 : screenHeight * 0.058,{color:"#f34eaa"});
+Ti.API.info('ICONMOON: ' + JSON.stringify(notiIcon));
+$.noti_art.image = notiIcon;
+$.noti_vid.image = notiIcon;
 
-Alloy.Globals.ws.newContentCount(deviceId, function(status,obj){
-	if (status) {
-		Ti.API.info('Ya te Entro - New CONTENT');
-	}else{
-		var dialog = Ti.UI.createAlertDialog({
-			message:obj,
-			buttonNames:['Aceptar'],
-			title:''
-		});
-		dialog.show();
-	}
+Alloy.Globals.ws.newContentCount(Ti.Platform.id,function(status, obj){
 	
+	if (status){
+		if(obj.videos > 0){
+			$.div_notiVid.visible = true;
+			$.lbl_notiVid.text = obj.videos;
+		}
+		if(obj.articulos > 0){
+			$.div_notiArt.visible = true;
+	    	$.lbl_notiArt.text = obj.articulos;
+	    	
+		}
+	}else{
+		Ti.API.info('No pudimos traer NEW CONTENT');
+	}
 });
-
 
 //----------------   Mostrar PickerView en sus diferentes Versiones (Android & IOS) ----------------//
 

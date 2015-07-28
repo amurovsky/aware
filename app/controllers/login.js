@@ -13,8 +13,7 @@ function abrirSesion (e) {
 function saltar (e){
 	//Alloy.Globals.loading.show('Cargando...');
 	Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
-
-		Alloy.Globals.PushClient.register();
+	Alloy.Globals.PushClient.register();
 		
 	// navigation.open('menu');
 	// navigation.clearHistory();
