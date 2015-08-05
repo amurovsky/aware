@@ -102,22 +102,20 @@ mapview.addEventListener('click', function(evt) {
     Ti.API.info("Annotation " + evt.title + " clicked, id: " + evt.annotation.myid + ' ClickSource: ' + evt.clicksource + ' Source: ' + evt.source.name);
     var url = 'http://maps.google.com/maps?q='+ coordenadas[evt.annotation.myid] +'&z=13';
     if (evt.clicksource == 'rightButton' || evt.clicksource == 'rightPane') {
-    	
-	    	if (!OS_IOS) {
-	  		
-		  		var intent = Ti.Android.createIntent({
-			        action: Ti.Android.ACTION_VIEW,
-			        data:url
-		    	});
-		    	Ti.Android.currentActivity.startActivity(intent);
-		    	
-		  	}else{
+    	if (!OS_IOS) {
+	  		var intent = Ti.Android.createIntent({
+		        action: Ti.Android.ACTION_VIEW,
+		        data:url
+	    	});
+	    	Ti.Android.currentActivity.startActivity(intent);
+	    	
+	  	}else{
 	    	if (Titanium.Platform.canOpenURL('GoogleMaps://')) {
 	    		Ti.Platform.openURL('GoogleMaps://'+ url);
 	    	}else{
 	    		Ti.Platform.openURL('maps://'+ url);
 	    	}
-    	}
+		}
     }
     
 });

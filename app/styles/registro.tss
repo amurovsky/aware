@@ -109,26 +109,27 @@
 	},
 },
 "#linea1":{
-	backgroundColor:'#e6dde2',
+	backgroundColor:'#797979',
 	top:'37.5%',
 	left:'3.4%',
 	height:1,
-	width:'42.13%',
+	width:'10%',
 },
 "#separacion":{
-	top:'36%',
-	color:'#6e6e6e',
+	top:'35%',
+	color:'#fb8bc7',
 	font:{
-		fontFamily: 'HelveticaNeue-Light',
+		fontFamily: 'HelveticaNeue-Regular',
 		fontSize: 14,
 	},
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
 },
 "#linea2":{
-	backgroundColor:'#e6dde2',
+	backgroundColor:'#797979',
 	top:'37.5%',
 	right:'3.4%',
 	height:1,
-	width:'42.13%',
+	width:'10%',
 },
 "#txt_nombre":{
 	top:'47.5%',
@@ -192,6 +193,8 @@
 },
 "#lbl_condiciones":{
 	top:'83%',
+	left:'3.4%',
+	right:'3.4%',
 	height:'auto',
 	color:'#797979',
 	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,

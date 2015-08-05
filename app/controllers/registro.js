@@ -38,7 +38,7 @@ function siguiente (e) {
   		Alloy.Globals.loading.hide();
   		if (status) {
   			//navigation.open('iniciar_sesion',{email:email});
-  			Alloy.Globals.navigator.openWindow('iniciar_sesion',true,{email:email},'forward');
+  			Alloy.Globals.navigator.openWindow('iniciar_sesion',false,{email:email,registro:true},'forward');
   		}else{
   			dialog.message = obj;
 			dialog.show();

@@ -74,11 +74,10 @@
 	autoplay:true,
 },
 "#img_back":{
-	defaultImage: '/images/defaultImage.jpg',	
+	defaultImage:'images/defaultImage.jpg',
 },
 "#img_prev":{
-	//height:'100%',
-	top:0,
+	width:'150%',
 	defaultImage:'images/defaultImage.jpg',
 },
 "#div_gradient":{

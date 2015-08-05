@@ -24,7 +24,7 @@
 				</View>
 				<View id="div_separacion">
 					<View id="linea1"></View>
-			    	<Label id="separacion">O</Label>
+			    	<Label id="separacion">Iniciar sesión con mi cuenta</Label>
 			    	<View id="linea2"></View>
 				</View>
 			    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
@@ -33,7 +33,8 @@
 			    <Button id="btn_olvide" onClick="olvideMiContrasena">¿Olvidaste tu contraseña?</Button>
 			    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
 			    <View id="div_registrate" onClick="goToRegister">
-					<Button id="btn_registrate">Regístrate</Button>
+			    	<Label id="lbl_registrame">¡Regístrarme ahora!</Label>
+					<View id="div_underline"></View>
 				</View> 
 			</ScrollView>
 		</View>
@@ -44,7 +45,7 @@
 			</View>
 			<View id="div_separacion">
 				<View id="linea1"></View>
-		    	<Label id="separacion">O</Label>
+		    	<Label id="separacion">Iniciar sesión con mi cuenta</Label>
 		    	<View id="linea2"></View>
 			</View>
 		    <Label id="lbl_inicia">Inicia sesión utilizando tu email y contraseña.</Label>>
@@ -53,7 +54,8 @@
 		    <Button id="btn_olvide" onClick="olvideMiContrasena">¿Olvidaste tu contraseña?</Button>
 		    <Label id="lbl_registrate">¿Aún no tienes una cuenta en Aware®?</Label>
 		    <View id="div_registrate" onClick="goToRegister">
-				<Button id="btn_registrate">Regístrate</Button>
+		    	<Label id="lbl_registrame">¡Regístrarme ahora!</Label>
+				<View id="div_underline"></View>
 			</View> 
 		</View>
 	</View>

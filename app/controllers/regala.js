@@ -52,7 +52,8 @@ function compartirApp(){
 	new Animator().fade({ view: $.regala, value: 0, duration: 500,onComplete:destroyView});
 	Alloy.Globals.loading.show('Cargando...');
 	social.share({
-	    status                  : 'Conoce Aware App \nGoogle Play: https://play.google.com/store/apps/details?id=com.tejuinomx.aware  \n App Store: https://itunes.apple.com/app/id1019304805',
+	    status                  : 'Conoce Aware App \nGoogle Play: http://bit.ly/1LYe2Mn  \n App Store: http://apple.co/1gmrOvh',
+	    //status                  : 'Conoce Aware App \nGoogle Play: https://play.google.com/store/apps/details?id=com.tejuinomx.aware  \n App Store: https://itunes.apple.com/app/id1019304805',
 	    //url	                    : 'https://itunes.apple.com/app/id1019304805',
 	    //image                   : '/appicon.png',
 	    androidDialogTitle      : 'Compartir!'

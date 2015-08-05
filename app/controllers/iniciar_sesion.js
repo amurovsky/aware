@@ -17,6 +17,15 @@ if (args.email) {
 	$.txt_email.setValue(args.email);
 }
 
+if (args.registro){
+	$.div_facebookBtn.hide();
+	$.linea1.hide();
+	$.linea2.hide();
+	$.div_separacion.top = 0;
+	$.separacion.font = {fontFamily: 'HelveticaNeue-Bold',fontSize: 18};
+	$.separacion.text = '¡Felicidades! tu cuenta \n ha sido creada con éxito.';
+}
+
 function back_down (e) {
   e.source.opacity = 0.5;
 }

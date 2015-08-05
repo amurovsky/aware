@@ -60,7 +60,7 @@ Alloy.Globals.ws.videos(deviceId, function(status,obj){
 		 if(OS_IOS){blob = Ti.UI.createImageView({ image: obj.videos[0].thumbnail }).toImage();}
 		data=[
 			{template: "video_pri_template", 
-			img_back:{},
+			img_back:{ image : obj.videos[0].thumbnail},
 			img_prev: { image:obj.videos[0].thumbnail },
 			lbl_titulo1: { text:obj.videos[0].title_top },
 			//lbl_titulo2: { text:obj.videos[0].title_bottom}, 
@@ -94,9 +94,8 @@ if (OS_IOS){
 	yt.addEventListener('complete',function(){
 		Ti.API.info('Se completo el video Ajuaaa.!');
 		var item = $.listSection.getItemAt(0);
-		item.img_back.backgroundImage = blob;
+		item.img_back.visible = true;
 		$.listSection.updateItemAt(0,item);
-		//$.vid_prev.play();
 	});
 }
 

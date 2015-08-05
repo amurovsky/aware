@@ -14,9 +14,9 @@
 							<View id="rowConteiner1">
 								<!------------ COMPONENTE IOS ------------>
 								
-								<VideoPlayer id="vid_prev" bindId="vid_prev" platform="ios">
-									<View id="img_back" bindId='img_back'>
-										<View id="div_gradient">
+								<VideoPlayer id="vid_prev" bindId="vid_prev" platform="ios" zIndex="0">
+									<ImageView id="img_back" bindId='img_back' zIndex="1" visible="false"></ImageView>
+									<View id="div_gradient" zIndex="10">
 											<View id="div_titulos">
 												<Label id="lbl_titulo1" bindId="lbl_titulo1" onClick="playVideo"></Label>
 												<!-- <Label id="lbl_titulo2" bindId="lbl_titulo2"></Label> -->
@@ -31,7 +31,6 @@
 												</View>
 											</View>
 										</View>
-									</View>
 								</VideoPlayer>
 								<!------------ COMPONENTE ANDROID ------------>
 								<ImageView id="img_prev" bindId="img_prev" platform="android"></ImageView>

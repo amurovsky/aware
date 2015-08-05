@@ -71,23 +71,24 @@
 	width:Ti.UI.FILL,
 },
 "#linea1":{
-	backgroundColor:'#e6dde2',
+	backgroundColor:'#797979',
 	left:'3.4%',
 	height:1,
-	width:'42%',
+	width:'10%',
 },
 "#separacion":{
-	color:'#6e6e6e',
+	color:'#fb8bc7',
 	font:{
-		fontFamily: 'HelveticaNeue-Light',
+		fontFamily: 'HelveticaNeue-Regular',
 		fontSize: 14,
 	},
+	textAlign:Titanium.UI.TEXT_ALIGNMENT_CENTER,
 },
 "#linea2":{
-	backgroundColor:'#e6dde2',
+	backgroundColor:'#797979',
 	right:'3.4%',
 	height:1,
-	width:'42%',
+	width:'10%',
 },
 "#lbl_inicia":{
 	top:'7%',
@@ -149,22 +150,24 @@
 	},
 },
 "#div_registrate":{
-	 top:'3%',
-	 height:'8.5%',
-	 width:'93.6%',
-	 backgroundColor:'#fa89c6',
-	 borderRadius:2
-	 
+	 height:'5%',
+	 width:'40%',
+	 layout:'vertical',
 },
-"#btn_registrate":{
-	color:'white',
-	height:Ti.UI.FILL,
-	width:Ti.UI.FILL,
+"#lbl_registrame":{
+	top:'5%',
+	color:'#fa89c6',
+	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
 	font:{
-		fontFamily: 'Raleway-Semibold',
-		fontSize: 15,
+		fontFamily: 'HelveticaNeue-Regular',
+		fontSize: 12,
 	},
-	backgroundColor:'transparent'
+},
+"#div_underline":{
+	top:1,
+	backgroundColor:'#80fa89c6',
+	height:1,
+	width:'70%',
 },
 // --------------------- IOS -------------------------------------- //
 "#alertDialog[platform=ios]": {

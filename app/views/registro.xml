@@ -3,7 +3,7 @@
 		<View id="div_statusBar" platform="ios"></View>
 		<View id="div_nav">
 			<View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
-			<Label id="lbl_titulo">Registro</Label>
+			<Label id="lbl_titulo">Regístro</Label>
 			<Button id="btn_siguiente" onClick="siguiente">Siguiente</Button>
 		</View>
 		<View id="nav_separator"></View>
@@ -11,33 +11,33 @@
 		<View id="div_main" platform="ios">
 			<ScrollView id="scroll">
 				<View id="div_facebookBtn">
-					<Button id="btn_facebook" onClick="registro_facebook">Registrate con Facebook</Button>
+					<Button id="btn_facebook" onClick="registro_facebook">Regístrarme con Facebook</Button>
 				</View>
-			    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicará nada en Facebook \n sin tu consentimiento previo</Label>
+			    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicará nada en Facebook \n sin tu consentimiento previo.</Label>
 			    <View id="linea1"></View>
-			    <Label id="separacion">O</Label>
+			    <Label id="separacion">O si lo prefieres, \nregistrate con tu correo electrónico</Label>
 			    <View id="linea2"></View>
 			    <TextField id="txt_nombre"></TextField>
 			    <TextField id="txt_apellido"></TextField>
 			    <TextField id="txt_email"></TextField>
 			    <TextField id="txt_contrasena"></TextField>
-			    <Label id="lbl_condiciones" onClick="condiciones_click">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®. Aware® es una aplicación de Grupo Corporinter.</Label>
+			    <Label id="lbl_condiciones" onClick="condiciones_click">Al pulsar en “Regístrarme con Facebook” o regístrate con un correo electrónico, aceptarás los Términos de Servicio y la Política de Privacidad. \nAware® es una aplicación de Grupo Corporinter.</Label>
 		    </ScrollView>
 		</View>
 		<!-- COMPONENTES ANDROID -->
 		<View id="div_main" platform="android">
 			<View id="div_facebookBtn">
-				<Button id="btn_facebook" onClick="registro_facebook">Registrate con Facebook</Button>
+				<Button id="btn_facebook" onClick="registro_facebook">Regístrarme con Facebook</Button>
 			</View>
-		    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicará nada en Facebook \n sin tu consentimiento previo</Label>
+		    <Label id="lbl_consentimiento">No te preocupes, al seleccionar esta forma de \n registro no se publicará nada en Facebook \n sin tu consentimiento previo.</Label>
 		    <View id="linea1"></View>
-		    <Label id="separacion">O</Label>
+		    <Label id="separacion">O si lo prefieres, \nregistrate con tu correo electrónico</Label>
 		    <View id="linea2"></View>
 		    <TextField id="txt_nombre"></TextField>
 		    <TextField id="txt_apellido"></TextField>
 		    <TextField id="txt_email"></TextField>
 		    <TextField id="txt_contrasena"></TextField>
-		    <Label id="lbl_condiciones" onClick="condiciones_click">Al pulsar en “Regístrate con Facebook” o Regístrate,\n estás de acuerdo con los Términos de Servicio y \n la Política de Privacidad de Aware®.</Label>
+		    <Label id="lbl_condiciones" onClick="condiciones_click">Al pulsar en “Regístrarme con Facebook” o regístrate con un correo electrónico, aceptarás los Términos de Servicio y la Política de Privacidad. Aware® es una aplicación de Grupo Corporinter.</Label>
 		</View>
 	</View>
 </Alloy>

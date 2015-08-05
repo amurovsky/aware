@@ -9,7 +9,7 @@
 		</View>
 		<View id="div_botones">
 			<View id="registro" onClick="abrirRegistro">
-				<Button id="btn_registro">Regístrate</Button>
+				<Button id="btn_registro">Regístro</Button>
 			</View>
 			<View id="sesion" onClick= "abrirSesion">
 				<Button id="btn_sesion">Iniciar Sesión</Button>
