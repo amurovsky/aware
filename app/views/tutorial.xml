@@ -20,7 +20,7 @@
              	<Label id="lbl_participaExp" class="descripcion">Ingresa con tu correo electrónico o tu cuenta personal de Facebook y podrás comentar y dar like al contenido de la aplicación.</Label>
              </View>
         </ScrollableView>
-        <View id="div_switch" layout="horizontal" top="3%" height="Ti.UI.SIZE" width="Ti.UI.SIZE">
+        <View id="div_switch">
         	<Label id="lbl_switch">No mostrar el tour</Label>
         	<Switch id="switch_recuerdame" onChange="onChangeEvent"></Switch>
         </View>

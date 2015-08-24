@@ -2,7 +2,7 @@
 <ti:app xmlns:ti="http://ti.appcelerator.org">
     <id>com.tejuinomx.aware</id>
     <name>Aware</name>
-    <version>1.0.0.4</version>
+    <version>1.0.1.0</version>
     <publisher>tejuinodevelopers</publisher>
     <url>http://www.tejuino.mx</url>
     <description>undefined</description>
@@ -63,7 +63,7 @@
         </plist>
     </ios>
     <android xmlns:android="http://schemas.android.com/apk/res/android">
-        <manifest android:versionCode="4" android:versionName="1.0">
+        <manifest android:versionCode="6" android:versionName="1.0.0.3">
             <application android:theme="@style/Theme.AppCompat.Light.NoActionBar">
                 <activity android:label="Aware App"
                     android:name="com.facebook.LoginActivity" android:theme="@android:style/Theme.Translucent.NoTitleBar"/>

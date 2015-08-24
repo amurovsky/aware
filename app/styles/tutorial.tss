@@ -24,6 +24,12 @@
 	top:'7.5%',
 	right:'7%',
 },
+"#div_saltar[platform=android]" : {
+	height:'30dp',
+	width:'60dp',
+	top:'5%',
+	right:'7%',
+},
 "#lbl_saltar" : {
 	color:'white',
 	font: {
@@ -35,8 +41,8 @@
 	top:'9.5%',
 	opacity:0,
 },
-".img_tour[Alloy.Globals.smallDevice]" : {
-	top:'7%',
+".img_tour[if=Alloy.Globals.smallDevice]" : {
+	top:'2%',
 	opacity:0,
 },
 ".titulo" : {
@@ -48,8 +54,15 @@
 	},
 	opacity:0
 },
+".titulo[if=Alloy.Globals.smallDevice]" : {
+	top:'4%',
+	font: {
+		fontFamily: 'Raleway-Bold',
+		fontSize: '25dp'
+	},
+},
 ".descripcion" : {
-	top:'3%',
+	top:'2%',
 	color:'white',
 	left:'9%',
 	right:'9%',
@@ -59,6 +72,18 @@
 		fontSize: 18
 	},
 	opacity:0
+},
+".descripcion[if=Alloy.Globals.smallDevice]" : {
+	font: {
+		fontFamily: 'Raleway-Regular',
+		fontSize: 17
+	},
+},
+"#div_switch" : {
+	layout:"horizontal",
+	top:"2%",
+	height:Ti.UI.SIZE,
+	width:Ti.UI.SIZE,
 },
 "#lbl_switch" : {
 	left:'5%',

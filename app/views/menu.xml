@@ -8,7 +8,7 @@
 		</View>
 		<!-- <View id="imageMask" onClick="changeProfile"> -->
 			<ImageView id="profileImg" class="img-circle" onClick="changeProfile"></ImageView>
-			<ImageView id="borderShape" onClick="changeProfile" image="/images/borderShape.png" top="2.9%" height="87dp" width="87dp" platform="android"></ImageView>
+			<ImageView id="borderShape" onClick="changeProfile" image="/images/borderShape.png" platform="android"></ImageView>
 		<!-- </View> -->
 		<Label id="profileName"></Label>
 		<Label id="profileMail"></Label>

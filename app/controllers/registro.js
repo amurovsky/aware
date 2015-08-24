@@ -84,6 +84,7 @@ function facebookLogin (token) {
 			Ti.App.Properties.setString('name',obj.user.name);
 		    Ti.App.Properties.setString('profileImg',obj.user.image);
 			Ti.App.Properties.setString('email',obj.user.username);
+			Ti.App.Properties.setString('userId',obj.user.id);
 			//Ti.App.Properties.setString('userName',username);
 			Ti.App.Properties.setString('sessid',obj.sessid);
 			LO.hide();

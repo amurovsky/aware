@@ -9,6 +9,11 @@
     height:'70dp',
     borderRadius: '35dp'
 }
+".img-circle[if=Alloy.Globals.smallDevice]":{
+    width:'56dp',
+    height:'56dp',
+    borderRadius: '28dp'
+}
 ".img-circle-sm":{
     width:'76dp',
     height:'76dp',

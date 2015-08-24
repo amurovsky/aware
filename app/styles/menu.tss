@@ -98,7 +98,16 @@
 "#profileImg[platform=android]":{
 	top: '3%',
 },
-
+"#borderShape":{
+	top:"2.9%",
+	height:"87dp",
+	width:"87dp",
+},
+"#borderShape[if=Alloy.Globals.smallDevice]":{
+	top:"2.5%", 
+	height:"58dp", 
+	width:"58dp",
+},
 ".notiDiv[platform=ios]":{
  	right:'20%',
  	width:Ti.UI.SIZE,
