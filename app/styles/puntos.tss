@@ -1,0 +1,18 @@
+".container" : {
+  layout:'vertical',
+  backgroundColor:'black',
+  width:'100%',
+  height:'100%'
+},
+// --------------------- ANDROID -------------------------------------- //
+
+"#div_nav[platform=android]":{
+	height:'9.44%',
+},
+"#btn_menu[platform=android]": {
+	font: {fontSize:'15sp'},	
+},
+"#lbl_titulo[platform=android]":{
+ 	font: {fontSize:'15sp'},
+},
+
