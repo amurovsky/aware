@@ -10,7 +10,6 @@ var coordenadas = [];
 
 function cerrarVentana(e){
 	Alloy.Globals.navigator.goBack();
-	//navigation.back();
 }
 
 if(!OS_IOS){
@@ -25,7 +24,6 @@ if(!OS_IOS){
 		    if (e.index === e.source.cancel){
 		      Ti.API.info('The cancel button was clicked');
 		    }else{
-		    	//open up the settings page
 				var settingsIntent = Titanium.Android.createIntent({
 					action : 'android.settings.LOCATION_SOURCE_SETTINGS'
 				});
@@ -39,10 +37,6 @@ if(!OS_IOS){
 }
 var mapview = Map.createView({
     mapType: Map.NORMAL_TYPE,
-    // region: {latitude:'20.6737919', 
-    		// longitude:'-103.3354131',
-            // latitudeDelta:0.20, 
-            // longitudeDelta:0.25},
     animate:true,
     regionFit:true,
     userLocation:true
@@ -75,9 +69,7 @@ Alloy.Globals.ws.points(function(status,obj){
 				    longitude:	coordenates[1],
 				    title:		obj.puntos[i].name,
 				    subtitle:	obj.puntos[i].address,
-				    //rightButton:icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
 				    rightButton: (OS_IOS) ? '/images/carIcon.png' : icomoonlib.getIcon("Aware-Icons","carIcon",screenHeight * 0.08,{color:"#fb8ac7"}),
-				    // image:icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.04,{color:"#fb8ac7"}),
 				    image:(OS_IOS) ? '/images/pinIcon.png' : icomoonlib.getIcon("Aware-Icons","pinIcon",screenHeight * 0.07,{color:"#fb8ac7"}),
 				    myid:i // Custom property to uniquely identify this annotation.
 				});
@@ -96,7 +88,6 @@ Alloy.Globals.ws.points(function(status,obj){
 
 $.div_main.add(mapview);
 
-// Handle click events on any annotations on this map.
 mapview.addEventListener('click', function(evt) {
 	evt.cancelBubble = true;
     Ti.API.info("Annotation " + evt.title + " clicked, id: " + evt.annotation.myid + ' ClickSource: ' + evt.clicksource + ' Source: ' + evt.source.name);

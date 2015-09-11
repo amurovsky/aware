@@ -1,0 +1,58 @@
+// ---------- NAVIGATION BAR ---------- //
+".statusBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:20,
+},
+".navigationBar":{
+	top:0,
+	backgroundColor:'#fb8bc7',
+	height:'6.44%',
+},
+".btnBack":{
+	left:0,
+	height:'70%',
+	width:'20%',
+	color:'white',
+	backgroundColor:'transparent'
+},
+".btnMenu": {
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize:'2.54%', //15
+		fontWeight: 'Bold'
+	},
+	color: 'white',
+	left: 10,
+	//height:Ti.UI.FILL,
+	backgroundColor:'transparent'
+	
+},
+".navTitle":{
+	font:{
+		fontFamily: 'Helvetica-Neue',
+		fontSize:'2.54%', //15
+		fontWeight: 'Light'
+	},
+	color: 'white',
+},
+".btnBuscar":{
+	right:0,
+	height:'100%',
+	width:'15%',
+},
+".btnGuardar":{
+	right:'5%',
+	color:'white',
+	font:{
+		fontFamily: 'HelveticaNeue-Medium',
+		fontSize: 15,
+	},
+	backgroundColor:'transparent'
+},
+".navSeparator":{
+	height:1,
+	width:'100%',
+	top:0,
+	backgroundColor:'#d375ab'
+},

@@ -17,17 +17,14 @@ function back_down (e) {
 function back_up (e) {
 	e.source.opacity = 1;
   	Alloy.Globals.navigator.goBack();
-  	//navigation.back();
 }
 function siguiente (e) {
-  //Alloy.Globals.navigator.openWindow('iniciar_sesion');
   var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
   var name = $.txt_nombre.getValue();
   var lastname = $.txt_apellido.getValue();
   var email = $.txt_email.getValue();
   var password = $.txt_contrasena.getValue();
   var image = '/images/emptyProfile.jpg';
-  //var image = '';
   
   if (name == '' || lastname == '' || email == '' || password == '') {
   	dialog.message = "Debes completar todos los campos";
@@ -37,7 +34,6 @@ function siguiente (e) {
   	Alloy.Globals.ws.register(name, lastname, email, password, image, function(status, obj){
   		Alloy.Globals.loading.hide();
   		if (status) {
-  			//navigation.open('iniciar_sesion',{email:email});
   			Alloy.Globals.navigator.openWindow('iniciar_sesion',false,{email:email,registro:true},'forward');
   		}else{
   			dialog.message = obj;
@@ -46,8 +42,7 @@ function siguiente (e) {
   		
   	});
   }
-  
-  //navigation.open('iniciar_sesion');
+
 }
 
 var LO = Alloy.createWidget('com.caffeinalab.titanium.loader', {
@@ -74,22 +69,18 @@ function facebookLogin (token) {
 			var lastname;
 			if (obj.user.lastname) {
 				Ti.API.info('si hay apellido.!');
-				//lastname = obj.user.lastname;
 				Ti.App.Properties.setString('lastname',obj.user.lastname);
 			}
 			else{
 				Ti.App.Properties.setString('lastname','');
 			}
-			//var username = obj.user.name + ' ' + lastname;
 			Ti.App.Properties.setString('name',obj.user.name);
 		    Ti.App.Properties.setString('profileImg',obj.user.image);
 			Ti.App.Properties.setString('email',obj.user.username);
 			Ti.App.Properties.setString('userId',obj.user.id);
-			//Ti.App.Properties.setString('userName',username);
 			Ti.App.Properties.setString('sessid',obj.sessid);
 			LO.hide();
 			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
-			//navigation.open('menu');
 		}else{
 			var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
 			LO.hide();
@@ -127,7 +118,6 @@ function condiciones_click (e) {
 fb.addEventListener('logout', function(e) {
     Ti.API.info('logged out');
     Ti.API.info('Logged In: ' + fb.loggedIn);
-    //Alloy.Globals.navigator.openLogin();
 });
 
 $.txt_nombre.addEventListener('return',function(){

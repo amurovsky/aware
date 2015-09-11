@@ -1,11 +1,9 @@
 ".container" : {
-	//backgroundImage:'/images/fondoLogin.jpg',
 	backgroundColor:'#fb8bc7',
 	width:'100%',
   	height:'100%', 
 },
 "#div_main":{
-	//layout:'vertical'
 	top:0,
 	height:'86.51%'
 },
@@ -17,11 +15,6 @@
 	repeatMode: Titanium.Media.VIDEO_REPEAT_MODE_ONE,
 	allowsAirPlay:false
 },
-// "#vid_background":{
-	// duration:38,
-	// repeatCount:0,
-	// width:'150%'
-// },
 "#btn_saltar":{
 	backgroundColor:'transparent',
 	top:'4%',
@@ -36,13 +29,6 @@
 	top:'37%',
 	image:'/images/logo.png'
 },
-// "#lbl_eslogan":{
-	// color:'white',
-	// font: {
-		// fontFamily: 'OpenSans',
-		// fontSize: 15
-	// }
-// },
 "#div_botones":{
 	bottom:0,
 	height:'13.49%',

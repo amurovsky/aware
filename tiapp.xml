@@ -104,7 +104,7 @@
         <module platform="iphone">dk.napp.social</module>
         <module platform="android">facebook</module>
         <module platform="iphone">facebook</module>
-        <module platform="iphone" version="2.2.2">ti.map</module>
+        <module platform="iphone">ti.map</module>
         <module platform="android">ti.map</module>
         <module platform="android">br.com.arlsoft.pushclient</module>
         <module platform="iphone">br.com.arlsoft.pushclient</module>

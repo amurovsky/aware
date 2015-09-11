@@ -22,18 +22,10 @@
 "#lbl_texto1":{
 	top:'27%',
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {
-		
-		//fontSize: '15sp'
-	}
 }
 "#lbl_texto2":{
 	top:'2%',
 	textAlign:Ti.UI.TEXT_ALIGNMENT_CENTER,
-	font: {
-		
-		//fontSize: '13sp'
-	}
 }
 "#img_regalo":{
 	top:'27%',
@@ -63,10 +55,6 @@
 }
 "#lbl_ok":{
 	color:'white',
-	font: {
-		
-		//fontSize:'24dp'
-	}
 }
 
 

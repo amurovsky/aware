@@ -44,7 +44,6 @@ function onScrollEvent (e) {
 		var green = Math.ceil( (e.currentPageAsFloat * 100) / 4 );
 		var blue = Math.ceil( (e.currentPageAsFloat * 100) / 6 );
 		var moveRight = Math.ceil( (e.currentPageAsFloat * 100));
-		//Ti.API.info('rgb(250,'+ (135 - green) +','+ (197 - blue) +')');
 		$.container.backgroundColor = 'rgb(250,'+ (135 - green) +','+ (197 - blue) +')';
   	
 }
@@ -90,7 +89,6 @@ function onScrollendEvent (e) {
 			$.lbl_participaExp.opacity = 0;
 			
 		}else if (e.currentPage == 2){
-			//new Animator().moveTo({view:$.img_likeTour,value:{x:(Ti.Platform.displayCaps.platformWidth + (screenHeight * 0.28)) / 2,y:0}, duration:500,});
 			new Animator().scale({view:$.img_likeTour,value:1, duration:250,});
 			new Animator().fade({view:$.img_likeTour,value:1, duration:500});
 			new Animator().fade({view:$.lbl_participa,value:1, duration:250, delay:2});

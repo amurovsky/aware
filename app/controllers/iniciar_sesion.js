@@ -32,7 +32,6 @@ function back_down (e) {
 function back_up (e) {
 	e.source.opacity = 1;
   	Alloy.Globals.navigator.goBack();
-  	//navigation.back();
 }
 
 function acceder_fb (e) {
@@ -52,22 +51,18 @@ function facebookLogin (token) {
 			var lastname;
 			if (obj.user.lastname) {
 				Ti.API.info('si hay apellido.!');
-				//lastname = obj.user.lastname;
 				Ti.App.Properties.setString('lastname',obj.user.lastname);
 			}
 			else{
 				Ti.App.Properties.setString('lastname','');
 			}
-			//var username = obj.user.name + ' ' + lastname;
 			Ti.App.Properties.setString('name',obj.user.name);
 		    Ti.App.Properties.setString('profileImg',obj.user.image);
 			Ti.App.Properties.setString('email',obj.user.username);
 			Ti.App.Properties.setString('userId',obj.user.id);
-			//Ti.App.Properties.setString('userName',username);
 			Ti.App.Properties.setString('sessid',obj.sessid);
 			Alloy.Globals.loading.hide();
 			Alloy.Globals.navigator.openWindow('menu',true,[],'forward');
-			//navigation.open('menu');
 		}else{
 			var dialog = Ti.UI.createAlertDialog({title:'',buttonNames:['Aceptar']});
 			Alloy.Globals.loading.hide();
@@ -87,16 +82,12 @@ function acceder (e) {
 		dialog.message = "Los campos de usuario y contraseña no pueden estar vacios";
 		dialog.show();
 	}else{
-		//Alloy.Globals.loading.show('Conectando...');
 		Alloy.Globals.ws.login(email, password, function(status, obj){
-			//Alloy.Globals.loading.hide();
 			if(status){
 				Ti.API.info('Status: ' + obj.sessid);
-				//var username = obj.user.name + ' ' + obj.user.lastname;
 				Ti.App.Properties.setString('name',obj.user.name);
 				Ti.App.Properties.setString('lastname',obj.user.lastname);
 				Ti.App.Properties.setString('email',obj.user.username);
-				//Ti.App.Properties.setString('userName',username);
 				Ti.App.Properties.setString('userId',obj.user.id);
 				Ti.App.Properties.setString('sessid',obj.sessid);
 				Ti.App.Properties.setString('profileImg', obj.user.image);
@@ -104,8 +95,6 @@ function acceder (e) {
 				Alloy.Globals.PushClient.register();
 					
 				Alloy.Globals.navigator.openWindow('menu',true,[],'forward');	
-				// navigation.open('menu');
-				// navigation.clearHistory();
 			}else{
 				dialog.message = obj;
 				dialog.show();
@@ -117,8 +106,6 @@ function acceder (e) {
 
 function goToRegister (e) {
 	Alloy.Globals.navigator.openWindow('registro',false,[],'forward');
-  	//navigation.open('registro');
-
 }
 
 function olvideMiContrasena (e) {
@@ -187,7 +174,6 @@ function facebookLoginEvent (e) {
 fb.addEventListener('logout', function(e) {
     Ti.API.info('logged out');
     Ti.API.info('Logged In: ' + fb.loggedIn);
-    //Alloy.Globals.navigator.openLogin();
 });
 
 $.txt_email.addEventListener('return',function(){

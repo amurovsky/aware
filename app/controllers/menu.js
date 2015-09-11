@@ -73,7 +73,6 @@ function logout_down (e) {
   e.source.opacity=0.5;
 }
 function logout_up (e) {
-	//Alloy.Globals.loading.show('Cerrando Sesión...');
 	e.source.opacity=1;	
 	Ti.API.info('ADIOS');
 	Ti.App.Properties.setString('name',null);	
@@ -86,9 +85,6 @@ function logout_up (e) {
 	Alloy.Globals.fb.logout();
 	
 	Alloy.Globals.navigator.openLogin();
-	// navigation.open('login',{transition: 'crossFade', duration: 500, transitionColor: '#fff'});
-	// navigation.clearHistory();
-	// Alloy.Globals.loading.hide();
 }
 
 //-------- INFO -------------------//
@@ -114,47 +110,19 @@ function menu(e){
 	Ti.API.info('boton Id:' + boton.id);
 	switch(boton.id){
 		case 'videos':
-			// var videos = Alloy.createController('videos').getView();
-				//videos.open({transition : Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT});
-				//videos.show({theme: (osname == 'android') ? 'Theme.AppCompat.Light.NoActionBar' : ''});
-				//$.index.add(videos);
-				
-				// var targetedValue = Ti.UI.create2DMatrix();
-    				// targetedValue = targetedValue.scale(-1, 1);
-    				// var animation = Ti.UI.createAnimation({transform: targetedValue, duration: 1000});
-    				// $.menu.animate(animation);
-					// animation.addEventListener('complete',function(){
-						// Alloy.Globals.navigator.openWindow('videos2');
-					// });
-					
-				Alloy.Globals.navigator.openWindow('videos2',false,[],'forward');
-				//navigation.open('videos2');
-				//new Animator().flip({view:videos,duration:500});
-				//new Animator().moveTo({view:videos, value:{x:Ti.Platform.displayCaps.platformWidth,y:0},duration:500});
-				
+			Alloy.Globals.navigator.openWindow('videos2',false,[],'forward');
 		break;
 		 case 'articulos':
-			// var articulos = Alloy.createController('articulos').getView();
-				// articulos.open({modal:true});
-				Alloy.Globals.navigator.openWindow('articulos',false,[],'forward');
-				//navigation.open('articulos');
+			Alloy.Globals.navigator.openWindow('articulos',false,[],'forward');
 		 break;
 		case 'puntos':
-			// var puntos = Alloy.createController('puntos').getView();
-				// puntos.open({modal:true});
-				Alloy.Globals.navigator.openWindow('puntos',false,[],'forward');
-				//navigation.open('puntos');
+			Alloy.Globals.navigator.openWindow('puntos',false,[],'forward');
 		break;
 		case 'regala':
-			// var regala = Alloy.createController('regala').getView();
-				// regala.open({modal:true});
-				regalaSalud();
+			regalaSalud();
 		break;
 		case 'directorios':
-			// var directorios = Alloy.createController('directorios').getView();
-				// directorios.open({modal:true});
-				Alloy.Globals.navigator.openWindow('directorios',false,[],'forward');
-				//navigation.open('directorios');
+			Alloy.Globals.navigator.openWindow('directorios',false,[],'forward');
 		break;
 	}
 	
@@ -176,7 +144,7 @@ var compraButton = $.compraButton;
 var logoutButton = $.logoutButton;
 	cicloButton.height = screenHeight * 0.12;
 	compraButton.height = screenHeight * 0.12;
-var cicloIcon  = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
+var cicloIcon  = icomoonlib.getIconAsBlob("Aware-Icons","hearthIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var compraIcon = icomoonlib.getIconAsBlob("Aware-Icons","compraIcon",screenHeight * 0.12,{color:"#ff82c8"});
 var logoutIcon = icomoonlib.getIconAsBlob("Aware-Icons","logoutIcon",screenHeight * 0.035,{color:"white"});
 $.img_info.image = icomoonlib.getIconAsBlob("Aware-Icons","infoIcon",screenHeight * 0.04,{color:"white"});
@@ -185,7 +153,7 @@ cicloButton.image = cicloIcon;
 compraButton.image = compraIcon;
 logoutButton.image = logoutIcon;
 var flag = 0;
-$.compra.addEventListener('click',function(){
+function compra_click(){
 	if (flag == 0) {
 		$.div_main.visible = true;	
 		new Animator().moveTo({view:footer,value:{x:-(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500,onComplete:function(){
@@ -205,28 +173,13 @@ $.compra.addEventListener('click',function(){
 		}});
 		flag=0;
 	}
-});
+}
 
+function ciclo_click () {
+
+}
 $.ciclo.addEventListener('click',function(){
-	if (flag == 0) {	
-		$.div_main.visible = true;	
-		new Animator().moveTo({view:footer,value:{x:(Ti.Platform.displayCaps.platformWidth * 0.5),y:0}, duration:500,onComplete:function(){
-			new Animator().fade({view:cicloButton,value:0, duration:50,delay:20,onComplete:function(){
-				cicloButton.image = icomoonlib.getIconAsBlob("Aware-Icons","closeIcon",screenHeight * 0.12,{color:"#ff82c8"});
-				new Animator().fade({view:cicloButton,value:1, duration:50,delay:20});
-			}});
-		}});
-		flag=1;
-	}else{
-		$.div_main.visible = false;
-		new Animator().moveTo({view:footer,value:{x:0,y:0}, duration:500,onComplete:function(){
-			new Animator().fade({view:cicloButton,value:0, duration:50,delay:20,onComplete:function(){
-				cicloButton.image = icomoonlib.getIconAsBlob("Aware-Icons","cicloIcon",screenHeight * 0.12,{color:"#ff82c8"});
-				new Animator().fade({view:cicloButton,value:1, duration:50,delay:20});
-			}});
-		}});
-		flag=0;
-	}
+	
 });
 
 var fechaWS;
@@ -307,7 +260,6 @@ if(screenHeight == 568 && OS_IOS){
 	$.div_notiArt.right = '15%';
 }
 var notiIcon = icomoonlib.getIconAsBlob("Aware-Icons","notiIcon",(OS_IOS) ? screenHeight * 0.058 : screenHeight * 0.058,{color:"#f34eaa"});
-Ti.API.info('ICONMOON: ' + JSON.stringify(notiIcon));
 $.noti_art.image = notiIcon;
 $.noti_vid.image = notiIcon;
 
@@ -344,7 +296,6 @@ function showPicker(e){
 				backgroundColor:'white',
 				top: 0,
 				height: '75%',
-				//opacity:0.95,
 				fullscreen: (osname != "android") ? true : false,
 				transform:t,
 			});
@@ -497,12 +448,10 @@ function showPicker(e){
 				});
 				b.addEventListener('click', function()
 				{
-					//var mainWindow = Alloy.Globals.navigation.getMainWindow();
 					var t3 = Titanium.UI.create2DMatrix();
 					t3 = t3.scale(0);
 					w.animate({transform:t3,duration:300});
 					w.hide();
-					//w.remove(w);
 					if (fechadeCompra != null) {
 						if (boton.id == 'fechaCompra' || boton.id == 'diaFechaCompra' || boton.id == 'restoFechaCompra') {
 							addUserDate(deviceId,'purchase',fechaWS);

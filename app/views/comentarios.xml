@@ -2,10 +2,8 @@
 	<View class="container">
 		<View id="div_row">
 			<View id="div_profile">
-				<!-- <View id="div_imageMask"> -->
 					<ImageView id="img_profile" class="img-circle-xs"></ImageView>
 					<ImageView id="borderShape" image="/images/borderShape.png" height="43" width="43" platform="android"></ImageView>
-				<!-- </View> -->
 			</View>
 			<View id="div_comment">
 				<Label id="lbl_nombre"></Label>

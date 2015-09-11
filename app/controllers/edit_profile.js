@@ -13,8 +13,6 @@ $.img_repContrasena.image = icomoonlib.getIconAsBlob("Aware-Icons","contraIcon",
 
 $.profileImg.image = Ti.App.Properties.getString('profileImg');
 if (Ti.App.Properties.getString('name') != null) {
-	// var nombreCompleto = Ti.App.Properties.getString('userName');
-	// var nombreSplit = nombreCompleto.split(' ');
 	$.txt_nombre.value =Ti.App.Properties.getString('name');
 	if (Ti.App.Properties.getString('lastname')){$.txt_apellido.value = Ti.App.Properties.getString('lastname');}
 	$.txt_mail.value = Ti.App.Properties.getString('email');
@@ -25,7 +23,6 @@ function imageMaskComplete (e) {
   Ti.API.info('Width: ' + medida.width + ' Height: ' + medida.height  + ' radius/2: ' + (medida.width/2) );
   $.imageMask.setWidth(medida.height);
   $.imageMask.setBorderRadius(medida.height / 2);
-  //$.btn_editar
 }
 function back_down (e) {
   e.source.opacity = 0.5;
@@ -45,11 +42,6 @@ function changeProfile (e) {
 		imgUploadPanel.open({
 			success: function(imageResource){
 				Ti.API.info('Succes.!');
-				// if (imageResource.height > imageResource.width) {
-					// $.profileImg.setHeight('150%');
-				// }else{
-					// $.profileImg.setWidth('150%');
-				// }
 				$.profileImg.setImage(imageResource);
 				imageFromGallery = imageResource;
 			},
@@ -100,8 +92,6 @@ function guardar (e) {
 		Alloy.Globals.loading.hide();
 		if (status) {
 			Ti.API.info('Te entreo Edit User.!!');
-			//var username = obj.user.name + ' ' + obj.user.lastname;
-			//Ti.App.Properties.setString('userName',username);
 			Ti.App.Properties.setString('name',obj.user.name);
 			Ti.App.Properties.setString('lastname',obj.user.lastname);
 			Ti.App.Properties.setString('email',obj.user.username);

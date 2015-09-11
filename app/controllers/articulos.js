@@ -54,7 +54,7 @@ Alloy.Globals.ws.articles(userID, deviceId, function(status,obj){
 			var view = Alloy.createController('item_layout',{
 					image:		obj.articulos[x].thumbnail, 
 					title:		obj.articulos[x].title,
-					subtitle:	moment(obj.articulos[x].created_at).lang("es").format('LL'),
+					subtitle:	moment(obj.articulos[x].created_at).lang("es").format('DD MMM YYYY'),
 					likes:		obj.articulos[x].likes,
 					liked:		(obj.articulos[x].user_liked != 'undefined') ? obj.articulos[x].user_liked : null
 				}).getView();

@@ -9,7 +9,6 @@
 					<ImageView id="img_like"></ImageView>
 					<Label id="likes">666</Label>
 				</View>
-				
 			</View>
 			<View id="div_shadow"></View>
 	</View>	

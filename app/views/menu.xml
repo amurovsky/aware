@@ -6,10 +6,8 @@
 		<View id="div_info" onTouchstart="info_down" onTouchend="info_up">
 			<ImageView id="img_info"></ImageView>
 		</View>
-		<!-- <View id="imageMask" onClick="changeProfile"> -->
 			<ImageView id="profileImg" class="img-circle" onClick="changeProfile"></ImageView>
 			<ImageView id="borderShape" onClick="changeProfile" image="/images/borderShape.png" platform="android"></ImageView>
-		<!-- </View> -->
 		<Label id="profileName"></Label>
 		<Label id="profileMail"></Label>
 		<Button id="videos" onClick="menu">Videos Tutoriales</Button>
@@ -34,22 +32,18 @@
 			<View id="fechaCiclo" onClick="showPicker">
 				<Label id="diaFechaCiclo"></Label>
 				<Label id="restoFechaCiclo"></Label>
-				<!-- <Label id="lbl_null">Toca aqui para \n registrar tu fecha</Label> -->
 			</View>
-			<View id="ciclo">
+			<View id="ciclo" onClick="ciclo_click">
 				<ImageView id="cicloButton"></ImageView>
-				<!-- <ImageView id="cerrarCiclo" class="cerrarButton"></ImageView> -->
 				<Label id="tituloCiclo">Recordatorio de \nauto-exploración</Label>
 			</View>
-			<View id="compra">
+			<View id="compra" onClick="compra_click">
 				<ImageView id="compraButton"></ImageView>
-				<!-- <ImageView id="cerrarComprar" class="cerrarButton"></ImageView> -->
 				<Label id="tituloCompra">Fecha de \nadquisición</Label>
 			</View>
 			<View id="fechaCompra" onClick="showPicker">
 				<Label id="diaFechaCompra"></Label>
 				<Label id="restoFechaCompra"></Label>
-				<!-- <Label id="lbl_null">Toca aqui para \n registrar tu fecha</Label> -->
 			</View>
 		</View>
 	</View>

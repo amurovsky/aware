@@ -11,9 +11,6 @@
 	height:'8%',
 	width:'15%',
 },
-"#logoutButton":{
-	//right:'5%'
-},
 "#div_info":{
 	top:'2%',
 	left:5,
@@ -50,7 +47,6 @@
 },
 "#compraButton":{
 	top:'11%',
-	//width: Ti.UI.FILL
 },
 "#diaFechaCiclo":{
 	color:'white',
@@ -78,16 +74,8 @@
 	color:'#ff82c8',
 	top:'1%'
 },"#profileImg":{
-	//borderRadius: 40,
-	//image: '/images/profilePic.png',
-	//image: '/images/emptyProfile.jpg',
 	defaultImage:'/images/emptyProfile.jpg',
 	top: '8%',
-	//height: Ti.UI.FILL,
-	//width: Ti.UI.FILL
-	//width:'150%',
-	//height: '150%',
-	
 },
 "#profileImg[if=Alloy.Globals.iphoneSmall]":{
 	top: '7%',
@@ -151,17 +139,6 @@
 
 
 //--------------- Estilos IOS -----------------------//
-// "#imageMask[platform=ios]":{
-	// height:86,
-	// width:86,
-	// top:'8%',
-	// borderRadius:43,
-// },"#imageMask[if=Alloy.Globals.iphoneSmall]":{
-	// height:66,
-	// width:66,
-	// top:'8%',
-	// borderRadius:33,
-// },
 "#profileName[platform=ios]":{
 	top:'22%',
 	color: 'white',
@@ -329,12 +306,6 @@
 	color: 'white',
 
 },
-// "#imageMask[platform=android]":{
-	// height:66,
-	// width:66,
-	// top:'5%',
-	// borderRadius:33,
-// },
 "#profileName[platform=android]":{
 	top:'18.5%',
 	color: 'white',

@@ -16,9 +16,6 @@
 },
 
 "#img_profile":{
-	//image:'/images/profilePic.png',
-	// width:'100%',
-	// height:'100%',
 	defaultImage:'images/emptyProfile.jpg'
 },
 "#div_comment":{

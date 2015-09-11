@@ -9,13 +9,13 @@
                 <TextField id="txt_ingresaemail" width="90%"></TextField>
             </View>
         </AlertDialog>
-		<View id="div_statusBar" platform="ios"></View>
-		<View id="div_nav">
-			<View id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
-			<Label id="lbl_titulo">Iniciar Sesión</Label>
-			<Button id="btn_acceder" onClick="acceder">Acceder</Button>
+        <View class="statusBar" platform="ios"></View>
+		<View class="navigationBar">
+			<View class="btnBack" id="btn_back" onTouchstart="back_down" onTouchend="back_up"></View>
+			<Label class="navTitle">Iniciar Sesión</Label>
+			<Button class='btnGuardar' onClick="acceder">Acceder</Button>
 		</View>
-		<View id="nav_separator"></View>
+		<View class='navSeparator'></View>
 		<!-- COMPONENTES IOS -->
 		<View id="div_main" platform="ios">
 			<ScrollView layout="vertical">

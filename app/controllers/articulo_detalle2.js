@@ -138,19 +138,13 @@ function enviar_up (e) {
 	var message = txt_comentario.getValue();
 	if (message != ''){
 		txt_comentario.blur();
-		//$.scroll_details.scrollTo(0,medida.y + medida.height+100);
 		Alloy.Globals.ws.addComment(Ti.App.Properties.getString('sessid'), args.articleId, message, function(status,obj){
 			if (status) {
 				txt_comentario.value = '';
 				Alloy.Globals.loading.show('Cargando');
 					removeAllChildren($.scroll_details);
 					getComments();
-				//$.scroll_details.scrollTo(0,medida.y);
 				setTimeout(function(){
-					// var scroll = medida.y + medida.height*3;
-				    // Ti.API.info('Called using setTimeout' + scroll);
-				    // (OS_IOS) ? '' : $.scroll_details.scrollTo(0, scroll) ;
-					//(OS_IOS) ? $.scroll_details.scrollTo(0, medida.y) : $.scroll_details.scrollTo(0, scroll) ;
 					Alloy.Globals.loading.hide();
 				}, 1000);
 			}else{
@@ -193,10 +187,6 @@ function like_up (e) {
 	    if (e.index === e.source.cancel){
 	      Ti.API.info('The cancel button was clicked');
 	    }else{
-	    	// Alloy.Globals.loading.show('Cargando...');
-	    	// Alloy.Globals.navigation.open('login');
-	    	// navigation.clearHistory();
-	    	// Alloy.Globals.loading.hide();
 	    	Alloy.Globals.navigator.openLogin();
 	    }
 	});
@@ -284,13 +274,6 @@ $.scroll_details.addEventListener('scroll', function(e) {
 		$.img_back.opacity = opacity; 
 		$.img_back.top = Math.round(- offset/5);
 	}
-	
-	// if(offset > 1060){
-		// $.scroll_details.setCanCancelEvents(false);
-	// }
-	// else{
-		// $.scroll_details.canCancelEvents = true;
-	// }
 
 });
 
