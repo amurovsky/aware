@@ -176,8 +176,9 @@ function compra_click(){
 }
 
 function ciclo_click () {
-
+	Alloy.Globals.navigator.openWindow('calendario_tutorial',false,[],'forward');
 }
+
 $.ciclo.addEventListener('click',function(){
 	
 });

@@ -1,0 +1,30 @@
+<Alloy>
+	<View class="container">
+		<View class="statusBar" platform="ios"></View>
+		<View class="navigationBar">
+			<Button class="btnMenu" onClick="cerrarVentana">Menú</Button>
+			<Label class="navTitle">Registra tus Fechas</Label>
+		</View>
+		<View class="navSeparator"></View>
+		<View id="div_main">
+			<ImageView id="img_back"></ImageView>
+			<View id="div_info">
+				<Label id="lbl_titulo">Toca un día y agrega información</Label>
+				<Label id="lbl_descripcion">Registra tus fechas de inicio y fin de ciclo, y te ayudaremos a conocer los mejores días para practicar tu autoexploración.</Label>
+				<View id="div_iconografia">
+					<ImageView></ImageView>
+					<Label>Día de inicio \nde tu ciclo</Label>
+					<ImageView></ImageView>
+					<Label>Días para \nautoexploración</Label>
+					<View class="separador"></View>
+					<View class="separador"></View>
+					<ImageView></ImageView>
+					<Label>Día de fin \nde tu ciclo</Label>
+					<ImageView></ImageView>
+					<Label>Días de \ntu ciclo</Label>
+				</View>
+				<Button id="btn_comenzar" onClick="btnComenzar_click">Comenzar</Button>
+			</View>
+		</View>
+	</View>
+</Alloy>
