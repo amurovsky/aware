@@ -24,22 +24,71 @@
 "#div_iconografia" : {
 	layout:'Horizontal',
 	width:'100%',
-	height:Ti.UI.SIZE
+	height:Ti.UI.SIZE,
+	horizontalWrap:false,
 },
 "#lbl_titulo" : {
+	top:'10dp',
 	color:'#4b4949',
-  	font:{fontFamily:'Helvetica-Neue', fontSize:'22dp', fontWeight:'light'},
+  	font:{fontFamily:'HelveticaNeue-Light', fontSize:'22dp'},
+},
+"#lbl_titulo[platform=android]" : {
+  	font:{fontFamily:'HelveticaNeue', fontSize:'22dp', fontWeight:'light'},
 },
 "#lbl_descripcion" : {
+	top:'10dp',
 	color:'#804b4949',
-  	font:{fontFamily:'Helvetica-Neue', fontSize:'15dp', fontWeight:'light'},
+  	font:{fontFamily:'Helvetica-Light', fontSize:'15dp'},
   	textAlign:'center',
   	left:'8.8%',
   	right:'8.8%',
 },
+"#lbl_descripcion[platform=android]" : {
+  	font:{fontFamily:'Helvetica', fontSize:'15dp', fontWeight:'light'},
+},
+".infoSplit" : {
+  	width:'49%',
+  	left:1,
+  	height:'125dp',
+  	layout:'vertical',
+  	backgroundColor:'gray'
+},
+".infoView" : {
+	height:'49%',
+	left:'30dp',
+	right:'30dp',
+  	layout:'horizontal',
+  	backgroundColor:'yellow'
+},
+// "#div_left" : {
+  	// left:'30dp',
+// },
+// "#div_right" : {
+	// right:'30dp',
+// },
+".iconImage" : {
+  	width:'20%',
+  	image:'/images/gift.png',
+  	borderColor:'green'
+},
+".infoLabel" : {
+	color:'#505050',
+  	font:{fontFamily:'Helvetica-Light', fontSize:'15dp'},
+  	width:'80%',
+  	backgroundColor:'pink'
+},
+".infoLabel[platform=android]" : {
+  	font:{fontFamily:'Helvetica', fontSize:'15dp', fontWeight:'light'},
+},
 ".separador" : { 
 	backgroundColor: '#bcbcbc',
-	width:'36.8%',
-	left:'8.8%',
+	width:'73.6%',
+	left:'17.6%',
 	height:1,
 },
+// "#separatorLeft" : { 
+	// left:'30dp',
+// },
+// "separatorRight" : { 
+	// right:'30dp',
+// },

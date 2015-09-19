@@ -138,7 +138,7 @@ var NavigatorComponent = function(){
 	this.openLogin = function(){
 		if(Alloy.Globals.currentController == null || Alloy.Globals.currentController.name != 'login'){
 			//Alloy.Globals.session.logout();
-			oRef.openWindow('login',true,[],'fade');
+			oRef.openWindow('calendario_tutorial',true,[],'fade');
 		}
 	};
 	

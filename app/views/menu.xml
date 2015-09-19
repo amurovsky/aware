@@ -35,7 +35,7 @@
 			</View>
 			<View id="ciclo" onClick="ciclo_click">
 				<ImageView id="cicloButton"></ImageView>
-				<Label id="tituloCiclo">Recordatorio de \nauto-exploración</Label>
+				<Label id="tituloCiclo">registro de \nmis días</Label>
 			</View>
 			<View id="compra" onClick="compra_click">
 				<ImageView id="compraButton"></ImageView>

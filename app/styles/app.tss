@@ -56,3 +56,21 @@
 	top:0,
 	backgroundColor:'#d375ab'
 },
+// ---------- CALENDAR STYLE ---------- //
+".imc-calendar": {top: 0, width: Ti.UI.FILL, height: Ti.UI.SIZE, backgroundColor:"white", borderColor: 'pink', borderWidth: 1 }
+".imc-calendar-month": { height: Ti.UI.SIZE, top: 0, layout: 'vertical'}
+".imc-calendar-weeks": { height: 32, top: 0.5, layout: 'horizontal', backgroundColor: 'pink' }
+".imc-calendar-week": { width: "14%", height: 32, left: 0.5 }
+".imc-calendar-week-label": { color: 'white', font: { fontSize: 13, fontFamily: 'HelveticaNeue-Light' } }
+".imc-calendar-dates": { height: Ti.UI.SIZE, bottom: 0.5, layout: 'horizontal' }
+".imc-calendar-date": { width: "14%", height: 33, top: 0.5, left: 0.5 }
+".imc-calendar-date-label": { color: 'black', font: { fontSize: 13, fontFamily: 'HelveticaNeue-Light' }, touchEnabled: false }
+".imc-calendar-today": { backgroundColor:"#FCF8E3" }
+".imc-calendar-today-label": { color: 'black' }
+".imc-calendar-disabled": { }
+".imc-calendar-disabled-label": { color: 'grey' }
+".calendar-events": { width: Ti.UI.SIZE, height: 5, top: 75.5, layout: 'horizontal', touchEnabled: false,backgroundColor:'yellow'}
+".calendar-event": { width: 5, height: 5, left: 1.5, right: 1.5, touchEnabled: false }
+".calendar-event-yellow": { backgroundColor: '#e8db07' }
+".calendar-event-blue":   { backgroundColor: '#005ab4' }
+".calendar-event-red":    { backgroundColor: '#ac1e1f' }	

@@ -1,0 +1,19 @@
+<Alloy>
+	<View class="container">
+		<View class="statusBar" platform="ios"></View>
+		<View class="navigationBar">
+			<Button class="btnMenu" onClick="cerrarVentana">Menú</Button>
+			<Label class="navTitle">Calendario</Label>
+		</View>
+		<View class="navSeparator"></View>
+		<View class="header">
+			<View class="vMonthYear">
+				<Label id="lMonth" />
+				<Label id="lYear" />
+			</View>
+			<Button id="btnPrev" class="button button-prev" onClick="prevMonth" />
+			<Button id="btnNext" class="button button-next" onClick="nextMonth" />
+		</View>
+		<Widget id="vCalendar" src="com.imobicloud.calendar" swipeable="true" onChange="calendarChange" />
+	</View>
+</Alloy>
