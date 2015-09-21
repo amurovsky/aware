@@ -12,24 +12,24 @@
 				<Label id="lbl_titulo">Toca un día y agrega información</Label>
 				<Label id="lbl_descripcion">Registra tus fechas de inicio y fin de ciclo, y te ayudaremos a conocer los mejores días para practicar tu autoexploración.</Label>
 				<View id="div_iconografia">
-				    <View class="infoSplit">
-				        <View id="div_left" class="infoView">
+				    <View  id="div_left" class="infoSplit">
+				        <View class="infoView">
 				            <ImageView class="iconImage"></ImageView>
                             <Label class="infoLabel">Día de inicio \nde tu ciclo</Label>
 				        </View>
                         <View id="separatorLeft" class="separador"></View>
-                        <View id="div_right" class="infoView">
+                        <View class="infoView">
                             <ImageView class="iconImage"></ImageView>
                             <Label class="infoLabel">Día de fin \nde tu ciclo</Label>
                         </View>
 				    </View>
-				    <View class="infoSplit">
-				        <View id="div_left" class="infoView">
+				    <View id="div_right" class="infoSplit">
+				        <View class="infoView">
 				            <ImageView class="iconImage"></ImageView>
                             <Label class="infoLabel">Días para \nautoexploración</Label>
 				        </View>
 				        <View id="separatorRight" class="separador"></View>
-				        <View id="div_right" class="infoView">
+				        <View class="infoView">
 				            <ImageView class="iconImage"></ImageView>
                             <Label class="infoLabel">Días de \ntu ciclo</Label>
 				        </View>

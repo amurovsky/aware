@@ -5,7 +5,7 @@ function cerrarVentana(){
 }
 
 function btnComenzar_click(){
-	Alloy.Globals.navigator.goBack();
+	Alloy.Globals.navigator.openWindow('calendario',false,[],'forward');
 }
 
 this.close = function(){

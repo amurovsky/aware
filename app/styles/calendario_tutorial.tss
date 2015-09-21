@@ -22,73 +22,70 @@
 	height:'60%'
 },
 "#div_iconografia" : {
-	layout:'Horizontal',
+	top:'10dp',
 	width:'100%',
 	height:Ti.UI.SIZE,
-	horizontalWrap:false,
 },
 "#lbl_titulo" : {
 	top:'10dp',
+	left:'15dp',
+	right:'15dp',
 	color:'#4b4949',
-  	font:{fontFamily:'HelveticaNeue-Light', fontSize:'22dp'},
+  	font:{fontFamily:'HelveticaNeue-Light', fontSize:'20dp'},
 },
 "#lbl_titulo[platform=android]" : {
-  	font:{fontFamily:'HelveticaNeue', fontSize:'22dp', fontWeight:'light'},
+  	font:{fontFamily:'HelveticaNeue', fontSize:'20dp', fontWeight:'light'},
 },
 "#lbl_descripcion" : {
 	top:'10dp',
 	color:'#804b4949',
-  	font:{fontFamily:'Helvetica-Light', fontSize:'15dp'},
+  	font:{fontFamily:'Helvetica-Light', fontSize:'13dp'},
   	textAlign:'center',
-  	left:'8.8%',
-  	right:'8.8%',
+  	left:'15dp',
+	right:'15dp',
 },
 "#lbl_descripcion[platform=android]" : {
-  	font:{fontFamily:'Helvetica', fontSize:'15dp', fontWeight:'light'},
+  	font:{fontFamily:'Helvetica', fontSize:'13dp', fontWeight:'light'},
 },
 ".infoSplit" : {
-  	width:'49%',
-  	left:1,
+  	width:'40%',
   	height:'125dp',
   	layout:'vertical',
-  	backgroundColor:'gray'
 },
 ".infoView" : {
 	height:'49%',
-	left:'30dp',
-	right:'30dp',
   	layout:'horizontal',
-  	backgroundColor:'yellow'
 },
-// "#div_left" : {
-  	// left:'30dp',
-// },
-// "#div_right" : {
-	// right:'30dp',
-// },
+"#div_left" : {
+  	left:'15dp',
+},
+"#div_right" : {
+	right:'15dp',
+},
 ".iconImage" : {
   	width:'20%',
   	image:'/images/gift.png',
-  	borderColor:'green'
+  	center:{y:'50%'},
 },
 ".infoLabel" : {
+	left:'4dp',
 	color:'#505050',
-  	font:{fontFamily:'Helvetica-Light', fontSize:'15dp'},
-  	width:'80%',
-  	backgroundColor:'pink'
+  	font:{fontFamily:'Helvetica-Light', fontSize:'13dp'},
+  	center:{y:'50%'},
 },
 ".infoLabel[platform=android]" : {
-  	font:{fontFamily:'Helvetica', fontSize:'15dp', fontWeight:'light'},
+  	font:{fontFamily:'Helvetica', fontSize:'13dp', fontWeight:'light'},
 },
 ".separador" : { 
 	backgroundColor: '#bcbcbc',
-	width:'73.6%',
-	left:'17.6%',
 	height:1,
 },
-// "#separatorLeft" : { 
-	// left:'30dp',
-// },
-// "separatorRight" : { 
-	// right:'30dp',
-// },
+"#btn_comenzar" : {
+	top:'10',
+	height:'30dp',
+	width:'125dp',
+	borderRadius:5,
+	backgroundColor:'#f34eaa',
+	color:'white',
+	font:{fontFamily:'HelveticaNeue-Bold', fontSize:'13dp'},
+},
